@@ -11,6 +11,20 @@
                          <li class="nav-small-cap"><span class="hide-menu">Cadastros</span></li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
+                                    class="hide-menu">Filmes </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item"><a href="filmes.php" class="sidebar-link"><span
+                                            class="hide-menu"> Listar Filmes
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="add-filme.php" class="sidebar-link"><span
+                                            class="hide-menu"> Adicionar Filme
+                                        </span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Produtos </span></a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item"><a href="produtos.php" class="sidebar-link"><span

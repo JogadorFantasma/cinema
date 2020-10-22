@@ -31,6 +31,9 @@ $banners = Banners::getInstance(Conexao::getInstance());
 include "../Class/parceiros.class.php";
 $parceiros = Parceiros::getInstance(Conexao::getInstance());
 
+include "../Class/filmes.class.php";
+$filmes = Filmes::getInstance(Conexao::getInstance());
+
 $verificaRestrito->restritoAdmin();
 $dadosUsuarioLogado = $verificaRestrito->rsDados($_SESSION['dadosLogado']->id);
 
