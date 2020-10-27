@@ -8,6 +8,8 @@ if(isset($_GET['id'])){
     }
 }
 $filmes->editar();
+$filmes->addProgramacao();
+$filmes->editarProgramacao();
 $editaFilme = $filmes->rsDados($id);
 $puxaProgramacoes = $filmes->rsDadosProgramacao('', '', '', $id);
 $puxaSalas = $filmes->rsDadosSalas();
@@ -61,13 +63,13 @@ $puxaSalas = $filmes->rsDadosSalas();
                                 
                                 <ul class="nav nav-tabs mb-3">
                                     <li class="nav-item">
-                                        <a href="#home1" data-toggle="tab" aria-expanded="false" class="nav-link active">
+                                        <a href="#home1" data-toggle="tab" aria-expanded="false" class="nav-link <?php if(!isset($_GET['aba']) && $_GET['aba'] <> 'prog'){ echo "active";}?>">
                                             <i class="mdi mdi-home-variant d-lg-none d-block mr-1"></i>
                                             <span class="d-none d-lg-block">Descrição</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#profile1" data-toggle="tab" aria-expanded="true" class="nav-link">
+                                        <a href="#profile1" data-toggle="tab" aria-expanded="true" class="nav-link <?php if(isset($_GET['aba']) && $_GET['aba'] == 'prog'){ echo "active";}?>">
                                             <i class="mdi mdi-account-circle d-lg-none d-block mr-1"></i>
                                             <span class="d-none d-lg-block">Programação</span>
                                         </a>
@@ -76,7 +78,7 @@ $puxaSalas = $filmes->rsDadosSalas();
                                 </ul>
 
                                 <div class="tab-content">
-                                    <div class="tab-pane show active" id="home1">
+                                    <div class="tab-pane <?php if(!isset($_GET['aba']) && $_GET['aba'] <> 'prog'){ echo "show active";}?>" id="home1">
                                         <form method="POST" enctype="multipart/form-data">
                                     <div class="form-body">
                                         <div class="row">
@@ -170,7 +172,7 @@ $puxaSalas = $filmes->rsDadosSalas();
                                     <input type="hidden" name="id" value="<?php echo $editaFilme->id;?>">
                                 </form>
                                     </div>
-                                    <div class="tab-pane" id="profile1">
+                                    <div class="tab-pane <?php if(isset($_GET['aba']) && $_GET['aba'] == 'prog'){ echo "show active";}?>" id="profile1">
                                         <form method="post" action="">
                                             <div class="row">
                                                 <div class="col-lg-12">
@@ -240,10 +242,67 @@ $puxaSalas = $filmes->rsDadosSalas();
                                                 <td><?php echo $programacao->id_sala;?></td>
                                                 <td><?php echo number_format($programacao->valor,2,',','.');?></td>
                                                 <td>
-                                                    <a href="editar-filme.php?id=<?php echo $programacao->id;?>" class="btn btn-success btn-circle"><i class="fas fa-pencil-alt"></i></a>
+                                                    <button type="button" data-toggle="modal" data-target="#myModal<?php echo $programacao->id;?>" class="btn btn-success btn-circle"><i class="fas fa-pencil-alt"></i></button>
                                                     <a href="editar-filme.php?id=<?php echo $programacao->id_filme;?>&id_programacao=<?php echo $programacao->id;?>&acao=excluirProgramacao" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></a>
                                                 </td>
                                             </tr>
+
+                                            <div id="myModal<?php echo $programacao->id;?>" class="modal fade" tabindex="-1" role="dialog"
+                                    aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="myModalLabel">Editar Programação</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-hidden="true">×</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form name="formProgramacao" id="formProgramacao_<?php echo $programacao->id;?>" method="POST" >
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                        <label class="mr-sm-2" for="">Data</label>
+                                                        <input type="date" class="form-control" name="data_exibicao" value="<?php if(isset($programacao->data_exibicao) && !empty($programacao->data_exibicao)){ echo $programacao->data_exibicao;};?>">
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                        <label class="mr-sm-2" for="">Hora</label>
+                                                        <input type="time" class="form-control" name="hora_exibicao" value="<?php if(isset($programacao->hora_exibicao) && !empty($programacao->hora_exibicao)){ echo $programacao->hora_exibicao;};?>">
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                     <div class="row">
+                                                    <div class="col-md-6">
+                                                    <div class="form-group">
+                                                    <label class="mr-sm-2" for="">Sala</label>
+                                                    <select  class="form-control" name="id_sala">
+                                                    <?php foreach($puxaSalas as $sala){?>
+                                                    <option value="<?php echo $sala->id;?>"><?php echo $sala->titulo;?></option>
+                                                    <?php }?>
+                                                    </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                        <label class="mr-sm-2" for="">Valor</label>
+                                                        <input type="text" class="form-control" name="valor" value="<?php if(isset($programacao->valor) && !empty($programacao->valor)){ echo number_format($programacao->valor,2,',','.');};?>">
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                               
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light"
+                                                    data-dismiss="modal">Fechar</button>
+                                                <a href="javascript:;" onclick="document.getElementById('formProgramacao_<?php echo $programacao->id;?>').submit()" class="btn btn-primary">Salvar</a>
+                                            </div>
+                                            <input type="hidden" name="id" value="<?php echo $programacao->id;?>">
+                                            <input type="hidden" name="id_filme" value="<?php echo $programacao->id_filme?>">
+                                            <input type="hidden" name="acao" value="editaProgramacao">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                                             <?php } }?>
                                         </tbody>
                                         <tfoot>
@@ -332,19 +391,5 @@ $puxaSalas = $filmes->rsDadosSalas();
     });
 </script>
 
-                                          
-                                           
-                                             
-                                                <label class="mr-sm-2" for="">Título</label>
-                                                    <input type="text" class="form-control" name="titulo"  >
-                                                </div>
-                                           
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                <label class="mr-sm-2" for="">Duração</label>
-                                                    <input type="text" class="form-control" name="duracao" value="<?php if(isset($editaFilme->duracao) && !empty($editaFilme->duracao)){ echo $editaFilme->duracao;}?>" >
-                                                </div>
-                                            </div>
-                                        
 </body>
 </html>

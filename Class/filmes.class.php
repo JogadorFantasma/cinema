@@ -101,6 +101,10 @@ if(empty($FilmesInstanciada)) {
 				$descricao = $_POST['descricao'];
 				$ativo = filter_input(INPUT_POST, 'ativo', FILTER_SANITIZE_STRING);
 				$duracao = filter_input(INPUT_POST, 'duracao', FILTER_SANITIZE_STRING);
+				$genero = filter_input(INPUT_POST, 'genero', FILTER_SANITIZE_STRING);
+				$diretor = filter_input(INPUT_POST, 'diretor', FILTER_SANITIZE_STRING);
+				$atores = filter_input(INPUT_POST, 'atores', FILTER_SANITIZE_STRING);
+				$breve = filter_input(INPUT_POST, 'breve', FILTER_SANITIZE_STRING);
 				$urlAmigavel = gerarTituloSEO($titulo);
 				$meta_title = filter_input(INPUT_POST, 'meta_title', FILTER_SANITIZE_STRING);
 				$meta_keywords = filter_input(INPUT_POST, 'meta_keywords', FILTER_SANITIZE_STRING);
@@ -113,7 +117,7 @@ if(empty($FilmesInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 						
-						$sql = "INSERT INTO tbl_filmes (imagem, titulo, descricao, duracao, ativo, url_amigavel, meta_title, meta_keywords, meta_description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";   
+						$sql = "INSERT INTO tbl_filmes (imagem, titulo, descricao, duracao, ativo, url_amigavel, meta_title, meta_keywords, meta_description, genero, diretor, atores, breve) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, upload('imagem', $pastaArquivos, 'N'));   
 						$stm->bindValue(2, $titulo);   
@@ -124,6 +128,10 @@ if(empty($FilmesInstanciada)) {
 						$stm->bindValue(7, $meta_title); 
 						$stm->bindValue(8, $meta_keywords); 
 						$stm->bindValue(9, $meta_description);
+						$stm->bindValue(10, $genero);
+						$stm->bindValue(11, $diretor);
+						$stm->bindValue(12, $atores);
+						$stm->bindValue(13, $breve);
 						$stm->execute(); 
 						$idBanner = $this->pdo->lastInsertId();
 						
@@ -155,6 +163,10 @@ if(empty($FilmesInstanciada)) {
 				$meta_title = filter_input(INPUT_POST, 'meta_title', FILTER_SANITIZE_STRING);
 				$meta_keywords = filter_input(INPUT_POST, 'meta_keywords', FILTER_SANITIZE_STRING);
 				$meta_description = filter_input(INPUT_POST, 'meta_description', FILTER_SANITIZE_STRING);
+				$genero = filter_input(INPUT_POST, 'genero', FILTER_SANITIZE_STRING);
+				$diretor = filter_input(INPUT_POST, 'diretor', FILTER_SANITIZE_STRING);
+				$atores = filter_input(INPUT_POST, 'atores', FILTER_SANITIZE_STRING);
+				$breve = filter_input(INPUT_POST, 'breve', FILTER_SANITIZE_STRING);
 				
 				
 				try { 
@@ -165,7 +177,7 @@ if(empty($FilmesInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 				
-					$sql = "UPDATE tbl_filmes SET imagem=?, titulo=?, descricao=?, duracao=?, ativo=?, url_amigavel=?, meta_title=?, meta_keywords=?, meta_description=? WHERE id=?";   
+					$sql = "UPDATE tbl_filmes SET imagem=?, titulo=?, descricao=?, duracao=?, ativo=?, url_amigavel=?, meta_title=?, meta_keywords=?, meta_description=?, genero=?, diretor=?, atores=?, breve=? WHERE id=?";   
 					$stm = $this->pdo->prepare($sql);   
 					$stm->bindValue(1, upload('imagem', $pastaArquivos, 'N'));   
 					$stm->bindValue(2, $titulo);   
@@ -175,8 +187,12 @@ if(empty($FilmesInstanciada)) {
 					$stm->bindValue(6, $urlAmigavel);
 					$stm->bindValue(7, $meta_title); 
 					$stm->bindValue(8, $meta_keywords); 
-					$stm->bindValue(9, $meta_description); 
-					$stm->bindValue(10, $id);   
+					$stm->bindValue(9, $meta_description);
+					$stm->bindValue(10, $genero);
+					$stm->bindValue(11, $diretor);
+					$stm->bindValue(12, $atores);
+					$stm->bindValue(13, $breve); 
+					$stm->bindValue(14, $id);   
 					$stm->execute(); 
 				} catch(PDOException $erro){
 					echo $erro->getMessage(); 
@@ -206,13 +222,14 @@ if(empty($FilmesInstanciada)) {
 			}
 		}
 
-		function rsDadosProgramacao($id='', $orderBy='', $limite='', $id_filme='') {
+		function rsDadosProgramacao($id='', $orderBy='', $limite='', $id_filme='', $data_programacao='', $group='') {
 			
 			/// FILTROS
 			$nCampos = 0;
 			$sql = '';
 			$sqlOrdem = ''; 
 			$sqlLimite = '';
+			$sqlGroup = '';
 			if(!empty($id)) {
 				$sql .= " and id = ?"; 
 				$nCampos++;
@@ -223,6 +240,12 @@ if(empty($FilmesInstanciada)) {
 				$nCampos++;
 				$campo[$nCampos] = $id_filme;
 			}
+
+			if(!empty($data_programacao)) {
+				$sql .= " and data_exibicao = ?"; 
+				$nCampos++;
+				$campo[$nCampos] = $data_programacao;
+			}
 		
 			/// ORDEM		
 			if(!empty($orderBy)) {
@@ -232,9 +255,13 @@ if(empty($FilmesInstanciada)) {
 			if(!empty($limite)) {
 				$sqlLimite = " limit 0,{$limite}";
 			}
+
+			if(!empty($group)) {
+				$sqlGroup = " GROUP BY {$group}";
+			}
 			
 			try{   
-				$sql = "SELECT * FROM tbl_programacao_filmes where 1=1 $sql $sqlOrdem $sqlLimite";
+				$sql = "SELECT * FROM tbl_programacao_filmes where 1=1 $sql $sqlOrdem $sqlLimite $sqlGroup";
 				$stm = $this->pdo->prepare($sql);
 				
 				for($i=1; $i<=$nCampos; $i++) {
@@ -243,7 +270,7 @@ if(empty($FilmesInstanciada)) {
 				
 				$stm->execute();
 				$rsDados = $stm->fetchAll(PDO::FETCH_OBJ);
-				//print_r($rsDados);
+				print_r($rsDados);
 				if($id <> '' or $limite == 1) {
 					return($rsDados[0]);
 				} else {
@@ -254,17 +281,11 @@ if(empty($FilmesInstanciada)) {
 			}
 		}
 
-		function addProgramacao($redireciona='') {
+		function addProgramacao() {
 			if(isset($_POST['acao']) && $_POST['acao'] == 'addProgramacao') {
 
 				 $id_filme = filter_input(INPUT_POST, 'id_filme', FILTER_SANITIZE_STRING);
-				/*$data_exibicao = filter_input(INPUT_POST, 'data_exibicao', FILTER_SANITIZE_STRING);
-				$hora_exibicao = filter_input(INPUT_POST, 'hora_exibicao', FILTER_SANITIZE_STRING);
-				$id_sala = filter_input(INPUT_POST, 'id_sala', FILTER_SANITIZE_STRING);
-				$valor = filter_input(INPUT_POST, 'valor', FILTER_SANITIZE_STRING); */
-
-				$data_exibicao = explode(", ", $_POST['data_exibicao']);
-				for($i=0;$i <count($data_exibicao); $i++){
+				for($i=0;$i <count($_POST['data_exibicao']); $i++){
 					try{
 
 						$sql = "INSERT INTO tbl_programacao_filmes (id_filme, data_exibicao, hora_exibicao, id_sala, valor) VALUES (?, ?, ?, ?, ?)";   
@@ -277,20 +298,46 @@ if(empty($FilmesInstanciada)) {
 						$stm->execute(); 
 						$idBanner = $this->pdo->lastInsertId();
 						
-						if($redireciona == '') {
-							$redireciona = '.';
-						}
-						
-						
 					} catch(PDOException $erro){
 						echo $erro->getMessage(); 
 					}
 				}
 					echo "	<script>
-								window.location='editar-filme.php?id={$id_filme}';
+								window.location='editar-filme.php?id={$id_filme}&aba=prog';
 								</script>";
 								exit;
 				
+			}
+		}
+
+		function editarProgramacao() {
+			if(isset($_POST['acao']) && $_POST['acao'] == 'editaProgramacao') {
+
+				$id_filme = filter_input(INPUT_POST, 'id_filme', FILTER_SANITIZE_STRING);
+				$data_exibicao = filter_input(INPUT_POST, 'data_exibicao', FILTER_SANITIZE_STRING);
+				$hora_exibicao = filter_input(INPUT_POST, 'hora_exibicao', FILTER_SANITIZE_STRING);
+				$id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
+				$id_sala = filter_input(INPUT_POST, 'id_sala', FILTER_SANITIZE_STRING);
+				$valor = filter_input(INPUT_POST, 'valor', FILTER_SANITIZE_STRING);
+				//var_dump($_POST);exit;
+				try { 
+
+					$sql = "UPDATE tbl_programacao_filmes SET id_filme=?, data_exibicao=?, hora_exibicao=?, id_sala=?, valor=? WHERE id=?";   
+					$stm = $this->pdo->prepare($sql);   
+					$stm->bindValue(1, $id_filme);   
+					$stm->bindValue(2, $data_exibicao);
+					$stm->bindValue(3, $hora_exibicao);
+					$stm->bindValue(4, $id_sala);
+					$stm->bindValue(5, valorCalculavel($valor));
+					$stm->bindValue(6, $id);   
+					$stm->execute(); 
+				} catch(PDOException $erro){
+					echo $erro->getMessage(); 
+				}
+				echo "	<script>
+						window.location='editar-filme.php?id={$id_filme}&aba=prog';
+						</script>";
+						exit;
 			}
 		}
 

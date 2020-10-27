@@ -184,4 +184,55 @@ return(floatval($formatado));
 } else {
 return(floatval($valor)); }
 }
+
+function render($date = null)
+	{
+		$current = is_null($date)
+			? date('w')		
+			: date('w', strtotime($date));
+ 
+		$now = is_null($date)
+			? strtotime('now')
+			: strtotime($date);
+ 
+		$week = ['dom' => '',
+			'seg' => '',
+			'ter' => '',
+			'qua' => '',
+			'qui' => '',
+			'sex' => '',
+			'sab' => ''];		
+		$keys = array_keys($week);
+		if ($current > 0)
+		{ 
+			$now = strtotime('-'.($current).' day', $now);		
+		}
+		for($i = 0; $i < 7; $i++)
+		{
+			$week[$keys[$i]] = date('Y-m-d', 
+				strtotime("+$i day", $now));			
+		}
+		return $week;
+	}
+
+  function diasemana($data) {
+    $ano =  substr("$data", 0, 4);
+    $mes =  substr("$data", 5, -3);
+    $dia =  substr("$data", 8, 9);
+
+    $diasemana = date("w", mktime(0,0,0,$mes,$dia,$ano) );
+
+    switch($diasemana) {
+        case"0": $diasemana = "Domingo";       break;
+        case"1": $diasemana = "Segunda-Feira"; break;
+        case"2": $diasemana = "Terça-Feira";   break;
+        case"3": $diasemana = "Quarta-Feira";  break;
+        case"4": $diasemana = "Quinta-Feira";  break;
+        case"5": $diasemana = "Sexta-Feira";   break;
+        case"6": $diasemana = "Sábado";        break;
+    }
+
+    echo "$diasemana";
+}
+  
 ?>
