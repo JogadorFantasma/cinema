@@ -9,6 +9,9 @@ $incfilmes = Filmes::getInstance(Conexao::getInstance());
  if(isset($_GET['id_filme']) && !empty($_GET['id_filme'])){
      $id_filme = $_GET['id_filme'];
  }
+ if(isset($_GET['url']) && !empty($_GET['url'])){
+     $url = $_GET['url'];
+ }
  
  $puxaHorarios = $incfilmes->rsDadosProgramacao('', '', '', $id_filme, $data_selecionada);
  ?>
@@ -20,7 +23,7 @@ $incfilmes = Filmes::getInstance(Conexao::getInstance());
                                                         //if(strtotime($hora_agora) > strtotime($puxaHorario->hora_exibicao)){ ?>
                                                        <!--  <li><?php //echo substr($puxaHorario->hora_exibicao,0,5);?></li> -->
                                                        <?php //}else{?>
-                                                        <li><a href="./entrada/<?php echo substr($puxaHorario->hora_exibicao,0,5);?>/<?php echo $puxaFilme->url_amigavel;?>"><?php echo substr($puxaHorario->hora_exibicao,0,5);?></a></li>
+                                                        <li><a href="./entrada/<?php echo substr($puxaHorario->hora_exibicao,0,5);?>/<?php echo $url;?>"><?php echo substr($puxaHorario->hora_exibicao,0,5);?></a></li>
                                                         <?php //}?>
                                                     
                                                     <?php }?>
