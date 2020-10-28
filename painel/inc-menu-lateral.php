@@ -7,6 +7,12 @@
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="."
                                 aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
                                     class="hide-menu">Principal</span></a></li>
+                                    <li class="sidebar-item"> 
+                                        <a class="sidebar-link sidebar-link" href="compras.php" aria-expanded="false">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <span class="hide-menu">Compras</span>
+                                        </a>
+                                    </li>
                         <li class="list-divider"></li>
                          <li class="nav-small-cap"><span class="hide-menu">Cadastros</span></li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
@@ -61,6 +67,20 @@
                                 </li>
                                 <li class="sidebar-item"><a href="add-categoria.php" class="sidebar-link"><span
                                             class="hide-menu"> Adicionar Categoria
+                                        </span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
+                                    class="hide-menu">Cidades </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item"><a href="cidade.php" class="sidebar-link"><span
+                                            class="hide-menu"> Listar Cidades
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="add-cidade.php" class="sidebar-link"><span
+                                            class="hide-menu"> Adicionar Cidade
                                         </span></a>
                                 </li>
                             </ul>

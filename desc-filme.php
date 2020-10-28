@@ -114,7 +114,7 @@ $descFilme = $filmes->rsDados('', '', '', $id);
                     
                      <div class="col-sm-12">
                        <div class="form-group">                                                
-                        <select class="selectpicker" onChange="AtualizaJanela('inc-horario-desc-filmes.php?data='+this.value, 'Filmes');">
+                        <select class="selectpicker" onChange="AtualizaJanela('inc-horario-desc-filmes.php?id_filme=<?php echo $descFilme[0]->id;?>&data='+this.value, 'Filmes');">
                                 <?php 
                             $datas = render(date('Y-m-d'));
                             foreach($datas as $data){ ?>
@@ -136,13 +136,11 @@ $descFilme = $filmes->rsDados('', '', '', $id);
                     <p><?php echo $descFilme[0]->titulo;?></p>
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                      <div class="movie-time">
                           <div id="janela_Filmes">
-                    <?php include "inc-horario-desc-filmes.php"; ?>
-                        
+                    <?php 
+                    $_GET['id_filme'] = $descFilme[0]->id;
+                    include "inc-horario-desc-filmes.php"; ?>
                     </div>
-                         
-                      </div>
                   </div>
                 </div>
               </div>
@@ -200,5 +198,6 @@ $descFilme = $filmes->rsDados('', '', '', $id);
         <script src="<?php echo SITE_URL;?>/js/plugins.js"></script>
         <!-- main js -->
         <script src="<?php echo SITE_URL;?>/js/main.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/script_loads.js"></script>
     </body>
 </html>

@@ -14,6 +14,7 @@ $editaFilme = $filmes->rsDados($id);
 $puxaProgramacoes = $filmes->rsDadosProgramacao('', '', '', $id);
 $puxaSalas = $filmes->rsDadosSalas();
 $puxaClasses = $filmes->rsDadosClassificacao();
+$puxaCidades = $cidades->rsDadosCidades();
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="pt-br">
@@ -179,13 +180,13 @@ $puxaClasses = $filmes->rsDadosClassificacao();
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="row" id="row">
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-2">
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Data</label>
                                                     <input type="date" class="form-control" name="data_exibicao[]">
                                                     </div>
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-2">
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Hora</label>
                                                     <input type="time" class="form-control" name="hora_exibicao[]">
@@ -205,6 +206,16 @@ $puxaClasses = $filmes->rsDadosClassificacao();
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Valor</label>
                                                     <input type="text" class="form-control" name="valor[]">
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                    <div class="form-group">
+                                                    <label class="mr-sm-2" for="">Cidade</label>
+                                                    <select  class="form-control" name="id_cidade[]">
+                                                    <?php foreach($puxaCidades as $cidade){?>
+                                                    <option value="<?php echo $cidade->id;?>"><?php echo $cidade->nome;?></option>
+                                                    <?php }?>
+                                                    </select>
                                                     </div>
                                                     </div>
                                                     <div class="col-md-2">
@@ -231,18 +242,22 @@ $puxaClasses = $filmes->rsDadosClassificacao();
                                                 <th>Hora</th>
                                                 <th>Sala</th>
                                                 <th>Preço</th>
+                                                <th>Cidade</th>
                                                 <th>Opções</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php 
                                             if(count($puxaProgramacoes) > 0){
-                                            foreach($puxaProgramacoes as $programacao){?>
+                                            foreach($puxaProgramacoes as $programacao){
+                                                $nomeCidade = $cidades->rsDadosCidades($programacao->id_cidade);
+                                                ?>
                                             <tr>
                                                 <td><?php echo formataData($programacao->data_exibicao);?></td>
                                                 <td><?php echo $programacao->hora_exibicao;?></td>
                                                 <td><?php echo $programacao->id_sala;?></td>
                                                 <td><?php echo number_format($programacao->valor,2,',','.');?></td>
+                                                <td><?php if(isset($nomeCidade[0]->nome) && !empty($nomeCidade[0]->nome)){echo $nomeCidade[0]->nome;}?></td>
                                                 <td>
                                                     <button type="button" data-toggle="modal" data-target="#myModal<?php echo $programacao->id;?>" class="btn btn-success btn-circle"><i class="fas fa-pencil-alt"></i></button>
                                                     <a href="editar-filme.php?id=<?php echo $programacao->id_filme;?>&id_programacao=<?php echo $programacao->id;?>&acao=excluirProgramacao" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></a>
@@ -280,7 +295,7 @@ $puxaClasses = $filmes->rsDadosClassificacao();
                                                     <label class="mr-sm-2" for="">Sala</label>
                                                     <select  class="form-control" name="id_sala">
                                                     <?php foreach($puxaSalas as $sala){?>
-                                                    <option value="<?php echo $sala->id;?>"><?php echo $sala->titulo;?></option>
+                                                    <option value="<?php echo $sala->id;?>" <?php if(isset($programacao->id_sala) && $programacao->id_sala == $sala->id){ echo "selected";};?>><?php echo $sala->titulo;?></option>
                                                     <?php }?>
                                                     </select>
                                                     </div>
@@ -291,6 +306,19 @@ $puxaClasses = $filmes->rsDadosClassificacao();
                                                         <input type="text" class="form-control" name="valor" value="<?php if(isset($programacao->valor) && !empty($programacao->valor)){ echo number_format($programacao->valor,2,',','.');};?>">
                                                     </div>
                                                     </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                    <div class="form-group">
+                                                    <label class="mr-sm-2" for="">Cidade</label>
+                                                    <select  class="form-control" name="id_cidade">
+                                                    <?php foreach($puxaCidades as $cidade){?>
+                                                    <option value="<?php echo $cidade->id;?>" <?php if(isset($programacao->id_cidade) && $programacao->id_cidade == $cidade->id){ echo "selected";};?>><?php echo $cidade->nome;?></option>
+                                                    <?php }?>
+                                                    </select>
+                                                    </div>
+                                                    </div>
+                                                
                                                 </div>
                                                
                                             <div class="modal-footer">
@@ -313,6 +341,7 @@ $puxaClasses = $filmes->rsDadosClassificacao();
                                                 <th>Hora</th>
                                                 <th>Sala</th>
                                                 <th>Preço</th>
+                                                <th>Cidade</th>
                                                 <th>Opções</th>
                                             </tr>
                                         </tfoot>
@@ -348,13 +377,13 @@ $puxaClasses = $filmes->rsDadosClassificacao();
     $("#addRow").click(function () {
         var html = '';
         html += '<div class="row" id="row">';
-        html += '<div class="col-md-3">';
+        html += '<div class="col-md-2">';
         html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Data</label>';
         html += '<input type="date" class="form-control" name="data_exibicao[]">';
         html += '</div>';
         html += '</div>';
-        html += '<div class="col-md-3">';
+        html += '<div class="col-md-2">';
         html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Hora</label>';
         html += '<input type="time" class="form-control" name="hora_exibicao[]">';
@@ -374,6 +403,16 @@ $puxaClasses = $filmes->rsDadosClassificacao();
         html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Valor</label>';
         html += '<input type="text" class="form-control" name="valor[]">';
+        html += '</div>';
+        html += '</div>';
+        html += '<div class="col-md-2">';
+        html += '<div class="form-group">';
+        html += '<label class="mr-sm-2" for="">Cidade</label>';
+        html += '<select  class="form-control" name="id_cidade[]">';
+        <?php foreach($puxaCidades as $cidade){?>
+        html += '<option value="<?php echo $cidade->id;?>"><?php echo $cidade->nome;?></option>';
+        <?php }?>
+        html += '</select>';
         html += '</div>';
         html += '</div>';
         html += '<div class="col-md-2">';

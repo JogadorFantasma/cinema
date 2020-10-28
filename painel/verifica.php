@@ -16,6 +16,9 @@ $produtos = Produtos::getInstance(Conexao::getInstance());
 include "../Class/estados.class.php";
 $estados = Estados::getInstance(Conexao::getInstance());
 
+include "../Class/cidades.class.php";
+$cidades = Cidades::getInstance(Conexao::getInstance());
+
 include "../Class/clientes.class.php";
 $clientes = Clientes::getInstance(Conexao::getInstance());
 
@@ -33,6 +36,9 @@ $parceiros = Parceiros::getInstance(Conexao::getInstance());
 
 include "../Class/filmes.class.php";
 $filmes = Filmes::getInstance(Conexao::getInstance());
+
+include "../Class/compras.class.php";
+$compras = Compras::getInstance(Conexao::getInstance());
 
 $verificaRestrito->restritoAdmin();
 $dadosUsuarioLogado = $verificaRestrito->rsDados($_SESSION['dadosLogado']->id);

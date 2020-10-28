@@ -247,5 +247,29 @@ function render($date = null)
 
     echo "$diasemana";
 }
+
+function exibe_tipo_compra($exibe_tipo_compra) {
+    switch ($exibe_tipo_compra) {
+      case "CHA": return "Chalé"; break;
+      case "CAM": return "Camping"; break;
+      default: return "";
+    }
+  }
+
+   //Mostrar opções do para ligar
+function exibe_status_compra($exibe_status_compra) {
+    switch ($exibe_status_compra) {
+      case "4": return "Autorizado"; break;
+      case "6": return "Autorizado"; break;
+      case "05": return "Não Autorizada"; break;
+      case "57": return "Cartão Expirado"; break;
+      case "78": return "Cartão Bloqueado"; break;
+      case "99": return "Time Out"; break;
+      case "77": return "Cartão Cancelado"; break;
+      case "70": return "Problemas com o Cartão de Crédito"; break;
+      case "99": return "Operation Successful / Time Out"; break;
+      default: return "";
+    }
+  }
   
 ?>
