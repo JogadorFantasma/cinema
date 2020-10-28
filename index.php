@@ -81,7 +81,7 @@ include "includes.php";
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="section-title">
-                            <h2>Welcome to <span>Zooks</span> Cinema</h2>
+                            <h2>Bem vindo ao <span>Zooks</span> Cinema</h2>
                             <p>These are some of the benefits you’ll get</p>
                         </div>
                     </div>
@@ -112,7 +112,7 @@ include "includes.php";
                         </div>
                     </div>
                 </div>
-                <div class="row">
+              <!--   <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="advertise-area">
                             <img src="images/add/1.jpg" alt="">
@@ -123,12 +123,12 @@ include "includes.php";
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- Home Page Services End Here -->
         <!-- Upcoming Movie Start here -->
-        <div class="site-table-area">
+      <!--   <div class="site-table-area">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -199,7 +199,7 @@ include "includes.php";
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Upcoming Movie End here -->
         <!-- Watching Movies Details Start Here -->
         <div class="watching-movie-area">
@@ -219,15 +219,7 @@ include "includes.php";
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="topbar-right">
-                            <ul>
-                                <li class="one">4+</li>
-                                <li class="two">7+</li>
-                                <li class="threee">12+</li>
-                                <li class="fivee">16+</li>
-                                <li class="four">18+</li>
-                            </ul>
-                        </div>
+                      
                     </div>
                 </div>
                 <div class="row">

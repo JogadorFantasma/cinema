@@ -13,6 +13,7 @@ $filmes->editarProgramacao();
 $editaFilme = $filmes->rsDados($id);
 $puxaProgramacoes = $filmes->rsDadosProgramacao('', '', '', $id);
 $puxaSalas = $filmes->rsDadosSalas();
+$puxaClasses = $filmes->rsDadosClassificacao();
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="pt-br">
@@ -92,16 +93,17 @@ $puxaSalas = $filmes->rsDadosSalas();
                                         </select>                                  
                                                 </div>
                                             </div>
-                                           <!--  <div class="col-md-2">
+                                            <div class="col-md-2">
                                                 <div class="form-group">
-                                               
-                                        <label class="mr-sm-2" for="inlineFormCustomSelect">Destaque</label>
-                                        <select class="custom-select mr-sm-2" name="destaque" id="inlineFormCustomSelect">
-                                            <option value="S" <?php if(isset($editaFilme->destaque) && $editaFilme->destaque == 'S'){ echo "selected";}?>>Sim</option>
-                                            <option value="N" <?php if(isset($editaFilme->destaque) && $editaFilme->destaque == 'N'){ echo "selected";}?>>Não</option>
+                                        <label class="mr-sm-2" for="inlineFormCustomSelect">Classificação</label>
+                                        <select class="custom-select mr-sm-2" name="id_classificacao_indicativa" id="inlineFormCustomSelect">
+                                            <?php foreach($puxaClasses as $classe){?>
+                                            <option value="<?php echo $classe->id;?>" <?php if(isset($editaFilme->id_classificacao_indicativa) && $editaFilme->id_classificacao_indicativa == $classe->id){ echo "selected";}?>><?php echo $classe->titulo;?></option>
+                                            <?php }?>
                                         </select>                                  
                                                 </div>
-                                            </div> -->
+                                            </div>
+                                      
                                         </div>
                                         <div class="row">
                                           

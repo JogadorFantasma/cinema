@@ -6,7 +6,7 @@
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 text-center">                            
                             <div class="widget">
                                 <div class="footer-one">
-                                    <a href="index.html"><img src="images/footer-logo.png" alt=""></a>
+                                    <a href="<?php echo SITE_URL;?>/."><img src="<?php echo SITE_URL;?>/images/footer-logo.png" alt=""></a>
                                     <p>38 Ruckman Road Oklahoma City, OK </p>
                                     <p>Ph: <strong>(123) 456-2120</strong> </p>
                                 </div>
@@ -55,14 +55,14 @@
                                 <div class="footer-five">
                                     <div class="widget-title">Flickr Feed</div>
                                     <ul>
-                                        <li><a href="#"><img src="images/fliker/1.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="images/fliker/2.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="images/fliker/3.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="images/fliker/4.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="images/fliker/5.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="images/fliker/6.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="images/fliker/7.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="images/fliker/8.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/1.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/2.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/3.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/4.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/5.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/6.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/7.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/8.jpg" alt=""></a></li>
                                     </ul>
                                 </div>
                             </div>

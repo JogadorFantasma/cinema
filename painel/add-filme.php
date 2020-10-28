@@ -1,6 +1,6 @@
 <?php include "verifica.php";
 $filmes->add();
-//$puxaCategorias = $categorias->rsDados();
+$puxaClasses = $filmes->rsDadosClassificacao();
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="pt-br">
@@ -62,16 +62,16 @@ $filmes->add();
                                    
                                                 </div>
                                             </div>
-                                           <!--  <div class="col-md-2">
+                                            <div class="col-md-2">
                                                 <div class="form-group">
-                                               
-                                        <label class="mr-sm-2" for="inlineFormCustomSelect">Destaque</label>
-                                        <select class="custom-select mr-sm-2" name="destaque" id="inlineFormCustomSelect">
-                                            <option value="S" >Sim</option>
-                                            <option value="N" selected>Não</option>
+                                        <label class="mr-sm-2" for="inlineFormCustomSelect">Classificação</label>
+                                        <select class="custom-select mr-sm-2" name="id_classificacao_indicativa" id="inlineFormCustomSelect">
+                                            <?php foreach($puxaClasses as $classe){?>
+                                            <option value="<?php echo $classe->id;?>"><?php echo $classe->titulo;?></option>
+                                            <?php }?>
                                         </select>                                  
                                                 </div>
-                                            </div> -->
+                                            </div>
                                              
                                         </div>
                                         <div class="row">

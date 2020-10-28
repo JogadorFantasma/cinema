@@ -33,6 +33,19 @@ function exibe_status_contato($exibe_status_contato) {
     default: return "";
   }
 }
+
+ //Mostrar status contato
+function exibe_classe_indicativa($exibe_classe_indicativa) {
+  switch ($exibe_classe_indicativa) {
+    case "1": return "<div class='btn-success btn'>L</div>"; break;
+    case "2": return "<div class='btn-primary btn'>10</div>"; break;
+    case "3": return "<div class='btn-info btn'>12</div>"; break;
+    case "4": return "<div class='btn-warning btn'>14</div>"; break;
+    case "5": return "<div class='btn-danger btn'>16</div>"; break;
+    case "6": return "<div class='btn-dark btn'>18</div>"; break;
+    default: return "";
+  }
+}
 //Opçao de escolha do aluno
   function exibe_opcao_aluno($exibe_opcao_aluno) {
     switch ($exibe_opcao_aluno) {

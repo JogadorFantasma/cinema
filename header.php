@@ -1,5 +1,5 @@
   <!-- Header Start Here -->
-        <header>
+        <header id="header">
             <div class="header-area">
                 <div class="container">
                     <div class="row">
@@ -29,7 +29,7 @@
                                       <button type="submit">Register <span><i class="fa fa-chevron-circle-right"></i></span></button>
                                     </fieldset>
                                   </form>
-                                  <img src="images/register.jpg" alt=""/>
+                                  <img src="<?php echo SITE_URL;?>/images/register.jpg" alt=""/>
                                   <div class="form-footer">
                                     <a href="#"><p>Continue and create account after <i class="fa fa-chevron-circle-right"></i></p></a>
                                   </div>
@@ -71,7 +71,7 @@
                                     </form>
                                   </div>
                                   <div class="login-right">
-                                    <img src="images/login.jpg" alt="login" />
+                                    <img src="<?php echo SITE_URL;?>/images/login.jpg" alt="login" />
                                   </div>
                                   <div class="form-footer">
                                     <a href="#"><p>Continue and create account after <i class="fa fa-chevron-circle-right"></i></p></a>
@@ -87,14 +87,14 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="logo-area">
-                                <a href="index.html"><img src="images/logo.png" alt=""></a>
+                                <a href="./"><img src="<?php echo SITE_URL;?>/images/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-11 col-xs-11">
                             <div class="main-menu">
                                 <nav>
                                     <ul>
-                                        <li class="active"><a href="index.html">Home</a></li>
+                                        <li class="active"><a href="./">Home</a></li>
                                         <li><a href="trailers.html">Trailers</a></li>
                                         <li><a href="shows.html">Shows</a></li>
                                         <li><a href="rent.html">Rent The Cinema</a></li>

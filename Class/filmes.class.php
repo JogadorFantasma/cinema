@@ -109,6 +109,7 @@ if(empty($FilmesInstanciada)) {
 				$meta_title = filter_input(INPUT_POST, 'meta_title', FILTER_SANITIZE_STRING);
 				$meta_keywords = filter_input(INPUT_POST, 'meta_keywords', FILTER_SANITIZE_STRING);
 				$meta_description = filter_input(INPUT_POST, 'meta_description', FILTER_SANITIZE_STRING);
+				$id_classificacao_indicativa = filter_input(INPUT_POST, 'id_classificacao_indicativa', FILTER_SANITIZE_STRING);
 					try{
 
 						if(file_exists('Connection/conexao.php')) {
@@ -117,7 +118,7 @@ if(empty($FilmesInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 						
-						$sql = "INSERT INTO tbl_filmes (imagem, titulo, descricao, duracao, ativo, url_amigavel, meta_title, meta_keywords, meta_description, genero, diretor, atores, breve) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
+						$sql = "INSERT INTO tbl_filmes (imagem, titulo, descricao, duracao, ativo, url_amigavel, meta_title, meta_keywords, meta_description, genero, diretor, atores, breve, id_classificacao_indicativa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, upload('imagem', $pastaArquivos, 'N'));   
 						$stm->bindValue(2, $titulo);   
@@ -132,6 +133,7 @@ if(empty($FilmesInstanciada)) {
 						$stm->bindValue(11, $diretor);
 						$stm->bindValue(12, $atores);
 						$stm->bindValue(13, $breve);
+						$stm->bindValue(14, $id_classificacao_indicativa);
 						$stm->execute(); 
 						$idBanner = $this->pdo->lastInsertId();
 						
@@ -167,6 +169,7 @@ if(empty($FilmesInstanciada)) {
 				$diretor = filter_input(INPUT_POST, 'diretor', FILTER_SANITIZE_STRING);
 				$atores = filter_input(INPUT_POST, 'atores', FILTER_SANITIZE_STRING);
 				$breve = filter_input(INPUT_POST, 'breve', FILTER_SANITIZE_STRING);
+				$id_classificacao_indicativa = filter_input(INPUT_POST, 'id_classificacao_indicativa', FILTER_SANITIZE_STRING);
 				
 				
 				try { 
@@ -177,7 +180,7 @@ if(empty($FilmesInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 				
-					$sql = "UPDATE tbl_filmes SET imagem=?, titulo=?, descricao=?, duracao=?, ativo=?, url_amigavel=?, meta_title=?, meta_keywords=?, meta_description=?, genero=?, diretor=?, atores=?, breve=? WHERE id=?";   
+					$sql = "UPDATE tbl_filmes SET imagem=?, titulo=?, descricao=?, duracao=?, ativo=?, url_amigavel=?, meta_title=?, meta_keywords=?, meta_description=?, genero=?, diretor=?, atores=?, breve=?, id_classificacao_indicativa=? WHERE id=?";   
 					$stm = $this->pdo->prepare($sql);   
 					$stm->bindValue(1, upload('imagem', $pastaArquivos, 'N'));   
 					$stm->bindValue(2, $titulo);   
@@ -192,7 +195,8 @@ if(empty($FilmesInstanciada)) {
 					$stm->bindValue(11, $diretor);
 					$stm->bindValue(12, $atores);
 					$stm->bindValue(13, $breve); 
-					$stm->bindValue(14, $id);   
+					$stm->bindValue(14, $id_classificacao_indicativa);  
+					$stm->bindValue(15, $id);   
 					$stm->execute(); 
 				} catch(PDOException $erro){
 					echo $erro->getMessage(); 
@@ -270,7 +274,7 @@ if(empty($FilmesInstanciada)) {
 				
 				$stm->execute();
 				$rsDados = $stm->fetchAll(PDO::FETCH_OBJ);
-				print_r($rsDados);
+				//print_r($rsDados);
 				if($id <> '' or $limite == 1) {
 					return($rsDados[0]);
 				} else {
@@ -383,7 +387,51 @@ if(empty($FilmesInstanciada)) {
 				echo $erro->getMessage(); 
 			}
 		}
+
+		function rsDadosClassificacao($id='', $orderBy='', $limite='') {
+			
+			/// FILTROS
+			$nCampos = 0;
+			$sql = '';
+			$sqlOrdem = ''; 
+			$sqlLimite = '';
+			if(!empty($id)) {
+				$sql .= " and id = ?"; 
+				$nCampos++;
+				$campo[$nCampos] = $id;
+			}
+			
+			/// ORDEM		
+			if(!empty($orderBy)) {
+				$sqlOrdem = " order by {$orderBy}";
+			}
+			
+			if(!empty($limite)) {
+				$sqlLimite = " limit 0,{$limite}";
+			}
+			
+			try{   
+				$sql = "SELECT * FROM tbl_classe_indicativa where 1=1 $sql $sqlOrdem $sqlLimite";
+				$stm = $this->pdo->prepare($sql);
+				
+				for($i=1; $i<=$nCampos; $i++) {
+					$stm->bindValue($i, $campo[$i]);
+				}
+				
+				$stm->execute();
+				$rsDados = $stm->fetchAll(PDO::FETCH_OBJ);
+				//print_r($rsDados);
+				if($id <> '' or $limite == 1) {
+					return($rsDados[0]);
+				} else {
+					return($rsDados);
+				}
+			} catch(PDOException $erro){   
+				echo $erro->getMessage(); 
+			}
+		}
 	}
+	
 	
 	$FilmesInstanciada = 'S';
 }
