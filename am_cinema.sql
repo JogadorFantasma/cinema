@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 27/10/2020 às 22:10
+-- Tempo de geração: 28/10/2020 às 21:48
 -- Versão do servidor: 10.4.13-MariaDB
 -- Versão do PHP: 7.4.7
 
@@ -13071,10 +13071,9 @@ CREATE TABLE `tbl_categoria` (
 --
 
 INSERT INTO `tbl_categoria` (`id`, `nome`, `foto`, `url_amigavel`) VALUES
-(1, 'Frutas', '1602774600.8992-foto-N.jpg', 'frutas'),
-(2, 'Verduras', '1602774616.1846-foto-N.jpg', 'verduras'),
-(3, 'Sucos', '1602774657.9099-foto-N.jpg', 'sucos'),
-(4, 'Secos', '1602774670.1956-foto-N.jpg', 'secos');
+(1, 'Bebidas', '1602774600.8992-foto-N.jpg', 'bebidas'),
+(2, 'Comidas', '1602774616.1846-foto-N.jpg', 'comidas'),
+(3, 'Combos', '1602774657.9099-foto-N.jpg', 'combos');
 
 -- --------------------------------------------------------
 
@@ -13095,6 +13094,52 @@ INSERT INTO `tbl_cat_servicos` (`id`, `nome`) VALUES
 (1, 'Exame'),
 (2, 'Cirurgia'),
 (3, 'Procedimentos');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbl_cidades`
+--
+
+CREATE TABLE `tbl_cidades` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(250) DEFAULT NULL,
+  `estado` varchar(250) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `tbl_cidades`
+--
+
+INSERT INTO `tbl_cidades` (`id`, `nome`, `estado`) VALUES
+(1, 'FORMOSA', 'GO'),
+(2, 'LEM', 'BA'),
+(3, 'UNAÍ', 'MG'),
+(4, 'SOBRADINHO', 'DF'),
+(5, 'BARREIRAS', 'BA');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbl_classe_indicativa`
+--
+
+CREATE TABLE `tbl_classe_indicativa` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(80) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `tbl_classe_indicativa`
+--
+
+INSERT INTO `tbl_classe_indicativa` (`id`, `titulo`) VALUES
+(1, 'L'),
+(2, '10'),
+(3, '12'),
+(4, '14'),
+(5, '16'),
+(6, '18');
 
 -- --------------------------------------------------------
 
@@ -13124,6 +13169,35 @@ CREATE TABLE `tbl_cliente` (
 
 INSERT INTO `tbl_cliente` (`id`, `nome`, `email`, `telefone`, `sexo`, `senha`, `cep`, `endereco`, `id_estado`, `id_cidade`, `bairro`, `numero`, `complemento`) VALUES
 (1, 'ADRIANO STEPHAN MONTEIRO BATISTA', 'asmbmonteiro@gmail.com', '61984113239', 'M', '12345', '72220229', 'QNN 22 Conjunto I', 7, 1727, 'Guariroba', '50', 's/c');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbl_compras`
+--
+
+CREATE TABLE `tbl_compras` (
+  `id` int(11) NOT NULL,
+  `tipo_compra` varchar(3) DEFAULT NULL,
+  `status_compra` varchar(3) DEFAULT NULL,
+  `entrada` date DEFAULT NULL,
+  `saida` date DEFAULT NULL,
+  `id_cliente` int(11) DEFAULT NULL,
+  `valor` float DEFAULT NULL,
+  `data_transacao` date DEFAULT NULL,
+  `hora_transacao` time DEFAULT NULL,
+  `tipo_pagamento` varchar(100) DEFAULT NULL,
+  `bandeira` varchar(100) DEFAULT NULL,
+  `id_pagamento` varchar(250) DEFAULT NULL,
+  `forma_pagamento` varchar(3) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `tbl_compras`
+--
+
+INSERT INTO `tbl_compras` (`id`, `tipo_compra`, `status_compra`, `entrada`, `saida`, `id_cliente`, `valor`, `data_transacao`, `hora_transacao`, `tipo_pagamento`, `bandeira`, `id_pagamento`, `forma_pagamento`) VALUES
+(7, 'CHA', '1', '2020-10-27', '2020-10-30', 1, 270, '2020-10-26', '21:04:11', NULL, 'visa', 'ed480eef-8a76-4684-8071-d381d6def05e', 'CRE');
 
 -- --------------------------------------------------------
 
@@ -13279,15 +13353,16 @@ CREATE TABLE `tbl_filmes` (
   `genero` varchar(250) DEFAULT NULL,
   `diretor` varchar(250) DEFAULT NULL,
   `atores` text DEFAULT NULL,
-  `breve` text DEFAULT NULL
+  `breve` text DEFAULT NULL,
+  `id_classificacao_indicativa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `tbl_filmes`
 --
 
-INSERT INTO `tbl_filmes` (`id`, `titulo`, `descricao`, `imagem`, `duracao`, `url_amigavel`, `ativo`, `meta_title`, `meta_keywords`, `meta_description`, `genero`, `diretor`, `atores`, `breve`) VALUES
-(1, 'Avatar', 'No exuberante mundo alienígena de Pandora vivem os Na\'vi, seres que parecem ser primitivos, mas são altamente evoluídos. Como o ambiente do planeta é tóxico, foram criados os avatares, corpos biológicos controlados pela mente humana que se movimentam livremente em Pandora. Jake Sully, um ex-fuzileiro naval paralítico, volta a andar através de um avatar e se apaixona por uma Na\'vi. Esta paixão leva Jake a lutar pela sobrevivência de Pandora.', '1603370642.797-imagem-N.jpg', '2h 42m', 'avatar', 'S', '', '', '', 'Ficção científica, Aventura', 'James Cameron', 'Sam Worthington, Zoe Saldana, Sigourney Weaver', 'Jake Sully (Sam Worthington) ficou paraplégico após um combate na Terra. Ele é selecionado para participar do programa Avatar em substituição ao seu irmão gêmeo, falecido. Jake viaja a Pandora, uma lua extraterrestre, onde encontra diversas e estranhas formas de vida.');
+INSERT INTO `tbl_filmes` (`id`, `titulo`, `descricao`, `imagem`, `duracao`, `url_amigavel`, `ativo`, `meta_title`, `meta_keywords`, `meta_description`, `genero`, `diretor`, `atores`, `breve`, `id_classificacao_indicativa`) VALUES
+(1, 'Avatar', 'No exuberante mundo alienígena de Pandora vivem os Na\'vi, seres que parecem ser primitivos, mas são altamente evoluídos. Como o ambiente do planeta é tóxico, foram criados os avatares, corpos biológicos controlados pela mente humana que se movimentam livremente em Pandora. Jake Sully, um ex-fuzileiro naval paralítico, volta a andar através de um avatar e se apaixona por uma Na\'vi. Esta paixão leva Jake a lutar pela sobrevivência de Pandora.', '1603370642.797-imagem-N.jpg', '2h 42m', 'avatar', 'S', '', '', '', 'Ficção científica, Aventura', 'James Cameron', 'Sam Worthington, Zoe Saldana, Sigourney Weaver', 'Jake Sully (Sam Worthington) ficou paraplégico após um combate na Terra. Ele é selecionado para participar do programa Avatar em substituição ao seu irmão gêmeo, falecido. Jake viaja a Pandora, uma lua extraterrestre, onde encontra diversas e estranhas formas de vida.', 1);
 
 -- --------------------------------------------------------
 
@@ -13520,17 +13595,19 @@ CREATE TABLE `tbl_programacao_filmes` (
   `data_exibicao` date DEFAULT NULL,
   `hora_exibicao` time DEFAULT NULL,
   `id_sala` int(11) DEFAULT NULL,
-  `valor` float DEFAULT NULL
+  `valor` float DEFAULT NULL,
+  `id_cidade` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `tbl_programacao_filmes`
 --
 
-INSERT INTO `tbl_programacao_filmes` (`id`, `id_filme`, `data_exibicao`, `hora_exibicao`, `id_sala`, `valor`) VALUES
-(1, 1, '2020-10-27', '15:00:00', 1, 15),
-(2, 1, '2020-10-27', '18:00:00', 1, 18),
-(3, 1, '2020-10-27', '21:00:00', 1, 15);
+INSERT INTO `tbl_programacao_filmes` (`id`, `id_filme`, `data_exibicao`, `hora_exibicao`, `id_sala`, `valor`, `id_cidade`) VALUES
+(1, 1, '2020-10-28', '15:00:00', 1, 15, 1),
+(2, 1, '2020-10-27', '18:00:00', 1, 18, 1),
+(3, 1, '2020-10-28', '21:00:00', 1, 15, 1),
+(4, 1, '2020-10-29', '15:00:00', 2, 19, 1);
 
 -- --------------------------------------------------------
 
@@ -13700,7 +13777,7 @@ CREATE TABLE `tbl_usuarios` (
 --
 
 INSERT INTO `tbl_usuarios` (`id`, `nome`, `email`, `telefone`, `endereco`, `cpf`, `login`, `senha`, `foto`, `id_cargo`, `sexo`, `perm_cad_usuario`, `perm_relatorio`, `perm_add_usuario`, `perm_edit_usuario`, `perm_del_usuario`, `perm_cad_contato`, `perm_edit_contato`, `perm_del_contato`, `perm_edit_contato_nf`, `perm_pag_principal_rm`, `perm_pag_principal_uc`, `admin_geral`, `data_frase`, `id_frase`, `frase_lida`) VALUES
-(1, 'Administrador', 'adm@adm.com', NULL, NULL, NULL, 'admin', '1234', NULL, NULL, 'M', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', NULL, '2020-10-27', 9, 'N'),
+(1, 'Administrador', 'adm@adm.com', NULL, NULL, NULL, 'admin', '1234', NULL, NULL, 'M', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', NULL, '2020-10-28', 49, 'N'),
 (2, 'teste', 'teste@teste.com.br', '', '', '', NULL, '123', NULL, 1, 'M', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', NULL, NULL, NULL, NULL);
 
 --
@@ -13750,9 +13827,27 @@ ALTER TABLE `tbl_cat_servicos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices de tabela `tbl_cidades`
+--
+ALTER TABLE `tbl_cidades`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `tbl_classe_indicativa`
+--
+ALTER TABLE `tbl_classe_indicativa`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices de tabela `tbl_cliente`
 --
 ALTER TABLE `tbl_cliente`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `tbl_compras`
+--
+ALTER TABLE `tbl_compras`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -13934,10 +14029,28 @@ ALTER TABLE `tbl_cat_servicos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de tabela `tbl_cidades`
+--
+ALTER TABLE `tbl_cidades`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `tbl_classe_indicativa`
+--
+ALTER TABLE `tbl_classe_indicativa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT de tabela `tbl_cliente`
 --
 ALTER TABLE `tbl_cliente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `tbl_compras`
+--
+ALTER TABLE `tbl_compras`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_config`
@@ -14027,7 +14140,7 @@ ALTER TABLE `tbl_produto`
 -- AUTO_INCREMENT de tabela `tbl_programacao_filmes`
 --
 ALTER TABLE `tbl_programacao_filmes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_sala`
