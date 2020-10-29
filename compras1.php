@@ -523,7 +523,7 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                               </div>
                             </div>
                             <button class="btn-default back-top topppbtn"  onclick="voltar()"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</button>
-                              <button class="btn-green done" type="submit">Proximo <i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                              <button class="btn-green done" onclick="window.location='<?php echo SITE_URL;?>/entrada/3/<?php echo $descFilme[0]->url_amigavel;?>';">Proximo <i class="fa fa-angle-right" aria-hidden="true"></i></button>
                           </div>
                       </li>
                       <li>
