@@ -63,6 +63,9 @@ body {
   margin-left: 15px;
   margin-bottom: 24px;
 }
+
+
+
 .aligncenter {
   display: block;
   margin: 0 auto 24px;
@@ -145,7 +148,7 @@ ul {
   padding-top: 60px;
 }
 .padding-bottom1 {
-  padding-bottm: 60px;
+  padding-bottom: 60px;
 }
 .mobile-menu-area {
   display: none;
@@ -218,7 +221,7 @@ ul {
 .header-area .user-area .loginpage .loginpage-body .login-left {
   display: inline-block;
   width: 30%;
-  float: left;
+  /* float: left; */
 }
 .header-area .user-area .loginpage .loginpage-body .login-left form {
   margin: 0 0 30px;
@@ -1697,7 +1700,7 @@ footer .footer-bottom .footer-text p i {
 }
 .single-movie-content .payment-wizard li.active .wizard-content .panel-body .vip-seat ul li {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 50%;
 }
 .single-movie-content .payment-wizard li.active .wizard-content .panel-body .vip-seat ul li.right {
@@ -1822,7 +1825,7 @@ li:first-child .wizard-content {
   border-radius: 10px;
   box-shadow: none;
   display: inline-block;
-  float: right;
+  /* float: right; */
   height: 40px;
   margin-top: 27px;
   width: 160px;
@@ -2381,7 +2384,7 @@ li:first-child .wizard-content {
   left: 30px;
 }
 .page-banner-area .banner-content h1 {
-  float: left;
+  /* float: left; */
   margin-top: 40px;
   display: inline-block;
   color: #fff;
@@ -2390,7 +2393,7 @@ li:first-child .wizard-content {
   color: #a17207;
 }
 .page-banner-area .banner-content ul {
-  float: left;
+  /* float: left; */
   display: inline-block;
   margin-left: 100px;
   color: #fff;
