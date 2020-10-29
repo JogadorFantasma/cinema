@@ -14,16 +14,11 @@ $produtos = Produtos::getInstance(Conexao::getInstance());
 include "Class/categorias.class.php";
 $categorias = Categorias::getInstance(Conexao::getInstance());
 
-<<<<<<< HEAD
 include "Class/banners.class.php";
 $banners = Banners::getInstance(Conexao::getInstance());
 
 
 define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST'].'/cinema');
-=======
-
-define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST'].'/cinema-2');
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 
 $produtos_id = array();
 
