@@ -3,70 +3,46 @@
             <div class="footer-top-area">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 text-center">                            
-                            <div class="widget">
-                                <div class="footer-one">
-                                    <a href="<?php echo SITE_URL;?>/."><img src="<?php echo SITE_URL;?>/images/footer-logo.png" alt=""></a>
-                                    <p>38 Ruckman Road Oklahoma City, OK </p>
-                                    <p>Ph: <strong>(123) 456-2120</strong> </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">                            
+                        
+                        <div class="col-lg-4 col-md-2 col-sm-4 col-xs-12">                            
                             <div class="widget">
                                 <div class="footer-two">
-                                    <div class="widget-title">Zooks Cinema</div>
+                                    <div class="widget-title">Entre em Contato</div>
                                     <ul>
-                                        <li><a href="trailers.html">Trailers</a></li>
-                                        <li><a href="shows.html">Movies & Shows</a></li>
-                                        <li><a href="rent.html">Rent the Theatre</a></li>
-                                        <li><a href="show-details.html">Movie Single Post</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="#">Faq</a></li>
+                                        <li><a href="#">Fale Conosco</a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">                            
+                        <div class="col-lg-4 col-md-2 col-sm-4 col-xs-12">                            
                             <div class="widget">
                                 <div class="footer-three">
-                                    <div class="widget-title">Our App</div>
+                                    <div class="widget-title">Cinemas Premier</div>
                                     <ul>
-                                        <li><a href="#"><img src="images/icon/1.png" alt=""> <span>iPhone</span> App</a></li>
-                                        <li><a href="#"><img src="images/icon/2.png" alt=""> <span>Androd</span> App</a></li>
-                                        <li><a href="#"><img src="images/icon/3.png" alt=""> <span>iPad</span> App</a></li>
+                                    <li><a href="#">Sobre</a></li>
+                                        <li><a href="#">Filmes em cartaz</a></li>
+                                        <li><a href="#">Filmes em breve</a></li>
+                                        <li><a href="#">Bomboniere</a></li>
                                     </ul>
+                                    
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">                            
+                        <div class="col-lg-4 col-md-2 col-sm-4 col-xs-12">                            
                             <div class="widget">
                                 <div class="footer-four">
-                                    <div class="widget-title">Follow Us</div>
+                                    <div class="widget-title">CONECTE-SE CONOSCO</div>
                                     <ul>
                                         <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a></li>
-                                        <li><a href="#"><i class="fa fa-flickr" aria-hidden="true"></i> Fliker</a></li>
+                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">                            
-                            <div class="widget">
-                                <div class="footer-five">
-                                    <div class="widget-title">Flickr Feed</div>
-                                    <ul>
-                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/1.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/2.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/3.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/4.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/5.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/6.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/7.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="<?php echo SITE_URL;?>/images/fliker/8.jpg" alt=""></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

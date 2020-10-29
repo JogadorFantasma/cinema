@@ -36,12 +36,13 @@ CSS INDEX
 /*-------------------------------------*/
 html,
 body {
-  height: 100%;
   font-family: 'Lato', sans-serif;
-  color: #646464;
-  font-size: 15px;
-  line-height: 24px;
-  vertical-align: baseline;
+    font-size: 16px;
+    height: 100%;
+    color: #717171;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .004);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 /* ------------------------------------
 1.1 Template Reset Variable 
@@ -154,17 +155,28 @@ ul {
   top: 100%;
 }
 .section-title {
-  text-align: center;
+  text-align: left;
 }
 .section-title h2 {
-  font-size: 45px;
+  font-size: 35px;
   font-weight: normal;
-  color: #a17207;
+  color: #fff;
   font-family: 'Lato', sans-serif;
+  
+}
+.section-title h2::after{
+  position: absolute;
+    right: auto;
+    bottom: -1px;
+    display: block;
+    width: 125px;
+    height: 4px;
+    content: '';
+    background-image: linear-gradient(to right,#D92D36,#EC585F);
 }
 .section-title h2 span {
-  font-family: 'Gloria Hallelujah', cursive;
-  color: #f3b832;
+  
+  color: white;
 }
 .section-title p {
   font-size: 18px;
@@ -189,7 +201,7 @@ ul {
   display: inline-block;
 }
 .header-area .user-area ul li a {
-  color: #a17208;
+  color: #fff;
   display: inline-block;
   padding: 0 5px;
 }
@@ -466,7 +478,7 @@ ul {
 3.Slider Area Start Here 
 ---------------------------------------*/
 .slider-area {
-  background: url(images/slider/1.jpg) no-repeat center;
+  background: url(images/baa.jpg) no-repeat center;
   background-size: cover;
   width: 100%;
   overflow: hidden;
@@ -794,8 +806,38 @@ ul {
 ---------------------------------------*/
 .zooks-promos-area {
   padding: 100px 0;
-  background: #f7f7f7;
+  background: black;
   overflow: hidden;
+}
+.zooks-promos-area-2 {
+  padding: 100px 0;
+  background-image: url(./images/fundo-news.jpeg);
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.zooks-promos-area-2:before{
+  
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    background: rgba(0,0,0,.5);
+}
+.zooks-promos-area-2 input{
+  border-radius: 30px;
+    margin: 0%;
+    padding: 4%;
+}
+.zooks-promos-area-2 button{
+  border-radius: 20px;
+    padding: 16px;
+    background-color: #b41f1f;
+    border: none;
+    color: white;
+    text-transform: uppercase;
 }
 .zooks-promos-area .total-promos-area {
   margin-top: 30px;
@@ -820,8 +862,8 @@ ul {
   transform: scale(1.2);
 }
 .zooks-promos-area .total-promos-area .owl-controls .owl-buttons .owl-prev {
-  background: #f3b832;
-  border: 1px solid #f3b832;
+  background: #b41f1f;
+    border: 1px solid #e32a2a;
   border-radius: 0;
   color: #444444;
   height: 80px;
@@ -847,8 +889,8 @@ ul {
   color: #ffffff;
 }
 .zooks-promos-area .total-promos-area .owl-controls .owl-buttons .owl-next {
-  background: #f3b832;
-  border: 1px solid #f3b832;
+  background: #b41f1f;
+    border: 1px solid #e32a2a;
   border-radius: 0;
   color: #444444;
   height: 80px;
@@ -872,11 +914,13 @@ ul {
   border: 1px solid #f3b832;
   color: #ffffff;
 }
+
 /* ------------------------------------
 8.Footer Start Here 
 ---------------------------------------*/
 footer .footer-top-area {
   padding: 100px 0;
+  background-color: black;
 }
 footer .footer-top-area .widget .footer-one {
   position: relative;
@@ -901,10 +945,11 @@ footer .footer-top-area .widget .footer-one p {
 }
 footer .footer-top-area .widget .footer-two .widget-title {
   font-size: 18px;
-  font-family: 'Lato', sans-serif;
-  color: #a17207;
-  font-weight: 800;
+  font-family: 'Roboto Condensed', sans-serif;
+  color:white;
+  font-weight: normal;
   margin-bottom: 20px;
+  text-transform: uppercase;
 }
 footer .footer-top-area .widget .footer-two ul {
   margin: 0;
@@ -912,7 +957,7 @@ footer .footer-top-area .widget .footer-two ul {
 }
 footer .footer-top-area .widget .footer-two ul li {
   display: block;
-  border-bottom: 1px solid #ededed;
+  
   margin-bottom: 5px;
   padding-bottom: 5px;
 }
@@ -930,10 +975,11 @@ footer .footer-top-area .widget .footer-two ul li a:hover {
 }
 footer .footer-top-area .widget .footer-three .widget-title {
   font-size: 18px;
-  font-family: 'Lato', sans-serif;
-  color: #a17207;
-  font-weight: 800;
+  font-family: 'Roboto Condensed', sans-serif;
+  color:white;
+  font-weight: normal;
   margin-bottom: 20px;
+  text-transform: uppercase;
 }
 footer .footer-top-area .widget .footer-three ul {
   margin: 0;
@@ -961,10 +1007,10 @@ footer .footer-top-area .widget .footer-three ul li a img {
 }
 footer .footer-top-area .widget .footer-four .widget-title {
   font-size: 18px;
-  font-family: 'Lato', sans-serif;
-  color: #a17207;
-  font-weight: 800;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: white;
   margin-bottom: 20px;
+  text-transform: uppercase;
 }
 footer .footer-top-area .widget .footer-four ul {
   margin: 0;
@@ -992,8 +1038,8 @@ footer .footer-top-area .widget .footer-four ul li a i {
   height: 30px;
   line-height: 30px;
   border-radius: 50%;
-  color: #ffffff;
-  background: #f3b832;
+  color: #646464;
+  
   text-align: center;
   margin: auto;
   margin-right: 10px;
@@ -1044,6 +1090,7 @@ footer .footer-top-area .widget .footer-five ul li a:hover:before {
 footer .footer-bottom {
   background: url(images/foter.png) no-repeat;
   background-position: center;
+  background-color: black;
 }
 footer .footer-bottom .footer-text p {
   color: #ffffff;
@@ -1073,7 +1120,7 @@ footer .footer-bottom .footer-text p i {
   position: relative;
 }
 .breadcumb-area .breadcumb:before {
-  border: 1px dashed #f3b832;
+  border: 1px dashed #b72020;
   bottom: -8px;
   content: "";
   height: 1px;
@@ -1082,7 +1129,7 @@ footer .footer-bottom .footer-text p i {
   width: 100%;
 }
 .breadcumb-area .breadcumb:after {
-  border: 1px dashed #f3b832;
+  border: 1px dashed #b72020;
   bottom: -14px;
   content: "";
   height: 1px;
@@ -1092,7 +1139,7 @@ footer .footer-bottom .footer-text p i {
 }
 .breadcumb-area .breadcumb ul li {
   display: inline-block;
-  color: #f3b832;
+  color: #b72020;
   margin-right: 10px;
   font-size: 16px;
 }
@@ -1530,7 +1577,7 @@ footer .footer-bottom .footer-text p i {
   font-family: 'Lato', sans-serif;
   font-size: 26px;
   font-weight: 800;
-  color: #f3b832;
+  color: #b5121b;;
   text-transform: uppercase;
   line-height: 1.5;
 }
@@ -1540,8 +1587,8 @@ footer .footer-bottom .footer-text p i {
   height: 40px;
   text-align: center;
   border-radius: 50%;
-  background: #f3b832;
-  border: 5px solid #fddd9a;
+  background: #b41f1f;
+    border: 5px solid #e32a2a;
   line-height: 30px;
   color: #ffffff;
   font-weight: 800;
@@ -1672,7 +1719,7 @@ footer .footer-bottom .footer-text p i {
   margin: 30px 0;
 }
 .sidebar-area .single-sidebar .widget .widget-title {
-  background: #f3b832;
+  background: #b72020;
   padding: 15px 20px;
   color: #ffffff;
   margin-bottom: 0;
@@ -1719,7 +1766,7 @@ footer .footer-bottom .footer-text p i {
 }
 .sidebar-area .single-sidebar .widget .sidebar-content .button a {
   display: block;
-  background: #f3b832;
+  background: #b72020;
   padding: 15px 20px;
   color: #ffffff;
   margin-bottom: 0;
@@ -1770,7 +1817,7 @@ li:first-child .wizard-content {
   color: #4c4c4c;
 }
 .btn-green {
-  background: #f3b832 none repeat scroll 0 0;
+  background: #b72020 none repeat scroll 0 0;
   border: medium none;
   border-radius: 10px;
   box-shadow: none;
@@ -2013,7 +2060,7 @@ li:first-child .wizard-content {
   font-weight: 800;
   text-transform: uppercase;
   text-align: center;
-  background: #f3b832;
+  background: #b72020;
 }
 .cinema-sumary-area .media .media-body .button a:hover {
   background: #bb8d25;
@@ -2042,7 +2089,7 @@ li:first-child .wizard-content {
   border-radius: 0;
 }
 .done.last-button {
-  width: 270px !important;
+  width: 286px !important;
 }
 .done.last-button img {
   margin: 0 10px;

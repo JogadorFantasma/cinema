@@ -67,11 +67,18 @@
 /*----------------------------
 Product Items added
 ------------------------------ */
-	$('.spinner .btn:first-of-type').on('click', function() {
-	  $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
+	$('.spinner-normal .btn:first-of-type').on('click', function() {
+	  $('.spinner-normal input').val( parseInt($('.spinner-normal input').val(), 10) + 1);
 	});
-	$('.spinner .btn:last-of-type').on('click', function() {
-	  $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
+	$('.spinner-normal .btn:last-of-type').on('click', function() {
+	  $('.spinner-normal input').val( parseInt($('.spinner-normal input').val(), 10) - 1);
+  }); 
+  
+  $('.spinner-meia .btn:first-of-type').on('click', function() {
+	  $('.spinner-meia input').val( parseInt($('.spinner-meia input').val(), 10) + 1);
+	});
+	$('.spinner-meia .btn:last-of-type').on('click', function() {
+	  $('.spinner-meia input').val( parseInt($('.spinner-meia input').val(), 10) - 1);
 	}); 
 
 /*-----------------------------------
