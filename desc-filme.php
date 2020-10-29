@@ -148,36 +148,7 @@ $descFilme = $filmes->rsDados('', '', '', $id);
         </div>
         <!-- Single Movie Show End Here -->
         <!-- Zooks Promos Start Here -->
-        <div class="zooks-promos-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="section-title">
-                            <h2><span>Zooks</span> Promos</h2>
-                            <p>Weekly Zooks <strong>promotional</strong> ads!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="total-promos-area">
-                            <div class="single-promos">
-                                <a href="#"><img src="<?php echo SITE_URL;?>/images/promos/1.jpg" alt=""></a>
-                            </div>
-                            <div class="single-promos">
-                                <a href="#"><img src="<?php echo SITE_URL;?>/images/promos/2.jpg" alt=""></a>
-                            </div>
-                            <div class="single-promos">
-                                <a href="#"><img src="<?php echo SITE_URL;?>/images/promos/3.jpg" alt=""></a>
-                            </div>
-                            <div class="single-promos">
-                                <a href="#"><img src="<?php echo SITE_URL;?>/images/promos/1.jpg" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php include"newsletter.php";?>
         <!-- Zooks Promos End Here -->
     <?php include "footer.php";?>
         <!-- all js here -->

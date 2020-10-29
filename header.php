@@ -16,15 +16,15 @@
                                         <li class="active"><a href="./">Home</a></li>
                                         <li><a href="#">Filmes</a>
                                             <ul>
-                                                <li><a href="show-details.html">Em Cartas</a></li>
-                                                <li><a href="buy-movie-ticket.html">Em Breve</a></li>
+                                                <li><a href="./filmes">Em Cartas</a></li>
+                                                <li><a href="./filmes">Em Breve</a></li>
                                                 
                                             </ul>
                                         </li>
-                                        <li><a href="shows.html">Produtos</a></li>
-                                        <li><a href="rent.html">Empresa</a></li>
+                                        <li><a href="./produtos">Produtos</a></li>
+                                        <li><a href="./sobre">Empresa</a></li>
                                         
-                                        <li><a href="contact.html">Contato</a></li>
+                                        <li><a href="./contato">Contato</a></li>
                                          
                                     </ul>
                                 </nav>
@@ -45,18 +45,18 @@
                              <div class="mobile-menu">
                                 <nav id="dropdown">
                                     <ul>
-                                        <li class="active"><a href="index.html">Home</a></li>
-                                        <li><a href="trailers.html">Trailers</a></li>
-                                        <li><a href="shows.html">Shows</a></li>
-                                        <li><a href="rent.html">Rent The Cinema</a></li>
-                                        <li><a href="#">Pages</a>
+                                    <li class="active"><a href="./">Home</a></li>
+                                        <li><a href="#">Filmes</a>
                                             <ul>
-                                                <li><a href="show-details.html">Show Details</a></li>
-                                                <li><a href="buy-movie-ticket.html">Purchase Your Entry</a></li>
-                                                <li><a href="calender.html">Movie Calender</a></li>
+                                                <li><a href="./filmes">Em Cartas</a></li>
+                                                <li><a href="./filmes">Em Breve</a></li>
+                                                
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="./produtos">Produtos</a></li>
+                                        <li><a href="./sobre">Empresa</a></li>
+                                        
+                                        <li><a href="./contato">Contato</a></li>
                                         <li ><a data-toggle="modal" data-target="#cartModal" class="nav-link"><i class="fa fa-shopping-cart"></i>[<?php if(isset($_SESSION['shopping_cart']) && !empty($_SESSION['shopping_cart'])){ echo count($_SESSION['shopping_cart']);}else{ echo "0";}?>]</a></li>
                                     </ul>
                                 </nav>
