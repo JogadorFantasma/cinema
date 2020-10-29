@@ -2,7 +2,6 @@ RewriteEngine On
 #RewriteBase /
 # Adicionar o barra (/) no final do endereço URL
 RewriteCond %{REQUEST_FILENAME} !-f
-<<<<<<< HEAD
 RewriteCond    %{HTTP_HOST} !^\. [NC]
 RewriteRule    ^(.+[^/])/$ https://%{HTTP_HOST}/$1 [R=301,L]
 AddType application/x-httpd-php .html .htm
@@ -12,47 +11,23 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^entrada/([a-zA-Z-0-9-_]+)/([a-zA-Z-0-9-_]+)/([a-zA-Z-0-9-_]+)$ compras.php?horario=$1&data=$2&url=$3
 RewriteRule ^entrada/2/([a-zA-Z-0-9-_]+)$ compras1.php?url=$1
-=======
-
-RewriteCond    %{HTTP_HOST} !^\. [NC]
-RewriteRule    ^(.+[^/])/$ https://%{HTTP_HOST}/$1 [R=301,L]
-AddType application/x-httpd-php .html .htm 
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 RewriteRule ^filme/([a-zA-Z-0-9-_]+)$ desc-filme.php?id=$1
 RewriteRule ^blog/([a-zA-Z-0-9-_]+)$ desc-blog.php?id=$1
 RewriteRule ^categoria/([a-zA-Z-0-9-_]+)$ produtos.php?cat=$1
 RewriteRule ^produto/([a-zA-Z-0-9-_]+)$ desc-produto.php?id=$1
-<<<<<<< HEAD
-=======
-
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 RewriteRule ^produtos$ produtos.php
 RewriteRule ^login$ login.php
 RewriteRule ^area-cliente$ area-cliente.php
 RewriteRule ^modo-pagamento$ modo-pagamento.php
 RewriteRule ^blog$ blog.php
 RewriteRule ^sobre$ sobre.php
-<<<<<<< HEAD
 RewriteRule ^filmes$ filmes.php
-=======
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 RewriteRule ^contato$ contato.php
 RewriteRule ^carrinho$ carrinho.php
 RewriteRule ^sitemap.xml$ sitemap.xml
 RewriteRule ^robots.txt$ robots.txt
 RewriteRule ^painel/$ painel
 ErrorDocument 404 /404.php
-<<<<<<< HEAD
-=======
-
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 ## EXPIRES CACHING ##
 <IfModule mod_expires.c>
 ExpiresActive On
@@ -69,16 +44,7 @@ ExpiresByType image/x-icon "access 1 year"
 ExpiresDefault "access 1 month"
 </IfModule>
 ## EXPIRES CACHING ##
-<<<<<<< HEAD
 <ifModule mod_headers.c>
 Header unset ETag
 </ifModule>
 FileETag None
-=======
-
-<ifModule mod_headers.c>   
-Header unset ETag
-</ifModule>
-FileETag None
-
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
