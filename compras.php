@@ -189,10 +189,10 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                   <input type="hidden" name="hora_filme" value="<?php echo $horario_ingresso;?>">
 									<input type="hidden" name="valor_produto" value="<?php echo $dadosDaProgramacao[0]->valor;?>">
                   <div class="spinner-normal2">
-                  <input type="" name="quantidade_ingresso_inteira" value="1">
+                  <input type="hidden" name="quantidade_ingresso_inteira" value="1">
                   </div>
                   <div class="spinner-meia2">
-                  <input type="" name="quantidade_ingresso_meia" value="0">
+                  <input type="hidden" name="quantidade_ingresso_meia" value="0">
                   </div>
 									<input type="hidden" name="addCarrinhoIngresso" value="S">
 									<button class="btn-green done" type="submit">Proximo <i class="fa fa-angle-right" aria-hidden="true"></i></button>

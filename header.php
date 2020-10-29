@@ -3,11 +3,7 @@
             <div class="header-area">
                 <div class="container">
               
-<<<<<<< HEAD
-                    <div class="row">
-=======
                     <div class="row menu-overlay">
->>>>>>> 4b38f4c1dde727b5fdf9fa8495401051167d5e59
                         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="logo-area">
                                 <a href="./"><img src="<?php echo SITE_URL;?>/images/logo.png" alt=""></a>
