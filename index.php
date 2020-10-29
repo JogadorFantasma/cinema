@@ -1,5 +1,8 @@
 <?php 
 include "includes.php";
+
+$dadosBanner = $banners->rsDados();
+$dadosFilmes = $filmes->rsDados();
 ?>
 <!doctype html>
 <html class="no-js" lang="pt-br">
@@ -7,15 +10,14 @@ include "includes.php";
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Cinema Premier</title>
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php if(isset($metastags->meta_title_principal) && !empty($metastags->meta_title_principal)){echo $metastags->meta_title_principal;}?></title>
-    <meta name="description" content="<?php if(isset($metastags->meta_description_principal) && !empty($metastags->meta_description_principal)){echo $metastags->meta_description_principal;}?>"/>
-		<meta name="keywords" content="<?php if(isset($metastags->meta_keywords_principal) && !empty($metastags->meta_keywords_principal)){echo $metastags->meta_keywords_principal;}?>">
-    <?php if(isset($infoSistema->favicon) && !empty($infoSistema->favicon)){?>
-		<link rel="shortcut icon" href="img/<?php echo $infoSistema->favicon;?>" >
-		<link rel="icon" href="img/<?php echo $infoSistema->favicon;?>" >
-    <?php }?>
-    <meta name="author" content="Adriano Monteiro"><!-- bootstrap v3.3.6 css -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/favicon.ico">
+    <!-- Place favicon.ico in the root directory -->
+    <!-- all css here -->
+    <!-- bootstrap v3.3.6 css -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- animate css -->
     <link rel="stylesheet" href="css/animate.css">
@@ -39,6 +41,20 @@ include "includes.php";
 
 <body>
     <?php include "header.php";?>
+    <div class="caixa-cidade animated bounce" id="animacao">
+
+		<h3 class="text-center"><i class="fa fa-clock-o" aria-hidden="true"></i> Programação em </h3>
+		<select class="form-control" id="select-cidade">
+			<option value="3"> UNAÍ/MG </option>
+            <option value="4"> SOBRADINHO/DF </option>
+            <option value="2"> LEM/BA </option>
+            <option value="6"> GUANAMBI/BA </option>
+            <option value="1"> FORMOSA/GO </option>
+            <option value="7"> BRUMADO/BA </option>
+            <option value="5"> BARREIRAS/BA </option>		
+        </select>
+		<span style="margin-left: 30px">escolha sua cidade</span>
+	</div>
     <!-- Slider Area Start Here -->
     <div class="slider-area">
         <div class="slider-bg">
@@ -46,6 +62,7 @@ include "includes.php";
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="slider-content">
+                            <?php foreach($dadosBanner as $itensBanner){ ?>
                             <div class="single-slide-content">
                                 <h1 class="wow zoomIn text-uppercase text-white  animated" data-wow-duration="0.3s"
                                     data-wow-delay="0.3s"
@@ -58,42 +75,9 @@ include "includes.php";
 
                                 <a href="#">Saiba Mais</a>
                             </div>
-                            <div class="single-slide-content">
-                                <h1 class="wow zoomIn text-uppercase text-white  animated" data-wow-duration="0.3s"
-                                    data-wow-delay="0.3s"
-                                    style="visibility: visible; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: zoomIn;">
-                                    Filmes</h1>
-                                <h2 class="wow zoomIn text-white text-uppercase  animated" data-wow-duration="0.5s"
-                                    data-wow-delay="0.5s"
-                                    style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: zoomIn;">
-                                    Aproveite</h2>
-
-                                <a href="#">Saiba Mais</a>
-                            </div>
-                            <div class="single-slide-content">
-                                <h1 class="wow zoomIn text-uppercase text-white  animated" data-wow-duration="0.3s"
-                                    data-wow-delay="0.3s"
-                                    style="visibility: visible; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: zoomIn;">
-                                    Filmes</h1>
-                                <h2 class="wow zoomIn text-white text-uppercase  animated" data-wow-duration="0.5s"
-                                    data-wow-delay="0.5s"
-                                    style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: zoomIn;">
-                                    Aproveite</h2>
-
-                                <a href="#">Saiba Mais</a>
-                            </div>
-                            <div class="single-slide-content">
-                                <h1 class="wow zoomIn text-uppercase text-white  animated" data-wow-duration="0.3s"
-                                    data-wow-delay="0.3s"
-                                    style="visibility: visible; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: zoomIn;">
-                                    Filmes</h1>
-                                <h2 class="wow zoomIn text-white text-uppercase  animated" data-wow-duration="0.5s"
-                                    data-wow-delay="0.5s"
-                                    style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: zoomIn;">
-                                    Aproveite</h2>
-
-                                <a href="#">Saiba Mais</a>
-                            </div>
+                            <?php }?>
+                            
+                            
                         </div>
                     </div>
                 </div>
@@ -148,18 +132,12 @@ include "includes.php";
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="total-promos-area">
-                        <div class="single-promos">
-                            <a href="#"><img src="images/promos/1.jpg" alt=""></a>
-                        </div>
-                        <div class="single-promos">
-                            <a href="#"><img src="images/promos/2.jpg" alt=""></a>
-                        </div>
-                        <div class="single-promos">
-                            <a href="#"><img src="images/promos/3.jpg" alt=""></a>
-                        </div>
-                        <div class="single-promos">
-                            <a href="#"><img src="images/promos/1.jpg" alt=""></a>
-                        </div>
+                    <?php foreach($dadosFilmes as $itensFilmes){ ?>    
+                    <div class="single-promos">
+                            <a href="#"><img src="img/<?php echo $itensFilmes->imagem?>" alt=""></a>
+                    </div>
+                    <?php } ?>   
+                        
                     </div>
                 </div>
             </div>

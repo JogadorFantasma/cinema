@@ -14,6 +14,9 @@ $produtos = Produtos::getInstance(Conexao::getInstance());
 include "Class/categorias.class.php";
 $categorias = Categorias::getInstance(Conexao::getInstance());
 
+include "Class/banners.class.php";
+$banners = Banners::getInstance(Conexao::getInstance());
+
 
 define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST'].'/projects/cinema');
 

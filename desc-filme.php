@@ -148,6 +148,9 @@ $descFilme = $filmes->rsDados('', '', '', $id);
         </div>
         <!-- Single Movie Show End Here -->
         <!-- Zooks Promos Start Here -->
+<<<<<<< HEAD
+        <?php include"newsletter.php";?>
+=======
         <div class="zooks-promos-area">
             <div class="container">
                 <div class="row">
@@ -178,6 +181,7 @@ $descFilme = $filmes->rsDados('', '', '', $id);
                 </div>
             </div>
         </div>
+>>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
         <!-- Zooks Promos End Here -->
     <?php include "footer.php";?>
         <!-- all js here -->

@@ -3,7 +3,11 @@
             <div class="header-area">
                 <div class="container">
               
+<<<<<<< HEAD
                     <div class="row">
+=======
+                    <div class="row menu-overlay">
+>>>>>>> 4b38f4c1dde727b5fdf9fa8495401051167d5e59
                         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="logo-area">
                                 <a href="./"><img src="<?php echo SITE_URL;?>/images/logo.png" alt=""></a>
@@ -14,25 +18,25 @@
                                 <nav>
                                     <ul>
                                         <li class="active"><a href="./">Home</a></li>
-                                        <li><a href="trailers.html">Trailers</a></li>
-                                        <li><a href="shows.html">Shows</a></li>
-                                        <li><a href="rent.html">Rent The Cinema</a></li>
-                                        <li><a href="#">Pages</a>
+                                        <li><a href="#">Filmes</a>
                                             <ul>
-                                                <li><a href="show-details.html">Show Details</a></li>
-                                                <li><a href="buy-movie-ticket.html">Purchase Your Entry</a></li>
-                                                <li><a href="calender.html">Movie Calender</a></li>
+                                                <li><a href="./filmes">Em Cartas</a></li>
+                                                <li><a href="./filmes">Em Breve</a></li>
+                                                
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                         <li ><a data-toggle="modal" data-target="#cartModal" class="nav-link"><i class="fa fa-shopping-cart"></i>[<?php if(isset($_SESSION['shopping_cart']) && !empty($_SESSION['shopping_cart'])){ echo count($_SESSION['shopping_cart']);}else{ echo "0";}?>]</a></li>
+                                        <li><a href="./produtos">Produtos</a></li>
+                                        <li><a href="./sobre">Empresa</a></li>
+                                        
+                                        <li><a href="./contato">Contato</a></li>
+                                         
                                     </ul>
                                 </nav>
                             </div>
                         </div>
                         <div class="col-xs-1">
                             <div class="header-right">            
-                                <div class="search-area"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div> 
+                                <div style="font-size:20px"><a data-toggle="modal" data-target="#cartModal" style="color:#717171; text-decoration:none;" class="nav-link"><i class="fa fa-shopping-cart"></i>[<?php if(isset($_SESSION['shopping_cart']) && !empty($_SESSION['shopping_cart'])){ echo count($_SESSION['shopping_cart']);}else{ echo "0";}?>]</a></div> 
                             </div>
                         </div>
                     </div>
@@ -45,18 +49,18 @@
                              <div class="mobile-menu">
                                 <nav id="dropdown">
                                     <ul>
-                                        <li class="active"><a href="index.html">Home</a></li>
-                                        <li><a href="trailers.html">Trailers</a></li>
-                                        <li><a href="shows.html">Shows</a></li>
-                                        <li><a href="rent.html">Rent The Cinema</a></li>
-                                        <li><a href="#">Pages</a>
+                                    <li class="active"><a href="./">Home</a></li>
+                                        <li><a href="#">Filmes</a>
                                             <ul>
-                                                <li><a href="show-details.html">Show Details</a></li>
-                                                <li><a href="buy-movie-ticket.html">Purchase Your Entry</a></li>
-                                                <li><a href="calender.html">Movie Calender</a></li>
+                                                <li><a href="./filmes">Em Cartas</a></li>
+                                                <li><a href="./filmes">Em Breve</a></li>
+                                                
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="./produtos">Produtos</a></li>
+                                        <li><a href="./sobre">Empresa</a></li>
+                                        
+                                        <li><a href="./contato">Contato</a></li>
                                         <li ><a data-toggle="modal" data-target="#cartModal" class="nav-link"><i class="fa fa-shopping-cart"></i>[<?php if(isset($_SESSION['shopping_cart']) && !empty($_SESSION['shopping_cart'])){ echo count($_SESSION['shopping_cart']);}else{ echo "0";}?>]</a></li>
                                     </ul>
                                 </nav>
@@ -65,7 +69,7 @@
                     </div>
                 </div>
             </div>            
-            <div class="search-box-area">
+            <!-- <div class="search-box-area">
                 <div class="container">
                       <div class="row">                          
                           <div class="search-form">
@@ -80,8 +84,23 @@
                           </div>
                       </div>
                   </div>              
-            </div>
+            </div> -->
         </header>
+        
+        <!-- <div class="caixa-cidade animated bounce" id="animacao">
+
+		<h3 class="text-center"><i class="fa fa-clock-o" aria-hidden="true"></i> Programação em </h3>
+		<select class="form-control" id="select-cidade">
+			<option value="3"> UNAÍ/MG </option>
+            <option value="4"> SOBRADINHO/DF </option>
+            <option value="2"> LEM/BA </option>
+            <option value="6"> GUANAMBI/BA </option>
+            <option value="1"> FORMOSA/GO </option>
+            <option value="7"> BRUMADO/BA </option>
+            <option value="5"> BARREIRAS/BA </option>		
+        </select>
+		<span style="margin-left: 30px">escolha sua cidade</span>
+	</div> -->
         <!-- Header End Here -->
 
         	<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
