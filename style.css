@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&family=Poppins:wght@100;200;300;400;700&display=swap');
-=======
-@import url('https://fonts.googleapis.com/css?family=Architects+Daughter|Gloria+Hallelujah|Lato:300,400,600,700,700i,900');
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 /*-------------------------------------
 
 Template Name: Zooks - Zoo, Cinema, Museum, Comedy Club, Circus & Aquarium HTML5 Responsive Template
@@ -68,12 +64,6 @@ body {
   margin-left: 15px;
   margin-bottom: 24px;
 }
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 .aligncenter {
   display: block;
   margin: 0 auto 24px;
@@ -99,32 +89,20 @@ h5,
 h6 {
   margin: 0 0 24px;
   font-weight: 500;
-<<<<<<< HEAD
   font-family: 'Poppins', sans-serif;
-=======
-  font-family: 'Gloria Hallelujah', cursive;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 }
 a {
   transition: all 0.5s ease 0s;
   text-decoration: none;
 }
 a:hover {
-<<<<<<< HEAD
   color: #fff;
-=======
-  color: #f3b832;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
   text-decoration: none;
 }
 a:active,
 a:hover {
   outline: 0 none;
-<<<<<<< HEAD
   color: #fff;
-=======
-  color: #f3b832;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 }
 ul {
   list-style: outside none none;
@@ -135,19 +113,11 @@ ul {
   clear: both;
 }
 ::-moz-selection {
-<<<<<<< HEAD
   background: #dd2929;
   text-shadow: none;
 }
 ::selection {
   background: #dd2929;
-=======
-  background: #f3b832;
-  text-shadow: none;
-}
-::selection {
-  background: #f3b832;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
   text-shadow: none;
 }
 .browserupgrade {
@@ -247,15 +217,9 @@ ul {
   width: 100%;
 }
 .header-area .user-area .loginpage .loginpage-body .login-left {
-<<<<<<< HEAD
   display: inline;
   width: 30%;
   float: left;
-=======
-  display: inline-block;
-  width: 30%;
-  /* float: left; */
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 }
 .header-area .user-area .loginpage .loginpage-body .login-left form {
   margin: 0 0 30px;
@@ -293,7 +257,6 @@ ul {
   right: 10px;
   display: block;
 }
-<<<<<<< HEAD
 
 .menu-overlay{
   background-color: #ececec;
@@ -318,8 +281,6 @@ ul {
   animation-delay: 5s;
   animation-iteration-count: infinite;
 }
-=======
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 .modal-open .modal{z-index: 9999999;}
 .header-area .user-area h1 {
   font-size: 45px;
@@ -328,11 +289,7 @@ ul {
   color: #a17207;
 }
 .header-area .user-area h1 span {
-<<<<<<< HEAD
   font-family: 'Poppins', sans-serif;
-=======
-  font-family: 'Gloria Hallelujah', cursive;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
   color: #f3b832;
 }
 .header-area .user-area p {
@@ -439,11 +396,7 @@ ul {
 }
 .header-area .main-menu ul li ul {
   position: absolute;
-<<<<<<< HEAD
   background: #b41f1f;
-=======
-  background: #f3b832;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
   left: 0;
   opacity: 0;
   top: 100%;
@@ -457,11 +410,7 @@ ul {
 }
 .header-area .main-menu ul li ul li {
   display: block;
-<<<<<<< HEAD
   border-bottom: 1px solid #e32a2a;
-=======
-  border-bottom: 1px solid #f3b832;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
   margin: 0;
   padding: 0;
 }
@@ -471,11 +420,7 @@ ul {
   text-decoration: none;
   color: #ffffff !important;
   font-size: 14px;
-<<<<<<< HEAD
   font-weight: 400;
-=======
-  font-weight: 300;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
   transition: all 0.3s;
 }
 .header-area .main-menu ul li ul li a:hover {
@@ -483,17 +428,10 @@ ul {
   margin-left: 5px;
 }
 .header-area .main-menu ul li.active {
-<<<<<<< HEAD
   border: 1px solid #e32a2a;
 }
 .header-area .main-menu ul li.active:after {
   background: #ba2121;
-=======
-  border: 1px solid #ffffff;
-}
-.header-area .main-menu ul li.active:after {
-  background: #ffffff;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
   content: "";
   height: 1px;
   position: absolute;
@@ -509,20 +447,12 @@ ul {
   display: block;
   font-size: 16px;
   text-decoration: none;
-<<<<<<< HEAD
   color: #717171;
-=======
-  color: #ffffff;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
   font-weight: 800;
   text-transform: uppercase;
 }
 .header-area .main-menu ul li a:hover {
-<<<<<<< HEAD
   color: #b41f1f;
-=======
-  color: #dddddd;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 }
 .header-area .header-right {
   text-align: center;
@@ -1195,7 +1125,6 @@ footer .footer-bottom .footer-text p {
 footer .footer-bottom .footer-text p i {
   padding: 0 10px;
 }
-<<<<<<< HEAD
 .fa-heart{
   color: red;
 }
@@ -1245,8 +1174,6 @@ footer .copy-hoogli{
   font-size: 1em;
 }
 
-=======
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 #header {
   background-image: url("images/bread.png");
   background-position: center center;
@@ -1565,19 +1492,11 @@ footer .copy-hoogli{
   margin-right: 15px;
 }
 .portfolio-one-area .portfolio-menu ul li:hover {
-<<<<<<< HEAD
   background: #b01f1f;
   color: #ffffff;
 }
 .portfolio-one-area .portfolio-menu ul li.active {
   background: #b01f1f;
-=======
-  background: #f3b832;
-  color: #ffffff;
-}
-.portfolio-one-area .portfolio-menu ul li.active {
-  background: #f3b832;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
   color: #ffffff;
 }
 .portfolio-one-area .single-portfolio {
@@ -1851,13 +1770,8 @@ footer .copy-hoogli{
   padding: 0;
 }
 .single-movie-content .payment-wizard li.active .wizard-content .panel-body .vip-seat ul li {
-<<<<<<< HEAD
   display: inline;
   float: left;
-=======
-  display: inline-block;
-  /* float: left; */
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
   width: 50%;
 }
 .single-movie-content .payment-wizard li.active .wizard-content .panel-body .vip-seat ul li.right {
@@ -1981,13 +1895,8 @@ li:first-child .wizard-content {
   border: medium none;
   border-radius: 10px;
   box-shadow: none;
-<<<<<<< HEAD
   display: inline;
   float: right;
-=======
-  display: inline-block;
-  /* float: right; */
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
   height: 40px;
   margin-top: 27px;
   width: 160px;
@@ -2546,28 +2455,17 @@ li:first-child .wizard-content {
   left: 30px;
 }
 .page-banner-area .banner-content h1 {
-<<<<<<< HEAD
   float: left;
   margin-top: 40px;
   display: inline;
-=======
-  /* float: left; */
-  margin-top: 40px;
-  display: inline-block;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
   color: #fff;
 }
 .page-banner-area .banner-content h1 span {
   color: #a17207;
 }
 .page-banner-area .banner-content ul {
-<<<<<<< HEAD
   float: left;
   display: inline;
-=======
-  /* float: left; */
-  display: inline-block;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
   margin-left: 100px;
   color: #fff;
 }
@@ -2591,11 +2489,7 @@ li:first-child .wizard-content {
 .show-ticket-area .ticket-form .contact-details h2 span {
   color: #f3b832;
   font-weight: 600;
-<<<<<<< HEAD
   font-family: 'Poppins', sans-serif;
-=======
-  font-family: 'Gloria Hallelujah', cursive;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 }
 .show-ticket-area .ticket-form .contact-details form fieldset .form-group{
   position: relative;
@@ -2651,11 +2545,7 @@ li:first-child .wizard-content {
   color: #f3b832;
   position: relative;
   margin-bottom: 20px;
-<<<<<<< HEAD
   font-family: 'Poppins', sans-serif;
-=======
-  font-family: 'Gloria Hallelujah', cursive;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 }
 .contact-page-area .contact-informations ul li .single-info p {
   font-size: 18px;
@@ -2671,11 +2561,7 @@ li:first-child .wizard-content {
   color: #f3b832;
   position: relative;
   margin-bottom: 40px;
-<<<<<<< HEAD
   font-family: 'Poppins', sans-serif;
-=======
-  font-family: 'Gloria Hallelujah', cursive;
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 }
 .contact-page-area .leave-comments-area fieldset {
   margin-top: 20px;

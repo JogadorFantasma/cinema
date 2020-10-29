@@ -68,11 +68,7 @@ $puxaProdutos = $produtos->rsDados();
             <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="heading-title">
-<<<<<<< HEAD
                     <h2>Produtos</h2>
-=======
-                    <h2>Checkout our Movie Trailers</h2>
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
                 </div>
               </div>
             </div>

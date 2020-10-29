@@ -1,11 +1,8 @@
 <?php 
 include "includes.php";
-<<<<<<< HEAD
 
 $dadosBanner = $banners->rsDados();
 $dadosFilmes = $filmes->rsDados();
-=======
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
 ?>
 <!doctype html>
 <html class="no-js" lang="pt-br">
@@ -44,7 +41,6 @@ $dadosFilmes = $filmes->rsDados();
 
 <body>
     <?php include "header.php";?>
-<<<<<<< HEAD
     <div class="caixa-cidade animated bounce" id="animacao">
 
 		<h3 class="text-center"><i class="fa fa-clock-o" aria-hidden="true"></i> Programação em </h3>
@@ -59,8 +55,6 @@ $dadosFilmes = $filmes->rsDados();
         </select>
 		<span style="margin-left: 30px">escolha sua cidade</span>
 	</div>
-=======
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
     <!-- Slider Area Start Here -->
     <div class="slider-area">
         <div class="slider-bg">
@@ -68,10 +62,7 @@ $dadosFilmes = $filmes->rsDados();
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="slider-content">
-<<<<<<< HEAD
                             <?php foreach($dadosBanner as $itensBanner){ ?>
-=======
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
                             <div class="single-slide-content">
                                 <h1 class="wow zoomIn text-uppercase text-white  animated" data-wow-duration="0.3s"
                                     data-wow-delay="0.3s"
@@ -84,48 +75,9 @@ $dadosFilmes = $filmes->rsDados();
 
                                 <a href="#">Saiba Mais</a>
                             </div>
-<<<<<<< HEAD
                             <?php }?>
                             
                             
-=======
-                            <div class="single-slide-content">
-                                <h1 class="wow zoomIn text-uppercase text-white  animated" data-wow-duration="0.3s"
-                                    data-wow-delay="0.3s"
-                                    style="visibility: visible; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: zoomIn;">
-                                    Filmes</h1>
-                                <h2 class="wow zoomIn text-white text-uppercase  animated" data-wow-duration="0.5s"
-                                    data-wow-delay="0.5s"
-                                    style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: zoomIn;">
-                                    Aproveite</h2>
-
-                                <a href="#">Saiba Mais</a>
-                            </div>
-                            <div class="single-slide-content">
-                                <h1 class="wow zoomIn text-uppercase text-white  animated" data-wow-duration="0.3s"
-                                    data-wow-delay="0.3s"
-                                    style="visibility: visible; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: zoomIn;">
-                                    Filmes</h1>
-                                <h2 class="wow zoomIn text-white text-uppercase  animated" data-wow-duration="0.5s"
-                                    data-wow-delay="0.5s"
-                                    style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: zoomIn;">
-                                    Aproveite</h2>
-
-                                <a href="#">Saiba Mais</a>
-                            </div>
-                            <div class="single-slide-content">
-                                <h1 class="wow zoomIn text-uppercase text-white  animated" data-wow-duration="0.3s"
-                                    data-wow-delay="0.3s"
-                                    style="visibility: visible; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: zoomIn;">
-                                    Filmes</h1>
-                                <h2 class="wow zoomIn text-white text-uppercase  animated" data-wow-duration="0.5s"
-                                    data-wow-delay="0.5s"
-                                    style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: zoomIn;">
-                                    Aproveite</h2>
-
-                                <a href="#">Saiba Mais</a>
-                            </div>
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
                         </div>
                     </div>
                 </div>
@@ -180,27 +132,12 @@ $dadosFilmes = $filmes->rsDados();
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="total-promos-area">
-<<<<<<< HEAD
                     <?php foreach($dadosFilmes as $itensFilmes){ ?>    
                     <div class="single-promos">
                             <a href="#"><img src="img/<?php echo $itensFilmes->imagem?>" alt=""></a>
                     </div>
                     <?php } ?>   
                         
-=======
-                        <div class="single-promos">
-                            <a href="#"><img src="images/promos/1.jpg" alt=""></a>
-                        </div>
-                        <div class="single-promos">
-                            <a href="#"><img src="images/promos/2.jpg" alt=""></a>
-                        </div>
-                        <div class="single-promos">
-                            <a href="#"><img src="images/promos/3.jpg" alt=""></a>
-                        </div>
-                        <div class="single-promos">
-                            <a href="#"><img src="images/promos/1.jpg" alt=""></a>
-                        </div>
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
                     </div>
                 </div>
             </div>
