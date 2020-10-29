@@ -15,7 +15,7 @@ include "Class/categorias.class.php";
 $categorias = Categorias::getInstance(Conexao::getInstance());
 
 
-define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST'].'/projetos/cinema');
+define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST'].'/cinema-2');
 
 $produtos_id = array();
 
