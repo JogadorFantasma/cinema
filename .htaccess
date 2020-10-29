@@ -21,6 +21,7 @@ RewriteRule ^area-cliente$ area-cliente.php
 RewriteRule ^modo-pagamento$ modo-pagamento.php
 RewriteRule ^blog$ blog.php
 RewriteRule ^sobre$ sobre.php
+RewriteRule ^filmes$ filmes.php
 RewriteRule ^contato$ contato.php
 RewriteRule ^carrinho$ carrinho.php
 RewriteRule ^sitemap.xml$ sitemap.xml
