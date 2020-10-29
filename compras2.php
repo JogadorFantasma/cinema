@@ -97,120 +97,89 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
               <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                 <div class="single-movie-content threee">
                   <ul class="payment-wizard">
-                      <li class="active">
+                      <li >
                           <div class="wizard-heading"><span>1</span>Ingressos</div>
-                            <div class="wizard-content">
-                              <div class="panel-body">
-                                <b>SELECIONE O NÚMERO DE ENTRADAS:</b>
-                                <p class="wizard-paraa">Maximo 10 ingressos por transação.</p>
-                                
-                                
-                                <div class="single-enties">
-                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 acurate">
-                                    <div class="media">
-                                      
-                                      <div class="media-body">
-                                        <h4 class="media-heading">Normal</h4>                                  
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 acurate">
-                                    <div class="entities-properties">
-                                      <ul>
-                                        <li> R$ <?php echo number_format($dadosDaProgramacao[0]->valor,2,',','.');?> </li>
-                                        <li>
-                                            <div class="input-group spinner-normal">
-                                              <div class="input-group-btn-vertical acurate text-center">
-                                                <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                                                <button class="btn btn-default" type="button"><i class="fa fa-minus" aria-hidden="true"></i></button>
-                                                <form>
-                                                  <fieldset>
-                                                    <div class="col-sm-6">
-                                                      <div class="form-group">
-                                                          <input type="text" class="form-control" value="1" minlength="1" maxlength="10">
-                                                      </div>
-                                                    </div>
-                                                  </fieldset>
-                                                </form>
-                                              </div>
-                                            </div>                             
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="single-enties">
-                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 acurate">
-                                    <div class="media">
-                                      
-                                      <div class="media-body">
-                                        <h4 class="media-heading">Estudantes</h4>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 acurate">
-                                    <div class="entities-properties">
-                                      <ul>
-                                        <li>R$ <?php echo number_format(($dadosDaProgramacao[0]->valor/2),2,',','.');?> </li>
-                                        <li>
-                                            <div class="input-group spinner-meia">
-                                              <div class="input-group-btn-vertical acurate text-center">
-                                                <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                                                <button class="btn btn-default" type="button"><i class="fa fa-minus" aria-hidden="true"></i></button>
-                                                <form>
-                                                  <fieldset>
-                                                    <div class="col-sm-6">
-                                                      <div class="form-group">
-                                                          <input type="text" class="form-control" value="0" minlength="0" maxlength="10">
-                                                      </div>
-                                                    </div>
-                                                  </fieldset>
-                                                </form>
-                                              </div>
-                                            </div>                             
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-                                
-                                <!-- <div class="promo-ad-area">
-                                  <img src="images/promo-ad.png" alt="">
-                                </div> -->
-                                <div class="varification">
-                                  <p>* Não se esqueça de trazer uma identificação para verificação. Não haverá reembolso após a compra dos ingressos!</p>
-                                </div>
-                              </div>
-                              <form method="post" action="?action=add&id=252525" >
-									<input type="hidden" name="nome_produto" value="Ingresso">
-                  <input type="hidden" name="url_filme" value="<?php echo $descFilme[0]->url_amigavel;?>">
-                  <input type="hidden" name="id_filme" value="<?php echo $descFilme[0]->id;?>">
-                  <input type="hidden" name="data_filme" value="<?php echo $data_ingresso;?>">
-                  <input type="hidden" name="hora_filme" value="<?php echo $horario_ingresso;?>">
-									<input type="hidden" name="valor_produto" value="<?php echo $dadosDaProgramacao[0]->valor;?>">
-                  <div class="spinner-normal2">
-                  <input type="" name="quantidade_ingresso_inteira" value="1">
-                  </div>
-                  <div class="spinner-meia2">
-                  <input type="" name="quantidade_ingresso_meia" value="0">
-                  </div>
-									<input type="hidden" name="addCarrinhoIngresso" value="S">
-									<button class="btn-green done" type="submit">Proximo <i class="fa fa-angle-right" aria-hidden="true"></i></button>
-									</form>
-                              
-                            </div>
                       </li>
-                      <li>
+                      <li >
+                       
                         <div class="wizard-heading wizard-bor">
                             <span>2</span> Assentos
                           </div>
                         
                       </li>
-                      <li>
+                      <li class="active">
                         <div class="wizard-heading">
                             <span>3</span> Resumo e Pagamento
                           </div>
-                        
+                          <div class="wizard-content" style="display: block;">
+                            <div class="cinema-sumary-area siixx">
+                              <div class="media">
+                                <div class="pull-left siixx">
+                                  <a href="#">
+                                    <div class="sidebar-image siixx">
+                                      <img src="img/<?php echo $descFilme[0]->imagem;?>" alt="">
+                                      <div class="movies-image-head">
+                                      <h2><?php echo $descFilme[0]->titulo;?></h2>
+                                      
+                                      </div>
+                                    </div>
+                                  </a>
+                                  <!-- <div class="varification">
+                                    <p>*Don’t forget to come with an ID for verification. No refunds after the purchase of tickets!</p>
+                                  </div> -->
+                                </div>
+                                <div class="media-body">
+                                  <h4 class="media-heading"><?php echo $descFilme[0]->titulo;?></h4>
+                                  <div class="details">                          
+                                    <ul>
+                                      <li><span>Place: </span> Zooks Cinema City</li>
+                                      <li><span>Day : </span> 05/06/2016</li>
+                                      <li><span>Room : </span> 4 </li>
+                                      <li><span>Time : </span> 21:40</li>
+                                      <li class="entry"><span>ENTRIES:<br/>1x Normal</span> $8.50</li>
+                                    </ul>
+                                  </div>
+                                  <!-- <p>TVA Included (21%) <br/><i>All expenses are included also.</i></p> -->
+                                  <div class="button">
+                                    <a href="#">Total: $8.50</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="contact-details">
+                              <h3>Dados</h3>                              
+                              <form>
+                                <fieldset>
+                                  <div class="row">
+                                  <div class="col-sm-6">
+                                    <div class="form-group">
+                                      <input type="text" class="form-control" placeholder="Nome Completo" required>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="form-group">
+                                      <input type="text" class="form-control" placeholder="CPF" required>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="form-group">
+                                      <input type="text" class="form-control" placeholder="Telefone" required>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="form-group">
+                                      <input type="email" class="form-control" placeholder="E-mail" required>
+                                    </div>
+                                  </div>
+                                  
+                                  
+                                  </div>
+                                </fieldset>
+                              </form>
+                            </div>
+                            <button class="btn-default back-top topppbtn" type="button"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</button>
+                            <button class="btn-green done last-button topppbtn" type="submit">Pagar com o Cartão <img src="images/payment.png" alt=""></button>
+                          </div>
                       </li>
                     </ul>
                   </div>

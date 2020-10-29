@@ -51,7 +51,7 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                             <div class="footer-text">
-                                <p>Zooks <i class="flaticon-shapes"></i> by envalab</p>
+                                <p>© 2009-<?php echo date('Y');?> Feito com <i class="icon icon-heart fa-beat" style="color: red;"></i> por <span><a href="http://hoogli.com.br/" target="_blank"><img src="<?php echo SITE_URL;?>/images/hoogli_logo.svg" width="60" alt="Hoogli-Marketing-Digital-Brasilia-(61)-3436-1999" style="margin-top: 3px;"></a></span>. Todos os direitos reservados.</p>
                             </div>
                         </div>                        
                     </div>

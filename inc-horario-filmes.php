@@ -41,7 +41,7 @@ $incfilmes = Filmes::getInstance(Conexao::getInstance());
                                                         //if(strtotime($hora_agora) > strtotime($puxaHorario->hora_exibicao)){ ?>
                                                        <!--  <li><?php //echo substr($puxaHorario->hora_exibicao,0,5);?></li> -->
                                                        <?php //}else{?>
-                                                        <li><a href="./entrada/<?php echo substr($puxaHorario->hora_exibicao,0,5);?>/<?php echo $puxaFilme->url_amigavel;?>"><?php echo substr($puxaHorario->hora_exibicao,0,5);?></a></li>
+                                                        <li><a href="./entrada/<?php echo substr($puxaHorario->hora_exibicao,0,2).substr($puxaHorario->hora_exibicao,3,2);?>/<?php echo substr($puxaHorario->data_exibicao,0,4).substr($puxaHorario->data_exibicao,5,2).substr($puxaHorario->data_exibicao,8,2);?>/<?php echo $puxaFilme->url_amigavel;?>"><?php echo substr($puxaHorario->hora_exibicao,0,5);?></a></li>
                                                         <?php //}?>
                                                     
                                                     <?php }?>
