@@ -36,7 +36,11 @@ if(isset($_GET['id'])){
         <!-- owl.carousel css -->
         <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/owl.carousel.css">
         <!-- font-awesome css -->
+<<<<<<< HEAD
         <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/font-awesome.min.css">
+=======
+        <link rel="stylesheet" href="<?php echo SITE_URL;?>/ss/font-awesome.min.css">
+>>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
         <!-- style css -->
         <link rel="stylesheet" href="<?php echo SITE_URL;?>/style.css">
         <!-- responsive css -->

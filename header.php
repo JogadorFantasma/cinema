@@ -2,8 +2,94 @@
         <header id="header">
             <div class="header-area">
                 <div class="container">
+<<<<<<< HEAD
               
                     <div class="row menu-overlay">
+=======
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="user-area">
+                          <ul>
+                            <li><a href="#" data-toggle="modal" data-target=".registerpage"> Register</a></li>
+                            <li><a href="#" data-toggle="modal" data-target=".loginpage"> Login</a></li>
+                          </ul>
+                          <!--Register page-->
+                          <div class="modal fade registerpage" tabindex="-1" role="dialog">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-body registerpage-body  text-center">
+                                  <span class="close-form close" data-dismiss="modal"><i class="fa fa-close"></i></span>
+                                  <h1>Register To <span>Zooks</span></h1>
+                                  <p>Already a member? <a href="#"> Sign In</a></p>
+                                  <div class="btn-login-with">
+                                    <span><i class="fa fa-facebook"></i></span>
+                                    <a href="#">Register with Facebook</a>
+                                  </div>
+                                  <form>
+                                    <fieldset>
+                                      <input type="email" placeholder="E-mail Address"/>
+                                      <input type="password" placeholder="Password"/>
+                                      <label>At least 6 characters.</label>
+                                      <button type="submit">Register <span><i class="fa fa-chevron-circle-right"></i></span></button>
+                                    </fieldset>
+                                  </form>
+                                  <img src="<?php echo SITE_URL;?>/images/register.jpg" alt=""/>
+                                  <div class="form-footer">
+                                    <a href="#"><p>Continue and create account after <i class="fa fa-chevron-circle-right"></i></p></a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--End: Register page-->
+                          <!--login page-->
+                          <div class="modal fade loginpage" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-body loginpage-body  text-center">
+                                  <span class="close-form close" data-dismiss="modal"><i class="fa fa-close"></i></span>
+                                  <h1>Sign In To <span>Zooks</span> Cinema</h1>
+                                  <p>In order to buy your entries please sign in</p>
+                                  <div class="login-left">
+                                    <div class="btn-login-with">
+                                      <span><i class="fa fa-facebook"></i></span>
+                                      <a href="#">Connect with Facebook</a>
+                                    </div>
+                                    <form>
+                                      <fieldset>
+                                        <input type="email" placeholder="E-mail Address"/>
+                                        <input type="password" placeholder="Password"/>
+                                        <button type="submit">Sign In To <span><i class="fa fa-chevron-circle-right"></i></span></button>
+                                        <a href="#" class="short-link">Forgot Password?</a>
+                                      </fieldset>
+                                    </form>
+                                    <a href="#" class="short-link">Not a member already?</a>
+                                    <div class="btn-login-with">
+                                      <span><i class="fa fa-facebook"></i></span>
+                                      <a href="#">Register with Facebook</a>
+                                    </div>
+                                    <form>
+                                      <fieldset>
+                                        <button type="submit">Register <span><i class="fa fa-chevron-circle-right"></i></span></button>
+                                      </fieldset>
+                                    </form>
+                                  </div>
+                                  <div class="login-right">
+                                    <img src="<?php echo SITE_URL;?>/images/login.jpg" alt="login" />
+                                  </div>
+                                  <div class="form-footer">
+                                    <a href="#"><p>Continue and create account after <i class="fa fa-chevron-circle-right"></i></p></a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--End: login page-->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+>>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
                         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="logo-area">
                                 <a href="./"><img src="<?php echo SITE_URL;?>/images/logo.png" alt=""></a>
@@ -14,6 +100,7 @@
                                 <nav>
                                     <ul>
                                         <li class="active"><a href="./">Home</a></li>
+<<<<<<< HEAD
                                         <li><a href="#">Filmes</a>
                                             <ul>
                                                 <li><a href="./filmes">Em Cartas</a></li>
@@ -26,13 +113,30 @@
                                         
                                         <li><a href="./contato">Contato</a></li>
                                          
+=======
+                                        <li><a href="trailers.html">Trailers</a></li>
+                                        <li><a href="shows.html">Shows</a></li>
+                                        <li><a href="rent.html">Rent The Cinema</a></li>
+                                        <li><a href="#">Pages</a>
+                                            <ul>
+                                                <li><a href="show-details.html">Show Details</a></li>
+                                                <li><a href="buy-movie-ticket.html">Purchase Your Entry</a></li>
+                                                <li><a href="calender.html">Movie Calender</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+>>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
                                     </ul>
                                 </nav>
                             </div>
                         </div>
                         <div class="col-xs-1">
                             <div class="header-right">            
+<<<<<<< HEAD
                                 <div style="font-size:20px"><a data-toggle="modal" data-target="#cartModal" style="color:#717171; text-decoration:none;" class="nav-link"><i class="fa fa-shopping-cart"></i>[<?php if(isset($_SESSION['shopping_cart']) && !empty($_SESSION['shopping_cart'])){ echo count($_SESSION['shopping_cart']);}else{ echo "0";}?>]</a></div> 
+=======
+                                <div class="search-area"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div> 
+>>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
                             </div>
                         </div>
                     </div>
@@ -45,6 +149,7 @@
                              <div class="mobile-menu">
                                 <nav id="dropdown">
                                     <ul>
+<<<<<<< HEAD
                                     <li class="active"><a href="./">Home</a></li>
                                         <li><a href="#">Filmes</a>
                                             <ul>
@@ -58,6 +163,20 @@
                                         
                                         <li><a href="./contato">Contato</a></li>
                                         <li ><a data-toggle="modal" data-target="#cartModal" class="nav-link"><i class="fa fa-shopping-cart"></i>[<?php if(isset($_SESSION['shopping_cart']) && !empty($_SESSION['shopping_cart'])){ echo count($_SESSION['shopping_cart']);}else{ echo "0";}?>]</a></li>
+=======
+                                        <li class="active"><a href="index.html">Home</a></li>
+                                        <li><a href="trailers.html">Trailers</a></li>
+                                        <li><a href="shows.html">Shows</a></li>
+                                        <li><a href="rent.html">Rent The Cinema</a></li>
+                                        <li><a href="#">Pages</a>
+                                            <ul>
+                                                <li><a href="show-details.html">Show Details</a></li>
+                                                <li><a href="buy-movie-ticket.html">Purchase Your Entry</a></li>
+                                                <li><a href="calender.html">Movie Calender</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+>>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
                                     </ul>
                                 </nav>
                             </div>          
@@ -65,7 +184,11 @@
                     </div>
                 </div>
             </div>            
+<<<<<<< HEAD
             <!-- <div class="search-box-area">
+=======
+            <div class="search-box-area">
+>>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
                 <div class="container">
                       <div class="row">                          
                           <div class="search-form">
@@ -80,6 +203,7 @@
                           </div>
                       </div>
                   </div>              
+<<<<<<< HEAD
             </div> -->
         </header>
         
@@ -157,3 +281,8 @@
     </div>
   </div>
 </div>
+=======
+            </div>
+        </header>
+        <!-- Header End Here -->
+>>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
