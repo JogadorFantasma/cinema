@@ -20,8 +20,10 @@ RewriteRule ^filme/([a-zA-Z-0-9-_]+)$ desc-filme.php?id=$1
 RewriteRule ^blog/([a-zA-Z-0-9-_]+)$ desc-blog.php?id=$1
 RewriteRule ^categoria/([a-zA-Z-0-9-_]+)$ produtos.php?cat=$1
 RewriteRule ^produto/([a-zA-Z-0-9-_]+)$ desc-produto.php?id=$1
+RewriteRule ^confirmacao/([a-zA-Z-0-9-_]+)$ confirmacao-pagamento.php?id_compra=$1
 
 RewriteRule ^produtos$ produtos.php
+RewriteRule ^pagamento$ checkout-pagamento.php
 RewriteRule ^filmes$ filmes.php
 RewriteRule ^login$ login.php
 RewriteRule ^area-cliente$ area-cliente.php
@@ -29,7 +31,7 @@ RewriteRule ^modo-pagamento$ modo-pagamento.php
 RewriteRule ^blog$ blog.php
 RewriteRule ^sobre$ sobre.php
 RewriteRule ^contato$ contato.php
-RewriteRule ^carrinho$ carrinho.php
+RewriteRule ^carrinho$ compras2.php
 RewriteRule ^sitemap.xml$ sitemap.xml
 RewriteRule ^robots.txt$ robots.txt
 RewriteRule ^painel/$ painel

@@ -104,7 +104,17 @@ $puxaCidades = $cidades->rsDadosCidades();
                                         </select>                                  
                                                 </div>
                                             </div>
-                                      
+                                       <div class="col-md-2">
+                                                <div class="form-group">
+                                               
+                                        <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria</label>
+                                        <select class="custom-select mr-sm-2" name="id_categoria" id="inlineFormCustomSelect">
+                                            <option value="1" <?php if(isset($editaFilme->id_categoria) && $editaFilme->ativo == 1){ echo "selected";}?>>Em Cartaz</option>
+                                            <option value="2" <?php if(isset($editaFilme->id_categoria) && $editaFilme->ativo == 2){ echo "selected";}?>>Breve</option>
+                                        </select>
+                                   
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="row">
                                           

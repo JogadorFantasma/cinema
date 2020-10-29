@@ -14,23 +14,23 @@ foreach($_SESSION['shopping_cart'] as $pegandoIngresso){
   /* $quantidade_inteira = 0;
   $quantidade_meia = 0; */
   if($pegandoIngresso['id'] == 252525){
-    echo "id: ".$pegandoIngresso['id']."<br>";
+   /*  echo "id: ".$pegandoIngresso['id']."<br>";
     echo "Nome: ".$pegandoIngresso['nome_produto']."<br>";
     echo "Qnt: ".$pegandoIngresso['quantidade_produto']."<br>";
     echo "idFilme: ".$pegandoIngresso['id_filme']."<br>";
     echo "dtFilme: ".$pegandoIngresso['data_filme']."<br>";
-    echo "hrFilme: ".$pegandoIngresso['hora_filme']."<br>";
+    echo "hrFilme: ".$pegandoIngresso['hora_filme']."<br>"; */
     $quantidade_inteira = $pegandoIngresso['quantidade_produto'];
     $data_ingresso = $pegandoIngresso['data_filme'];
     $horario_ingresso = $pegandoIngresso['hora_filme'];
   }
   if($pegandoIngresso['id'] == 252526){
-    echo "id: ".$pegandoIngresso['id']."<br>";
+   /*  echo "id: ".$pegandoIngresso['id']."<br>";
     echo "Nome: ".$pegandoIngresso['nome_produto']."<br>";
     echo "Qnt: ".$pegandoIngresso['quantidade_produto']."<br>";
     echo "idFilme: ".$pegandoIngresso['id_filme']."<br>";
     echo "dtFilme: ".$pegandoIngresso['data_filme']."<br>";
-    echo "hrFilme: ".$pegandoIngresso['hora_filme']."<br>";
+    echo "hrFilme: ".$pegandoIngresso['hora_filme']."<br>"; */
     $quantidade_meia = $pegandoIngresso['quantidade_produto'];
     $data_ingresso = $pegandoIngresso['data_filme'];
     $horario_ingresso = $pegandoIngresso['hora_filme'];
@@ -38,7 +38,7 @@ foreach($_SESSION['shopping_cart'] as $pegandoIngresso){
   $quantidade = $quantidade_inteira + $quantidade_meia;
 }
 //var_dump($_SESSION['shopping_cart']);
-echo "Quantidade: ".$quantidade;
+//echo "Quantidade: ".$quantidade;
 $descFilme = $filmes->rsDados('', '', '', $id);
 /* if(isset($_GET['data']) && !empty($_GET['data'])){
   $data_ingresso = substr($_GET['data'],0,4)."-".substr($_GET['data'],4,2)."-".substr($_GET['data'],6,2);
@@ -97,8 +97,8 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="breadcumb">
                             <ul>
-                                <li><a href="./">Home <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
-                                <li><a href="./">Filmes <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
+                                <li><a href="<?php echo SITE_URL;?>/.">Home <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
+                                <li><a href="<?php echo SITE_URL;?>/filmes">Filmes <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
                                 <li><?php echo $descFilme[0]->titulo;?></li>
                             </ul>
                         </div>
@@ -522,7 +522,7 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                                 <a href="#">Tela de Cinema</a>
                               </div>
                             </div>
-                            <button class="btn-default back-top topppbtn"  onclick="voltar();"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</button>
+                            <button class="btn-default back-top topppbtn"  onclick="voltar()"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</button>
                               <button class="btn-green done" type="submit">Proximo <i class="fa fa-angle-right" aria-hidden="true"></i></button>
                           </div>
                       </li>
@@ -599,15 +599,7 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
         <script>
           function voltar(){
             <?php
-              foreach($_SESSION['shopping_cart'] as $key => $pesquisandoSeExiste){
-              if($pesquisandoSeExiste['id'] == 252525){
-                  unset($_SESSION['shopping_cart'][$key]);
-              }
-              if($pesquisandoSeExiste['id'] == 252526){
-                unset($_SESSION['shopping_cart'][$key]);
-              }
               
-            }
             ?>
               window.location='<?php echo SITE_URL;?>/entrada/<?php echo substr($horario_ingresso,0,2).substr($horario_ingresso,3,2);?>/<?php echo substr($data_ingresso,0,4).substr($data_ingresso,5,2).substr($data_ingresso,8,2);?>/<?php echo $descFilme[0]->url_amigavel;?>';
           }

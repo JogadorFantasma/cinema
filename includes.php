@@ -1,4 +1,5 @@
 <?php 
+@session_start();
 include "Class/config.class.php";
 $infoSistema = ConfigSistema::getInstance(Conexao::getInstance())->rsDados();
 
@@ -17,6 +18,12 @@ $categorias = Categorias::getInstance(Conexao::getInstance());
 include "Class/banners.class.php";
 $banners = Banners::getInstance(Conexao::getInstance());
 
+include "Class/compras.class.php";
+$compras = Compras::getInstance(Conexao::getInstance());
+
+include "Class/clientes.class.php";
+$clientes = Clientes::getInstance(Conexao::getInstance());
+
 
 define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST'].'/projects/cinema');
 
@@ -27,6 +34,15 @@ $produtos_id = array();
 if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
 
     //Se existir ele deleta o existente para inserir novamente
+    foreach($_SESSION['shopping_cart'] as $key => $pesquisandoSeExiste){
+              if($pesquisandoSeExiste['id'] == 252525){
+                  unset($_SESSION['shopping_cart'][$key]);
+              }
+              if($pesquisandoSeExiste['id'] == 252526){
+                unset($_SESSION['shopping_cart'][$key]);
+              }
+              
+            }
   
     if(isset($_SESSION['shopping_cart'])){
         //Mostra quantos produtos tem no carrinho

@@ -34,7 +34,7 @@ $descFilme = $filmes->rsDados('', '', '', $id);
         <!-- owl.carousel css -->
         <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/owl.carousel.css">
         <!-- font-awesome css -->
-        <link rel="stylesheet" href="<?php echo SITE_URL;?>/ss/font-awesome.min.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/font-awesome.min.css">
         <!-- style css -->
         <link rel="stylesheet" href="<?php echo SITE_URL;?>/style.css">
         <!-- responsive css -->
@@ -119,22 +119,22 @@ $descFilme = $filmes->rsDados('', '', '', $id);
         <!-- Footer End Here -->
         <!-- all js here -->
         <!-- jquery latest version -->
-        <script src="js/vendor/jquery-1.12.0.min.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/vendor/jquery-1.12.0.min.js"></script>
         <!-- bootstrap js -->
-        <script src="js/bootstrap.min.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/bootstrap.min.js"></script>
         <!-- owl.carousel js -->
-        <script src="js/owl.carousel.min.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/owl.carousel.min.js"></script>
         <!-- meanmenu js -->
-        <script src="js/jquery.meanmenu.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/jquery.meanmenu.js"></script>
         <!-- jquery-ui js -->
-        <script src="js/jquery-ui.min.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/jquery-ui.min.js"></script>
         <!-- wow js -->
-        <script src="js/wow.min.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/wow.min.js"></script>
         <!-- plugins js -->
-        <script src="js/plugins.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/plugins.js"></script>
         <!-- jQuery MixedIT Up -->
-        <script src="js/jquery.mixitup.min.js" type="text/javascript"></script>
+        <script src="<?php echo SITE_URL;?>/js/jquery.mixitup.min.js" type="text/javascript"></script>
         <!-- main js -->
-        <script src="js/main.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/main.js"></script>
     </body>
 </html>

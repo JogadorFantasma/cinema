@@ -3,15 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
-<<<<<<< HEAD
--- Tempo de geração: 29/10/2020 às 12:35
-=======
-<<<<<<< HEAD
--- Tempo de geração: 29/10/2020 às 12:35
-=======
--- Tempo de geração: 28/10/2020 às 21:48
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
->>>>>>> 4b38f4c1dde727b5fdf9fa8495401051167d5e59
+-- Tempo de geração: 29/10/2020 às 21:44
 -- Versão do servidor: 10.4.13-MariaDB
 -- Versão do PHP: 7.4.7
 
@@ -13205,7 +13197,9 @@ CREATE TABLE `tbl_compras` (
 --
 
 INSERT INTO `tbl_compras` (`id`, `tipo_compra`, `status_compra`, `entrada`, `saida`, `id_cliente`, `valor`, `data_transacao`, `hora_transacao`, `tipo_pagamento`, `bandeira`, `id_pagamento`, `forma_pagamento`) VALUES
-(7, 'CHA', '1', '2020-10-27', '2020-10-30', 1, 270, '2020-10-26', '21:04:11', NULL, 'visa', 'ed480eef-8a76-4684-8071-d381d6def05e', 'CRE');
+(7, 'CHA', '1', '2020-10-27', '2020-10-30', 1, 270, '2020-10-26', '21:04:11', NULL, 'visa', 'ed480eef-8a76-4684-8071-d381d6def05e', 'CRE'),
+(9, NULL, NULL, NULL, NULL, 1, 0, '2020-10-29', '20:48:37', NULL, 'visa', NULL, 'CRE'),
+(10, NULL, '1', NULL, NULL, 1, 104.3, '2020-10-29', '20:52:35', NULL, 'visa', '654853f2-748b-4752-b82e-009be7d04bb5', 'CRE');
 
 -- --------------------------------------------------------
 
@@ -13362,15 +13356,16 @@ CREATE TABLE `tbl_filmes` (
   `diretor` varchar(250) DEFAULT NULL,
   `atores` text DEFAULT NULL,
   `breve` text DEFAULT NULL,
-  `id_classificacao_indicativa` int(11) DEFAULT NULL
+  `id_classificacao_indicativa` int(11) DEFAULT NULL,
+  `id_categoria` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `tbl_filmes`
 --
 
-INSERT INTO `tbl_filmes` (`id`, `titulo`, `descricao`, `imagem`, `duracao`, `url_amigavel`, `ativo`, `meta_title`, `meta_keywords`, `meta_description`, `genero`, `diretor`, `atores`, `breve`, `id_classificacao_indicativa`) VALUES
-(1, 'Avatar', 'No exuberante mundo alienígena de Pandora vivem os Na\'vi, seres que parecem ser primitivos, mas são altamente evoluídos. Como o ambiente do planeta é tóxico, foram criados os avatares, corpos biológicos controlados pela mente humana que se movimentam livremente em Pandora. Jake Sully, um ex-fuzileiro naval paralítico, volta a andar através de um avatar e se apaixona por uma Na\'vi. Esta paixão leva Jake a lutar pela sobrevivência de Pandora.', '1603370642.797-imagem-N.jpg', '2h 42m', 'avatar', 'S', '', '', '', 'Ficção científica, Aventura', 'James Cameron', 'Sam Worthington, Zoe Saldana, Sigourney Weaver', 'Jake Sully (Sam Worthington) ficou paraplégico após um combate na Terra. Ele é selecionado para participar do programa Avatar em substituição ao seu irmão gêmeo, falecido. Jake viaja a Pandora, uma lua extraterrestre, onde encontra diversas e estranhas formas de vida.', 1);
+INSERT INTO `tbl_filmes` (`id`, `titulo`, `descricao`, `imagem`, `duracao`, `url_amigavel`, `ativo`, `meta_title`, `meta_keywords`, `meta_description`, `genero`, `diretor`, `atores`, `breve`, `id_classificacao_indicativa`, `id_categoria`) VALUES
+(1, 'Avatar', 'No exuberante mundo alienígena de Pandora vivem os Na\'vi, seres que parecem ser primitivos, mas são altamente evoluídos. Como o ambiente do planeta é tóxico, foram criados os avatares, corpos biológicos controlados pela mente humana que se movimentam livremente em Pandora. Jake Sully, um ex-fuzileiro naval paralítico, volta a andar através de um avatar e se apaixona por uma Na\'vi. Esta paixão leva Jake a lutar pela sobrevivência de Pandora.', '1603370642.797-imagem-N.jpg', '2h 42m', 'avatar', 'S', '', '', '', 'Ficção científica, Aventura', 'James Cameron', 'Sam Worthington, Zoe Saldana, Sigourney Weaver', 'Jake Sully (Sam Worthington) ficou paraplégico após um combate na Terra. Ele é selecionado para participar do programa Avatar em substituição ao seu irmão gêmeo, falecido. Jake viaja a Pandora, uma lua extraterrestre, onde encontra diversas e estranhas formas de vida.', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -13620,6 +13615,40 @@ INSERT INTO `tbl_programacao_filmes` (`id`, `id_filme`, `data_exibicao`, `hora_e
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `tbl_relaciona_compras`
+--
+
+CREATE TABLE `tbl_relaciona_compras` (
+  `id` int(11) NOT NULL,
+  `id_produto` int(11) DEFAULT NULL,
+  `id_compra` int(11) DEFAULT NULL,
+  `valor_produto` float DEFAULT NULL,
+  `id_filme` int(11) DEFAULT NULL,
+  `data_filme` date DEFAULT NULL,
+  `hora_filme` time DEFAULT NULL,
+  `id_cliente` int(11) DEFAULT NULL,
+  `quantidade_produto` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `tbl_relaciona_compras`
+--
+
+INSERT INTO `tbl_relaciona_compras` (`id`, `id_produto`, `id_compra`, `valor_produto`, `id_filme`, `data_filme`, `hora_filme`, `id_cliente`, `quantidade_produto`) VALUES
+(1, 7, 9, 5.8, NULL, NULL, NULL, 1, 1),
+(2, 5, 1, 6, NULL, NULL, NULL, 1, 1),
+(3, 252525, 2, 19, 1, '2020-10-29', '15:00:00', 1, 2),
+(4, 252526, 3, 9.5, 1, '2020-10-29', '15:00:00', 1, 3),
+(5, 4, 4, 13, NULL, NULL, NULL, 1, 2),
+(6, 7, 10, 5.8, NULL, NULL, NULL, 1, 1),
+(7, 5, 10, 6, NULL, NULL, NULL, 1, 1),
+(8, 252525, 10, 19, 1, '2020-10-29', '15:00:00', 1, 2),
+(9, 252526, 10, 9.5, 1, '2020-10-29', '15:00:00', 1, 3),
+(10, 4, 10, 13, NULL, NULL, NULL, 1, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `tbl_sala`
 --
 
@@ -13785,7 +13814,7 @@ CREATE TABLE `tbl_usuarios` (
 --
 
 INSERT INTO `tbl_usuarios` (`id`, `nome`, `email`, `telefone`, `endereco`, `cpf`, `login`, `senha`, `foto`, `id_cargo`, `sexo`, `perm_cad_usuario`, `perm_relatorio`, `perm_add_usuario`, `perm_edit_usuario`, `perm_del_usuario`, `perm_cad_contato`, `perm_edit_contato`, `perm_del_contato`, `perm_edit_contato_nf`, `perm_pag_principal_rm`, `perm_pag_principal_uc`, `admin_geral`, `data_frase`, `id_frase`, `frase_lida`) VALUES
-(1, 'Administrador', 'adm@adm.com', NULL, NULL, NULL, 'admin', '1234', NULL, NULL, 'M', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', NULL, '2020-10-28', 49, 'N'),
+(1, 'Administrador', 'adm@adm.com', NULL, NULL, NULL, 'admin', '1234', NULL, NULL, 'M', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', NULL, '2020-10-29', 1, 'N'),
 (2, 'teste', 'teste@teste.com.br', '', '', '', NULL, '123', NULL, 1, 'M', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', NULL, NULL, NULL, NULL);
 
 --
@@ -13949,6 +13978,12 @@ ALTER TABLE `tbl_programacao_filmes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices de tabela `tbl_relaciona_compras`
+--
+ALTER TABLE `tbl_relaciona_compras`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices de tabela `tbl_sala`
 --
 ALTER TABLE `tbl_sala`
@@ -14058,7 +14093,7 @@ ALTER TABLE `tbl_cliente`
 -- AUTO_INCREMENT de tabela `tbl_compras`
 --
 ALTER TABLE `tbl_compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_config`
@@ -14149,6 +14184,12 @@ ALTER TABLE `tbl_produto`
 --
 ALTER TABLE `tbl_programacao_filmes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `tbl_relaciona_compras`
+--
+ALTER TABLE `tbl_relaciona_compras`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_sala`

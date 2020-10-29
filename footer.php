@@ -9,8 +9,8 @@
                                 <div class="footer-two">
                                     <div class="widget-title">Entre em Contato</div>
                                     <ul>
-                                        <li><a href="./contato">Faq</a></li>
-                                        <li><a href="./contato">Fale Conosco</a></li>
+                                        <li><a href="<?php echo SITE_URL;?>/contato">Faq</a></li>
+                                        <li><a href="<?php echo SITE_URL;?>/contato">Fale Conosco</a></li>
                                         
                                     </ul>
                                 </div>
@@ -21,10 +21,10 @@
                                 <div class="footer-three">
                                     <div class="widget-title">Cinemas Premier</div>
                                     <ul>
-                                    <li><a href="./sobre">Sobre</a></li>
-                                        <li><a href="./filmes">Filmes em cartaz</a></li>
-                                        <li><a href="./filmes">Filmes em breve</a></li>
-                                        <li><a href="./produtos">Produtos</a></li>
+                                    <li><a href="<?php echo SITE_URL;?>/sobre">Sobre</a></li>
+                                        <li><a href="<?php echo SITE_URL;?>/filmes">Filmes em cartaz</a></li>
+                                        <li><a href="<?php echo SITE_URL;?>/filmes">Filmes em breve</a></li>
+                                        <li><a href="<?php echo SITE_URL;?>/produtos">Produtos</a></li>
                                     </ul>
     
                                 </div>

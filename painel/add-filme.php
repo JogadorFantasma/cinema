@@ -72,6 +72,17 @@ $puxaClasses = $filmes->rsDadosClassificacao();
                                         </select>                                  
                                                 </div>
                                             </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                               
+                                        <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria</label>
+                                        <select class="custom-select mr-sm-2" name="id_categoria" id="inlineFormCustomSelect">
+                                            <option value="1">Em Cartaz</option>
+                                            <option value="2">Breve</option>
+                                        </select>
+                                   
+                                                </div>
+                                            </div>
                                              
                                         </div>
                                         <div class="row">

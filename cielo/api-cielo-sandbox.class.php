@@ -70,7 +70,7 @@ function credCardAutenticado(){
     $cpf = filter_input(INPUT_POST, 'senderCPF', FILTER_SANITIZE_STRING);
     $nome_cartao = filter_input(INPUT_POST, 'creditCardHolderName', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'senderEmail', FILTER_SANITIZE_STRING);
-    $telefone = "(".filter_input(INPUT_POST, 'senderAreaCode', FILTER_SANITIZE_STRING).") ".filter_input(INPUT_POST, 'senderPhone', FILTER_SANITIZE_STRING);
+    $telefone = filter_input(INPUT_POST, 'senderPhone', FILTER_SANITIZE_STRING);
     $valor = number_format(filter_input(INPUT_POST, 'valor', FILTER_SANITIZE_STRING),2,',','.');
     $numero_cartao = filter_input(INPUT_POST, 'cardNumber', FILTER_SANITIZE_STRING);
     $data_validade = filter_input(INPUT_POST, 'mesVencimento', FILTER_SANITIZE_STRING)."/".filter_input(INPUT_POST, 'anoVencimento', FILTER_SANITIZE_STRING);
@@ -78,19 +78,7 @@ function credCardAutenticado(){
     $bandeira = obterBandeira($numero_cartao);
     $data_transacao = date('Y-m-d');
     $hora_transacao = date('H:i:s');
-    $quantidade_adulto = filter_input(INPUT_POST, 'qtd_adulto', FILTER_SANITIZE_STRING);
-    $quantidade_crianca_ate_5 = filter_input(INPUT_POST, 'qtd_crianca5', FILTER_SANITIZE_STRING);
-    $quantidade_crianca_ate_9 = filter_input(INPUT_POST, 'qtd_crianca9', FILTER_SANITIZE_STRING);
-    $id_chale = filter_input(INPUT_POST, 'id_chale', FILTER_SANITIZE_STRING);
-    $entrada = filter_input(INPUT_POST, 'data_entrada', FILTER_SANITIZE_STRING);
-    $saida = filter_input(INPUT_POST, 'data_saida', FILTER_SANITIZE_STRING);
-    $tipo_compra = filter_input(INPUT_POST, 'tipo_compra', FILTER_SANITIZE_STRING);
-
     
-
-    //echo "aqui: ".$valor; exit;
-    
-
     // Verificar se já existe cliente cadastrado:
 				 $sql = "SELECT * FROM tbl_cliente where email = ?";
 				 $stm = $this->pdo->prepare($sql);
@@ -114,23 +102,32 @@ function credCardAutenticado(){
          }
 
          // Insere nova compra
-         $sql = "INSERT INTO tbl_compras (tipo_compra, entrada, saida, id_cliente, id_chale, quantidade_adulto, quantidade_crianca_ate_5, quantidade_crianca_ate_9, valor, data_transacao, hora_transacao, bandeira, forma_pagamento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
+         $sql = "INSERT INTO tbl_compras (id_cliente, valor, data_transacao, hora_transacao, bandeira, forma_pagamento) VALUES (?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
-						$stm->bindValue(1, $tipo_compra);   
-						$stm->bindValue(2, $entrada);
-						$stm->bindValue(3, $saida);
-            $stm->bindValue(4, $id_cliente);
-            $stm->bindValue(5, ($id_chale) ? $id_chale : NULL);
-            $stm->bindValue(6, $quantidade_adulto);
-            $stm->bindValue(7, $quantidade_crianca_ate_5);
-            $stm->bindValue(8, $quantidade_crianca_ate_9);
-            $stm->bindValue(9, valorCalculavel($valor));
-            $stm->bindValue(10, $data_transacao);
-            $stm->bindValue(11, $hora_transacao);
-            $stm->bindValue(12, $bandeira);
-            $stm->bindValue(13, "CRE");
+						$stm->bindValue(1, $id_cliente);
+            $stm->bindValue(2, valorCalculavel($valor));
+            $stm->bindValue(3, $data_transacao);
+            $stm->bindValue(4, $hora_transacao);
+            $stm->bindValue(5, $bandeira);
+            $stm->bindValue(6, "CRE");
 						$stm->execute(); 
 						$idCompra = $this->pdo->lastInsertId();
+
+            foreach($_SESSION['shopping_cart'] as $key => $produto_carrinho){
+                // Insere novos produtos na compra
+         $sql = "INSERT INTO tbl_relaciona_compras (id_produto, id_compra, valor_produto, id_filme, data_filme, hora_filme, id_cliente, quantidade_produto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";   
+						$stm = $this->pdo->prepare($sql);   
+						$stm->bindValue(1, $produto_carrinho['id']);
+            $stm->bindValue(2, $idCompra);
+            $stm->bindValue(3, valorCalculavel($produto_carrinho['valor_produto']));
+            $stm->bindValue(4, $produto_carrinho['id_filme']);
+            $stm->bindValue(5, $produto_carrinho['data_filme']);
+            $stm->bindValue(6, $produto_carrinho['hora_filme']);
+            $stm->bindValue(7, $id_cliente);
+            $stm->bindValue(8, $produto_carrinho['quantidade_produto']);
+						$stm->execute(); 
+						
+            }
 
     //Puxa as chaves gravadas no banco
     try{   
@@ -184,7 +181,7 @@ try {
 					echo $erro->getMessage(); 
 				}
 
-        echo "<script>window.location='confirmacao-pagamento.php?id_compra={$idCompra}';</script>";
+        echo "<script>window.location='confirmacao/{$idCompra}';</script>";
   }
 }
 
@@ -233,7 +230,7 @@ function debitoCard(){
     $cpf = filter_input(INPUT_POST, 'senderCPF', FILTER_SANITIZE_STRING);
     $nome_cartao = filter_input(INPUT_POST, 'creditCardHolderName', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'senderEmail', FILTER_SANITIZE_STRING);
-    $telefone = "(".filter_input(INPUT_POST, 'senderAreaCode', FILTER_SANITIZE_STRING).") ".filter_input(INPUT_POST, 'senderPhone', FILTER_SANITIZE_STRING);
+    $telefone = filter_input(INPUT_POST, 'senderPhone', FILTER_SANITIZE_STRING);
     $valor = number_format(filter_input(INPUT_POST, 'valor', FILTER_SANITIZE_STRING),2,',','.');
     $numero_cartao = filter_input(INPUT_POST, 'cardNumber', FILTER_SANITIZE_STRING);
     $data_validade = filter_input(INPUT_POST, 'mesVencimento', FILTER_SANITIZE_STRING)."/".filter_input(INPUT_POST, 'anoVencimento', FILTER_SANITIZE_STRING);
@@ -241,19 +238,7 @@ function debitoCard(){
     $bandeira = obterBandeira($numero_cartao);
     $data_transacao = date('Y-m-d');
     $hora_transacao = date('H:i:s');
-    $quantidade_adulto = filter_input(INPUT_POST, 'qtd_adulto', FILTER_SANITIZE_STRING);
-    $quantidade_crianca_ate_5 = filter_input(INPUT_POST, 'qtd_crianca5', FILTER_SANITIZE_STRING);
-    $quantidade_crianca_ate_9 = filter_input(INPUT_POST, 'qtd_crianca9', FILTER_SANITIZE_STRING);
-    $id_chale = filter_input(INPUT_POST, 'id_chale', FILTER_SANITIZE_STRING);
-    $entrada = filter_input(INPUT_POST, 'data_entrada', FILTER_SANITIZE_STRING);
-    $saida = filter_input(INPUT_POST, 'data_saida', FILTER_SANITIZE_STRING);
-    $tipo_compra = filter_input(INPUT_POST, 'tipo_compra', FILTER_SANITIZE_STRING);
-
     
-
-    //echo "aqui: ".$valor; exit;
-    
-
     // Verificar se já existe cliente cadastrado:
 				 $sql = "SELECT * FROM tbl_cliente where email = ?";
 				 $stm = $this->pdo->prepare($sql);
@@ -277,23 +262,32 @@ function debitoCard(){
          }
 
          // Insere nova compra
-         $sql = "INSERT INTO tbl_compras (tipo_compra, entrada, saida, id_cliente, id_chale, quantidade_adulto, quantidade_crianca_ate_5, quantidade_crianca_ate_9, valor, data_transacao, hora_transacao, bandeira, forma_pagamento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
+         $sql = "INSERT INTO tbl_compras (id_cliente, valor, data_transacao, hora_transacao, bandeira, forma_pagamento) VALUES (?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
-						$stm->bindValue(1, $tipo_compra);   
-						$stm->bindValue(2, $entrada);
-						$stm->bindValue(3, $saida);
-            $stm->bindValue(4, $id_cliente);
-            $stm->bindValue(5, $id_chale);
-            $stm->bindValue(6, $quantidade_adulto);
-            $stm->bindValue(7, $quantidade_crianca_ate_5);
-            $stm->bindValue(8, $quantidade_crianca_ate_9);
-            $stm->bindValue(9, valorCalculavel($valor));
-            $stm->bindValue(10, $data_transacao);
-            $stm->bindValue(11, $hora_transacao);
-            $stm->bindValue(12, $bandeira);
-            $stm->bindValue(13, "DEB");
+						$stm->bindValue(1, $id_cliente);
+            $stm->bindValue(2, valorCalculavel($valor));
+            $stm->bindValue(3, $data_transacao);
+            $stm->bindValue(4, $hora_transacao);
+            $stm->bindValue(5, $bandeira);
+            $stm->bindValue(6, "DEB");
 						$stm->execute(); 
 						$idCompra = $this->pdo->lastInsertId();
+
+            foreach($_SESSION['shopping_cart'] as $key => $produto_carrinho){
+                // Insere novos produtos na compra
+         $sql = "INSERT INTO tbl_relaciona_compras (id_produto, id_compra, valor_produto, id_filme, data_filme, hora_filme, id_cliente, quantidade_produto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";   
+						$stm = $this->pdo->prepare($sql);   
+						$stm->bindValue(1, $produto_carrinho['id']);
+            $stm->bindValue(2, $idCompra);
+            $stm->bindValue(3, valorCalculavel($produto_carrinho['valor_produto']));
+            $stm->bindValue(4, $produto_carrinho['id_filme']);
+            $stm->bindValue(5, $produto_carrinho['data_filme']);
+            $stm->bindValue(6, $produto_carrinho['hora_filme']);
+            $stm->bindValue(7, $id_cliente);
+            $stm->bindValue(8, $produto_carrinho['quantidade_produto']);
+						$stm->execute(); 
+						
+            }
 
     //Puxa as chaves gravadas no banco
     try{   
@@ -347,7 +341,7 @@ try {
 					echo $erro->getMessage(); 
 				}
 
-        echo "<script>window.location='confirmacao-pagamento.php?id_compra={$idCompra}';</script>";
+        echo "<script>window.location='confirmacao/{$idCompra}';</script>";
   }
 }
 

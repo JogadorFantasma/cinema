@@ -271,5 +271,31 @@ function exibe_status_compra($exibe_status_compra) {
       default: return "";
     }
   }
+  //Obter bandeira do cartao
+function obterBandeira($numero){
+        $numero = preg_replace("/[^0-9]/", "", $numero); //remove caracteres não numéricos
+        if(strlen($numero) < 13 || strlen($numero) > 19)
+            return false;
+        //O BIN do Elo é relativamente grande, por isso a separação em outra variável
+      
+        $elo_bin = implode("|", array('636368','438935','504175','451416','636297','506699','509048','509067','509049','509069','509050','09074','509068','509040','509045','509051','509046','509066','509047','509042','509052','509043','509064','509040'));
+        $expressoes = array(
+            "elo"           => "/^((".$elo_bin."[0-9]{10})|(36297[0-9]{11})|(5067|4576|4011[0-9]{12}))/",
+            "discover"      => "/^((6011[0-9]{12})|(622[0-9]{13})|(64|65[0-9]{14}))/",
+            "diners"        => "/^((301|305[0-9]{11,13})|(36|38[0-9]{12,14}))/",
+            "amex"          => "/^((34|37[0-9]{13}))/",
+            "hipercard"     => "/^((38|60[0-9]{11,14,17}))/",
+            "aura"          => "/^((50[0-9]{14}))/",
+            "jcb"           => "/^((35[0-9]{14}))/",
+            "mastercard"    => "/^((5[0-9]{15}))/",
+            "visa"          => "/^((4[0-9]{12,15}))/"
+        );
+        foreach($expressoes as $bandeira => $expressao){
+            if(preg_match($expressao, $numero)){
+                return $bandeira;
+            }
+        }
+        return false;
+    }
   
 ?>

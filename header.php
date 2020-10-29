@@ -1,4 +1,6 @@
-  <!-- Header Start Here -->
+<?php
+@session_start();
+?>
         <header id="header">
             <div class="header-area">
                 <div class="container">
@@ -6,25 +8,25 @@
                     <div class="row menu-overlay">
                         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="logo-area">
-                                <a href="./"><img src="<?php echo SITE_URL;?>/images/logo.png" alt=""></a>
+                                <a href="<?php echo SITE_URL;?>/."><img src="<?php echo SITE_URL;?>/images/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-11 col-xs-11">
                             <div class="main-menu">
                                 <nav>
                                     <ul>
-                                        <li class="active"><a href="./">Home</a></li>
+                                        <li class="active"><a href="<?php echo SITE_URL;?>/.">Home</a></li>
                                         <li><a href="#">Filmes</a>
                                             <ul>
-                                                <li><a href="./filmes">Em Cartas</a></li>
-                                                <li><a href="./filmes">Em Breve</a></li>
+                                                <li><a href="<?php echo SITE_URL;?>/filmes">Em Cartas</a></li>
+                                                <li><a href="<?php echo SITE_URL;?>/filmes">Em Breve</a></li>
                                                 
                                             </ul>
                                         </li>
-                                        <li><a href="./produtos">Produtos</a></li>
-                                        <li><a href="./sobre">Empresa</a></li>
+                                        <li><a href="<?php echo SITE_URL;?>/produtos">Produtos</a></li>
+                                        <li><a href="<?php echo SITE_URL;?>/sobre">Empresa</a></li>
                                         
-                                        <li><a href="./contato">Contato</a></li>
+                                        <li><a href="<?php echo SITE_URL;?>/contato">Contato</a></li>
                                          
                                     </ul>
                                 </nav>
@@ -45,18 +47,18 @@
                              <div class="mobile-menu">
                                 <nav id="dropdown">
                                     <ul>
-                                    <li class="active"><a href="./">Home</a></li>
+                                    <li class="active"><a href="<?php echo SITE_URL;?>/.">Home</a></li>
                                         <li><a href="#">Filmes</a>
                                             <ul>
-                                                <li><a href="./filmes">Em Cartas</a></li>
-                                                <li><a href="./filmes">Em Breve</a></li>
+                                                <li><a href="<?php echo SITE_URL;?>/filmes">Em Cartas</a></li>
+                                                <li><a href="<?php echo SITE_URL;?>/filmes">Em Breve</a></li>
                                                 
                                             </ul>
                                         </li>
-                                        <li><a href="./produtos">Produtos</a></li>
-                                        <li><a href="./sobre">Empresa</a></li>
+                                        <li><a href="<?php echo SITE_URL;?>/produtos">Produtos</a></li>
+                                        <li><a href="<?php echo SITE_URL;?>/sobre">Empresa</a></li>
                                         
-                                        <li><a href="./contato">Contato</a></li>
+                                        <li><a href="<?php echo SITE_URL;?>/contato">Contato</a></li>
                                         <li ><a data-toggle="modal" data-target="#cartModal" class="nav-link"><i class="fa fa-shopping-cart"></i>[<?php if(isset($_SESSION['shopping_cart']) && !empty($_SESSION['shopping_cart'])){ echo count($_SESSION['shopping_cart']);}else{ echo "0";}?>]</a></li>
                                     </ul>
                                 </nav>
@@ -151,7 +153,7 @@
 		<?php if(!empty($_SESSION['shopping_cart'])){
 			if(count($_SESSION['shopping_cart']) > 0){
 			?>
-        <a href="carrinho" class="btn btn-success">Carrinho</a>
+        <a href="<?php echo SITE_URL;?>/carrinho" class="btn btn-success">Carrinho</a>
 		<?php } }?>
       </div>
     </div>

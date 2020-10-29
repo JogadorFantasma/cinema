@@ -8,16 +8,40 @@ if(isset($_GET['url'])){
         $id = $_GET['url'];        
     }
 }
-
-$descFilme = $filmes->rsDados('', '', '', $id);
-if(isset($_GET['data']) && !empty($_GET['data'])){
-  $data_ingresso = substr($_GET['data'],0,4)."-".substr($_GET['data'],4,2)."-".substr($_GET['data'],6,2);
+$quantidade_inteira = 0;
+  $quantidade_meia = 0;
+foreach($_SESSION['shopping_cart'] as $pegandoIngresso){
+  /* $quantidade_inteira = 0;
+  $quantidade_meia = 0; */
+  if($pegandoIngresso['id'] == 252525){
+   /*  echo "id: ".$pegandoIngresso['id']."<br>";
+    echo "Nome: ".$pegandoIngresso['nome_produto']."<br>";
+    echo "Qnt: ".$pegandoIngresso['quantidade_produto']."<br>";
+    echo "idFilme: ".$pegandoIngresso['id_filme']."<br>";
+    echo "dtFilme: ".$pegandoIngresso['data_filme']."<br>";
+    echo "hrFilme: ".$pegandoIngresso['hora_filme']."<br>"; */
+    $quantidade_inteira = $pegandoIngresso['quantidade_produto'];
+    $data_ingresso = $pegandoIngresso['data_filme'];
+    $horario_ingresso = $pegandoIngresso['hora_filme'];
+    $id_filme = $pegandoIngresso['id_filme'];
+  }
+  if($pegandoIngresso['id'] == 252526){
+   /*  echo "id: ".$pegandoIngresso['id']."<br>";
+    echo "Nome: ".$pegandoIngresso['nome_produto']."<br>";
+    echo "Qnt: ".$pegandoIngresso['quantidade_produto']."<br>";
+    echo "idFilme: ".$pegandoIngresso['id_filme']."<br>";
+    echo "dtFilme: ".$pegandoIngresso['data_filme']."<br>";
+    echo "hrFilme: ".$pegandoIngresso['hora_filme']."<br>"; */
+    $quantidade_meia = $pegandoIngresso['quantidade_produto'];
+    $data_ingresso = $pegandoIngresso['data_filme'];
+    $horario_ingresso = $pegandoIngresso['hora_filme'];
+    $id_filme = $pegandoIngresso['id_filme'];
+  }
+  $quantidade = $quantidade_inteira + $quantidade_meia;
 }
-if(isset($_GET['horario']) && !empty($_GET['horario'])){
-  $horario_ingresso = substr($_GET['horario'],0,2).":".substr($_GET['horario'],2,2).":00";
-}
+$descFilme = $filmes->rsDados($id_filme);
 //echo "Aqui: ".$data_ingresso;
-$dadosDaProgramacao = $filmes->rsDadosProgramacao('', '', '', $descFilme[0]->id, $data_ingresso, '', $horario_ingresso);
+$dadosDaProgramacao = $filmes->rsDadosProgramacao('', '', '', $descFilme->id, $data_ingresso, '', $horario_ingresso);
 //var_dump($dadosDaProgramacao);
 $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
 ?>
@@ -25,9 +49,9 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
 <html class="no-js" lang="pt-br">
     <head>
         <meta charset="utf-8">
-       <title><?php if(isset($descFilme[0]->meta_title) && !empty($descFilme[0]->meta_title)){echo $descFilme[0]->meta_title;}?></title>
-    <meta name="description" content="<?php if(isset($descFilme[0]->meta_description) && !empty($descFilme[0]->meta_description_)){echo $descFilme[0]->meta_description;}?>"/>
-		<meta name="keywords" content="<?php if(isset($descFilme[0]->meta_keywords) && !empty($descFilme[0]->meta_keywords)){echo $descFilme[0]->meta_keywords;}?>">
+       <title><?php if(isset($descFilme->meta_title) && !empty($descFilme->meta_title)){echo $descFilme->meta_title;}?></title>
+    <meta name="description" content="<?php if(isset($descFilme->meta_description) && !empty($descFilme->meta_description_)){echo $descFilme->meta_description;}?>"/>
+		<meta name="keywords" content="<?php if(isset($descFilme->meta_keywords) && !empty($descFilme->meta_keywords)){echo $descFilme->meta_keywords;}?>">
     <?php if(isset($infoSistema->favicon) && !empty($infoSistema->favicon)){?>
 		<link rel="shortcut icon" href="<?php echo SITE_URL;?>/img/<?php echo $infoSistema->favicon;?>" >
 		<link rel="icon" href="<?php echo SITE_URL;?>/img/<?php echo $infoSistema->favicon;?>" >
@@ -69,7 +93,7 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                             <ul>
                                 <li><a href="./">Home <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
                                 <li><a href="./">Filmes <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
-                                <li><?php echo $descFilme[0]->titulo;?></li>
+                                <li><?php echo $descFilme->titulo;?></li>
                             </ul>
                         </div>
                     </div>
@@ -115,22 +139,71 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                             <div class="cinema-sumary-area siixx">
                               <div class="media">
                                 <div class="pull-left siixx">
-                                  <a href="#">
+                                  <table class="table">
+						    <thead class="thead-primary">
+						      <tr class="text-center">
+						        <th>&nbsp;</th>
+						        <th>&nbsp;</th>
+						        <th>Produto</th>
+						        <th>Preço</th>
+						        <th>Quantidade</th>
+						        <th>Total</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+								<?php if(count($_SESSION['shopping_cart']) > 0){
+									$totalcarrinho = 0;
+									$total_produtos=0;
+									foreach($_SESSION['shopping_cart'] as $key => $produto_carrinho){?>
+						      <tr class="text-center">
+						        <td class="product-remove"><a href="?action=delete&id=<?php echo $produto_carrinho['id'];?>"><span class="fa fa-close"></span></a></td>
+						        
+						        <td class="image-prod"><img src="<?php echo SITE_URL;?>/img/<?php echo $produto_carrinho['imagem_produto'];?>" alt="" width="80"><div class="img" style="background-image:url(<?php echo SITE_URL;?>/img/<?php echo $produto_carrinho['imagem_produto'];?>);"></div></td>
+						        
+						        <td class="product-name">
+						        	<h3><?php echo $produto_carrinho['nome_produto'];?></h3>
+						        	
+						        </td>
+						        
+						        <td class="price">R$ <?php echo number_format($produto_carrinho['valor_produto'],2,',','.');?></td>
+						        
+						        <td class="quantity">
+									 <p class="text-center"><?php echo $produto_carrinho['quantidade_produto'];?></p>
+						        	<!-- <div class="input-group mb-3">
+					             	<input type="text" name="quantity" class="quantity form-control input-number" value="<?php echo $produto_carrinho['quantidade_produto'];?>" min="1" max="100">
+									
+					          	</div> -->
+					          </td>
+						        
+						        <td class="total"><?php echo number_format($produto_carrinho['quantidade_produto'] * $produto_carrinho['valor_produto'],2,',','.');?></td>
+						      </tr><!-- END TR-->
+							  <?php $totalcarrinho = $totalcarrinho + ($produto_carrinho['quantidade_produto'] * $produto_carrinho['valor_produto']);
+							  		$total_produtos = $totalcarrinho+$total_produtos;
+							  ?>
+							  <?php } }else{?>
+								 <tr class="text-center">
+									 <td colspan="6"><h2>Nenhum produto adicionado no carrinho.</h2></td>
+								 </tr>
+							  <?php }?>
+
+						    </tbody>
+						  </table>
+                                <!--   <a href="#">
                                     <div class="sidebar-image siixx">
-                                      <img src="img/<?php echo $descFilme[0]->imagem;?>" alt="">
+                                      <img src="img/<?php echo $descFilme->imagem;?>" alt="">
                                       <div class="movies-image-head">
-                                      <h2><?php echo $descFilme[0]->titulo;?></h2>
+                                      <h2><?php echo $descFilme->titulo;?></h2>
                                       
                                       </div>
                                     </div>
-                                  </a>
+                                  </a> -->
                                   <!-- <div class="varification">
                                     <p>*Don’t forget to come with an ID for verification. No refunds after the purchase of tickets!</p>
                                   </div> -->
                                 </div>
                                 <div class="media-body">
-                                  <h4 class="media-heading"><?php echo $descFilme[0]->titulo;?></h4>
-                                  <div class="details">                          
+                                  <h4 class="media-heading"></h4>
+                                  <!-- <div class="details">                          
                                     <ul>
                                       <li><span>Place: </span> Zooks Cinema City</li>
                                       <li><span>Day : </span> 05/06/2016</li>
@@ -138,47 +211,49 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                                       <li><span>Time : </span> 21:40</li>
                                       <li class="entry"><span>ENTRIES:<br/>1x Normal</span> $8.50</li>
                                     </ul>
-                                  </div>
+                                  </div> -->
                                   <!-- <p>TVA Included (21%) <br/><i>All expenses are included also.</i></p> -->
                                   <div class="button">
-                                    <a href="#">Total: $8.50</a>
+                                    <a href="#">Total: R$ <?php echo number_format($totalcarrinho,2,',','.');?></a>
                                   </div>
                                 </div>
                               </div>
                             </div>
                             <div class="contact-details">
                               <h3>Dados</h3>                              
-                              <form>
+                              <form action="<?php echo SITE_URL;?>/pagamento" method="POST" id="formUsuario">
                                 <fieldset>
                                   <div class="row">
                                   <div class="col-sm-6">
                                     <div class="form-group">
-                                      <input type="text" class="form-control" placeholder="Nome Completo" required>
+                                      <input type="text" class="form-control" name="senderName" placeholder="Nome Completo" required>
                                     </div>
                                   </div>
                                   <div class="col-sm-6">
                                     <div class="form-group">
-                                      <input type="text" class="form-control" placeholder="CPF" required>
+                                      <input type="text" class="form-control" name="senderCPF" id="senderCPF" maxlength="14" placeholder="CPF" required>
                                     </div>
                                   </div>
                                   <div class="col-sm-6">
                                     <div class="form-group">
-                                      <input type="text" class="form-control" placeholder="Telefone" required>
+                                      <input type="text" class="form-control" name="senderPhone" id="senderPhone" maxlength="15" placeholder="Telefone" required>
                                     </div>
                                   </div>
                                   <div class="col-sm-6">
                                     <div class="form-group">
-                                      <input type="email" class="form-control" placeholder="E-mail" required>
+                                      <input type="email" class="form-control" name="senderEmail" placeholder="E-mail" required>
                                     </div>
                                   </div>
                                   
                                   
                                   </div>
                                 </fieldset>
+                                <button class="btn-green done last-button topppbtn" type="submit">Pagar com o Cartão <img src="images/payment.png" alt=""></button>
+                                <input type="hidden" name="valor" value="<?php echo $totalcarrinho;?>">
                               </form>
                             </div>
-                            <button class="btn-default back-top topppbtn" type="button"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</button>
-                            <button class="btn-green done last-button topppbtn" type="submit">Pagar com o Cartão <img src="images/payment.png" alt=""></button>
+                            <!-- <button class="btn-default back-top topppbtn" type="button"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</button> -->
+                            
                           </div>
                       </li>
                     </ul>
@@ -190,11 +265,11 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                     <div class="widget">
                       <h2 class="widget-title">Resumo da Compra</h2>
                       <div class="sidebar-content">
-                        <p><?php echo $descFilme[0]->titulo?></p>
+                        <p><?php echo $descFilme->titulo?></p>
                         <div class="sidebar-image siixx">
-                          <img src="<?php echo SITE_URL;?>/img/<?php echo $descFilme[0]->imagem?>" alt="<?php echo $descFilme[0]->url_amigavel;?>" title="<?php echo $descFilme[0]->url_amigavel;?>">
+                          <img src="<?php echo SITE_URL;?>/img/<?php echo $descFilme->imagem?>" alt="<?php echo $descFilme->url_amigavel;?>" title="<?php echo $descFilme->url_amigavel;?>">
                           <div class="movies-image-head">
-                          <h2><?php echo $descFilme[0]->titulo?></h2>
+                          <h2><?php echo $descFilme->titulo?></h2>
                           
                           </div>
                         </div>
@@ -245,5 +320,15 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
         <script src="<?php echo SITE_URL;?>/js/jquery.mixitup.min.js" type="text/javascript"></script>
         <!-- main js -->
         <script src="<?php echo SITE_URL;?>/js/main.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+        <script>
+    $(document).ready(function () { 
+        var $cpf = $("#senderCPF");
+        var $telefone = $("#senderPhone");
+
+        $cpf.mask('000.000.000-00', {reverse: true});
+        $telefone.mask('(00)00000-0000', {reverse: true});
+    });
+</script>
     </body>
 </html>

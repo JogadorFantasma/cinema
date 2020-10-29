@@ -34,7 +34,7 @@ $descFilme = $filmes->rsDados('', '', '', $id);
         <!-- owl.carousel css -->
         <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/owl.carousel.css">
         <!-- font-awesome css -->
-        <link rel="stylesheet" href="<?php echo SITE_URL;?>/ss/font-awesome.min.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/font-awesome.min.css">
         <!-- style css -->
         <link rel="stylesheet" href="<?php echo SITE_URL;?>/style.css">
         <!-- responsive css -->
@@ -148,40 +148,7 @@ $descFilme = $filmes->rsDados('', '', '', $id);
         </div>
         <!-- Single Movie Show End Here -->
         <!-- Zooks Promos Start Here -->
-<<<<<<< HEAD
         <?php include"newsletter.php";?>
-=======
-        <div class="zooks-promos-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="section-title">
-                            <h2><span>Zooks</span> Promos</h2>
-                            <p>Weekly Zooks <strong>promotional</strong> ads!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="total-promos-area">
-                            <div class="single-promos">
-                                <a href="#"><img src="<?php echo SITE_URL;?>/images/promos/1.jpg" alt=""></a>
-                            </div>
-                            <div class="single-promos">
-                                <a href="#"><img src="<?php echo SITE_URL;?>/images/promos/2.jpg" alt=""></a>
-                            </div>
-                            <div class="single-promos">
-                                <a href="#"><img src="<?php echo SITE_URL;?>/images/promos/3.jpg" alt=""></a>
-                            </div>
-                            <div class="single-promos">
-                                <a href="#"><img src="<?php echo SITE_URL;?>/images/promos/1.jpg" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
->>>>>>> 1d5a8c02a500d8b8f11d872295d89d78b5a9c551
         <!-- Zooks Promos End Here -->
     <?php include "footer.php";?>
         <!-- all js here -->

@@ -28,7 +28,7 @@ if(empty($FilmesInstanciada)) {
 		}
 		
 	
-		function rsDados($id='', $orderBy='', $limite='', $url_amigavel='', $destaque='', $ativo='') {
+		function rsDados($id='', $orderBy='', $limite='', $url_amigavel='', $destaque='', $ativo='', $categoria='') {
 			
 			/// FILTROS
 			$nCampos = 0;
@@ -57,6 +57,11 @@ if(empty($FilmesInstanciada)) {
 				$sql .= " and ativo = ?"; 
 				$nCampos++;
 				$campo[$nCampos] = $ativo;
+			}
+			if(!empty($categoria)) {
+				$sql .= " and id_categoria = ?"; 
+				$nCampos++;
+				$campo[$nCampos] = $categoria;
 			}
 		
 			if(isset($_POST['id_cat']) && !empty($_POST['id_cat'])) {
@@ -110,6 +115,7 @@ if(empty($FilmesInstanciada)) {
 				$meta_keywords = filter_input(INPUT_POST, 'meta_keywords', FILTER_SANITIZE_STRING);
 				$meta_description = filter_input(INPUT_POST, 'meta_description', FILTER_SANITIZE_STRING);
 				$id_classificacao_indicativa = filter_input(INPUT_POST, 'id_classificacao_indicativa', FILTER_SANITIZE_STRING);
+				$id_categoria = filter_input(INPUT_POST, 'id_categoria', FILTER_SANITIZE_STRING);
 					try{
 
 						if(file_exists('Connection/conexao.php')) {
@@ -118,7 +124,7 @@ if(empty($FilmesInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 						
-						$sql = "INSERT INTO tbl_filmes (imagem, titulo, descricao, duracao, ativo, url_amigavel, meta_title, meta_keywords, meta_description, genero, diretor, atores, breve, id_classificacao_indicativa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
+						$sql = "INSERT INTO tbl_filmes (imagem, titulo, descricao, duracao, ativo, url_amigavel, meta_title, meta_keywords, meta_description, genero, diretor, atores, breve, id_classificacao_indicativa, id_categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, upload('imagem', $pastaArquivos, 'N'));   
 						$stm->bindValue(2, $titulo);   
@@ -134,6 +140,7 @@ if(empty($FilmesInstanciada)) {
 						$stm->bindValue(12, $atores);
 						$stm->bindValue(13, $breve);
 						$stm->bindValue(14, $id_classificacao_indicativa);
+						$stm->bindValue(15, $id_categoria);
 						$stm->execute(); 
 						$idBanner = $this->pdo->lastInsertId();
 						
@@ -170,6 +177,7 @@ if(empty($FilmesInstanciada)) {
 				$atores = filter_input(INPUT_POST, 'atores', FILTER_SANITIZE_STRING);
 				$breve = filter_input(INPUT_POST, 'breve', FILTER_SANITIZE_STRING);
 				$id_classificacao_indicativa = filter_input(INPUT_POST, 'id_classificacao_indicativa', FILTER_SANITIZE_STRING);
+				$id_categoria = filter_input(INPUT_POST, 'id_categoria', FILTER_SANITIZE_STRING);
 				
 				
 				try { 
@@ -180,7 +188,7 @@ if(empty($FilmesInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 				
-					$sql = "UPDATE tbl_filmes SET imagem=?, titulo=?, descricao=?, duracao=?, ativo=?, url_amigavel=?, meta_title=?, meta_keywords=?, meta_description=?, genero=?, diretor=?, atores=?, breve=?, id_classificacao_indicativa=? WHERE id=?";   
+					$sql = "UPDATE tbl_filmes SET imagem=?, titulo=?, descricao=?, duracao=?, ativo=?, url_amigavel=?, meta_title=?, meta_keywords=?, meta_description=?, genero=?, diretor=?, atores=?, breve=?, id_classificacao_indicativa=?, id_categoria=? WHERE id=?";   
 					$stm = $this->pdo->prepare($sql);   
 					$stm->bindValue(1, upload('imagem', $pastaArquivos, 'N'));   
 					$stm->bindValue(2, $titulo);   
@@ -196,7 +204,8 @@ if(empty($FilmesInstanciada)) {
 					$stm->bindValue(12, $atores);
 					$stm->bindValue(13, $breve); 
 					$stm->bindValue(14, $id_classificacao_indicativa);  
-					$stm->bindValue(15, $id);   
+					$stm->bindValue(15, $id_categoria);
+					$stm->bindValue(16, $id);   
 					$stm->execute(); 
 				} catch(PDOException $erro){
 					echo $erro->getMessage(); 
