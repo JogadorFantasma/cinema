@@ -44,6 +44,44 @@ $descFilme = $filmes->rsDados($id_filme);
 $dadosDaProgramacao = $filmes->rsDadosProgramacao('', '', '', $descFilme->id, $data_ingresso, '', $horario_ingresso);
 //var_dump($dadosDaProgramacao);
 $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
+
+//var_dump($_POST);
+if(isset($_POST['cadeira'])){
+$variavel = $_POST['cadeira'];
+$qntcadeiras = count($variavel);
+}else{
+  $qntcadeiras = 0;
+}
+/* echo "aqui ".$quantidade;
+echo "aqui2 ".$qntcadeiras; */
+//exit;
+if(!isset($_SESSION['escolha_cadeira']) && $quantidade > $qntcadeiras){
+$puxaurl = SITE_URL;
+echo "<script>alert('Quantidade de cadeiras selecionadas maior que a solicitada');window.location='{$puxaurl}/entrada/2/{$descFilme->url_amigavel}';</script>";
+exit;
+}
+if(!isset($_SESSION['escolha_cadeira']) && $quantidade < $qntcadeiras){
+$puxaurl = SITE_URL;
+echo "<script>alert('Quantidade de cadeiras selecionadas menor que a solicitada');window.location='{$puxaurl}/entrada/2/{$descFilme->url_amigavel}';</script>";
+exit;
+}
+if($quantidade == $qntcadeiras){
+if(isset($_SESSION['escolha_cadeira']) && !empty($qntcadeiras)){
+  unset($_SESSION['escolha_cadeira']);
+}
+for($b=0;$b<$qntcadeiras;$b++){
+  $_SESSION['escolha_cadeira'][$b] = array
+            (
+            'assento' => $_POST['cadeira'][$b],
+            'id_filme' => $id_filme,
+            'data_filme' => $data_ingresso,
+            'hora_filme' => $horario_ingresso,
+            'id_cidade' => $_SESSION['id_cidade']
+            );
+}
+}
+
+//var_dump($_SESSION['escolha_cadeira']);
 ?>
 <!doctype html>
 <html class="no-js" lang="pt-br">
@@ -185,7 +223,7 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
 									 <td colspan="6"><h2>Nenhum produto adicionado no carrinho.</h2></td>
 								 </tr>
 							  <?php }?>
-
+                
 						    </tbody>
 						  </table>
                                 <!--   <a href="#">
@@ -279,7 +317,16 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                             <li><span>Dia : </span> <?php echo formataData($dadosDaProgramacao[0]->data_exibicao);?></li>
                             <li><span>Sala : </span> <?php echo $dadosSala->titulo;?> </li>
                             <li><span>Horário : </span> <?php echo substr($dadosDaProgramacao[0]->hora_exibicao,0,5);?></li>
-                            <!-- <li class="entry"><span>Entradas:<br/>1x Normal</span> $8.50</li> -->
+                              <?php if(count($_SESSION['escolha_cadeira']) > 0){?>
+                  <li ><span>Assentos:</span> 
+                  <?php foreach($_SESSION['escolha_cadeira'] as $key => $assentos){
+                    ?>
+                    
+                        <div class='btn-success btn'><?php echo $assentos['assento'];?></div>
+                  <?php } ?>
+                  </li>
+                  <?php }?>
+                            
                           </ul>
                         </div>
                         

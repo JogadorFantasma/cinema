@@ -233,6 +233,80 @@ if(empty($ComprasInstanciada)) {
 				echo $erro->getMessage(); 
 			}
 		}
+
+		function rsDadosAssentos($id='', $orderBy='', $limite='', $id_compra='', $id_filme='', $hora_exibicao='', $data_exibicao='', $id_cidade='', $assento='') {
+			
+			/// FILTROS
+			$nCampos = 0;
+			$sql = '';
+			$sqlOrdem = ''; 
+			$sqlLimite = '';
+			if(!empty($id)) {
+				$sql .= " and id = ?"; 
+				$nCampos++;
+				$campo[$nCampos] = $id;
+			}
+
+			if(!empty($id_compra)) {
+				$sql .= " and id_compra = ?"; 
+				$nCampos++;
+				$campo[$nCampos] = $id_compra;
+			}
+			if(!empty($id_filme)) {
+				$sql .= " and id_filme = ?"; 
+				$nCampos++;
+				$campo[$nCampos] = $id_filme;
+			}
+			if(!empty($hora_exibicao)) {
+				$sql .= " and hora_filme = ?"; 
+				$nCampos++;
+				$campo[$nCampos] = $hora_exibicao;
+			}
+			if(!empty($data_exibicao)) {
+				$sql .= " and data_filme = ?"; 
+				$nCampos++;
+				$campo[$nCampos] = $data_exibicao;
+			}
+			if(!empty($id_cidade)) {
+				$sql .= " and id_cidade = ?"; 
+				$nCampos++;
+				$campo[$nCampos] = $id_cidade;
+			}
+			if(!empty($assento)) {
+				$sql .= " and assento = ?"; 
+				$nCampos++;
+				$campo[$nCampos] = $assento;
+			}
+		
+			/// ORDEM		
+			if(!empty($orderBy)) {
+				$sqlOrdem = " order by {$orderBy}";
+			}
+			
+			if(!empty($limite)) {
+				$sqlLimite = " limit 0,{$limite}";
+			}
+			
+			try{   
+				$sql = "SELECT * FROM tbl_relaciona_cadeiras where 1=1 $sql $sqlOrdem $sqlLimite";
+				$stm = $this->pdo->prepare($sql);
+				
+				for($i=1; $i<=$nCampos; $i++) {
+					$stm->bindValue($i, $campo[$i]);
+				}
+				
+				$stm->execute();
+				$rsDados = $stm->fetchAll(PDO::FETCH_OBJ);
+				//print_r($rsDados);
+				if($id <> '' or $limite == 1) {
+					return($rsDados[0]);
+				} else {
+					return($rsDados);
+				}
+			} catch(PDOException $erro){   
+				echo $erro->getMessage(); 
+			}
+		}
 	}
 	
 	$ComprasInstanciada = 'S';

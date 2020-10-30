@@ -1,7 +1,7 @@
 <?php
 include "includes.php";
-include "cielo/api-cielo-sandbox.class.php";
-$cielos = ApisSandboxesCielo::getInstance(Conexao::getInstance());
+include "cielo/api-cielo.class.php";
+$cielos = ApisCielos::getInstance(Conexao::getInstance());
 
 $cielos->credCardAutenticado();
 $cielos->debitoCard();

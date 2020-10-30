@@ -94,6 +94,7 @@ if(empty($SalasInstanciada)) {
 					} catch(PDOException $erro){
 						echo $erro->getMessage(); 
 					}
+					//exit;
 					echo "	<script>
 								window.location='salas.php';
 								</script>";
@@ -120,6 +121,7 @@ if(empty($SalasInstanciada)) {
 				} catch(PDOException $erro){
 					echo $erro->getMessage(); 
 				}
+				//exit;
 				echo "	<script>
 							window.location='{$redireciona}';
 							</script>";

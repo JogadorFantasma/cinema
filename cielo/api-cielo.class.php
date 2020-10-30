@@ -1,6 +1,6 @@
 <?php 
-$ApisSandboxesCieloInstanciada = '';
-if(empty($ApisSandboxesCieloInstanciada)) {
+$ApisCielosInstanciada = '';
+if(empty($ApisCielosInstanciada)) {
 	if(file_exists('Connection/conexao.php')) {
 		require_once('Connection/con-pdo.php');
 		require_once('funcoes.php');
@@ -9,20 +9,20 @@ if(empty($ApisSandboxesCieloInstanciada)) {
 		require_once('../funcoes.php');
 	}
 	
-	class ApisSandboxesCielo {
+	class ApisCielos {
         private $pdo = null;  
 
-		private static $ApisSandboxesCielo = null; 
+		private static $ApisCielos = null; 
 	
 		private function __construct($conexao){  
 			$this->pdo = $conexao;  
 		}
 		
 		public static function getInstance($conexao){   
-			if (!isset(self::$ApisSandboxesCielo)):    
-				self::$ApisSandboxesCielo = new ApisSandboxesCielo($conexao);   
+			if (!isset(self::$ApisCielos)):    
+				self::$ApisCielos = new ApisCielos($conexao);   
 			endif;
-			return self::$ApisSandboxesCielo;    
+			return self::$ApisCielos;    
 		}
 
         function crediCardMinimo(){
@@ -40,7 +40,7 @@ if(empty($ApisSandboxesCieloInstanciada)) {
     $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://apisandbox.cieloecommerce.cielo.com.br/1/sales",
+  CURLOPT_URL => "https://api.cieloecommerce.cielo.com.br/1/sales",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -158,7 +158,7 @@ function credCardAutenticado(){
     $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://apisandbox.cieloecommerce.cielo.com.br/1/sales",
+  CURLOPT_URL => "https://api.cieloecommerce.cielo.com.br/1/sales",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -215,7 +215,7 @@ function credCardCompleto(){
     $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://apisandbox.cieloecommerce.cielo.com.br/1/sales",
+  CURLOPT_URL => "https://api.cieloecommerce.cielo.com.br/1/sales",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -332,7 +332,7 @@ function debitoCard(){
     $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://apisandbox.cieloecommerce.cielo.com.br/1/sales",
+  CURLOPT_URL => "https://api.cieloecommerce.cielo.com.br/1/sales",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -388,7 +388,7 @@ function capturaTransacaoPorId($id_pagamento){
     $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{$id_pagamento}/capture",
+  CURLOPT_URL => "https://api.cieloecommerce.cielo.com.br/1/sales/{$id_pagamento}/capture",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,

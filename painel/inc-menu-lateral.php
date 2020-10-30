@@ -85,6 +85,20 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
+                                    class="hide-menu">Salas </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item"><a href="salas.php" class="sidebar-link"><span
+                                            class="hide-menu"> Listar Salas
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="add-sala.php" class="sidebar-link"><span
+                                            class="hide-menu"> Adicionar Sala
+                                        </span></a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="sidebar-item"> 
                             <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
                                 <i data-feather="file-text" class="feather-icon"></i>

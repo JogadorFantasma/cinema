@@ -12,7 +12,7 @@ $filmes->addProgramacao();
 $filmes->editarProgramacao();
 $editaFilme = $filmes->rsDados($id);
 $puxaProgramacoes = $filmes->rsDadosProgramacao('', '', '', $id);
-$puxaSalas = $filmes->rsDadosSalas();
+$puxaSalas = $salas->rsDados();
 $puxaClasses = $filmes->rsDadosClassificacao();
 $puxaCidades = $cidades->rsDadosCidades();
 ?>
@@ -206,8 +206,10 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Sala</label>
                                                     <select  class="form-control" name="id_sala[]">
-                                                    <?php foreach($puxaSalas as $sala){?>
-                                                    <option value="<?php echo $sala->id;?>"><?php echo $sala->titulo;?></option>
+                                                    <?php foreach($puxaSalas as $sala){
+                                                        $puxandoCidade = $cidades->rsDadosCidades($sala->id_cidade);
+                                                        ?>
+                                                    <option value="<?php echo $sala->id;?>"><?php echo $sala->titulo;?> - <?php echo $puxandoCidade[0]->nome;?></option>
                                                     <?php }?>
                                                     </select>
                                                     </div>
@@ -261,11 +263,12 @@ $puxaCidades = $cidades->rsDadosCidades();
                                             if(count($puxaProgramacoes) > 0){
                                             foreach($puxaProgramacoes as $programacao){
                                                 $nomeCidade = $cidades->rsDadosCidades($programacao->id_cidade);
+                                                $nomeSala = $salas->rsDados($programacao->id_sala);
                                                 ?>
                                             <tr>
                                                 <td><?php echo formataData($programacao->data_exibicao);?></td>
                                                 <td><?php echo $programacao->hora_exibicao;?></td>
-                                                <td><?php echo $programacao->id_sala;?></td>
+                                                <td><?php echo $nomeSala->titulo;?></td>
                                                 <td><?php echo number_format($programacao->valor,2,',','.');?></td>
                                                 <td><?php if(isset($nomeCidade[0]->nome) && !empty($nomeCidade[0]->nome)){echo $nomeCidade[0]->nome;}?></td>
                                                 <td>
@@ -403,8 +406,10 @@ $puxaCidades = $cidades->rsDadosCidades();
         html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Sala</label>';
         html += '<select  class="form-control" name="id_sala[]">';
-        <?php foreach($puxaSalas as $sala){?>
-        html += '<option value="<?php echo $sala->id;?>"><?php echo $sala->titulo;?></option>';
+        <?php foreach($puxaSalas as $sala){
+            $puxandoCidade = $cidades->rsDadosCidades($sala->id_cidade);
+            ?>
+        html += '<option value="<?php echo $sala->id;?>"><?php echo $sala->titulo;?> - <?php echo $puxandoCidade[0]->nome;?></option>';
         <?php }?>
         html += '</select>';
         html += '</div>';
