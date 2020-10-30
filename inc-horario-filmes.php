@@ -7,7 +7,7 @@ $incfilmes = Filmes::getInstance(Conexao::getInstance());
      $data_selecionada = date('Y-m-d');
  }
  //echo "Aqui: ".$data_selecionada; 
- $puxaProgramacoesGeral = $incfilmes->rsDadosProgramacao('', '', '', '', $data_selecionada, 'data_exibicao, id_filme');
+ $puxaProgramacoesGeral = $incfilmes->rsDadosProgramacao('', '', '', '', $data_selecionada, 'data_exibicao, id_filme', '', $_SESSION['id_cidade']);
  ?>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <?php 
@@ -20,12 +20,12 @@ $incfilmes = Filmes::getInstance(Conexao::getInstance());
                             <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                 <div class="movie-details">
                                     <div class="media">
-                                      <a class="pull-left" href="./filme/<?php echo $puxaFilme->url_amigavel;?>">
-                                        <img class="media-object" src="img/<?php echo $puxaFilme->imagem;?>" alt="<?php echo $puxaFilme->url_amigavel;?>" title="<?php echo $puxaFilme->url_amigavel;?>" style="max-width: 150px;" >
+                                      <a class="pull-left" href="<?php echo SITE_URL;?>/filme/<?php echo $puxaFilme->url_amigavel;?>">
+                                        <img class="media-object" src="<?php echo SITE_URL;?>/img/<?php echo $puxaFilme->imagem;?>" alt="<?php echo $puxaFilme->url_amigavel;?>" title="<?php echo $puxaFilme->url_amigavel;?>" style="max-width: 150px;" >
                                         <!-- <span class="text-align">3D Movie</span> -->
                                       </a>
                                       <div class="media-body">
-                                        <h4 class="media-heading"><a href="./filme/<?php echo $puxaFilme->url_amigavel;?>"><?php echo $puxaFilme->titulo;?></a></h4>
+                                        <h4 class="media-heading"><a href="<?php echo SITE_URL;?>/filme/<?php echo $puxaFilme->url_amigavel;?>"><?php echo $puxaFilme->titulo;?></a></h4>
                                         <div class="movie-info">
                                             <ul>
                                                 <li><?php echo exibe_classe_indicativa($puxaFilme->id_classificacao_indicativa);?></li>
@@ -41,7 +41,7 @@ $incfilmes = Filmes::getInstance(Conexao::getInstance());
                                                         //if(strtotime($hora_agora) > strtotime($puxaHorario->hora_exibicao)){ ?>
                                                        <!--  <li><?php //echo substr($puxaHorario->hora_exibicao,0,5);?></li> -->
                                                        <?php //}else{?>
-                                                        <li><a href="./entrada/<?php echo substr($puxaHorario->hora_exibicao,0,2).substr($puxaHorario->hora_exibicao,3,2);?>/<?php echo substr($puxaHorario->data_exibicao,0,4).substr($puxaHorario->data_exibicao,5,2).substr($puxaHorario->data_exibicao,8,2);?>/<?php echo $puxaFilme->url_amigavel;?>"><?php echo substr($puxaHorario->hora_exibicao,0,5);?></a></li>
+                                                        <li><a href="<?php echo SITE_URL;?>/entrada/<?php echo substr($puxaHorario->hora_exibicao,0,2).substr($puxaHorario->hora_exibicao,3,2);?>/<?php echo substr($puxaHorario->data_exibicao,0,4).substr($puxaHorario->data_exibicao,5,2).substr($puxaHorario->data_exibicao,8,2);?>/<?php echo $puxaFilme->url_amigavel;?>"><?php echo substr($puxaHorario->hora_exibicao,0,5);?></a></li>
                                                         <?php //}?>
                                                     
                                                     <?php }?>

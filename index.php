@@ -19,25 +19,25 @@ $dadosCidades = $cidades->rsDadosCidades();
     <!-- Place favicon.ico in the root directory -->
     <!-- all css here -->
     <!-- bootstrap v3.3.6 css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/bootstrap.min.css">
     <!-- animate css -->
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/animate.css">
     <!-- flaticon css -->
-    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/flaticon.css">
     <!-- jquery-ui.min css -->
-    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/jquery-ui.min.css">
     <!-- meanmenu css -->
-    <link rel="stylesheet" href="css/meanmenu.min.css">
+    <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/meanmenu.min.css">
     <!-- owl.carousel css -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/owl.carousel.css">
     <!-- font-awesome css -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/font-awesome.min.css">
     <!-- style css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="<?php echo SITE_URL;?>/style.css">
     <!-- responsive css -->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/responsive.css">
     <!-- modernizr css -->
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="<?php echo SITE_URL;?>/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
 <body>
@@ -45,7 +45,7 @@ $dadosCidades = $cidades->rsDadosCidades();
     <div class="caixa-cidade animated bounce" id="animacao">
 
 		<h3 class="text-center"><i class="fa fa-clock-o" aria-hidden="true"></i> Programação em </h3>
-		<select class="form-control" id="select-cidade" name="select_cidade" onchange="window.location='./cidade/'+this.value">
+		<select class="form-control" id="select-cidade" name="select_cidade" onchange="window.location='<?php echo SITE_URL;?>/cidade/'+this.value">
         <?php foreach($dadosCidades as $cidade){?>
 			<option value="<?php echo $cidade->id;?>" <?php if(isset($_SESSION['id_cidade']) && $_SESSION['id_cidade'] == $cidade->id){ echo"selected";}?>> <?php echo $cidade->nome;?> </option>
             <?php }?>
@@ -131,7 +131,7 @@ $dadosCidades = $cidades->rsDadosCidades();
                     <div class="total-promos-area">
                     <?php foreach($dadosFilmes as $itensFilmes){?>    
                     <div class="single-promos">
-                            <a href="#"><img src="img/<?php echo $itensFilmes->imagem?>" alt=""></a>
+                            <a href="#"><img src="<?php echo SITE_URL;?>/img/<?php echo $itensFilmes->imagem?>" alt=""></a>
                     </div>
                     <?php } ?>   
                         
@@ -172,24 +172,24 @@ $dadosCidades = $cidades->rsDadosCidades();
     <?php include "footer.php";?>
     <!-- all js here -->
     <!-- jquery latest version -->
-    <script src="js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="<?php echo SITE_URL;?>/js/vendor/jquery-1.12.0.min.js"></script>
     <!-- bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?php echo SITE_URL;?>/js/bootstrap.min.js"></script>
     <!-- owl.carousel js -->
-    <script src="js/owl.carousel.min.js"></script>
+    <script src="<?php echo SITE_URL;?>/js/owl.carousel.min.js"></script>
     <!-- meanmenu js -->
-    <script src="js/jquery.meanmenu.js"></script>
+    <script src="<?php echo SITE_URL;?>/js/jquery.meanmenu.js"></script>
     <!-- jquery-ui js -->
-    <script src="js/jquery-ui.min.js"></script>
+    <script src="<?php echo SITE_URL;?>/js/jquery-ui.min.js"></script>
     <!-- wow js -->
-    <script src="js/wow.min.js"></script>
+    <script src="<?php echo SITE_URL;?>/js/wow.min.js"></script>
     <!-- plugins js -->
-    <script src="js/plugins.js"></script>
+    <script src="<?php echo SITE_URL;?>/js/plugins.js"></script>
     <!-- jQuery MixedIT Up -->
-    <script src="js/jquery.mixitup.min.js" type="text/javascript"></script>
+    <script src="<?php echo SITE_URL;?>/js/jquery.mixitup.min.js" type="text/javascript"></script>
     <!-- main js -->
-    <script src="js/main.js"></script>
-    <script src="js/script_loads.js"></script>
+    <script src="<?php echo SITE_URL;?>/js/main.js"></script>
+    <script src="<?php echo SITE_URL;?>/js/script_loads.js"></script>
 </body>
 
 </html>

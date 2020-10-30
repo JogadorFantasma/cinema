@@ -21,6 +21,7 @@ RewriteRule ^blog/([a-zA-Z-0-9-_]+)$ desc-blog.php?id=$1
 RewriteRule ^categoria/([a-zA-Z-0-9-_]+)$ produtos.php?cat=$1
 RewriteRule ^produto/([a-zA-Z-0-9-_]+)$ desc-produto.php?id=$1
 RewriteRule ^confirmacao/([a-zA-Z-0-9-_]+)$ confirmacao-pagamento.php?id_compra=$1
+RewriteRule ^cidade/([a-zA-Z-0-9-_]+)$ index.php?select_cidade=$1
 
 RewriteRule ^produtos$ produtos.php
 RewriteRule ^pagamento$ checkout-pagamento.php
