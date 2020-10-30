@@ -235,7 +235,7 @@ if(empty($FilmesInstanciada)) {
 			}
 		}
 
-		function rsDadosProgramacao($id='', $orderBy='', $limite='', $id_filme='', $data_programacao='', $group='', $hora_programacao='') {
+		function rsDadosProgramacao($id='', $orderBy='', $limite='', $id_filme='', $data_programacao='', $group='', $hora_programacao='', $id_cidade='') {
 			
 			/// FILTROS
 			$nCampos = 0;
@@ -264,6 +264,12 @@ if(empty($FilmesInstanciada)) {
 				$sql .= " and hora_exibicao = ?"; 
 				$nCampos++;
 				$campo[$nCampos] = $hora_programacao;
+			}
+
+			if(!empty($id_cidade)) {
+				$sql .= " and id_cidade = ?"; 
+				$nCampos++;
+				$campo[$nCampos] = $id_cidade;
 			}
 		
 			/// ORDEM		

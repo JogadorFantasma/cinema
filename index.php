@@ -2,7 +2,8 @@
 include "includes.php";
 
 $dadosBanner = $banners->rsDados();
-$dadosFilmes = $filmes->rsDados();
+$dadosFilmes = $filmes->rsDados('', '', '', '', '', '', 2);
+$dadosCidades = $cidades->rsDadosCidades();
 ?>
 <!doctype html>
 <html class="no-js" lang="pt-br">
@@ -44,14 +45,10 @@ $dadosFilmes = $filmes->rsDados();
     <div class="caixa-cidade animated bounce" id="animacao">
 
 		<h3 class="text-center"><i class="fa fa-clock-o" aria-hidden="true"></i> Programação em </h3>
-		<select class="form-control" id="select-cidade">
-			<option value="3"> UNAÍ/MG </option>
-            <option value="4"> SOBRADINHO/DF </option>
-            <option value="2"> LEM/BA </option>
-            <option value="6"> GUANAMBI/BA </option>
-            <option value="1"> FORMOSA/GO </option>
-            <option value="7"> BRUMADO/BA </option>
-            <option value="5"> BARREIRAS/BA </option>		
+		<select class="form-control" id="select-cidade" name="select_cidade" onchange="window.location='./cidade/'+this.value">
+        <?php foreach($dadosCidades as $cidade){?>
+			<option value="<?php echo $cidade->id;?>" <?php if(isset($_SESSION['id_cidade']) && $_SESSION['id_cidade'] == $cidade->id){ echo"selected";}?>> <?php echo $cidade->nome;?> </option>
+            <?php }?>
         </select>
 		<span style="margin-left: 30px">escolha sua cidade</span>
 	</div>
@@ -132,7 +129,7 @@ $dadosFilmes = $filmes->rsDados();
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="total-promos-area">
-                    <?php foreach($dadosFilmes as $itensFilmes){ ?>    
+                    <?php foreach($dadosFilmes as $itensFilmes){?>    
                     <div class="single-promos">
                             <a href="#"><img src="img/<?php echo $itensFilmes->imagem?>" alt=""></a>
                     </div>

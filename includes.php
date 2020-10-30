@@ -1,5 +1,13 @@
 <?php 
 @session_start();
+///Aqui fica a session cidade
+if(!isset($_SESSION['id_cidade'])){
+    $_SESSION['id_cidade'] = 1;
+}
+if(isset($_GET['select_cidade']) && !empty($_GET['select_cidade'])){
+    $_SESSION['id_cidade'] = $_GET['select_cidade'];
+}
+
 include "Class/config.class.php";
 $infoSistema = ConfigSistema::getInstance(Conexao::getInstance())->rsDados();
 
@@ -23,6 +31,9 @@ $compras = Compras::getInstance(Conexao::getInstance());
 
 include "Class/clientes.class.php";
 $clientes = Clientes::getInstance(Conexao::getInstance());
+
+include "Class/cidades.class.php";
+$cidades = Cidades::getInstance(Conexao::getInstance());
 
 
 define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST'].'/projects/cinema');
