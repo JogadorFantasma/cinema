@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 29/10/2020 às 21:44
+-- Tempo de geração: 30/10/2020 às 19:56
 -- Versão do servidor: 10.4.13-MariaDB
 -- Versão do PHP: 7.4.7
 
@@ -13199,7 +13199,8 @@ CREATE TABLE `tbl_compras` (
 INSERT INTO `tbl_compras` (`id`, `tipo_compra`, `status_compra`, `entrada`, `saida`, `id_cliente`, `valor`, `data_transacao`, `hora_transacao`, `tipo_pagamento`, `bandeira`, `id_pagamento`, `forma_pagamento`) VALUES
 (7, 'CHA', '1', '2020-10-27', '2020-10-30', 1, 270, '2020-10-26', '21:04:11', NULL, 'visa', 'ed480eef-8a76-4684-8071-d381d6def05e', 'CRE'),
 (9, NULL, NULL, NULL, NULL, 1, 0, '2020-10-29', '20:48:37', NULL, 'visa', NULL, 'CRE'),
-(10, NULL, '1', NULL, NULL, 1, 104.3, '2020-10-29', '20:52:35', NULL, 'visa', '654853f2-748b-4752-b82e-009be7d04bb5', 'CRE');
+(10, NULL, '1', NULL, NULL, 1, 104.3, '2020-10-29', '20:52:35', NULL, 'visa', '654853f2-748b-4752-b82e-009be7d04bb5', 'CRE'),
+(11, NULL, '1', NULL, NULL, 1, 30, '2020-10-30', '19:01:34', NULL, 'visa', '7ef7fef8-9a1e-41fb-832a-81d0b2dcda82', 'CRE');
 
 -- --------------------------------------------------------
 
@@ -13365,7 +13366,8 @@ CREATE TABLE `tbl_filmes` (
 --
 
 INSERT INTO `tbl_filmes` (`id`, `titulo`, `descricao`, `imagem`, `duracao`, `url_amigavel`, `ativo`, `meta_title`, `meta_keywords`, `meta_description`, `genero`, `diretor`, `atores`, `breve`, `id_classificacao_indicativa`, `id_categoria`) VALUES
-(1, 'Avatar', 'No exuberante mundo alienígena de Pandora vivem os Na\'vi, seres que parecem ser primitivos, mas são altamente evoluídos. Como o ambiente do planeta é tóxico, foram criados os avatares, corpos biológicos controlados pela mente humana que se movimentam livremente em Pandora. Jake Sully, um ex-fuzileiro naval paralítico, volta a andar através de um avatar e se apaixona por uma Na\'vi. Esta paixão leva Jake a lutar pela sobrevivência de Pandora.', '1603370642.797-imagem-N.jpg', '2h 42m', 'avatar', 'S', '', '', '', 'Ficção científica, Aventura', 'James Cameron', 'Sam Worthington, Zoe Saldana, Sigourney Weaver', 'Jake Sully (Sam Worthington) ficou paraplégico após um combate na Terra. Ele é selecionado para participar do programa Avatar em substituição ao seu irmão gêmeo, falecido. Jake viaja a Pandora, uma lua extraterrestre, onde encontra diversas e estranhas formas de vida.', 1, 1);
+(1, 'Avatar', 'No exuberante mundo alienígena de Pandora vivem os Na\'vi, seres que parecem ser primitivos, mas são altamente evoluídos. Como o ambiente do planeta é tóxico, foram criados os avatares, corpos biológicos controlados pela mente humana que se movimentam livremente em Pandora. Jake Sully, um ex-fuzileiro naval paralítico, volta a andar através de um avatar e se apaixona por uma Na\'vi. Esta paixão leva Jake a lutar pela sobrevivência de Pandora.', '1603370642.797-imagem-N.jpg', '2h 42m', 'avatar', 'S', '', '', '', 'Ficção científica, Aventura', 'James Cameron', 'Sam Worthington, Zoe Saldana, Sigourney Weaver', 'Jake Sully (Sam Worthington) ficou paraplégico após um combate na Terra. Ele é selecionado para participar do programa Avatar em substituição ao seu irmão gêmeo, falecido. Jake viaja a Pandora, uma lua extraterrestre, onde encontra diversas e estranhas formas de vida.', 1, 1),
+(2, 'TENET', 'Um agente da CIA conhecido como O Protagonista (John David Washington) é recrutado por uma organização misteriosa, chamada Tenet, para participar de uma missão de escala global. Eles precisam impedir que Andrei Sator (Kenneth Branagh), um renegado oligarca russo com meios de se comunicar com o futuro, inicie a Terceira Guerra Mundial. A organização está em posse de uma arma de fogo que consegue fazer o tempo correr ao contrário, acreditando que o objeto veio do futuro. Com essa habilidade em mãos, O Protagonista precisará usá-la como forma de se opor à ameaça que está por vir, impedindo que os planos de Sator se concretizem.', '1604068578.6191-imagem-N.jpg', '2h 30min', 'tenet', 'S', '', '', '', 'Ação, Ficção científica', 'Christopher Nolan', 'John David Washington, Kenneth Branagh, Robert Pattinson', 'Um agente da CIA conhecido como O Protagonista (John David Washington) é recrutado por uma organização misteriosa, chamada Tenet, para participar de uma missão de escala global.', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -13607,10 +13609,56 @@ CREATE TABLE `tbl_programacao_filmes` (
 --
 
 INSERT INTO `tbl_programacao_filmes` (`id`, `id_filme`, `data_exibicao`, `hora_exibicao`, `id_sala`, `valor`, `id_cidade`) VALUES
-(1, 1, '2020-10-28', '15:00:00', 1, 15, 1),
-(2, 1, '2020-10-27', '18:00:00', 1, 18, 1),
-(3, 1, '2020-10-28', '21:00:00', 1, 15, 1),
-(4, 1, '2020-10-29', '15:00:00', 2, 19, 1);
+(1, 1, '2020-10-28', '15:00:00', 1, 30, 1),
+(2, 1, '2020-10-30', '18:00:00', 1, 30, 1),
+(3, 1, '2020-10-28', '21:00:00', 1, 30, 1),
+(4, 1, '2020-10-29', '15:00:00', 2, 30, 1),
+(5, 2, '2020-10-29', '14:30:00', 3, 30, 4),
+(6, 2, '2020-10-30', '14:30:00', 3, 30, 4),
+(7, 2, '2020-10-31', '14:30:00', 3, 30, 4),
+(8, 2, '2020-11-01', '14:30:00', 3, 30, 4),
+(9, 2, '2020-11-02', '14:30:00', 3, 30, 4),
+(10, 2, '2020-11-03', '14:30:00', 3, 30, 4),
+(11, 2, '2020-11-04', '14:30:00', 3, 30, 4),
+(12, 2, '2020-10-29', '17:30:00', 3, 30, 4),
+(13, 2, '2020-10-30', '17:30:00', 3, 30, 4),
+(14, 2, '2020-10-31', '17:30:00', 3, 30, 4),
+(15, 2, '2020-11-01', '17:30:00', 3, 30, 4),
+(16, 2, '2020-11-02', '17:30:00', 3, 30, 4),
+(17, 2, '2020-11-03', '17:30:00', 3, 30, 4),
+(18, 2, '2020-11-04', '17:30:00', 3, 30, 4),
+(19, 2, '2020-10-29', '20:30:00', 3, 30, 4),
+(20, 2, '2020-10-30', '20:30:00', 3, 30, 4),
+(21, 2, '2020-10-31', '20:30:00', 3, 30, 4),
+(22, 2, '2020-11-01', '20:30:00', 3, 30, 4),
+(23, 2, '2020-11-02', '20:30:00', 3, 30, 4),
+(24, 2, '2020-11-03', '20:30:00', 3, 30, 4),
+(25, 2, '2020-11-04', '20:30:00', 3, 30, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbl_relaciona_cadeiras`
+--
+
+CREATE TABLE `tbl_relaciona_cadeiras` (
+  `id` int(11) NOT NULL,
+  `id_filme` int(11) DEFAULT NULL,
+  `hora_filme` time DEFAULT NULL,
+  `data_filme` date DEFAULT NULL,
+  `id_cliente` int(11) DEFAULT NULL,
+  `id_compra` int(11) DEFAULT NULL,
+  `assento` varchar(80) DEFAULT NULL,
+  `id_cidade` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `tbl_relaciona_cadeiras`
+--
+
+INSERT INTO `tbl_relaciona_cadeiras` (`id`, `id_filme`, `hora_filme`, `data_filme`, `id_cliente`, `id_compra`, `assento`, `id_cidade`) VALUES
+(1, 2, '17:30:00', '2020-10-30', 1, 11, 'D13', 4),
+(2, 2, '17:30:00', '2020-10-30', 1, 11, 'I3', 4);
 
 -- --------------------------------------------------------
 
@@ -13644,7 +13692,8 @@ INSERT INTO `tbl_relaciona_compras` (`id`, `id_produto`, `id_compra`, `valor_pro
 (7, 5, 10, 6, NULL, NULL, NULL, 1, 1),
 (8, 252525, 10, 19, 1, '2020-10-29', '15:00:00', 1, 2),
 (9, 252526, 10, 9.5, 1, '2020-10-29', '15:00:00', 1, 3),
-(10, 4, 10, 13, NULL, NULL, NULL, 1, 2);
+(10, 4, 10, 13, NULL, NULL, NULL, 1, 2),
+(11, 252525, 11, 30, 2, '2020-10-30', '17:30:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -13654,16 +13703,22 @@ INSERT INTO `tbl_relaciona_compras` (`id`, `id_produto`, `id_compra`, `valor_pro
 
 CREATE TABLE `tbl_sala` (
   `id` int(11) NOT NULL,
-  `titulo` varchar(100) DEFAULT NULL
+  `titulo` varchar(100) DEFAULT NULL,
+  `id_cidade` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `tbl_sala`
 --
 
-INSERT INTO `tbl_sala` (`id`, `titulo`) VALUES
-(1, 'Sala 1'),
-(2, 'Sala 2');
+INSERT INTO `tbl_sala` (`id`, `titulo`, `id_cidade`) VALUES
+(1, 'SALA 1', 1),
+(2, 'SALA 1', 2),
+(3, 'SALA 1', 4),
+(4, 'SALA 2', 1),
+(5, 'SALA 2', 2),
+(6, 'SALA 1', 5),
+(7, 'SALA 2', 5);
 
 -- --------------------------------------------------------
 
@@ -13814,7 +13869,7 @@ CREATE TABLE `tbl_usuarios` (
 --
 
 INSERT INTO `tbl_usuarios` (`id`, `nome`, `email`, `telefone`, `endereco`, `cpf`, `login`, `senha`, `foto`, `id_cargo`, `sexo`, `perm_cad_usuario`, `perm_relatorio`, `perm_add_usuario`, `perm_edit_usuario`, `perm_del_usuario`, `perm_cad_contato`, `perm_edit_contato`, `perm_del_contato`, `perm_edit_contato_nf`, `perm_pag_principal_rm`, `perm_pag_principal_uc`, `admin_geral`, `data_frase`, `id_frase`, `frase_lida`) VALUES
-(1, 'Administrador', 'adm@adm.com', NULL, NULL, NULL, 'admin', '1234', NULL, NULL, 'M', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', NULL, '2020-10-29', 1, 'N'),
+(1, 'Administrador', 'adm@adm.com', NULL, NULL, NULL, 'admin', '1234', NULL, NULL, 'M', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', NULL, '2020-10-30', 7, 'N'),
 (2, 'teste', 'teste@teste.com.br', '', '', '', NULL, '123', NULL, 1, 'M', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', NULL, NULL, NULL, NULL);
 
 --
@@ -13978,6 +14033,12 @@ ALTER TABLE `tbl_programacao_filmes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices de tabela `tbl_relaciona_cadeiras`
+--
+ALTER TABLE `tbl_relaciona_cadeiras`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices de tabela `tbl_relaciona_compras`
 --
 ALTER TABLE `tbl_relaciona_compras`
@@ -14093,7 +14154,7 @@ ALTER TABLE `tbl_cliente`
 -- AUTO_INCREMENT de tabela `tbl_compras`
 --
 ALTER TABLE `tbl_compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_config`
@@ -14135,7 +14196,7 @@ ALTER TABLE `tbl_exames`
 -- AUTO_INCREMENT de tabela `tbl_filmes`
 --
 ALTER TABLE `tbl_filmes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_frases`
@@ -14183,19 +14244,25 @@ ALTER TABLE `tbl_produto`
 -- AUTO_INCREMENT de tabela `tbl_programacao_filmes`
 --
 ALTER TABLE `tbl_programacao_filmes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT de tabela `tbl_relaciona_cadeiras`
+--
+ALTER TABLE `tbl_relaciona_cadeiras`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_relaciona_compras`
 --
 ALTER TABLE `tbl_relaciona_compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_sala`
 --
 ALTER TABLE `tbl_sala`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_servicos`
