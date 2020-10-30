@@ -68,13 +68,12 @@ $dadosCidades = $cidades->rsDadosCidades();
                                 <h1 class="wow zoomIn text-uppercase text-white  animated" data-wow-duration="0.3s"
                                     data-wow-delay="0.3s"
                                     style="visibility: visible; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: zoomIn;">
-                                    Filmes</h1>
+                                    </h1>
                                 <h2 class="wow zoomIn text-white text-uppercase  animated" data-wow-duration="0.5s"
                                     data-wow-delay="0.5s"
                                     style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: zoomIn;">
-                                    Aproveite</h2>
-
-                                <a href="#">Saiba Mais</a>
+                                    </h2>
+                                
                             </div>
                             <?php }?>
                             

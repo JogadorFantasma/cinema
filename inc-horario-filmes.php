@@ -8,13 +8,15 @@ $incfilmes = Filmes::getInstance(Conexao::getInstance());
  }
  //echo "Aqui: ".$data_selecionada; 
  $puxaProgramacoesGeral = $incfilmes->rsDadosProgramacao('', '', '', '', $data_selecionada, 'data_exibicao, id_filme', '', $_SESSION['id_cidade']);
+
+ define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST'].'/projects/cinema');
  ?>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <?php 
                         if(count($puxaProgramacoesGeral) > 0){
                         foreach($puxaProgramacoesGeral as $puxaProgramacaoGeral){
                             $puxaFilme = $incfilmes->rsDados($puxaProgramacaoGeral->id_filme);
-                            $puxaHorarios = $incfilmes->rsDadosProgramacao('', '', '', $puxaFilme->id, $data_selecionada);
+                            $puxaHorarios = $incfilmes->rsDadosProgramacao('', '', '', $puxaFilme->id, $data_selecionada, '', '', $_SESSION['id_cidade']);
                             ?>
                         <div class="single-movie-details-area">
                             <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">

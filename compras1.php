@@ -40,14 +40,18 @@ foreach($_SESSION['shopping_cart'] as $pegandoIngresso){
 //var_dump($_SESSION['shopping_cart']);
 //echo "Quantidade: ".$quantidade;
 $descFilme = $filmes->rsDados('', '', '', $id);
+//var_dump($descFilme);
 /* if(isset($_GET['data']) && !empty($_GET['data'])){
   $data_ingresso = substr($_GET['data'],0,4)."-".substr($_GET['data'],4,2)."-".substr($_GET['data'],6,2);
 }
 if(isset($_GET['horario']) && !empty($_GET['horario'])){
   $horario_ingresso = substr($_GET['horario'],0,2).":".substr($_GET['horario'],2,2).":00";
 } */
-//echo "Aqui: ".$data_ingresso;
-$dadosDaProgramacao = $filmes->rsDadosProgramacao('', '', '', $descFilme[0]->id, $data_ingresso, '', $horario_ingresso);
+//echo "Aqui2: ".$data_ingresso;
+//echo "Aqui4: ".$horario_ingresso;
+//echo "Aqui: ".$descFilme[0]->id;
+//echo "Aqui3: ".$_SESSION['id_cidade'];
+$dadosDaProgramacao = $filmes->rsDadosProgramacao('', '', '', $descFilme[0]->id, $data_ingresso, '', $horario_ingresso, $_SESSION['id_cidade']);
 //var_dump($dadosDaProgramacao);
 $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
 ?>
@@ -136,8 +140,8 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                           </div>
                           <div class="wizard-content seats" style="display: block;">
                            <?php 
-                           $_GET['id_sala'] = $dadosSala->id;
-                           $_GET['id_cidade_sala'] = $dadosSala->id_cidade;
+                          $_GET['id_sala'] = $dadosSala->id;
+                          $_GET['id_cidade_sala'] = $dadosSala->id_cidade;
                            include "inc-assentos.php";?>
                             
                           </div>
