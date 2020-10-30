@@ -13,7 +13,7 @@ $incfilmes = Filmes::getInstance(Conexao::getInstance());
      $url = $_GET['url'];
  }
  
- $puxaHorarios = $incfilmes->rsDadosProgramacao('', '', '', $id_filme, $data_selecionada);
+ $puxaHorarios = $incfilmes->rsDadosProgramacao('', '', '', $id_filme, $data_selecionada, '', '', $_SESSION['id_cidade']) ;
  ?>
                         <?php if(count($puxaHorarios) > 0){ ?>
                         <div class="movie-time">

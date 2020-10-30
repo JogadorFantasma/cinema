@@ -2,12 +2,12 @@
 $id = '';
 if(isset($_GET['id'])){
     if(empty($_GET['id'])){
-        header('Location: filmes');
+        header('Location: filmes/cartaz');
     }else{
         $id = $_GET['id'];        
     }
 }
-$descFilme = $filmes->rsDados('', '', '', $id);
+$descFilme = $filmes->rsDados('', '', '', '', '', '', $id);
 ?>
 <!doctype html>
 <html class="no-js" lang="pt-br">
@@ -70,7 +70,7 @@ $descFilme = $filmes->rsDados('', '', '', $id);
                 <div class="row">
                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                          <div class="movies-show-title">
-                             <h2>Em Breve / Em Cartaz</h2>
+                             <h2><?php if(isset($_GET['id']) && $_GET['id'] == 1){ echo "Em Cartaz";} if(isset($_GET['id']) && $_GET['id'] == 2){ echo "Em Breve";}?></h2>
                          </div>
                      </div>
                 </div>
@@ -85,8 +85,7 @@ $descFilme = $filmes->rsDados('', '', '', $id);
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="topbar-left">
 
-                        <select class="selectpicker"
-                            onChange="AtualizaJanela('inc-horario-filmes.php?data='+this.value, 'Filmes');">
+                        <select class="selectpicker" onChange="AtualizaJanela('<?php echo SITE_URL;?>/inc-horario-filmes.php?data='+this.value, 'Filmes');">
                             <?php 
                             $datas = render(date('Y-m-d'));
                             foreach($datas as $data){ ?>
@@ -136,5 +135,6 @@ $descFilme = $filmes->rsDados('', '', '', $id);
         <script src="<?php echo SITE_URL;?>/js/jquery.mixitup.min.js" type="text/javascript"></script>
         <!-- main js -->
         <script src="<?php echo SITE_URL;?>/js/main.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/script_loads.js"></script>
     </body>
 </html>

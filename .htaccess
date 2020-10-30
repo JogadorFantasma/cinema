@@ -22,10 +22,11 @@ RewriteRule ^categoria/([a-zA-Z-0-9-_]+)$ produtos.php?cat=$1
 RewriteRule ^produto/([a-zA-Z-0-9-_]+)$ desc-produto.php?id=$1
 RewriteRule ^confirmacao/([a-zA-Z-0-9-_]+)$ confirmacao-pagamento.php?id_compra=$1
 RewriteRule ^cidade/([a-zA-Z-0-9-_]+)$ index.php?select_cidade=$1
+RewriteRule ^filmes/cartaz$ filmes.php?id=1
+RewriteRule ^filmes/breve$ filmes.php?id=2
 
 RewriteRule ^produtos$ produtos.php
 RewriteRule ^pagamento$ checkout-pagamento.php
-RewriteRule ^filmes$ filmes.php
 RewriteRule ^login$ login.php
 RewriteRule ^area-cliente$ area-cliente.php
 RewriteRule ^modo-pagamento$ modo-pagamento.php

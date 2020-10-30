@@ -18,8 +18,8 @@
                                         <li class="active"><a href="<?php echo SITE_URL;?>/.">Home</a></li>
                                         <li><a href="#">Filmes</a>
                                             <ul>
-                                                <li><a href="<?php echo SITE_URL;?>/filmes">Em Cartas</a></li>
-                                                <li><a href="<?php echo SITE_URL;?>/filmes">Em Breve</a></li>
+                                                <li><a href="<?php echo SITE_URL;?>/filmes/cartaz">Em Cartaz</a></li>
+                                                <li><a href="<?php echo SITE_URL;?>/filmes/breve">Em Breve</a></li>
                                                 
                                             </ul>
                                         </li>

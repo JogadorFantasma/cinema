@@ -11,12 +11,16 @@ $dadosCidades = $cidades->rsDadosCidades();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Cinema Premier</title>
-    <meta name="description" content="">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/favicon.ico">
-    <!-- Place favicon.ico in the root directory -->
+ <title><?php if(isset($metastags->meta_title_principal) && !empty($metastags->meta_title_principal)){echo $metastags->meta_title_principal;}?></title>
+    <meta name="description" content="<?php if(isset($metastags->meta_description_principal) && !empty($metastags->meta_description_principal)){echo $metastags->meta_description_principal;}?>"/>
+		<meta name="keywords" content="<?php if(isset($metastags->meta_keywords_principal) && !empty($metastags->meta_keywords_principal)){echo $metastags->meta_keywords_principal;}?>">
+    <?php if(isset($infoSistema->favicon) && !empty($infoSistema->favicon)){?>
+		<link rel="shortcut icon" href="<?php echo SITE_URL;?>/img/<?php echo $infoSistema->favicon;?>" >
+		<link rel="icon" href="<?php echo SITE_URL;?>/img/<?php echo $infoSistema->favicon;?>" >
+    <?php }?>
+    <meta name="author" content="Adriano Monteiro">
     <!-- all css here -->
     <!-- bootstrap v3.3.6 css -->
     <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/bootstrap.min.css">
@@ -89,8 +93,7 @@ $dadosCidades = $cidades->rsDadosCidades();
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="topbar-left">
 
-                        <select class="selectpicker"
-                            onChange="AtualizaJanela('inc-horario-filmes.php?data='+this.value, 'Filmes');">
+                        <select class="selectpicker" onChange="AtualizaJanela('inc-horario-filmes.php?data='+this.value, 'Filmes');">
                             <?php 
                             $datas = render(date('Y-m-d'));
                             foreach($datas as $data){ ?>
