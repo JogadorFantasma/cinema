@@ -102,7 +102,7 @@ function credCardAutenticado(){
          }
 
          // Insere nova compra
-         $sql = "INSERT INTO tbl_compras (id_cliente, valor, data_transacao, hora_transacao, bandeira, forma_pagamento) VALUES (?, ?, ?, ?, ?, ?)";   
+         $sql = "INSERT INTO tbl_compras (id_cliente, valor, data_transacao, hora_transacao, bandeira, forma_pagamento, id_cidade) VALUES (?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, $id_cliente);
             $stm->bindValue(2, valorCalculavel($valor));
@@ -110,12 +110,13 @@ function credCardAutenticado(){
             $stm->bindValue(4, $hora_transacao);
             $stm->bindValue(5, $bandeira);
             $stm->bindValue(6, "CRE");
+            $stm->bindValue(7, $_SESSION['id_cidade']);
 						$stm->execute(); 
 						$idCompra = $this->pdo->lastInsertId();
 
             foreach($_SESSION['shopping_cart'] as $key => $produto_carrinho){
                 // Insere novos produtos na compra
-         $sql = "INSERT INTO tbl_relaciona_compras (id_produto, id_compra, valor_produto, id_filme, data_filme, hora_filme, id_cliente, quantidade_produto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";   
+         $sql = "INSERT INTO tbl_relaciona_compras (id_produto, id_compra, valor_produto, id_filme, data_filme, hora_filme, id_cliente, quantidade_produto, id_sala, id_cidade) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, $produto_carrinho['id']);
             $stm->bindValue(2, $idCompra);
@@ -125,13 +126,15 @@ function credCardAutenticado(){
             $stm->bindValue(6, $produto_carrinho['hora_filme']);
             $stm->bindValue(7, $id_cliente);
             $stm->bindValue(8, $produto_carrinho['quantidade_produto']);
+            $stm->bindValue(9, $produto_carrinho['id_sala']);
+            $stm->bindValue(10, $_SESSION['id_cidade']);
 						$stm->execute(); 
 						
             }
 
             foreach($_SESSION['escolha_cadeira'] as $key => $assentos){
                 // Insere novos produtos na compra
-         $sql = "INSERT INTO tbl_relaciona_cadeiras (id_compra, id_filme, data_filme, hora_filme, id_cliente, assento, id_cidade) VALUES (?, ?, ?, ?, ?, ?, ?)";   
+         $sql = "INSERT INTO tbl_relaciona_cadeiras (id_compra, id_filme, data_filme, hora_filme, id_cliente, assento, id_cidade, id_sala) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, $idCompra);
             $stm->bindValue(2, $assentos['id_filme']);
@@ -140,6 +143,7 @@ function credCardAutenticado(){
             $stm->bindValue(5, $id_cliente);
             $stm->bindValue(6, $assentos['assento']);
             $stm->bindValue(7, $assentos['id_cidade']);
+            $stm->bindValue(8, $assentos['id_sala']);
 						$stm->execute(); 
 						
             }
@@ -155,7 +159,34 @@ function credCardAutenticado(){
         echo $erro->getLine(); 
     }
     $valor = str_replace(",","",str_replace(".","",$valor));
+    if(isset($_SESSION['id_cidade']) && $_SESSION['id_cidade'] == 5){
+      //barreiras
+      $merchant_id_cielo = '3ca6195a-411c-4322-8c8e-917bc6ad1ccc';
+      $merchant_key_cielo = 'y6boiTmvpB5aVHQ688cERKB9PnZPc6OpGe3QEUc9';
+    }
+    if(isset($_SESSION['id_cidade']) && $_SESSION['id_cidade'] == 1){
+      //formosa
+      $merchant_id_cielo = 'aea32023-70dd-4e30-a51b-4e9d5693326a';
+      $merchant_key_cielo = 'uDc0wlALfukd2KsMdY4U73MoBNtyqCrKgGbQBifb';
+    }
+    if(isset($_SESSION['id_cidade']) && $_SESSION['id_cidade'] == 2){
+      //lem
+      $merchant_id_cielo = 'd292d4b9-a8b1-420e-99c3-d2bea566d926';
+      $merchant_key_cielo = 'qNodGohHeBETZxyOnrdkxqnAmaDLWpxaD9odIU34';
+    }
+    if(isset($_SESSION['id_cidade']) && $_SESSION['id_cidade'] == 4){
+      //sobradinho
+      $merchant_id_cielo = '11fcefd0-f8df-4afc-9531-26c64f28549a';
+      $merchant_key_cielo = 'B041YxRoW1ofjjPONItlCzpULDbl2FSerdulvAlr';
+    }
+    if(empty($_SESSION['id_cidade'])){
+      //sobradinho
+      $merchant_id_cielo = $rsConfig[0]->merchant_id_cielo;
+      $merchant_key_cielo = $rsConfig[0]->merchant_key_cielo;
+    }
     $curl = curl_init();
+
+   
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.cieloecommerce.cielo.com.br/1/sales",
@@ -168,9 +199,9 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS =>"{ \n  \"MerchantOrderId\":\"$idCompra\", \n  \"Customer\":\n  { \n    \"Name\":\"$nome\" \n  }, \n  \"Payment\":\n  { \n      \"Type\":\"CreditCard\", \n      \"Amount\":$valor, \n      \"Provider\":\"Cielo\",\n      \"ReturnUrl\":\"https://www.google.com.br\",\n      \"Installments\":1, \n      \"Authenticate\":true,\n      \"CreditCard\":\n      { \n        \"CardNumber\":\"$numero_cartao\", \n        \"Holder\":\"$nome_cartao\", \n        \"ExpirationDate\":\"$data_validade\", \n        \"SecurityCode\":\"$codigo_seguranca\", \n        \"Brand\":\"$bandeira\" \n      } \n  } \n}",
   CURLOPT_HTTPHEADER => array(
-    "MerchantId: {$rsConfig[0]->merchant_id_cielo}",
+    "MerchantId: {$merchant_id_cielo}",
     "Content-Type: application/json",
-    "MerchantKey: {$rsConfig[0]->merchant_key_cielo}"
+    "MerchantKey: {$merchant_key_cielo}"
   ),
 ));
 
@@ -277,20 +308,21 @@ function debitoCard(){
          }
 
          // Insere nova compra
-         $sql = "INSERT INTO tbl_compras (id_cliente, valor, data_transacao, hora_transacao, bandeira, forma_pagamento) VALUES (?, ?, ?, ?, ?, ?)";   
+         $sql = "INSERT INTO tbl_compras (id_cliente, valor, data_transacao, hora_transacao, bandeira, forma_pagamento, id_cidade) VALUES (?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, $id_cliente);
             $stm->bindValue(2, valorCalculavel($valor));
             $stm->bindValue(3, $data_transacao);
             $stm->bindValue(4, $hora_transacao);
             $stm->bindValue(5, $bandeira);
-            $stm->bindValue(6, "DEB");
+            $stm->bindValue(6, "CRE");
+            $stm->bindValue(7, $_SESSION['id_cidade']);
 						$stm->execute(); 
 						$idCompra = $this->pdo->lastInsertId();
 
             foreach($_SESSION['shopping_cart'] as $key => $produto_carrinho){
                 // Insere novos produtos na compra
-         $sql = "INSERT INTO tbl_relaciona_compras (id_produto, id_compra, valor_produto, id_filme, data_filme, hora_filme, id_cliente, quantidade_produto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";   
+         $sql = "INSERT INTO tbl_relaciona_compras (id_produto, id_compra, valor_produto, id_filme, data_filme, hora_filme, id_cliente, quantidade_produto, id_sala, id_cidade) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, $produto_carrinho['id']);
             $stm->bindValue(2, $idCompra);
@@ -300,12 +332,15 @@ function debitoCard(){
             $stm->bindValue(6, $produto_carrinho['hora_filme']);
             $stm->bindValue(7, $id_cliente);
             $stm->bindValue(8, $produto_carrinho['quantidade_produto']);
+            $stm->bindValue(9, $produto_carrinho['id_sala']);
+            $stm->bindValue(10, $_SESSION['id_cidade']);
 						$stm->execute(); 
 						
             }
+
             foreach($_SESSION['escolha_cadeira'] as $key => $assentos){
                 // Insere novos produtos na compra
-         $sql = "INSERT INTO tbl_relaciona_cadeiras (id_compra, id_filme, data_filme, hora_filme, id_cliente, assento, id_cidade) VALUES (?, ?, ?, ?, ?, ?, ?)";   
+         $sql = "INSERT INTO tbl_relaciona_cadeiras (id_compra, id_filme, data_filme, hora_filme, id_cliente, assento, id_cidade, id_sala) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, $idCompra);
             $stm->bindValue(2, $assentos['id_filme']);
@@ -314,6 +349,7 @@ function debitoCard(){
             $stm->bindValue(5, $id_cliente);
             $stm->bindValue(6, $assentos['assento']);
             $stm->bindValue(7, $assentos['id_cidade']);
+            $stm->bindValue(8, $assentos['id_sala']);
 						$stm->execute(); 
 						
             }
@@ -328,6 +364,34 @@ function debitoCard(){
     } catch(PDOException $erro){   
         echo $erro->getLine(); 
     }
+    $valor = str_replace(",","",str_replace(".","",$valor));
+    
+    if(isset($_SESSION['id_cidade']) && $_SESSION['id_cidade'] == 5){
+      //barreiras
+      $merchant_id_cielo = '3ca6195a-411c-4322-8c8e-917bc6ad1ccc';
+      $merchant_key_cielo = 'y6boiTmvpB5aVHQ688cERKB9PnZPc6OpGe3QEUc9';
+    }
+    if(isset($_SESSION['id_cidade']) && $_SESSION['id_cidade'] == 1){
+      //formosa
+      $merchant_id_cielo = 'aea32023-70dd-4e30-a51b-4e9d5693326a';
+      $merchant_key_cielo = 'uDc0wlALfukd2KsMdY4U73MoBNtyqCrKgGbQBifb';
+    }
+    if(isset($_SESSION['id_cidade']) && $_SESSION['id_cidade'] == 2){
+      //lem
+      $merchant_id_cielo = 'd292d4b9-a8b1-420e-99c3-d2bea566d926';
+      $merchant_key_cielo = 'qNodGohHeBETZxyOnrdkxqnAmaDLWpxaD9odIU34';
+    }
+    if(isset($_SESSION['id_cidade']) && $_SESSION['id_cidade'] == 4){
+      //sobradinho
+      $merchant_id_cielo = '11fcefd0-f8df-4afc-9531-26c64f28549a';
+      $merchant_key_cielo = 'B041YxRoW1ofjjPONItlCzpULDbl2FSerdulvAlr';
+    }
+    if(empty($_SESSION['id_cidade'])){
+      //sobradinho
+      $merchant_id_cielo = $rsConfig[0]->merchant_id_cielo;
+      $merchant_key_cielo = $rsConfig[0]->merchant_key_cielo;
+    }
+
 
     $curl = curl_init();
 
@@ -342,9 +406,9 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS =>"{  \n   \"MerchantOrderId\":\"$idCompra\",\n   \"Customer\":{  \n      \"Name\":\"$nome\"     \n   },\n   \"Payment\":{  \n     \"Type\":\"DebitCard\",\n     \"Amount\":$valor,\n     \"Provider\":\"Simulado\",\n     \"ReturnUrl\":\"http://www.google.com.br\",\n     \"DebitCard\":{  \n         \"CardNumber\":\"$numero_cartao\",\n         \"Holder\":\"$nome_cartao\",\n         \"ExpirationDate\":\"$data_validade\",\n         \"SecurityCode\":\"$codigo_seguranca\",\n         \"Brand\":\"$bandeira\"\n     }\n   }\n}",
   CURLOPT_HTTPHEADER => array(
-    "MerchantId: {$rsConfig[0]->merchant_id_cielo}",
+    "MerchantId: {$merchant_id_cielo}",
     "Content-Type: application/json",
-    "MerchantKey: {$rsConfig[0]->merchant_key_cielo}"
+    "MerchantKey: {$merchant_key_cielo}"
   ),
 ));
 

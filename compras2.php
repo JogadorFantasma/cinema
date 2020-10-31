@@ -24,6 +24,7 @@ foreach($_SESSION['shopping_cart'] as $pegandoIngresso){
     $data_ingresso = $pegandoIngresso['data_filme'];
     $horario_ingresso = $pegandoIngresso['hora_filme'];
     $id_filme = $pegandoIngresso['id_filme'];
+    $id_sala = $pegandoIngresso['id_sala'];
   }
   if($pegandoIngresso['id'] == 252526){
    /*  echo "id: ".$pegandoIngresso['id']."<br>";
@@ -36,6 +37,7 @@ foreach($_SESSION['shopping_cart'] as $pegandoIngresso){
     $data_ingresso = $pegandoIngresso['data_filme'];
     $horario_ingresso = $pegandoIngresso['hora_filme'];
     $id_filme = $pegandoIngresso['id_filme'];
+    $id_sala = $pegandoIngresso['id_sala'];
   }
   $quantidade = $quantidade_inteira + $quantidade_meia;
 }
@@ -76,7 +78,8 @@ for($b=0;$b<$qntcadeiras;$b++){
             'id_filme' => $id_filme,
             'data_filme' => $data_ingresso,
             'hora_filme' => $horario_ingresso,
-            'id_cidade' => $_SESSION['id_cidade']
+            'id_cidade' => $_SESSION['id_cidade'],
+            'id_sala' => $id_sala
             );
 }
 }
