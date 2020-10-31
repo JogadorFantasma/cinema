@@ -125,6 +125,12 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="sidebar-item"> 
+                                        <a class="sidebar-link sidebar-link" href="textos.php" aria-expanded="false">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <span class="hide-menu">Textos</span>
+                                        </a>
+                                    </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Testemunhos </span></a>

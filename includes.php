@@ -36,7 +36,11 @@ include "Class/cidades.class.php";
 $cidades = Cidades::getInstance(Conexao::getInstance());
 
 
+<<<<<<< HEAD
 define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST']."/cinema");
+=======
+define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST']);
+>>>>>>> 60f2926d9ea6c39650b3ffdde4d3d08a2abdd0c6
 
 $produtos_id = array();
 //session_destroy();
