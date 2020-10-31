@@ -9,7 +9,7 @@ $incfilmes = Filmes::getInstance(Conexao::getInstance());
  //echo "Aqui: ".$data_selecionada; 
  $puxaProgramacoesGeral = $incfilmes->rsDadosProgramacao('', '', '', '', $data_selecionada, 'data_exibicao, id_filme', '', $_SESSION['id_cidade']);
 
- define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST'].'/projects/cinema');
+ define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST']);
  ?>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <?php 
