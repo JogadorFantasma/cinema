@@ -97,6 +97,8 @@
                             $cadeiraES6 = $compras->rsDadosAssentos('', '', '', '', $descFilme[0]->id, $horario_ingresso, $data_ingresso, $_SESSION['id_cidade'], 'ES6');
                             $cadeiraES7 = $compras->rsDadosAssentos('', '', '', '', $descFilme[0]->id, $horario_ingresso, $data_ingresso, $_SESSION['id_cidade'], 'ES7');
                             ?>
+                            
+                            
                             <div class="seats-table">
                               <div class="table-responsive">
                                 <table class="table">

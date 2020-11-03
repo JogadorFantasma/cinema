@@ -24,6 +24,7 @@ foreach($_SESSION['shopping_cart'] as $pegandoIngresso){
     $data_ingresso = $pegandoIngresso['data_filme'];
     $horario_ingresso = $pegandoIngresso['hora_filme'];
     $id_filme = $pegandoIngresso['id_filme'];
+    $id_sala = $pegandoIngresso['id_sala'];
   }
   if($pegandoIngresso['id'] == 252526){
    /*  echo "id: ".$pegandoIngresso['id']."<br>";
@@ -36,6 +37,7 @@ foreach($_SESSION['shopping_cart'] as $pegandoIngresso){
     $data_ingresso = $pegandoIngresso['data_filme'];
     $horario_ingresso = $pegandoIngresso['hora_filme'];
     $id_filme = $pegandoIngresso['id_filme'];
+    $id_sala = $pegandoIngresso['id_sala'];
   }
   $quantidade = $quantidade_inteira + $quantidade_meia;
 }
@@ -76,7 +78,8 @@ for($b=0;$b<$qntcadeiras;$b++){
             'id_filme' => $id_filme,
             'data_filme' => $data_ingresso,
             'hora_filme' => $horario_ingresso,
-            'id_cidade' => $_SESSION['id_cidade']
+            'id_cidade' => $_SESSION['id_cidade'],
+            'id_sala' => $id_sala
             );
 }
 }
@@ -87,6 +90,12 @@ for($b=0;$b<$qntcadeiras;$b++){
 <html class="no-js" lang="pt-br">
     <head>
         <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#b5121b">
+    
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
        <title><?php if(isset($descFilme->meta_title) && !empty($descFilme->meta_title)){echo $descFilme->meta_title;}?></title>
     <meta name="description" content="<?php if(isset($descFilme->meta_description) && !empty($descFilme->meta_description_)){echo $descFilme->meta_description;}?>"/>
 		<meta name="keywords" content="<?php if(isset($descFilme->meta_keywords) && !empty($descFilme->meta_keywords)){echo $descFilme->meta_keywords;}?>">
@@ -286,11 +295,11 @@ for($b=0;$b<$qntcadeiras;$b++){
                                   
                                   </div>
                                 </fieldset>
-                                <button class="btn-green done last-button topppbtn" type="submit">Pagar com o Cartão <img src="images/payment.png" alt=""></button>
+                                <button class="btn-green done last-button topppbtn" type="submit">Pagar com o Cartão <img src="<?php echo SITE_URL;?>/images/payment.png" alt=""></button>
                                 <input type="hidden" name="valor" value="<?php echo $totalcarrinho;?>">
                               </form>
                             </div>
-                            <!-- <button class="btn-default back-top topppbtn" type="button"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</button> -->
+                            <a href="javascript:;" onclick="history.back()" class="btn-default back-top topppbtn" type="button" style="padding-top: 6px;"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</a>
                             
                           </div>
                       </li>

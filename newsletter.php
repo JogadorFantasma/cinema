@@ -10,9 +10,9 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="input-group" style="margin-top:12vh;">
+                    <div class="input-group news" style="margin-top:12vh;">
                         <form method="post">
-                            <input style="width: 538px;" type="email" name="email" class="form-control"
+                            <input type="email" name="email" class="form-control"
                                 placeholder="E-mail">
                             <span class="input-group-btn">
                                 <button name="acao" value="enviar" class=" btn btn-default"

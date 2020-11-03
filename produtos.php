@@ -18,8 +18,12 @@ $puxaProdutos = $produtos->rsDados();
     <?php }?>
     <meta name="author" content="Adriano Monteiro">
         <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#b5121b">
+    
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <!-- all css here -->
         <!-- bootstrap v3.3.6 css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">

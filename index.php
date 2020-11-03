@@ -12,7 +12,10 @@ $dadosCidades = $cidades->rsDadosCidades();
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#b5121b">
+    
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
  <title><?php if(isset($metastags->meta_title_principal) && !empty($metastags->meta_title_principal)){echo $metastags->meta_title_principal;}?></title>
     <meta name="description" content="<?php if(isset($metastags->meta_description_principal) && !empty($metastags->meta_description_principal)){echo $metastags->meta_description_principal;}?>"/>
 		<meta name="keywords" content="<?php if(isset($metastags->meta_keywords_principal) && !empty($metastags->meta_keywords_principal)){echo $metastags->meta_keywords_principal;}?>">
@@ -46,7 +49,7 @@ $dadosCidades = $cidades->rsDadosCidades();
 
 <body>
     <?php include "header.php";?>
-    <div class="caixa-cidade animated bounce" id="animacao">
+    <div class="caixa-cidade animated bounce hidden-xs" id="animacao">
 
 		<h3 class="text-center"><i class="fa fa-clock-o" aria-hidden="true"></i> Programação em </h3>
 		<select class="form-control" id="select-cidade" name="select_cidade" onchange="window.location='<?php echo SITE_URL;?>/cidade/'+this.value">
@@ -73,6 +76,7 @@ $dadosCidades = $cidades->rsDadosCidades();
                                     data-wow-delay="0.5s"
                                     style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: zoomIn;">
                                     </h2>
+
                                 
                             </div>
                             <?php }?>
@@ -89,6 +93,16 @@ $dadosCidades = $cidades->rsDadosCidades();
     <div class="watching-movie-area">
         <div class="container">
             <div class="row">
+            <div class="col-xs-12 hidden-lg hidden-md hidden-sm">
+            <div class="topbar-left">
+                <h6 class="text-center"><i class="fa fa-clock-o" aria-hidden="true"></i> Programação em </h6>
+		        <select class="selectpicker" id="select-cidade" name="select_cidade" onchange="window.location='<?php echo SITE_URL;?>/cidade/'+this.value">
+                     <?php foreach($dadosCidades as $cidade){?>
+			            <option value="<?php echo $cidade->id;?>" <?php if(isset($_SESSION['id_cidade']) && $_SESSION['id_cidade'] == $cidade->id){ echo"selected";}?>> <?php echo $cidade->nome;?> </option>
+                    <?php }?>
+                </select> 
+            </div>           
+                </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="topbar-left">
 
@@ -103,9 +117,7 @@ $dadosCidades = $cidades->rsDadosCidades();
                         </select>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-
-                </div>
+                
             </div>
             <div class="row">
                 <div id="janela_Filmes">
@@ -142,33 +154,7 @@ $dadosCidades = $cidades->rsDadosCidades();
             </div>
         </div>
     </div>
-    <div class="zooks-promos-area-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="section-title text-center">
-                        <h2>CADASTRE-SE E FIQUE POR DENTRO DA PROGRAMAÇÃO E PROMOÇÕES EXCLUSIVAS.</h2>
-
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="input-group" style="margin-top:12vh;">
-                        <form method="post">
-                            <input style="width: 538px;" type="email" name="email" class="form-control"
-                                placeholder="E-mail">
-                            <span class="input-group-btn">
-                                <button name="acao" value="enviar" class=" btn btn-default"
-                                    type="submit">Enviar</button>
-                            </span>
-                        </form>
-                    </div>
-                </div>
-                            </div>
-                
-        </div>
-    </div>
+    <?php include('newsletter.php');?>
 
     <!-- Zooks Promos End Here -->
     <?php include "footer.php";?>

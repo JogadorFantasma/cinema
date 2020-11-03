@@ -11,6 +11,12 @@ $cielos->debitoCard();
 <html class="no-js" lang="pt-br">
     <head>
         <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#b5121b">
+    
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <?php if(isset($infoSistema->favicon) && !empty($infoSistema->favicon)){?>
 		<link rel="shortcut icon" href="<?php echo SITE_URL;?>/img/<?php echo $infoSistema->favicon;?>" >
 		<link rel="icon" href="<?php echo SITE_URL;?>/img/<?php echo $infoSistema->favicon;?>" >

@@ -1,5 +1,7 @@
 <?php
 @session_start();
+
+
 ?>
         <header id="header">
             <div class="header-area">
@@ -15,16 +17,16 @@
                             <div class="main-menu">
                                 <nav>
                                     <ul>
-                                        <li class="active"><a href="<?php echo SITE_URL;?>/.">Home</a></li>
+                                        <li><a href="<?php echo SITE_URL;?>/.">Home</a></li>
                                         <li><a href="#">Filmes</a>
                                             <ul>
-                                                <li><a href="<?php echo SITE_URL;?>/filmes/cartaz">Em Cartaz</a></li>
+                                                <li ><a href="<?php echo SITE_URL;?>/filmes/cartaz">Em Cartaz</a></li>
                                                 <li><a href="<?php echo SITE_URL;?>/filmes/breve">Em Breve</a></li>
                                                 
                                             </ul>
                                         </li>
                                         <li><a href="<?php echo SITE_URL;?>/produtos">Produtos</a></li>
-                                        <li><a href="<?php echo SITE_URL;?>/sobre">Empresa</a></li>
+                                        <!--<li><a href="<?php echo SITE_URL;?>/sobre">Empresa</a></li>-->
                                         
                                         <li><a href="<?php echo SITE_URL;?>/contato">Contato</a></li>
                                          
@@ -50,13 +52,13 @@
                                     <li class="active"><a href="<?php echo SITE_URL;?>/.">Home</a></li>
                                         <li><a href="#">Filmes</a>
                                             <ul>
-                                                <li><a href="<?php echo SITE_URL;?>/filmes">Em Cartas</a></li>
-                                                <li><a href="<?php echo SITE_URL;?>/filmes">Em Breve</a></li>
+                                                <li><a href="<?php echo SITE_URL;?>/filmes/cartaz">Em Cartas</a></li>
+                                                <li><a href="<?php echo SITE_URL;?>/filmes/breve">Em Breve</a></li>
                                                 
                                             </ul>
                                         </li>
                                         <li><a href="<?php echo SITE_URL;?>/produtos">Produtos</a></li>
-                                        <li><a href="<?php echo SITE_URL;?>/sobre">Empresa</a></li>
+                                        <!--<li><a href="<?php echo SITE_URL;?>/sobre">Empresa</a></li>-->
                                         
                                         <li><a href="<?php echo SITE_URL;?>/contato">Contato</a></li>
                                         <li ><a data-toggle="modal" data-target="#cartModal" class="nav-link"><i class="fa fa-shopping-cart"></i>[<?php if(isset($_SESSION['shopping_cart']) && !empty($_SESSION['shopping_cart'])){ echo count($_SESSION['shopping_cart']);}else{ echo "0";}?>]</a></li>

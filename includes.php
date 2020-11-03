@@ -2,7 +2,7 @@
 @session_start();
 ///Aqui fica a session cidade
 if(!isset($_SESSION['id_cidade'])){
-    $_SESSION['id_cidade'] = 1;
+    $_SESSION['id_cidade'] = 4;
 }
 if(isset($_GET['select_cidade']) && !empty($_GET['select_cidade'])){
     $_SESSION['id_cidade'] = $_GET['select_cidade'];
@@ -73,7 +73,8 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
             'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto'),
             'id_filme' => filter_input(INPUT_POST, 'id_filme'),
             'data_filme' => filter_input(INPUT_POST, 'data_filme'),
-            'hora_filme' => filter_input(INPUT_POST, 'hora_filme')
+            'hora_filme' => filter_input(INPUT_POST, 'hora_filme'),
+            'id_sala' => filter_input(INPUT_POST, 'id_sala')
             );
         }
         if (filter_input(INPUT_POST, 'quantidade_ingresso_inteira') == 0 && filter_input(INPUT_POST, 'quantidade_ingresso_meia') > 0){
@@ -86,7 +87,8 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
             'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto'),
             'id_filme' => filter_input(INPUT_POST, 'id_filme'),
             'data_filme' => filter_input(INPUT_POST, 'data_filme'),
-            'hora_filme' => filter_input(INPUT_POST, 'hora_filme')
+            'hora_filme' => filter_input(INPUT_POST, 'hora_filme'),
+            'id_sala' => filter_input(INPUT_POST, 'id_sala')
             );
         }
         if (filter_input(INPUT_POST, 'quantidade_ingresso_inteira') > 0 && filter_input(INPUT_POST, 'quantidade_ingresso_meia') > 0){
@@ -99,7 +101,8 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
             'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto'),
             'id_filme' => filter_input(INPUT_POST, 'id_filme'),
             'data_filme' => filter_input(INPUT_POST, 'data_filme'),
-            'hora_filme' => filter_input(INPUT_POST, 'hora_filme')
+            'hora_filme' => filter_input(INPUT_POST, 'hora_filme'),
+            'id_sala' => filter_input(INPUT_POST, 'id_sala')
             );
         }
         
@@ -117,7 +120,8 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
             'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto'),
             'id_filme' => filter_input(INPUT_POST, 'id_filme'),
             'data_filme' => filter_input(INPUT_POST, 'data_filme'),
-            'hora_filme' => filter_input(INPUT_POST, 'hora_filme')
+            'hora_filme' => filter_input(INPUT_POST, 'hora_filme'),
+            'id_sala' => filter_input(INPUT_POST, 'id_sala')
         );
         }
         if (filter_input(INPUT_POST, 'quantidade_ingresso_inteira') == 0 && filter_input(INPUT_POST, 'quantidade_ingresso_meia') > 0){
@@ -129,7 +133,8 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
             'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto'),
             'id_filme' => filter_input(INPUT_POST, 'id_filme'),
             'data_filme' => filter_input(INPUT_POST, 'data_filme'),
-            'hora_filme' => filter_input(INPUT_POST, 'hora_filme')
+            'hora_filme' => filter_input(INPUT_POST, 'hora_filme'),
+            'id_sala' => filter_input(INPUT_POST, 'id_sala')
         );
         }
         if (filter_input(INPUT_POST, 'quantidade_ingresso_inteira') > 0 && filter_input(INPUT_POST, 'quantidade_ingresso_meia') > 0){
@@ -141,7 +146,8 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
             'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto'),
             'id_filme' => filter_input(INPUT_POST, 'id_filme'),
             'data_filme' => filter_input(INPUT_POST, 'data_filme'),
-            'hora_filme' => filter_input(INPUT_POST, 'hora_filme')
+            'hora_filme' => filter_input(INPUT_POST, 'hora_filme'),
+            'id_sala' => filter_input(INPUT_POST, 'id_sala')
         );
         }
  $url = filter_input(INPUT_POST, 'url_filme');

@@ -120,6 +120,7 @@ ul {
   background: #dd2929;
   text-shadow: none;
 }
+
 .browserupgrade {
   margin: 26px  0;
   background: #f3b832;
@@ -441,7 +442,7 @@ ul {
   bottom: 1px;
 }
 .header-area .main-menu ul li.active a {
-  color: #ffffff;
+  color: #b5121b;
 }
 .header-area .main-menu ul li a {
   display: block;
@@ -863,6 +864,21 @@ ul {
     border: none;
     color: white;
     text-transform: uppercase;
+}
+.mean-container .mean-bar::after {
+  color: #ffffff;
+  content: url(./images/logo.png);
+  font-size: 21px;
+  left: 5%;
+  position: absolute;
+  top: 12px;
+}
+.mobile-menu-area {
+  background: #b5121b;
+  background: linear-gradient(to right, #dd1818, #333333);
+}
+.zooks-promos-area-2 input{
+  width: 538px!important;
 }
 .zooks-promos-area .total-promos-area {
   margin-top: 30px;

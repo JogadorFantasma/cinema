@@ -80,7 +80,23 @@
 	#header .header-area{
 		position: relative;
 		padding: 18px;
+		display: none;
 	}
+	.zooks-promos-area-2 input {
+		width: 259px !important;
+	}
+	.zooks-promos-area-2 button {
+		
+		padding: 12%;
+	}
+	
+.seats .seats-table .table-responsive .table {
+    padding: 20px 0;
+    width: 46em !important;
+    max-width:46em !important;
+}
+
+	
 	.logo-area,
 	.main-menu,
 	.header-right{
@@ -121,6 +137,7 @@
 	}
 	.slider-area {
 		padding: 90px 0;
+		background-position-x: -220px;
 	}
 	.watching-movie-area .topbar-right {
 		margin-top:20px;

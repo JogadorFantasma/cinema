@@ -25,6 +25,12 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
 <html class="no-js" lang="pt-br">
     <head>
         <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#b5121b">
+    
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
        <title><?php if(isset($descFilme[0]->meta_title) && !empty($descFilme[0]->meta_title)){echo $descFilme[0]->meta_title;}?></title>
     <meta name="description" content="<?php if(isset($descFilme[0]->meta_description) && !empty($descFilme[0]->meta_description_)){echo $descFilme[0]->meta_description;}?>"/>
 		<meta name="keywords" content="<?php if(isset($descFilme[0]->meta_keywords) && !empty($descFilme[0]->meta_keywords)){echo $descFilme[0]->meta_keywords;}?>">
@@ -187,6 +193,7 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                   <input type="hidden" name="id_filme" value="<?php echo $descFilme[0]->id;?>">
                   <input type="hidden" name="data_filme" value="<?php echo $data_ingresso;?>">
                   <input type="hidden" name="hora_filme" value="<?php echo $horario_ingresso;?>">
+                   <input type="hidden" name="id_sala" value="<?php echo $dadosDaProgramacao[0]->id_sala;?>">
 									<input type="hidden" name="valor_produto" value="<?php echo $dadosDaProgramacao[0]->valor;?>">
                   <div class="spinner-normal2">
                   <input type="hidden" name="quantidade_ingresso_inteira" value="1">
