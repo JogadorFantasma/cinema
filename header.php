@@ -134,7 +134,7 @@
 			<div class="col-md-2">R$ <?php echo number_format($produto_modal['valor_produto'],2,',','.');?></div>
 			<div class="col-md-1"><?php echo $produto_modal['quantidade_produto'];?></div>
 			<div class="col-md-2">R$ <?php echo number_format($produto_modal['quantidade_produto'] * $produto_modal['valor_produto'],2,',','.');?></div>
-			<div class="col-md-1"><a href="?action=delete&id=<?php echo $produto_modal['id'];?>" class="btn btn-danger ">
+			<div class="col-md-1"><a href="<?php echo SITE_URL;?>/?action=delete&id=<?php echo $produto_modal['id'];?>" class="btn btn-danger ">
                   <i class="fa fa-close"></i>
                 </a></div>
 			</div>
@@ -155,7 +155,7 @@
 		<?php if(!empty($_SESSION['shopping_cart'])){
 			if(count($_SESSION['shopping_cart']) > 0){
 			?>
-        <a href="<?php echo SITE_URL;?>/carrinho" class="btn btn-success">Carrinho</a>
+        <a href="<?php echo SITE_URL;?>/carrinho/continuacao" class="btn btn-success">Carrinho</a>
 		<?php } }?>
       </div>
     </div>

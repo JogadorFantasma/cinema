@@ -207,7 +207,7 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
 									$total_produtos=0;
 									foreach($_SESSION['shopping_cart'] as $key => $produto_carrinho){?>
 						      <tr class="text-center">
-						        <td class="product-remove"><a href="?action=delete&id=<?php echo $produto_carrinho['id'];?>"><span class="fa fa-close"></span></a></td>
+						        <td class="product-remove"><a href="<?php echo SITE_URL;?>/?action=delete&id=<?php echo $produto_carrinho['id'];?>"><span class="fa fa-close"></span></a></td>
 						        
 						        <td class="image-prod"><img src="<?php echo SITE_URL;?>/img/<?php echo $produto_carrinho['imagem_produto'];?>" alt="" width="80"><div class="img" style="background-image:url(<?php echo SITE_URL;?>/img/<?php echo $produto_carrinho['imagem_produto'];?>);"></div></td>
 						        

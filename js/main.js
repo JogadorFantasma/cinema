@@ -14,9 +14,9 @@
 /*----------------------------
  Slider active
 ------------------------------ */  
-  $(".slider-content").owlCarousel({
-      autoPlay: true, 
-	  slideSpeed:2000,
+  $(".slider-area").owlCarousel({
+      autoPlay: false, 
+	  slideSpeed:500,
 	  pagination:true,
 	  navigation:false,	  
       items : 1,

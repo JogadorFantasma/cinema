@@ -152,7 +152,7 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
             'id_sala' => filter_input(INPUT_POST, 'id_sala')
         );
         }
-        var_dump($_SESSION['shopping_cart']);exit;
+       // var_dump($_SESSION['shopping_cart']);exit;
  $url = filter_input(INPUT_POST, 'url_filme');
  $url_site = SITE_URL;
         echo "<script>window.location='$url_site/entrada/2/$url';</script>";
@@ -169,9 +169,26 @@ if(filter_input(INPUT_POST, 'addCarrinho')){
 
         //Cria um array sequencial para ver se bate com o id do produto
         $produtos_id = array_column($_SESSION['shopping_cart'], 'id');
+        //print_r(($_SESSION['shopping_cart']));
+        //echo "aqui".filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);exit;
+        if (in_array(filter_input(INPUT_GET, 'id'), $produtos_id)){
+           //echo "aqui";exit;   
+            //Bate se o produto foi ja inserido no carrinho
+            for($i=0; $i < count($produtos_id); $i++){
+                if($produtos_id[$i] == filter_input(INPUT_GET, 'id'))
+                {
+                    //Adiciona mais uma quantidade no produto existente
+                    $_SESSION['shopping_cart'][$i]['quantidade_produto'] += filter_input(INPUT_POST, 'quantidade_produto');
+                } 
+            }
+              $url_site = SITE_URL;
+        //print_r($produtos_id);
+        echo "<script>window.location='$url_site/produtos/bomboniere';</script>";
 
-        if (!in_array(filter_input(INPUT_GET, 'id'), $produtos_id)){
-            $_SESSION['shopping_cart'][$count] = array
+           
+        }else{
+         
+         $_SESSION['shopping_cart'][$count] = array
             (
             'id' => filter_input(INPUT_GET, 'id'),
             'nome_produto' => filter_input(INPUT_POST, 'nome_produto'),
@@ -179,18 +196,12 @@ if(filter_input(INPUT_POST, 'addCarrinho')){
             'quantidade_produto' => filter_input(INPUT_POST, 'quantidade_produto'),
             'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto')
             );
-        }else{
-            //Bate se o produto foi ja inserido no carrinho
-            for($i=0; $i < count($produtos_id); $i++){
-                if($produtos_id[$i] == filter_input(INPUT_GET, 'id'))
-                {
-                    //Adiciona mais uma quantidade no produto existente
-                    $_SESSION['shopping_cart'][$i]['quantidade_produto'] += filter_input(INPUT_POST, 'quantidade_produto');
-                }
-            }
+             $url_site = SITE_URL;
+        //print_r($produtos_id);
+        echo "<script>window.location='$url_site/produtos/bomboniere';</script>";
         }
         //print_r($produtos_id);
-    }else{// caso nao tenha nada no carrinho, irá criar o primeiro produto no else
+    }else{ // caso nao tenha nada no carrinho, irá criar o primeiro produto no else
         $_SESSION['shopping_cart'][0] = array(
             'id' => filter_input(INPUT_GET, 'id'),
             'nome_produto' => filter_input(INPUT_POST, 'nome_produto'),
@@ -198,6 +209,9 @@ if(filter_input(INPUT_POST, 'addCarrinho')){
             'quantidade_produto' => filter_input(INPUT_POST, 'quantidade_produto'),
             'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto')
         );
+          $url_site = SITE_URL;
+        //print_r($produtos_id);
+        echo "<script>window.location='$url_site/produtos/bomboniere';</script>";
     }
     //pre_r($_SESSION);
 }
@@ -208,5 +222,8 @@ if(filter_input(INPUT_GET, 'action') == 'delete'){
         }
     }
     $_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
+     $url_site = SITE_URL;
+        //print_r($produtos_id);
+        echo "<script>window.location='$url_site/carrinho/continuacao';</script>";
 }
 ?>

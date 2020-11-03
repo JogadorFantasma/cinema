@@ -59,37 +59,40 @@ $dadosCidades = $cidades->rsDadosCidades();
         </select>
 		<span style="margin-left: 30px">escolha sua cidade</span>
 	</div>
-    <!-- Slider Area Start Here -->
-    <div class="slider-area" style="background: url(images/baa.jpg) no-repeat center; background-size: cover; width: 100%; overflow: hidden; padding: 290px 0;">
-        <div class="slider-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="slider-content">
-                            <?php foreach($dadosBanner as $itensBanner){ ?>
-                            <div class="single-slide-content">
-                                <h1 class="wow zoomIn text-uppercase text-white  animated" data-wow-duration="0.3s"
-                                    data-wow-delay="0.3s"
-                                    style="visibility: visible; animation-duration: 0.3s; animation-delay: 0.3s; animation-name: zoomIn;">
-                                    </h1>
-                                <h2 class="wow zoomIn text-white text-uppercase  animated" data-wow-duration="0.5s"
-                                    data-wow-delay="0.5s"
-                                    style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: zoomIn;">
-                                    </h2>
-
-                                
-                            </div>
-                            <?php }?>
-                            
-                            
+	
+	
+	<!-- Slider Area Start Here -->
+	
+        <div class="slider-area">
+            <?php //foreach($dadosBanner as $itensBanner){ ?>
+            <div class="single-slider slide-1" style="background: url(images/baa.jpg) no-repeat; background-size: cover; width: 100%; overflow: hidden; padding: 290px 0;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">                            
+                            <h2 class="wow zoomIn" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">_</h2>
+                            <div class="read-more"></div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="single-slider slide-2" style="background: url(images/tenet.jpg) no-repeat; background-size: cover; width: 100%; overflow: hidden; padding: 290px 0;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">                            
+                            <h2 class="wow zoomIn" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">_</h2>
+                            <div class="read-more"></div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+          
+            <?php //}?>
         </div>
 
-    </div>
-     
+        <!-- Slider Area End Here -->
+	
+	
+    
 
     <div class="watching-movie-area">
         <div class="container">

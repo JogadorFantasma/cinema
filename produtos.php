@@ -130,7 +130,7 @@ $descFilme = $filmes->rsDados($id_filme);
                                     </div>
                                     <div class="product-rating-area">
                                         R$ <?php echo number_format($produto->preco_por,2,',','.');?>
-                                    <form method="post" action="?action=add&id=<?php echo $produto->id;?>" id="add_cart_<?php echo $produto->id;?>">
+                                    <form method="post" action="<?php echo SITE_URL;?>/?action=add&id=<?php echo $produto->id;?>" id="add_cart_<?php echo $produto->id;?>">
 									<input type="hidden" name="nome_produto" value="<?php echo $produto->nome;?>">
 									<input type="hidden" name="valor_produto" value="<?php echo $produto->preco_por;?>">
                   <input type="hidden" name="imagem_produto" value="<?php echo $produto->imagem;?>">

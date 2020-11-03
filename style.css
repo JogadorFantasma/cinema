@@ -504,63 +504,70 @@ ul {
 3.Slider Area Start Here 
 ---------------------------------------*/
 .slider-area {
-  background: url(images/baa.jpg) no-repeat center;
-  background-size: cover;
-  width: 100%;
-  overflow: hidden;
-  padding: 290px 0;
+  position: relative;
 }
-.slider-area .slider-content .single-slide-content {
-  padding: 30px 0;
+.slider-area .single-slider {
+  padding: 200px 0;
 }
-.slider-area .slider-content .single-slide-content h1 {
+.slider-area .single-slider h2 {
   font-family: 'Lato', sans-serif;
-  font-size: 85px;
-  line-height: 0;
-  color: #a17207;
-  text-transform: capitalize;
-}
-.slider-area .slider-content .single-slide-content h2 {
-  font-family: 'Lato', sans-serif;
-  font-size: 75px;
+  font-size: 65px;
   color: #ffffff;
-  text-transform: capitalize;
-  margin-bottom: 0;
 }
-.slider-area .slider-content .single-slide-content p {
-  color: #ffffff;
-  font-size: 20px;
-}
-.slider-area .slider-content .single-slide-content a {
-  background: rgba(0, 0, 0, 0) url("images/btn.png") no-repeat scroll 0 0;
-  color: #ffffff;
-  display: inline-block;
-  padding: 13px 80px;
-  text-align: center;
-  -webkit-animation: fadeInDown 1500ms ease-in-out;
-  -moz-animation: fadeInDown 1500ms ease-in-out;
-  -ms-animation: fadeInDown 1500ms ease-in-out;
-  animation: fadeInDown 1500ms ease-in-out;
-}
-.slider-area .owl-pagination {
-  margin-top: 30px;
-  position: absolute;
-  left: -80px;
-  top: 0;
-}
-.slider-area .owl-pagination .owl-page {
-  display: block;
-}
-.slider-area .owl-pagination .owl-page span {
-  background: #dddddd none repeat scroll 0 0;
-  border: 1px solid #ffffff;
+.slider-area .single-slider .read-more {
   display: inline-block;
 }
-.slider-area .owl-pagination .owl-page.active {
-  display: block;
-}
-.slider-area .owl-pagination .owl-page.active span {
+.slider-area .single-slider .read-more a {
   background: #ffffff;
+  color: #52716e;
+  display: inline-block;
+  padding: 10px 20px;
+  transition: all 0.5s ease 0s;
+}
+.slider-area .single-slider .read-more a:hover {
+  background: #385a57;
+  color: #ffffff;
+}
+.slider-area .single-slider.slide-one {
+  background: url(images/slider/1.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.slider-area .single-slider.slide-two {
+  background: url(images/slider/1.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.slider-area .single-slider.slide-three {
+  background: url(images/slider/1.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.slider-area .owl-controls {
+  margin-top: 50px;
+  z-index: 99999;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+  bottom: 28px;
+}
+.slider-area .owl-controls .owl-pagination .owl-page.active span {
+  background: #fff;
+}
+.slider-area .owl-controls .owl-pagination .owl-page span {
+  display: block;
+  width: 50px;
+  height: 2px;
+  margin: 5px 7px;
+  filter: alpha(opacity=50);
+  opacity: 1;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  background: #547d79;
+  border: none;
 }
 /* ------------------------------------
 4.Home Page Services Area Here 

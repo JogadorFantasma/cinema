@@ -1,10 +1,14 @@
-<?php 
+<?php
 include "includes.php";
 include('phpmailer/class.phpmailer.php');
 session_destroy();
 $idCompra = $_GET['id_compra'];
 
 $dadosCompras = $compras->rsDados($idCompra);
+if($dadosCompras->status_compra <> 4 || $dadosCompras->status_compra <> 6){
+    echo "<script>window.location='".SITE_URL."/erro-pagamento/$idCompra';</script>";
+    exit;
+}
 $idCliente = $dadosCompras->id_cliente;
 $dadosClientes = $clientes->rsDados($idCliente);
 $status = exibe_status_compra($dadosCompras->status_compra);
@@ -510,8 +514,8 @@ $mensagem = "<!DOCTYPE html>
 
 </html>";
 
-echo $mensagem;
-exit;
+//echo $mensagem;
+//exit;
 		 
           
 		  $mail->IsSMTP(); // telling the class to use SMTP
