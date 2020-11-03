@@ -48,12 +48,14 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
     foreach($_SESSION['shopping_cart'] as $key => $pesquisandoSeExiste){
               if($pesquisandoSeExiste['id'] == 252525){
                   unset($_SESSION['shopping_cart'][$key]);
+                //  echo "aqui";exit;
               }
               if($pesquisandoSeExiste['id'] == 252526){
                 unset($_SESSION['shopping_cart'][$key]);
               }
               
             }
+           
   
     if(isset($_SESSION['shopping_cart'])){
         //Mostra quantos produtos tem no carrinho
@@ -150,6 +152,7 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
             'id_sala' => filter_input(INPUT_POST, 'id_sala')
         );
         }
+        var_dump($_SESSION['shopping_cart']);exit;
  $url = filter_input(INPUT_POST, 'url_filme');
  $url_site = SITE_URL;
         echo "<script>window.location='$url_site/entrada/2/$url';</script>";
