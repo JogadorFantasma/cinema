@@ -35,6 +35,9 @@ $clientes = Clientes::getInstance(Conexao::getInstance());
 include "Class/cidades.class.php";
 $cidades = Cidades::getInstance(Conexao::getInstance());
 
+include "Class/salas.class.php";
+$salas = Salas::getInstance(Conexao::getInstance());
+
 
 define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST'].'/projects/cinema');
 

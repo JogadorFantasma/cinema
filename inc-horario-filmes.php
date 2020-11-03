@@ -41,10 +41,11 @@ $incfilmes = Filmes::getInstance(Conexao::getInstance());
                                                 <ul>
                                                     <?php foreach($puxaHorarios as $puxaHorario){
                                                         $hora_agora = date('H:i:s');
+                                                        $puxaSala = $salas->rsDados($puxaHorario->id_sala);
                                                         //if(strtotime($hora_agora) > strtotime($puxaHorario->hora_exibicao)){ ?>
                                                        <!--  <li><?php //echo substr($puxaHorario->hora_exibicao,0,5);?></li> -->
                                                        <?php //}else{?>
-                                                        <li><a href="<?php echo SITE_URL;?>/entrada/<?php echo substr($puxaHorario->hora_exibicao,0,2).substr($puxaHorario->hora_exibicao,3,2);?>/<?php echo substr($puxaHorario->data_exibicao,0,4).substr($puxaHorario->data_exibicao,5,2).substr($puxaHorario->data_exibicao,8,2);?>/<?php echo $puxaFilme->url_amigavel;?>"><?php echo substr($puxaHorario->hora_exibicao,0,5);?></a></li>
+                                                        <li><a href="<?php echo SITE_URL;?>/entrada/<?php echo substr($puxaHorario->hora_exibicao,0,2).substr($puxaHorario->hora_exibicao,3,2);?>/<?php echo substr($puxaHorario->data_exibicao,0,4).substr($puxaHorario->data_exibicao,5,2).substr($puxaHorario->data_exibicao,8,2);?>/<?php echo $puxaFilme->url_amigavel;?>"><?php echo $puxaSala->titulo;?> - <?php echo substr($puxaHorario->hora_exibicao,0,5);?></a></li>
                                                         <?php //}?>
                                                     
                                                     <?php }?>
