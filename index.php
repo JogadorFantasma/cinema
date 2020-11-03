@@ -60,7 +60,7 @@ $dadosCidades = $cidades->rsDadosCidades();
 		<span style="margin-left: 30px">escolha sua cidade</span>
 	</div>
     <!-- Slider Area Start Here -->
-    <div class="slider-area">
+    <div class="slider-area" style="background: url(images/baa.jpg) no-repeat center; background-size: cover; width: 100%; overflow: hidden; padding: 290px 0;">
         <div class="slider-bg">
             <div class="container">
                 <div class="row">
@@ -89,6 +89,7 @@ $dadosCidades = $cidades->rsDadosCidades();
         </div>
 
     </div>
+     
 
     <div class="watching-movie-area">
         <div class="container">

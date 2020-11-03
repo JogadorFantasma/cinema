@@ -24,6 +24,8 @@ RewriteRule ^confirmacao/([a-zA-Z-0-9-_]+)$ confirmacao-pagamento.php?id_compra=
 RewriteRule ^cidade/([a-zA-Z-0-9-_]+)$ index.php?select_cidade=$1
 RewriteRule ^filmes/cartaz$ filmes.php?id=1
 RewriteRule ^filmes/breve$ filmes.php?id=2
+RewriteRule ^produtos/([a-zA-Z-0-9-_]+)$ produtos.php?veiode=$1
+RewriteRule ^carrinho/([a-zA-Z-0-9-_]+)$ compras2.php?veiode=$1
 
 RewriteRule ^produtos$ produtos.php
 RewriteRule ^pagamento$ checkout-pagamento.php

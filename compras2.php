@@ -84,6 +84,10 @@ for($b=0;$b<$qntcadeiras;$b++){
 }
 }
 
+
+if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
+  echo "<script>window.location='".SITE_URL."/produtos/bomboniere';</script>";
+}
 //var_dump($_SESSION['escolha_cadeira']);
 ?>
 <!doctype html>

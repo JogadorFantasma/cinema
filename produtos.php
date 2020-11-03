@@ -5,6 +5,16 @@ if(isset($_GET['cat']) && !empty($_GET['cat'])){
 }
 $puxaCategorias = $categorias->rsDados();
 $puxaProdutos = $produtos->rsDados();
+
+foreach($_SESSION['shopping_cart'] as $pegandoIngresso){
+  if($pegandoIngresso['id'] == 252525){
+    $id_filme = $pegandoIngresso['id_filme'];
+  }
+  if($pegandoIngresso['id'] == 252526){
+    $id_filme = $pegandoIngresso['id_filme'];
+  }
+}
+$descFilme = $filmes->rsDados($id_filme);
 ?>
 <!doctype html>
 <html class="no-js" lang="pt-br">
@@ -26,25 +36,25 @@ $puxaProdutos = $produtos->rsDados();
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <!-- all css here -->
         <!-- bootstrap v3.3.6 css -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/bootstrap.min.css">
         <!-- animate css -->
-        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/animate.css">
         <!-- flaticon css -->
-        <link rel="stylesheet" href="css/flaticon.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/flaticon.css">
         <!-- jquery-ui.min css -->
-        <link rel="stylesheet" href="css/jquery-ui.min.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/jquery-ui.min.css">
         <!-- meanmenu css -->
-        <link rel="stylesheet" href="css/meanmenu.min.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/meanmenu.min.css">
         <!-- owl.carousel css -->
-        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/owl.carousel.css">
         <!-- font-awesome css -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/font-awesome.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL;?>/style.css">
         <!-- responsive css -->
-        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="<?php echo SITE_URL;?>/css/responsive.css">
         <!-- modernizr css -->
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
         <?php include "header.php";?>
@@ -65,6 +75,15 @@ $puxaProdutos = $produtos->rsDados();
                 </div>
             </div>
         </div>
+        <?php if(isset($_GET['veiode']) && $_GET['veiode'] == 'bomboniere'){?>
+        <div class="container">
+         <div class="row">
+                     <div> 
+                        <a class="btn-default back-top topppbtn"  href="javascript:;" onclick="history.back()" style="padding-top: 6px;"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</a>
+                        <a href="<?php echo SITE_URL;?>/carrinho/continuacao"  class="btn-green done" style="padding-top: 6px; width: 212px !important;">Continuar Compra <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                </div>
+                </div>
+                <?php }?>
         <!-- Breadcumb Area End Here -->
         <!-- Trailers Area Start Here -->
         <div class="trailers-area">
@@ -82,6 +101,7 @@ $puxaProdutos = $produtos->rsDados();
         <!-- Movie Trailer  Start Here -->
         <div class="portfolio-one-area">
             <div class="container">
+               
                 <div class="row">
                     <div class="portfolio-menu fouur">
                         <ul>
@@ -92,6 +112,7 @@ $puxaProdutos = $produtos->rsDados();
                           
                         </ul>
                     </div>
+                   
                 </div>
                 <div class="row">                    
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 acurate">
@@ -135,22 +156,22 @@ $puxaProdutos = $produtos->rsDados();
         <?php include "footer.php";?>
         <!-- all js here -->
         <!-- jquery latest version -->
-        <script src="js/vendor/jquery-1.12.0.min.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/vendor/jquery-1.12.0.min.js"></script>
         <!-- bootstrap js -->
-        <script src="js/bootstrap.min.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/bootstrap.min.js"></script>
         <!-- owl.carousel js -->
-        <script src="js/owl.carousel.min.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/owl.carousel.min.js"></script>
         <!-- meanmenu js -->
-        <script src="js/jquery.meanmenu.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/jquery.meanmenu.js"></script>
         <!-- jquery-ui js -->
-        <script src="js/jquery-ui.min.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/jquery-ui.min.js"></script>
         <!-- wow js -->
-        <script src="js/wow.min.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/wow.min.js"></script>
         <!-- plugins js -->
-        <script src="js/plugins.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/plugins.js"></script>
         <!-- jQuery MixedIT Up -->
-        <script src="js/jquery.mixitup.min.js" type="text/javascript"></script>
+        <script src="<?php echo SITE_URL;?>/js/jquery.mixitup.min.js" type="text/javascript"></script>
         <!-- main js -->
-        <script src="js/main.js"></script>
+        <script src="<?php echo SITE_URL;?>/js/main.js"></script>
     </body>
 </html>

@@ -661,6 +661,7 @@
                             </div>
                             <a class="btn-default back-top topppbtn"  href="<?php echo SITE_URL;?>/entrada/<?php echo substr($horario_ingresso,0,2).substr($horario_ingresso,3,2);?>/<?php echo substr($data_ingresso,0,4).substr($data_ingresso,5,2).substr($data_ingresso,8,2);?>/<?php echo $descFilme[0]->url_amigavel;?>" style="padding-top: 6px;"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</a>
                               <button class="btn-green done" type="submit">Proximo <i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                             <!--  <a href="<?php echo SITE_URL;?>/produtos/bomboniere"  class="btn-green done" style="padding-top: 6px;">Proximo <i class="fa fa-angle-right" aria-hidden="true"></i></a> -->
                             </form>
                             <?php }?>
 
