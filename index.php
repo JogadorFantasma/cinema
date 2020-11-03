@@ -64,8 +64,8 @@ $dadosCidades = $cidades->rsDadosCidades();
 	<!-- Slider Area Start Here -->
 	
         <div class="slider-area">
-            <?php //foreach($dadosBanner as $itensBanner){ ?>
-            <div class="single-slider slide-1" style="background: url(images/baa.jpg) no-repeat; background-size: cover; width: 100%; overflow: hidden; padding: 290px 0;">
+            <?php foreach($dadosBanner as $itensBanner){ ?>
+            <div class="single-slider slide-1" style="background: url('<?php echo SITE_URL;?>/img/<?php echo $itensBanner->foto;?>') no-repeat; background-size: cover; width: 100%; overflow: hidden; padding: 290px 0;">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">                            
@@ -75,18 +75,8 @@ $dadosCidades = $cidades->rsDadosCidades();
                     </div>
                 </div>
             </div>
-            <div class="single-slider slide-2" style="background: url(images/tenet.jpg) no-repeat; background-size: cover; width: 100%; overflow: hidden; padding: 290px 0;">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">                            
-                            <h2 class="wow zoomIn" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">_</h2>
-                            <div class="read-more"></div>
-                        </div>
-                    </div>
-                </div>               
-            </div>
           
-            <?php //}?>
+            <?php }?>
         </div>
 
         <!-- Slider Area End Here -->

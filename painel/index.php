@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="container-fluid">
-                <div class="card-group">
+               <!--  <div class="card-group">
                     <div class="card border-right">
                         <div class="card-body">
                             <div class="d-flex d-lg-flex d-md-block align-items-center">
@@ -116,7 +116,7 @@
                             </div>
                         </div>
                     </div>
-                </div>               
+                </div>  -->              
             </div>
             <?php include "footer.php";?>
        </div>

@@ -1,6 +1,5 @@
 <?php include "verifica.php";
 $puxaCompras = $compras->rsDados();
-$compras->excluir();
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="pt-br">
@@ -12,7 +11,7 @@ $compras->excluir();
     <meta name="description" content="">
     <meta name="author" content="Adriano Monteiro">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/hoogli_logo.svg">
-    <title>Painel Hoogli - Reservas</title>
+    <title>Painel Hoogli - Compras</title>
     <link href="dist/css/style.min.css" rel="stylesheet">
 </head>
 
@@ -30,7 +29,7 @@ $compras->excluir();
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Reservas</h4>
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Compras</h4>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
@@ -40,7 +39,7 @@ $compras->excluir();
                         </div>
                     </div>
                     <div class="col-5 align-self-center">
-                       <!--  <a href="add-reserva.php" class="btn btn-success float-right">Add. Reserva</a> -->
+                     
                     </div>
                 </div>
             </div>
@@ -59,7 +58,7 @@ $compras->excluir();
                                                 <th>Cliente</th>
                                                 <th>Valor</th>
                                                 <th>Status Compra</th>
-                                                <th>Opções</th>
+                                             
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -67,19 +66,37 @@ $compras->excluir();
                                             if(count($puxaCompras) > 0){
                                             foreach($puxaCompras as $compra){
                                                 $nomeCliente = $clientes->rsDados($compra->id_cliente);
+                                                $puxaItensCompras = $compras->rsDadosItens('', '', '', $compra->id);
                                                 
                                                 ?>
                                             <tr>
                                                 <td>#<?php echo $compra->id;?></td>
-                                                <td><?php echo exibe_tipo_compra($compra->tipo_compra);?></td>
-                                                <td><?php echo formataData($compra->data_transacao);?> - <?php echo substr($compra->hora_transacao,0,5);?></td>
-                                                <td><?php echo $nomeCliente->nome;?></td>
+                                                <td>
+                                                    <?php 
+                                                    if(count($puxaItensCompras) > 0){
+                                                        $itens = '';
+                                                    foreach($puxaItensCompras as $item){
+                                                        if($item->id_produto == '252525'){
+                                                            $itens .= "Ingresso Inteira(".$item->quantidade_produto."), ";
+                                                        }else if($item->id_produto == '252526'){
+                                                            $itens .= "Ingresso Meia(".$item->quantidade_produto."), ";
+                                                        }else{
+                                                            $nomeProduto = $produtos->rsDados($item->id_produto);
+                                                            $itens .= $nomeProduto->nome."(".$item->quantidade_produto."), ";
+                                                        }
+                                                        
+                                                    }
+                                                    }
+                                                    if(isset($itens) && !empty($itens)){
+                                                    echo "<small>".substr($itens,0,-2)."</small>";
+                                                    }
+                                                        ?>
+                                                </td>
+                                                <td><small><?php echo formataData($compra->data_transacao);?> - <?php echo substr($compra->hora_transacao,0,5);?></small></td>
+                                                <td><small><?php echo $nomeCliente->nome;?> - <?php echo $nomeCliente->telefone;?> - <?php echo $nomeCliente->cpf;?></small></td>
                                                 <td>R$ <?php echo number_format($compra->valor,2,',','.');?></td>
                                                 <td><?php echo exibe_status_compra($compra->status_compra);?></td>
-                                                <td>
-                                                    <!-- <a href="editar-compra.php?id=<?php echo $compra->id;?>" class="btn btn-success btn-circle"><i class="fas fa-pencil-alt"></i></a> -->
-                                                   <!--  <a href="reservas.php?id=<?php echo $compra->id;?>&acao=excluirCompra" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></a> -->
-                                                </td>
+                                              
                                             </tr>
                                             <?php } }?>
                                         </tbody>
@@ -91,7 +108,7 @@ $compras->excluir();
                                                 <th>Cliente</th>
                                                 <th>Valor</th>
                                                 <th>Status Compra</th>
-                                                <th>Opções</th>
+                                             
                                             </tr>
                                         </tfoot>
                                     </table>
