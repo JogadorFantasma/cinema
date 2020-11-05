@@ -11,10 +11,11 @@
     
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Cinema Premier</title>
-    <meta name="description" content="">
-    
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/favicon.ico">
+    <?php if(isset($infoSistema->favicon) && !empty($infoSistema->favicon)){?>
+		<link rel="shortcut icon" href="<?php echo SITE_URL;?>/img/<?php echo $infoSistema->favicon;?>" >
+		<link rel="icon" href="<?php echo SITE_URL;?>/img/<?php echo $infoSistema->favicon;?>" >
+    <?php }?>
+    <meta name="author" content="Adriano Monteiro">
     <!-- Place favicon.ico in the root directory -->
     <!-- all css here -->
     <!-- bootstrap v3.3.6 css -->
@@ -52,10 +53,12 @@
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="breadcumb">
                         <ul>
-                            <li><a href="index.html">Home <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
+                            <li><a href=".">Home <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
                             <li>Contato</li>
                         </ul>
                     </div>
+                    <br>
+                        <p id="mostraCidade">Você está em <span style="color: red;"><?php echo $mostrarNomeCidade[0]->nome;?></span></p>
                 </div>
             </div>
         </div>

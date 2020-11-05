@@ -59,6 +59,8 @@ $cielos->debitoCard();
                                 <li>Pagamento</li>
                             </ul>
                         </div>
+                        <br>
+                        <p id="mostraCidade">Você está em <span style="color: red;"><?php echo $mostrarNomeCidade[0]->nome;?></span></p>
                     </div>
                 </div>
             </div>

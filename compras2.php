@@ -147,6 +147,8 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
                                 <li><?php echo $descFilme->titulo;?></li>
                             </ul>
                         </div>
+                        <br>
+                        <p id="mostraCidade">Você está em <span style="color: red;"><?php echo $mostrarNomeCidade[0]->nome;?></span></p>
                     </div>
                 </div>
             </div>
@@ -326,7 +328,7 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
                         </div>
                         <div class="details">                          
                           <ul>
-                            <!-- <li><span>Place: </span> Zooks Cinema City</li> -->
+                            <li><span>Cidade: </span> <span style="color: red;"><?php echo $mostrarNomeCidade[0]->nome;?></span></li>
                             <li><span>Dia : </span> <?php echo formataData($dadosDaProgramacao[0]->data_exibicao);?></li>
                             <li><span>Sala : </span> <?php echo $dadosSala->titulo;?> </li>
                             <li><span>Horário : </span> <?php echo substr($dadosDaProgramacao[0]->hora_exibicao,0,5);?></li>

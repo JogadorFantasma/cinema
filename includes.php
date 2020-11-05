@@ -34,6 +34,7 @@ $clientes = Clientes::getInstance(Conexao::getInstance());
 
 include "Class/cidades.class.php";
 $cidades = Cidades::getInstance(Conexao::getInstance());
+$mostrarNomeCidade = $cidades->rsDadosCidades($_SESSION['id_cidade']);
 
 include "Class/salas.class.php";
 $salas = Salas::getInstance(Conexao::getInstance());
@@ -51,14 +52,12 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
     foreach($_SESSION['shopping_cart'] as $key => $pesquisandoSeExiste){
               if($pesquisandoSeExiste['id'] == 252525){
                   unset($_SESSION['shopping_cart'][$key]);
-                //  echo "aqui";exit;
               }
               if($pesquisandoSeExiste['id'] == 252526){
                 unset($_SESSION['shopping_cart'][$key]);
               }
               
             }
-           
   
     if(isset($_SESSION['shopping_cart'])){
         //Mostra quantos produtos tem no carrinho
@@ -73,7 +72,7 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
             (
             'id' => 252525,
             'nome_produto' => "Ingresso Inteira",
-            'valor_produto' => filter_input(INPUT_POST, 'valor_produto'),
+            'valor_produto' => filter_input(INPUT_POST, 'valor_inteira'),
             'quantidade_produto' => filter_input(INPUT_POST, 'quantidade_ingresso_inteira'),
             'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto'),
             'id_filme' => filter_input(INPUT_POST, 'id_filme'),
@@ -87,7 +86,7 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
             (
             'id' => 252526,
             'nome_produto' => "Ingresso Meia",
-            'valor_produto' => filter_input(INPUT_POST, 'valor_produto')/ 2,
+            'valor_produto' => filter_input(INPUT_POST, 'valor_meia'),
             'quantidade_produto' => filter_input(INPUT_POST, 'quantidade_ingresso_meia'),
             'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto'),
             'id_filme' => filter_input(INPUT_POST, 'id_filme'),
@@ -101,7 +100,7 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
             (
             'id' => 252526,
             'nome_produto' => "Ingresso Meia",
-            'valor_produto' => filter_input(INPUT_POST, 'valor_produto')/ 2,
+            'valor_produto' => filter_input(INPUT_POST, 'valor_meia'),
             'quantidade_produto' => filter_input(INPUT_POST, 'quantidade_ingresso_meia'),
             'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto'),
             'id_filme' => filter_input(INPUT_POST, 'id_filme'),
@@ -120,7 +119,7 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
         $_SESSION['shopping_cart'][0] = array(
             'id' => 252525,
             'nome_produto' => "Ingresso Inteira",
-            'valor_produto' => filter_input(INPUT_POST, 'valor_produto'),
+            'valor_produto' => filter_input(INPUT_POST, 'valor_inteira'),
             'quantidade_produto' => filter_input(INPUT_POST, 'quantidade_ingresso_inteira'),
             'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto'),
             'id_filme' => filter_input(INPUT_POST, 'id_filme'),
@@ -133,7 +132,7 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
         $_SESSION['shopping_cart'][0] = array(
             'id' => 252526,
             'nome_produto' => "Ingresso Meia",
-            'valor_produto' => filter_input(INPUT_POST, 'valor_produto')/ 2,
+            'valor_produto' => filter_input(INPUT_POST, 'valor_meia'),
             'quantidade_produto' => filter_input(INPUT_POST, 'quantidade_ingresso_meia'),
             'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto'),
             'id_filme' => filter_input(INPUT_POST, 'id_filme'),
@@ -146,7 +145,7 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
         $_SESSION['shopping_cart'][1] = array(
             'id' => 252526,
             'nome_produto' => "Ingresso Meia",
-            'valor_produto' => filter_input(INPUT_POST, 'valor_produto')/ 2,
+            'valor_produto' => filter_input(INPUT_POST, 'valor_meia'),
             'quantidade_produto' => filter_input(INPUT_POST, 'quantidade_ingresso_meia'),
             'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto'),
             'id_filme' => filter_input(INPUT_POST, 'id_filme'),
@@ -155,7 +154,6 @@ if(filter_input(INPUT_POST, 'addCarrinhoIngresso')){
             'id_sala' => filter_input(INPUT_POST, 'id_sala')
         );
         }
-       // var_dump($_SESSION['shopping_cart']);exit;
  $url = filter_input(INPUT_POST, 'url_filme');
  $url_site = SITE_URL;
         echo "<script>window.location='$url_site/entrada/2/$url';</script>";

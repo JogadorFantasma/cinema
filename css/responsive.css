@@ -176,6 +176,8 @@
 	.show-ticket-area .ticket-form .contact-details form fieldset .connected-area i{
 		display: none;
 	}
+
+	#mostraCidade{margin: 0 22px 24px !important;}
 }
  
 /* Extra Small Devices, Phones */

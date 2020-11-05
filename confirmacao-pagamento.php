@@ -1,4 +1,4 @@
-<?php
+<?php 
 include "includes.php";
 include('phpmailer/class.phpmailer.php');
 session_destroy();

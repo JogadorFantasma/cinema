@@ -313,14 +313,15 @@ if(empty($FilmesInstanciada)) {
 				for($i=0;$i <count($_POST['data_exibicao']); $i++){
 					try{
 
-						$sql = "INSERT INTO tbl_programacao_filmes (id_filme, data_exibicao, hora_exibicao, id_sala, valor, id_cidade) VALUES (?, ?, ?, ?, ?, ?)";   
+						$sql = "INSERT INTO tbl_programacao_filmes (id_filme, data_exibicao, hora_exibicao, id_sala, valor, valor_meia, id_cidade) VALUES (?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, $id_filme);   
 						$stm->bindValue(2, $_POST['data_exibicao'][$i]);
 						$stm->bindValue(3, $_POST['hora_exibicao'][$i]);
 						$stm->bindValue(4, $_POST['id_sala'][$i]);
 						$stm->bindValue(5, $_POST['valor'][$i]);
-						$stm->bindValue(6, $_POST['id_cidade'][$i]);
+						$stm->bindValue(6, $_POST['valor_meia'][$i]);
+						$stm->bindValue(7, $_POST['id_cidade'][$i]);
 						$stm->execute(); 
 						$idBanner = $this->pdo->lastInsertId();
 						
@@ -345,19 +346,21 @@ if(empty($FilmesInstanciada)) {
 				$id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
 				$id_sala = filter_input(INPUT_POST, 'id_sala', FILTER_SANITIZE_STRING);
 				$valor = filter_input(INPUT_POST, 'valor', FILTER_SANITIZE_STRING);
+				$valor_meia = filter_input(INPUT_POST, 'valor_meia', FILTER_SANITIZE_STRING);
 				$id_cidade = filter_input(INPUT_POST, 'id_cidade', FILTER_SANITIZE_STRING);
 				//var_dump($_POST);exit;
 				try { 
 
-					$sql = "UPDATE tbl_programacao_filmes SET id_filme=?, data_exibicao=?, hora_exibicao=?, id_sala=?, valor=?, id_cidade=? WHERE id=?";   
+					$sql = "UPDATE tbl_programacao_filmes SET id_filme=?, data_exibicao=?, hora_exibicao=?, id_sala=?, valor=?, valor_meia=?, id_cidade=? WHERE id=?";   
 					$stm = $this->pdo->prepare($sql);   
 					$stm->bindValue(1, $id_filme);   
 					$stm->bindValue(2, $data_exibicao);
 					$stm->bindValue(3, $hora_exibicao);
 					$stm->bindValue(4, $id_sala);
 					$stm->bindValue(5, valorCalculavel($valor));
-					$stm->bindValue(6, $id_cidade);
-					$stm->bindValue(7, $id);   
+					$stm->bindValue(6, valorCalculavel($valor_meia));
+					$stm->bindValue(7, $id_cidade);
+					$stm->bindValue(8, $id);   
 					$stm->execute(); 
 				} catch(PDOException $erro){
 					echo $erro->getMessage(); 

@@ -78,6 +78,8 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                                 <li><?php echo $descFilme[0]->titulo;?></li>
                             </ul>
                         </div>
+                        <br>
+                        <p id="mostraCidade">Você está em <span style="color: red;"><?php echo $mostrarNomeCidade[0]->nome;?></span></p>
                     </div>
                 </div>
             </div>
@@ -157,7 +159,7 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 acurate">
                                     <div class="entities-properties">
                                       <ul>
-                                        <li>R$ <?php echo number_format(($dadosDaProgramacao[0]->valor/2),2,',','.');?> </li>
+                                        <li>R$ <?php echo number_format(($dadosDaProgramacao[0]->valor_meia),2,',','.');?> </li>
                                         <li>
                                             <div class="input-group spinner-meia">
                                               <div class="input-group-btn-vertical acurate text-center">
@@ -194,8 +196,8 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                   <input type="hidden" name="data_filme" value="<?php echo $data_ingresso;?>">
                   <input type="hidden" name="hora_filme" value="<?php echo $horario_ingresso;?>">
                    <input type="hidden" name="id_sala" value="<?php echo $dadosDaProgramacao[0]->id_sala;?>">
-									<input type="hidden" name="valor_produto" value="<?php echo $dadosDaProgramacao[0]->valor;?>">
-                  <input type="hidden" name="id_sala" value="<?php echo $dadosDaProgramacao[0]->id_sala;?>">
+									<input type="hidden" name="valor_inteira" value="<?php echo $dadosDaProgramacao[0]->valor;?>">
+                  <input type="hidden" name="valor_meia" value="<?php echo $dadosDaProgramacao[0]->valor_meia;?>">
                   <div class="spinner-normal2">
                   <input type="hidden" name="quantidade_ingresso_inteira" value="1">
                   </div>
@@ -239,7 +241,7 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                         </div>
                         <div class="details">                          
                           <ul>
-                            <!-- <li><span>Place: </span> Zooks Cinema City</li> -->
+                            <li><span>Cidade: </span> <span style="color: red;"><?php echo $mostrarNomeCidade[0]->nome;?></span></li>
                             <li><span>Dia : </span> <?php echo formataData($dadosDaProgramacao[0]->data_exibicao);?></li>
                             <li><span>Sala : </span> <?php echo $dadosSala->titulo;?> </li>
                             <li><span>Horário : </span> <?php echo substr($dadosDaProgramacao[0]->hora_exibicao,0,5);?></li>

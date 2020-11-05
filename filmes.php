@@ -62,9 +62,11 @@ $descFilme = $filmes->rsDados('', '', '', '', '', '', $id);
                         <div class="breadcumb">
                             <ul>
                                 <li><a href="index.html">Home <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
-                                <li>Em Breve / Em Cartaz</li>
+                                <li><?php if(isset($_GET['id']) && $_GET['id'] == 1){ echo "Em Cartaz";} if(isset($_GET['id']) && $_GET['id'] == 2){ echo "Em Breve";}?></li>
                             </ul>
                         </div>
+                        <br>
+                        <p id="mostraCidade">Você está em <span style="color: red;"><?php echo $mostrarNomeCidade[0]->nome;?></span></p>
                     </div>
                 </div>
             </div>

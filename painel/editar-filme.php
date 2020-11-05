@@ -196,7 +196,7 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                     <input type="date" class="form-control" name="data_exibicao[]">
                                                     </div>
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-1">
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Hora</label>
                                                     <input type="time" class="form-control" name="hora_exibicao[]">
@@ -216,8 +216,14 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                     </div>
                                                     <div class="col-md-2">
                                                     <div class="form-group">
-                                                    <label class="mr-sm-2" for="">Valor</label>
+                                                    <label class="mr-sm-2" for="">Valor Inteira</label>
                                                     <input type="text" class="form-control" name="valor[]">
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                    <div class="form-group">
+                                                    <label class="mr-sm-2" for="">Valor Meia</label>
+                                                    <input type="text" class="form-control" name="valor_meia[]">
                                                     </div>
                                                     </div>
                                                     <div class="col-md-2">
@@ -230,7 +236,7 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                     </select>
                                                     </div>
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-1">
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Ação</label>
                                                     <input id="removeRow" type="button" class="btn btn-danger form-control" value="Remover" />
@@ -253,7 +259,8 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                 <th>Data</th>
                                                 <th>Hora</th>
                                                 <th>Sala</th>
-                                                <th>Preço</th>
+                                                <th>Valor Inteira</th>
+                                                <th>Valor Meia</th>
                                                 <th>Cidade</th>
                                                 <th>Opções</th>
                                             </tr>
@@ -270,6 +277,7 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                 <td><?php echo $programacao->hora_exibicao;?></td>
                                                 <td><?php echo $nomeSala->titulo;?></td>
                                                 <td><?php echo number_format($programacao->valor,2,',','.');?></td>
+                                                <td><?php echo number_format($programacao->valor_meia,2,',','.');?></td>
                                                 <td><?php if(isset($nomeCidade[0]->nome) && !empty($nomeCidade[0]->nome)){echo $nomeCidade[0]->nome;}?></td>
                                                 <td>
                                                     <button type="button" data-toggle="modal" data-target="#myModal<?php echo $programacao->id;?>" class="btn btn-success btn-circle"><i class="fas fa-pencil-alt"></i></button>
@@ -303,7 +311,7 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                     </div>
                                                     </div>
                                                      <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Sala</label>
                                                     <select  class="form-control" name="id_sala">
@@ -313,10 +321,16 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                     </select>
                                                     </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <div class="form-group">
-                                                        <label class="mr-sm-2" for="">Valor</label>
+                                                        <label class="mr-sm-2" for="">Valor Inteira</label>
                                                         <input type="text" class="form-control" name="valor" value="<?php if(isset($programacao->valor) && !empty($programacao->valor)){ echo number_format($programacao->valor,2,',','.');};?>">
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                        <label class="mr-sm-2" for="">Valor Meia</label>
+                                                        <input type="text" class="form-control" name="valor_meia" value="<?php if(isset($programacao->valor_meia) && !empty($programacao->valor_meia)){ echo number_format($programacao->valor_meia,2,',','.');};?>">
                                                     </div>
                                                     </div>
                                                 </div>
@@ -396,7 +410,7 @@ $puxaCidades = $cidades->rsDadosCidades();
         html += '<input type="date" class="form-control" name="data_exibicao[]">';
         html += '</div>';
         html += '</div>';
-        html += '<div class="col-md-2">';
+        html += '<div class="col-md-1">';
         html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Hora</label>';
         html += '<input type="time" class="form-control" name="hora_exibicao[]">';
@@ -416,8 +430,14 @@ $puxaCidades = $cidades->rsDadosCidades();
         html += '</div>';
         html += '<div class="col-md-2">';
         html += '<div class="form-group">';
-        html += '<label class="mr-sm-2" for="">Valor</label>';
+        html += '<label class="mr-sm-2" for="">Valor Inteira</label>';
         html += '<input type="text" class="form-control" name="valor[]">';
+        html += '</div>';
+        html += '</div>';
+        html += '<div class="col-md-2">';
+        html += '<div class="form-group">';
+        html += '<label class="mr-sm-2" for="">Valor Meia</label>';
+        html += '<input type="text" class="form-control" name="valor_meia[]">';
         html += '</div>';
         html += '</div>';
         html += '<div class="col-md-2">';
@@ -430,7 +450,7 @@ $puxaCidades = $cidades->rsDadosCidades();
         html += '</select>';
         html += '</div>';
         html += '</div>';
-        html += '<div class="col-md-2">';
+        html += '<div class="col-md-1">';
         html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Ação</label>';
         html += '<input id="removeRow" type="button" class="btn btn-danger form-control" value="Remover" />'; 

@@ -64,6 +64,8 @@ $descFilme = $filmes->rsDados('', '', '', $id);
                                 <li><?php echo $descFilme[0]->titulo;?></li>
                             </ul>
                         </div>
+                        <br>
+                        <p id="mostraCidade">Você está em <span style="color: red;"><?php echo $mostrarNomeCidade[0]->nome;?></span></p>
                     </div>
                 </div>
             </div>
