@@ -368,10 +368,10 @@ if(empty($AcessoInstanciada)) {
 				} catch(PDOException $erro){
 					echo $erro->getMessage(); 
 				}
-				/* echo "	<script>
+				echo "	<script>
 							window.location='usuarios.php';
 							</script>";
-							exit; */
+							exit;
 				
 			}
 		}

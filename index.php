@@ -97,10 +97,10 @@ $dadosCidades = $cidades->rsDadosCidades();
                 </select> 
             </div>           
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="topbar-left">
-
-                        <select class="selectpicker" onChange="AtualizaJanela('inc-horario-filmes.php?data='+this.value, 'Filmes');">
+<input type="date" class="form-control" onchange="AtualizaJanela('<?php echo SITE_URL;?>/inc-horario-filmes.php?data='+this.value, 'Filmes');" value="<?php echo date('Y-m-d');?>">
+                       <!--  <select class="selectpicker" onChange="AtualizaJanela('inc-horario-filmes.php?data='+this.value, 'Filmes');">
                             <?php 
                             $datas = render(date('Y-m-d'));
                             foreach($datas as $data){ ?>
@@ -108,7 +108,7 @@ $dadosCidades = $cidades->rsDadosCidades();
                                 <?php echo diasemana($data)." - ".formataData($data);?></option>
                             <?php }?>
 
-                        </select>
+                        </select> -->
                     </div>
                 </div>
                 

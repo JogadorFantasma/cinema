@@ -57,7 +57,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                       <!--  <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Categorias </span></a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
@@ -70,8 +70,8 @@
                                         </span></a>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                        </li> -->
+                       <!--  <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Cidades </span></a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
@@ -84,8 +84,8 @@
                                         </span></a>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                        </li> -->
+                       <!--  <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Salas </span></a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
@@ -98,7 +98,7 @@
                                         </span></a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="sidebar-item"> 
                             <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
                                 <i data-feather="file-text" class="feather-icon"></i>
@@ -131,7 +131,7 @@
                                             <span class="hide-menu">Textos</span>
                                         </a>
                                     </li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                       <!--  <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Testemunhos </span></a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
@@ -144,8 +144,8 @@
                                         </span></a>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                        </li> -->
+                       <!--  <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Parceiros </span></a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
@@ -158,7 +158,7 @@
                                         </span></a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Configurações </span></a>

@@ -211,7 +211,9 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
 						      <tr class="text-center">
 						        <td class="product-remove"><a href="<?php echo SITE_URL;?>/?action=delete&id=<?php echo $produto_carrinho['id'];?>"><span class="fa fa-close"></span></a></td>
 						        
-						        <td class="image-prod"><img src="<?php echo SITE_URL;?>/img/<?php echo $produto_carrinho['imagem_produto'];?>" alt="" width="80"><div class="img" style="background-image:url(<?php echo SITE_URL;?>/img/<?php echo $produto_carrinho['imagem_produto'];?>);"></div></td>
+						        <td class="image-prod"><?php if(isset($produto_carrinho['imagem_produto']) && !empty($produto_carrinho['imagem_produto'])){?>
+                      <img src="<?php echo SITE_URL;?>/img/<?php echo $produto_carrinho['imagem_produto'];?>" alt="" width="80"><div class="img" style="background-image:url(<?php echo SITE_URL;?>/img/<?php echo $produto_carrinho['imagem_produto'];?>);"></div>
+                      <?php }?></td>
 						        
 						        <td class="product-name">
 						        	<h3><?php echo $produto_carrinho['nome_produto'];?></h3>
@@ -332,6 +334,7 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
                             <li><span>Dia : </span> <?php echo formataData($dadosDaProgramacao[0]->data_exibicao);?></li>
                             <li><span>Sala : </span> <?php echo $dadosSala->titulo;?> </li>
                             <li><span>Horário : </span> <?php echo substr($dadosDaProgramacao[0]->hora_exibicao,0,5);?></li>
+                            <li><span>Tipo:</span> <?php echo exibe_tipo_filme($dadosDaProgramacao[0]->id_tipo);?></li>
                               <?php if(count($_SESSION['escolha_cadeira']) > 0){?>
                   <li ><span>Assentos:</span> 
                   <?php foreach($_SESSION['escolha_cadeira'] as $key => $assentos){

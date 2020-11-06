@@ -99,7 +99,29 @@ $puxaClasses = $filmes->rsDadosClassificacao();
                                                     <input type="text" class="form-control" name="duracao" >
                                                 </div>
                                             </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Gênero</label>
+                                                    <input type="text" class="form-control" name="genero" >
+                                                </div>
+                                            </div>
                                           
+                                        </div>
+                                        <div class="row">
+                                          
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Diretor</label>
+                                                    <input type="text" class="form-control" name="titulo" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Atores</label>
+                                                    <input type="text" class="form-control" name="atores" >
+                                                </div>
+                                            </div>
+                                         
                                         </div>
                                         <div class="row">
                                              <div class="col-md-6">

@@ -8,6 +8,7 @@ if(isset($_GET['id'])){
     }
 }
 $filmes->editar();
+$filmes->excluirProgramacao();
 $filmes->addProgramacao();
 $filmes->editarProgramacao();
 $editaFilme = $filmes->rsDados($id);
@@ -130,6 +131,29 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                     <input type="text" class="form-control" name="duracao" value="<?php if(isset($editaFilme->duracao) && !empty($editaFilme->duracao)){ echo $editaFilme->duracao;}?>" >
                                                 </div>
                                             </div>
+                                             <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Gênero</label>
+                                                    <input type="text" class="form-control" name="genero" value="<?php if(isset($editaFilme->genero) && !empty($editaFilme->genero)){ echo $editaFilme->genero;}?>">
+                                                </div>
+                                            </div>
+                                          
+                                        </div>
+                                        <div class="row">
+                                          
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Diretor</label>
+                                                    <input type="text" class="form-control" name="diretor" value="<?php if(isset($editaFilme->diretor) && !empty($editaFilme->diretor)){ echo $editaFilme->diretor;}?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Atores</label>
+                                                    <input type="text" class="form-control" name="atores" value="<?php if(isset($editaFilme->atores) && !empty($editaFilme->atores)){ echo $editaFilme->atores;}?>">
+                                                </div>
+                                            </div>
+                                         
                                         </div>
                                         <div class="row">
                                              <div class="col-md-6">
@@ -216,11 +240,22 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                     </div>
                                                     <div class="col-md-2">
                                                     <div class="form-group">
+                                                    <label class="mr-sm-2" for="">Tipo</label>
+                                                    <select  class="form-control" name="id_tipo[]">
+                                                    <option value="1">2D - DUBLADO</option>
+                                                    <option value="2">2D - LEGENDADO</option>
+                                                    <option value="3">3D - DUBLADO</option>
+                                                    <option value="4">3D - LEGENDADO</option>
+                                                    </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                    <div class="form-group">
                                                     <label class="mr-sm-2" for="">Valor Inteira</label>
                                                     <input type="text" class="form-control" name="valor[]">
                                                     </div>
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-1">
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Valor Meia</label>
                                                     <input type="text" class="form-control" name="valor_meia[]">
@@ -259,6 +294,7 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                 <th>Data</th>
                                                 <th>Hora</th>
                                                 <th>Sala</th>
+                                                <th>Tipo</th>
                                                 <th>Valor Inteira</th>
                                                 <th>Valor Meia</th>
                                                 <th>Cidade</th>
@@ -276,6 +312,7 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                 <td><?php echo formataData($programacao->data_exibicao);?></td>
                                                 <td><?php echo $programacao->hora_exibicao;?></td>
                                                 <td><?php echo $nomeSala->titulo;?></td>
+                                                <td><?php echo exibe_tipo_filme($programacao->id_tipo);?></td>
                                                 <td><?php echo number_format($programacao->valor,2,',','.');?></td>
                                                 <td><?php echo number_format($programacao->valor_meia,2,',','.');?></td>
                                                 <td><?php if(isset($nomeCidade[0]->nome) && !empty($nomeCidade[0]->nome)){echo $nomeCidade[0]->nome;}?></td>
@@ -345,6 +382,17 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                     </select>
                                                     </div>
                                                     </div>
+                                                    <div class="col-md-6">
+                                                    <div class="form-group">
+                                                     <label class="mr-sm-2" for="">Tipo</label>
+                                                    <select  class="form-control" name="id_tipo[]">
+                                                    <option value="1">2D - DUBLADO</option>
+                                                    <option value="2">2D - LEGENDADO</option>
+                                                    <option value="3">3D - DUBLADO</option>
+                                                    <option value="4">3D - LEGENDADO</option>
+                                                    </select>
+                                                    </div>
+                                                    </div>
                                                 
                                                 </div>
                                                
@@ -367,7 +415,9 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                 <th>Data</th>
                                                 <th>Hora</th>
                                                 <th>Sala</th>
-                                                <th>Preço</th>
+                                                <th>Tipo</th>
+                                                <th>Valor Inteira</th>
+                                                <th>Valor Meia</th>
                                                 <th>Cidade</th>
                                                 <th>Opções</th>
                                             </tr>
@@ -430,11 +480,22 @@ $puxaCidades = $cidades->rsDadosCidades();
         html += '</div>';
         html += '<div class="col-md-2">';
         html += '<div class="form-group">';
+        html += '<label class="mr-sm-2" for="">Tipo</label>';
+        html += '<select  class="form-control" name="id_tipo[]">';
+        html += '<option value="1">2D - DUBLADO</option>';
+        html += '<option value="2">2D - LEGENDADO</option>';
+        html += '<option value="3">3D - DUBLADO</option>';
+        html += '<option value="4">3D - LEGENDADO</option>';
+        html += '</select>';
+        html += '</div>';
+        html += '</div>';
+        html += '<div class="col-md-1">';
+        html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Valor Inteira</label>';
         html += '<input type="text" class="form-control" name="valor[]">';
         html += '</div>';
         html += '</div>';
-        html += '<div class="col-md-2">';
+        html += '<div class="col-md-1">';
         html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Valor Meia</label>';
         html += '<input type="text" class="form-control" name="valor_meia[]">';

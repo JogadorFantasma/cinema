@@ -245,7 +245,7 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                             <li><span>Dia : </span> <?php echo formataData($dadosDaProgramacao[0]->data_exibicao);?></li>
                             <li><span>Sala : </span> <?php echo $dadosSala->titulo;?> </li>
                             <li><span>Horário : </span> <?php echo substr($dadosDaProgramacao[0]->hora_exibicao,0,5);?></li>
-                            <!-- <li class="entry"><span>Entradas:<br/>1x Normal</span> $8.50</li> -->
+                            <li><span>Tipo:</span> <?php echo exibe_tipo_filme($dadosDaProgramacao[0]->id_tipo);?></li>
                           </ul>
                         </div>
                         

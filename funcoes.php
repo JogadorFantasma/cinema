@@ -54,6 +54,16 @@ function exibe_classe_indicativa($exibe_classe_indicativa) {
       default: return "";
     }
   }
+//Exibe tipo de filme
+  function exibe_tipo_filme($exibe_tipo_filme) {
+    switch ($exibe_tipo_filme) {
+      case "1": return "2D - DUBLADO"; break;
+      case "2": return "2D - LEGENDADO"; break;
+      case "3": return "3D - DUBLADO"; break;
+      case "4": return "3D - LEGENDADO"; break;
+      default: return "";
+    }
+  }
 
   //Opçao de escolha do aluno
   function exibe_rede_social($exibe_rede_social) {

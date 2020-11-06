@@ -120,16 +120,17 @@ $descFilme = $filmes->rsDados('', '', '', $id);
                  <form>
                    <fieldset>
                     
-                     <div class="col-sm-12">
-                       <div class="form-group">                                                
-                        <select class="selectpicker" onChange="AtualizaJanela('<?php echo SITE_URL;?>/inc-horario-desc-filmes.php?id_filme=<?php echo $descFilme[0]->id;?>&url=<?php echo $descFilme[0]->url_amigavel;?>&data='+this.value, 'Filmes');">
+                     <div class="col-sm-4">
+                       <div class="form-group">     
+                       <input type="date" class="form-control" onchange="AtualizaJanela('<?php echo SITE_URL;?>/inc-horario-desc-filmes.php?id_filme=<?php echo $descFilme[0]->id;?>&url=<?php echo $descFilme[0]->url_amigavel;?>&data='+this.value, 'Filmes');" value="<?php echo date('Y-m-d');?>">                                           
+                        <!-- <select class="selectpicker" onChange="AtualizaJanela('<?php echo SITE_URL;?>/inc-horario-desc-filmes.php?id_filme=<?php echo $descFilme[0]->id;?>&url=<?php echo $descFilme[0]->url_amigavel;?>&data='+this.value, 'Filmes');">
                                 <?php 
                             $datas = render(date('Y-m-d'));
                             foreach($datas as $data){ ?>
                              <option value="<?php echo $data;?>" <?php if(date('Y-m-d') == $data){echo "selected";}?>><?php echo diasemana($data)." - ".formataData($data);?></option>
                             <?php }?>
                               
-                            </select>
+                            </select> -->
                        </div>
                      </div>
                    </fieldset>
