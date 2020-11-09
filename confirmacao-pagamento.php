@@ -5,7 +5,10 @@ session_destroy();
 $idCompra = $_GET['id_compra'];
 
 $dadosCompras = $compras->rsDados($idCompra);
-if($dadosCompras->status_compra <> 4 || $dadosCompras->status_compra <> 6){
+//echo "Aqui: ".$dadosCompras->status_compra; exit;
+if($dadosCompras->status_compra == 4 || $dadosCompras->status_compra == 6){
+
+}else{
     echo "<script>window.location='".SITE_URL."/erro-pagamento/$idCompra';</script>";
     exit;
 }

@@ -197,7 +197,7 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS =>"{ \n  \"MerchantOrderId\":\"$idCompra\", \n  \"Customer\":\n  { \n    \"Name\":\"$nome\" \n  }, \n  \"Payment\":\n  { \n      \"Type\":\"CreditCard\", \n      \"Amount\":$valor, \n      \"Provider\":\"Cielo\",\n      \"ReturnUrl\":\"https://www.google.com.br\",\n      \"Installments\":1, \n      \"Authenticate\":true,\n      \"CreditCard\":\n      { \n        \"CardNumber\":\"$numero_cartao\", \n        \"Holder\":\"$nome_cartao\", \n        \"ExpirationDate\":\"$data_validade\", \n        \"SecurityCode\":\"$codigo_seguranca\", \n        \"Brand\":\"$bandeira\" \n      } \n  } \n}",
+  CURLOPT_POSTFIELDS =>"{ \n  \"MerchantOrderId\":\"$idCompra\", \n  \"Customer\":\n  { \n    \"Name\":\"$nome\" \n  }, \n  \"Payment\":\n  { \n      \"Type\":\"CreditCard\", \n      \"Amount\":$valor, \n      \"Provider\":\"Cinemas Premier\",\n      \"ReturnUrl\":\"https://www.google.com.br\",\n      \"Installments\":1, \n      \"Authenticate\":true,\n      \"CreditCard\":\n      { \n        \"CardNumber\":\"$numero_cartao\", \n        \"Holder\":\"$nome_cartao\", \n        \"ExpirationDate\":\"$data_validade\", \n        \"SecurityCode\":\"$codigo_seguranca\", \n        \"Brand\":\"$bandeira\" \n      } \n  } \n}",
   CURLOPT_HTTPHEADER => array(
     "MerchantId: {$merchant_id_cielo}",
     "Content-Type: application/json",
@@ -404,7 +404,7 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS =>"{  \n   \"MerchantOrderId\":\"$idCompra\",\n   \"Customer\":{  \n      \"Name\":\"$nome\"     \n   },\n   \"Payment\":{  \n     \"Type\":\"DebitCard\",\n     \"Amount\":$valor,\n     \"Provider\":\"Simulado\",\n     \"ReturnUrl\":\"http://www.google.com.br\",\n     \"DebitCard\":{  \n         \"CardNumber\":\"$numero_cartao\",\n         \"Holder\":\"$nome_cartao\",\n         \"ExpirationDate\":\"$data_validade\",\n         \"SecurityCode\":\"$codigo_seguranca\",\n         \"Brand\":\"$bandeira\"\n     }\n   }\n}",
+  CURLOPT_POSTFIELDS =>"{  \n   \"MerchantOrderId\":\"$idCompra\",\n   \"Customer\":{  \n      \"Name\":\"$nome\"     \n   },\n   \"Payment\":{  \n     \"Type\":\"DebitCard\",\n     \"Amount\":$valor,\n     \"Provider\":\"Cinemas Premier\",\n     \"ReturnUrl\":\"http://www.google.com.br\",\n     \"DebitCard\":{  \n         \"CardNumber\":\"$numero_cartao\",\n         \"Holder\":\"$nome_cartao\",\n         \"ExpirationDate\":\"$data_validade\",\n         \"SecurityCode\":\"$codigo_seguranca\",\n         \"Brand\":\"$bandeira\"\n     }\n   }\n}",
   CURLOPT_HTTPHEADER => array(
     "MerchantId: {$merchant_id_cielo}",
     "Content-Type: application/json",

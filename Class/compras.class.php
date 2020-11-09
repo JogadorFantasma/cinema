@@ -307,6 +307,31 @@ if(empty($ComprasInstanciada)) {
 				echo $erro->getMessage(); 
 			}
 		}
+
+		function excluirProdutoErroPagamento() {
+			
+				
+				try{   
+					$sql = "DELETE FROM tbl_relaciona_compras WHERE id_compra=? ";   
+					$stm = $this->pdo->prepare($sql);   
+					$stm->bindValue(1, $_GET['id_compra']);   
+					$stm->execute();
+				} catch(PDOException $erro){
+					echo $erro->getMessage(); 
+				}
+
+				try{   
+					$sql = "DELETE FROM tbl_relaciona_cadeiras WHERE id_compra=? ";   
+					$stm = $this->pdo->prepare($sql);   
+					$stm->bindValue(1, $_GET['id_compra']);   
+					$stm->execute();
+				} catch(PDOException $erro){
+					echo $erro->getMessage(); 
+				}
+				
+
+			
+		}
 	}
 	
 	$ComprasInstanciada = 'S';

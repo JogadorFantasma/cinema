@@ -1,9 +1,11 @@
 <?php
 include "includes.php";
-include "cielo/api-cielo.class.php";
-$cielos = ApisCielos::getInstance(Conexao::getInstance());
-
-$cielos->credCardAutenticado();
+/* include "cielo/api-cielo.class.php"; */
+include "cielo/api-cielo-sandbox.class.php";
+//$cielos = ApisCielos::getInstance(Conexao::getInstance());
+$cielos = ApisSandboxesCielo::getInstance(Conexao::getInstance());
+//$cielos->credCardAutenticado();
+$cielos->crediCardMinimo();
 $cielos->debitoCard();
 
 ?>
@@ -94,7 +96,7 @@ $cielos->debitoCard();
                         <label for="creditCardHolderName" class="form-label required">
                             Forma de Pagamento
                         </label>
-                       <select name="formaPagamento" onchange="if(this.value == 1){document.getElementById('acao').value='pagamentoCartaoCredito';}if(this.value == 2){document.getElementById('acao').value='pagamentoCartaoDebito';}" class="form-control">
+                       <select name="formaPagamento" onchange="if(this.value == 1){document.getElementById('acao').value='pagamentoCartaoCreditoMinimo';}if(this.value == 2){document.getElementById('acao').value='pagamentoCartaoDebito';}" class="form-control">
                        <option value="1">Crédito</option>
                        <option value="2">Débito</option>
                        </select> 
@@ -155,7 +157,7 @@ $cielos->debitoCard();
                 <input type="hidden" name="senderEmail" value="<?php if(isset($_POST['senderEmail']) && !empty($_POST['senderEmail'])){ echo $_POST['senderEmail'];}?>">
                 <input type="hidden" name="senderPhone" value="<?php if(isset($_POST['senderPhone']) && !empty($_POST['senderPhone'])){ echo $_POST['senderPhone'];}?>">
                 <input type="hidden" name="valor" value="<?php if(isset($_POST['valor']) && !empty($_POST['valor'])){ echo $_POST['valor'];}?>">
-                <input type="hidden" name="acao" id="acao" value="pagamentoCartaoCredito">
+                <input type="hidden" name="acao" id="acao" value="pagamentoCartaoCreditoMinimo">
                 
             </form>
               </div>
