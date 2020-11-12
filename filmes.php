@@ -87,7 +87,9 @@ $descFilme = $filmes->rsDados('', '', '', '', '', '', $id);
         </div>
         <!-- Movie Show Search Box End Here -->
         <!-- Watching Movies Details Start Here -->
+
         <div class="watching-movie-area">
+            <?php if(isset($_GET['id']) && $_GET['id'] == 1){?>
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -116,6 +118,19 @@ $descFilme = $filmes->rsDados('', '', '', '', '', '', $id);
 
             </div>
         </div>
+        <?php }?>
+         <?php if(isset($_GET['id']) && $_GET['id'] == 2){?>
+        <div class="container">
+           
+            <div class="row">
+                <div id="janela_Filmes">
+                    <?php include "inc-horario-filmes-breve.php"; ?>
+
+                </div>
+
+            </div>
+        </div>
+        <?php }?>
     </div>
         <!-- Watching Movies Details End Here -->
         <!-- Zooks Promos Start Here -->

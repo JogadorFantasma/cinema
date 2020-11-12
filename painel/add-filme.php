@@ -131,6 +131,14 @@ $puxaClasses = $filmes->rsDadosClassificacao();
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="mr-sm-2" for="">Breve</label>
+                                                    <input type="text" class="form-control" name="breve">
+                                                </div>
+                                            </div>                                        
+                                        </div>
                                        
                                       <div class="row">
                                             <div class="col-md-12">

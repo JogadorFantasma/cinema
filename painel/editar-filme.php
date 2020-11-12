@@ -110,8 +110,8 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                
                                         <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria</label>
                                         <select class="custom-select mr-sm-2" name="id_categoria" id="inlineFormCustomSelect">
-                                            <option value="1" <?php if(isset($editaFilme->id_categoria) && $editaFilme->ativo == 1){ echo "selected";}?>>Em Cartaz</option>
-                                            <option value="2" <?php if(isset($editaFilme->id_categoria) && $editaFilme->ativo == 2){ echo "selected";}?>>Breve</option>
+                                            <option value="1" <?php if(isset($editaFilme->id_categoria) && $editaFilme->id_categoria == 1){ echo "selected";}?>>Em Cartaz</option>
+                                            <option value="2" <?php if(isset($editaFilme->id_categoria) && $editaFilme->id_categoria == 2){ echo "selected";}?>>Breve</option>
                                         </select>
                                    
                                                 </div>
@@ -162,6 +162,14 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                     <input type="file" name="imagem" class="form-control" >
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="mr-sm-2" for="">Breve</label>
+                                                    <input type="text" class="form-control" name="breve" value="<?php if(isset($editaFilme->breve) && !empty($editaFilme->breve)){ echo $editaFilme->breve;}?>">
+                                                </div>
+                                            </div>                                        
                                         </div>
                                       <div class="row">
                                             <div class="col-md-12">
@@ -214,19 +222,19 @@ $puxaCidades = $cidades->rsDadosCidades();
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="row" id="row">
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Data</label>
                                                     <input type="date" class="form-control" name="data_exibicao[]">
                                                     </div>
                                                     </div>
-                                                    <div class="col-md-1">
+                                                    <div class="col-md-3">
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Hora</label>
                                                     <input type="time" class="form-control" name="hora_exibicao[]">
                                                     </div>
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Sala</label>
                                                     <select  class="form-control" name="id_sala[]">
@@ -238,7 +246,8 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                     </select>
                                                     </div>
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    
+                                                    <div class="col-md-3">
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Tipo</label>
                                                     <select  class="form-control" name="id_tipo[]">
@@ -249,19 +258,19 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                     </select>
                                                     </div>
                                                     </div>
-                                                    <div class="col-md-1">
+                                                    <div class="col-md-3">
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Valor Inteira</label>
                                                     <input type="text" class="form-control" name="valor[]">
                                                     </div>
                                                     </div>
-                                                    <div class="col-md-1">
+                                                    <div class="col-md-3">
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Valor Meia</label>
                                                     <input type="text" class="form-control" name="valor_meia[]">
                                                     </div>
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Cidade</label>
                                                     <select  class="form-control" name="id_cidade[]">
@@ -271,18 +280,21 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                     </select>
                                                     </div>
                                                     </div>
-                                                    <div class="col-md-1">
+                                                    <div class="col-md-3">
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Ação</label>
                                                     <input id="removeRow" type="button" class="btn btn-danger form-control" value="Remover" />
                                                     </div>
                                                     </div>
+                                                    
                                                     </div>
-
+                                                    <hr>
                                                     <div id="newRow"></div>
                                                     <button id="addRow" type="button" class="btn btn-info">Add Programação</button>
                                                     <button type="submit" class="btn btn-warning" >Salvar</button>
+
                                                 </div>
+                                                
                                             </div>
                                             <input type="hidden" name="id_filme" value="<?php echo $id;?>">
                                             <input type="hidden" name="acao" value="addProgramacao">
@@ -454,19 +466,19 @@ $puxaCidades = $cidades->rsDadosCidades();
     $("#addRow").click(function () {
         var html = '';
         html += '<div class="row" id="row">';
-        html += '<div class="col-md-2">';
+        html += '<div class="col-md-3">';
         html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Data</label>';
         html += '<input type="date" class="form-control" name="data_exibicao[]">';
         html += '</div>';
         html += '</div>';
-        html += '<div class="col-md-1">';
+        html += '<div class="col-md-3">';
         html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Hora</label>';
         html += '<input type="time" class="form-control" name="hora_exibicao[]">';
         html += '</div>';
         html += '</div>';
-        html += '<div class="col-md-2">';
+        html += '<div class="col-md-3">';
         html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Sala</label>';
         html += '<select  class="form-control" name="id_sala[]">';
@@ -478,7 +490,7 @@ $puxaCidades = $cidades->rsDadosCidades();
         html += '</select>';
         html += '</div>';
         html += '</div>';
-        html += '<div class="col-md-2">';
+        html += '<div class="col-md-3">';
         html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Tipo</label>';
         html += '<select  class="form-control" name="id_tipo[]">';
@@ -489,19 +501,19 @@ $puxaCidades = $cidades->rsDadosCidades();
         html += '</select>';
         html += '</div>';
         html += '</div>';
-        html += '<div class="col-md-1">';
+        html += '<div class="col-md-3">';
         html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Valor Inteira</label>';
         html += '<input type="text" class="form-control" name="valor[]">';
         html += '</div>';
         html += '</div>';
-        html += '<div class="col-md-1">';
+        html += '<div class="col-md-3">';
         html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Valor Meia</label>';
         html += '<input type="text" class="form-control" name="valor_meia[]">';
         html += '</div>';
         html += '</div>';
-        html += '<div class="col-md-2">';
+        html += '<div class="col-md-3">';
         html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Cidade</label>';
         html += '<select  class="form-control" name="id_cidade[]">';
@@ -511,13 +523,14 @@ $puxaCidades = $cidades->rsDadosCidades();
         html += '</select>';
         html += '</div>';
         html += '</div>';
-        html += '<div class="col-md-1">';
+        html += '<div class="col-md-3">';
         html += '<div class="form-group">';
         html += '<label class="mr-sm-2" for="">Ação</label>';
         html += '<input id="removeRow" type="button" class="btn btn-danger form-control" value="Remover" />'; 
         html += '</div>';
         html += '</div>';
         html += '</div>';
+        html += '<hr>';
 
         $('#newRow').append(html);
     });
