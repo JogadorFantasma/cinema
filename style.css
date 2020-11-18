@@ -2101,6 +2101,9 @@ li:first-child .wizard-content {
 .seats .selected-seat ul li:nth-child(4) span {
   background: #ff7f9d !important;
 }
+.seats .selected-seat ul li:nth-child(5) span {
+  background: #587dd2 !important;
+}
 .seats .seats-table {
   margin: 20px 0;
 }
@@ -2121,6 +2124,9 @@ li:first-child .wizard-content {
 }
 .seats .seats-table .table-responsive .table tbody tr td.free-seat {
   background: #33cc66 !important;
+}
+.seats .seats-table .table-responsive .table tbody tr td.free-seat-especiais {
+    background: #587dd2 !important;
 }
 .seats .seats-table .table-responsive .table tbody tr td.white-space {
   background: #ffffff !important;

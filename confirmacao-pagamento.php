@@ -6,7 +6,7 @@ $idCompra = $_GET['id_compra'];
 
 $dadosCompras = $compras->rsDados($idCompra);
 //echo "Aqui: ".$dadosCompras->status_compra; exit;
-if($dadosCompras->status_compra == 4 || $dadosCompras->status_compra == 6){
+if($dadosCompras->status_compra == 00 || $dadosCompras->status_compra == 000){
 
 }else{
     echo "<script>window.location='".SITE_URL."/erro-pagamento/$idCompra';</script>";
