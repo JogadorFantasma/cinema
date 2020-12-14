@@ -222,6 +222,20 @@ $puxaCidades = $cidades->rsDadosCidades();
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="row" id="row">
+                                                            <div class="col-md-3">
+                                                            <div class="form-group">
+                                                            <label class="mr-sm-2" for="">Dia Promocional</label>
+                                                            <select  class="form-control" name="dia_promorcional[]">
+                                                            <option value="S">Sim</option>
+                                                            <option value="N" selected>Não</option>
+                                                            </select>
+                                                            </div>
+                                                            </div>
+                                                            <div class="col-md-9">
+                                                                <small></small>
+                                                            </div>
+                                                    </div>
+                                                    <div class="row" id="row">
                                                     <div class="col-md-3">
                                                     <div class="form-group">
                                                     <label class="mr-sm-2" for="">Data</label>
@@ -397,16 +411,28 @@ $puxaCidades = $cidades->rsDadosCidades();
                                                     <div class="col-md-6">
                                                     <div class="form-group">
                                                      <label class="mr-sm-2" for="">Tipo</label>
-                                                    <select  class="form-control" name="id_tipo[]">
-                                                    <option value="1">2D - DUBLADO</option>
-                                                    <option value="2">2D - LEGENDADO</option>
-                                                    <option value="3">3D - DUBLADO</option>
-                                                    <option value="4">3D - LEGENDADO</option>
+                                                    <select  class="form-control" name="id_tipo">
+                                                    <option value="1" <?php if(isset($programacao->id_tipo) && $programacao->id_tipo == 1){ echo "selected";};?>>2D - DUBLADO</option>
+                                                    <option value="2" <?php if(isset($programacao->id_tipo) && $programacao->id_tipo == 2){ echo "selected";};?>>2D - LEGENDADO</option>
+                                                    <option value="3" <?php if(isset($programacao->id_tipo) && $programacao->id_tipo == 3){ echo "selected";};?>>3D - DUBLADO</option>
+                                                    <option value="4" <?php if(isset($programacao->id_tipo) && $programacao->id_tipo == 4){ echo "selected";};?>>3D - LEGENDADO</option>
                                                     </select>
                                                     </div>
                                                     </div>
                                                 
                                                 </div>
+                                                <div class="row">
+                                                            <div class="col-md-6">
+                                                            <div class="form-group">
+                                                            <label class="mr-sm-2" for="">Dia Promocional</label>
+                                                            <select  class="form-control" name="dia_promorcional">
+                                                            <option value="S" <?php if(isset($programacao->dia_promorcional) && $programacao->dia_promorcional == 'S'){ echo "selected";};?>>Sim</option>
+                                                            <option value="N" <?php if(isset($programacao->dia_promorcional) && $programacao->dia_promorcional == 'N'){ echo "selected";};?>>Não</option>
+                                                            </select>
+                                                            </div>
+                                                            </div>
+                                                           
+                                                    </div>
                                                
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light"
@@ -465,6 +491,17 @@ $puxaCidades = $cidades->rsDadosCidades();
     // add row
     $("#addRow").click(function () {
         var html = '';
+        html += '<div class="row" id="row">';
+        html += '<div class="col-md-3">';
+        html += '<div class="form-group">';
+        html += '<label class="mr-sm-2" for="">Dia Promocional</label>';
+        html += '<select  class="form-control" name="dia_promorcional[]">';
+        html += '<option value="S">Sim</option>';
+        html += '<option value="N" selected>Não</option>';
+        html += '</select>';
+        html += '</div>';
+        html += '</div>';
+        html += '</div>';
         html += '<div class="row" id="row">';
         html += '<div class="col-md-3">';
         html += '<div class="form-group">';

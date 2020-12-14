@@ -86,14 +86,14 @@ $cargos = $usuarios->Cargo();
                                             </div>
                                             <div class="row">
 
-                                            <div class="col-md-3 col-sm-12">
+                                      <!--      <div class="col-md-3 col-sm-12">
                                             <label  class="col-form-label">Cargo</label>
                                             <select name="id_cargo" id="" class="form-control">
                                                 <?php foreach($cargos as $cargo){?>
                                                 <option value="<?php echo $cargo->id;?>"><?php echo $cargo->cargo;?></option>
                                                 <?php }?>
                                             </select>
-                                            </div>
+                                            </div>-->
                                             <div class="col-md-3 col-sm-12">
                                             <label  class="col-form-label">Senha</label>
                                                 <input class="form-control" type="text" name="senha"  />

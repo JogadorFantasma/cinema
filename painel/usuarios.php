@@ -44,7 +44,7 @@ $usuarios->excluir();
                     </div>
                     <div class="col-5 align-self-center">
                         <a href="add-usuario.php" class="btn btn-success float-right m-1">Add. Usuário</a>
-                        <a href="cargos.php" class="btn btn-primary float-right m-1">Cargos</a>
+                      <!--  <a href="cargos.php" class="btn btn-primary float-right m-1">Cargos</a>-->
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@ $usuarios->excluir();
                                                 <td><?php echo $usuario->email;?></td>
                                                 <td>
                                                     <a href="editar-usuario.php?id=<?php echo $usuario->id;?>" class="btn btn-success btn-circle"><i class="fas fa-pencil-alt"></i></a>
-                                                    <a href="usuarios.php?id=<?php echo $usuario->id;?>&acao=excluirUsuario" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></a>
+                                                    <a href="usuarios.php?id=<?php echo $usuario->id;?>&acao=excluirUsuarios" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></a>
                                                 </td>
                                             </tr>
                                             <?php } }?>

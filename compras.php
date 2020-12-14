@@ -73,8 +73,8 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="breadcumb">
                             <ul>
-                                <li><a href="./">Home <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
-                                <li><a href="./">Filmes <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
+                                <li><a href="<?php echo SITE_URL;?>/.">Home <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
+                                <li><a href="<?php echo SITE_URL;?>/filmes/cartaz">Filmes <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
                                 <li><?php echo $descFilme[0]->titulo;?></li>
                             </ul>
                         </div>
@@ -118,12 +118,41 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                                     <div class="media">
                                       
                                       <div class="media-body">
-                                        <h4 class="media-heading">Normal</h4>                                  
+                                         <?php if(isset($dadosDaProgramacao[0]->dia_promorcional) && $dadosDaProgramacao[0]->dia_promorcional == 'S'){?>
+                                        <h4 class="media-heading"><strike>Inteira</strike></h4>  
+                                        <?php }else{?>
+                                          <h4 class="media-heading">Inteira</h4>  
+                                        <?php }?>
+                                                                        
                                       </div>
                                     </div>
                                   </div>
                                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 acurate">
-                                    <div class="entities-properties">
+                                    <?php if(isset($dadosDaProgramacao[0]->dia_promorcional) && $dadosDaProgramacao[0]->dia_promorcional == 'S'){?>
+                                <div class="entities-properties">
+                                      <ul>
+                                        <li> <strike> R$ <?php echo number_format($dadosDaProgramacao[0]->valor,2,',','.');?> </strike></li>
+                                        <li>
+                                            <div class="input-group spinner-normal">
+                                              <div class="input-group-btn-vertical acurate text-center">
+                                                <button class="btn btn-default" disabled type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                <button class="btn btn-default" disabled type="button"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                                                <form>
+                                                  <fieldset>
+                                                    <div class="col-sm-6">
+                                                      <div class="form-group">
+                                                          <input type="text" disabled class="form-control" value="0" minlength="0" maxlength="10">
+                                                      </div>
+                                                    </div>
+                                                  </fieldset>
+                                                </form>
+                                              </div>
+                                            </div>                             
+                                        </li>
+                                      </ul>
+                                    </div>
+                                    <?php }else{?>
+                                <div class="entities-properties">
                                       <ul>
                                         <li> R$ <?php echo number_format($dadosDaProgramacao[0]->valor,2,',','.');?> </li>
                                         <li>
@@ -145,6 +174,8 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                                         </li>
                                       </ul>
                                     </div>
+                                    <?php }?>
+                                    
                                   </div>
                                 </div>
                                 <div class="single-enties">
@@ -152,7 +183,11 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                                     <div class="media">
                                       
                                       <div class="media-body">
-                                        <h4 class="media-heading">Estudantes</h4>
+                                        <?php if(isset($dadosDaProgramacao[0]->dia_promorcional) && $dadosDaProgramacao[0]->dia_promorcional == 'S'){?>
+                                        <h4 class="media-heading">Dia Promocional</h4>
+                                        <?php }else{?>
+                                          <h4 class="media-heading">Meia</h4>
+                                        <?php }?>
                                       </div>
                                     </div>
                                   </div>
@@ -169,13 +204,18 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                                                   <fieldset>
                                                     <div class="col-sm-6">
                                                       <div class="form-group">
-                                                          <input type="text" class="form-control" value="0" minlength="0" maxlength="10">
+                                                        <?php if(isset($dadosDaProgramacao[0]->dia_promorcional) && $dadosDaProgramacao[0]->dia_promorcional == 'S'){?>
+                                        <input type="text" class="form-control" value="1" minlength="1" maxlength="10">
+                                        <?php }else{?>
+                                          <input type="text" class="form-control" value="0" minlength="0" maxlength="10">
+                                        <?php }?>
+                                                          
                                                       </div>
                                                     </div>
                                                   </fieldset>
                                                 </form>
                                               </div>
-                                            </div>                             
+                                            </div>                              
                                         </li>
                                       </ul>
                                     </div>
@@ -198,11 +238,12 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
                    <input type="hidden" name="id_sala" value="<?php echo $dadosDaProgramacao[0]->id_sala;?>">
 									<input type="hidden" name="valor_inteira" value="<?php echo $dadosDaProgramacao[0]->valor;?>">
                   <input type="hidden" name="valor_meia" value="<?php echo $dadosDaProgramacao[0]->valor_meia;?>">
+                  
                   <div class="spinner-normal2">
-                  <input type="hidden" name="quantidade_ingresso_inteira" value="1">
+                  <input type="hidden" name="quantidade_ingresso_inteira" value="<?php if(isset($dadosDaProgramacao[0]->dia_promorcional) && $dadosDaProgramacao[0]->dia_promorcional == 'S'){echo "0";}else{ echo "1";}?>">
                   </div>
                   <div class="spinner-meia2">
-                  <input type="hidden" name="quantidade_ingresso_meia" value="0">
+                  <input type="hidden" name="quantidade_ingresso_meia" value="<?php if(isset($dadosDaProgramacao[0]->dia_promorcional) && $dadosDaProgramacao[0]->dia_promorcional == 'S'){echo "1";}else{ echo "0";}?>">
                   </div>
 									<input type="hidden" name="addCarrinhoIngresso" value="S">
 									<button class="btn-green done" type="submit">Proximo <i class="fa fa-angle-right" aria-hidden="true"></i></button>
@@ -286,5 +327,34 @@ $dadosSala = $filmes->rsDadosSalas($dadosDaProgramacao[0]->id_sala);
         <script src="<?php echo SITE_URL;?>/js/jquery.mixitup.min.js" type="text/javascript"></script>
         <!-- main js -->
         <script src="<?php echo SITE_URL;?>/js/main.js"></script>
+        <a  id="myBtn"  data-toggle="modal" data-target="#exampleModal"></a>
+<div class="modal bd-example-modal-sm" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-xs" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Atenção!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h3>Selecione sua cidade</h3>
+        <select class="form-control" id="select-cidade" name="select_cidade" onchange="window.location='<?php echo SITE_URL;?>/cidade/'+this.value">
+        <option value="">Selecione Cidade</option>
+        <?php 
+        $dadosCidadesModal = $cidades->rsDadosCidades();
+        foreach($dadosCidadesModal as $cidadeModal){?>
+			<option value="<?php echo $cidadeModal->id;?>" <?php if(isset($_SESSION['id_cidade']) && $_SESSION['id_cidade'] == $cidadeModal->id){ echo"selected";}?>> <?php echo $cidadeModal->nome;?> </option>
+            <?php }?>
+        </select>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+    <?php if(!isset($_SESSION['id_cidade'])){?>
+    <script>document.getElementById('myBtn').click();</script>
+<?php }?>
     </body>
 </html>

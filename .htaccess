@@ -17,6 +17,7 @@ RewriteRule ^entrada/([a-zA-Z-0-9-_]+)/([a-zA-Z-0-9-_]+)/([a-zA-Z-0-9-_]+)$ comp
 RewriteRule ^entrada/2/([a-zA-Z-0-9-_]+)$ compras1.php?url=$1
 RewriteRule ^entrada/3/([a-zA-Z-0-9-_]+)$ compras2.php?url=$1
 RewriteRule ^filme/([a-zA-Z-0-9-_]+)$ desc-filme.php?id=$1
+RewriteRule ^filme/([a-zA-Z-0-9-_]+)/([a-zA-Z-0-9-_]+)$ desc-filme.php?id=$1&select_cidade=$2
 RewriteRule ^blog/([a-zA-Z-0-9-_]+)$ desc-blog.php?id=$1
 RewriteRule ^categoria/([a-zA-Z-0-9-_]+)$ produtos.php?cat=$1
 RewriteRule ^produto/([a-zA-Z-0-9-_]+)$ desc-produto.php?id=$1

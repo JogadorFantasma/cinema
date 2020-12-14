@@ -176,5 +176,34 @@ $descFilme = $filmes->rsDados($id_filme);
         <script src="<?php echo SITE_URL;?>/js/jquery.mixitup.min.js" type="text/javascript"></script>
         <!-- main js -->
         <script src="<?php echo SITE_URL;?>/js/main.js"></script>
+        <a  id="myBtn"  data-toggle="modal" data-target="#exampleModal"></a>
+<div class="modal bd-example-modal-sm" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-xs" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Atenção!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h3>Selecione sua cidade</h3>
+        <select class="form-control" id="select-cidade" name="select_cidade" onchange="window.location='<?php echo SITE_URL;?>/cidade/'+this.value">
+        <option value="">Selecione Cidade</option>
+        <?php 
+        $dadosCidadesModal = $cidades->rsDadosCidades();
+        foreach($dadosCidadesModal as $cidadeModal){?>
+			<option value="<?php echo $cidadeModal->id;?>" <?php if(isset($_SESSION['id_cidade']) && $_SESSION['id_cidade'] == $cidadeModal->id){ echo"selected";}?>> <?php echo $cidadeModal->nome;?> </option>
+            <?php }?>
+        </select>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+    <?php if(!isset($_SESSION['id_cidade'])){?>
+    <script>document.getElementById('myBtn').click();</script>
+<?php }?>
     </body>
 </html>

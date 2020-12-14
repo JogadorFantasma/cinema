@@ -142,8 +142,8 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="breadcumb">
                             <ul>
-                                <li><a href="./">Home <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
-                                <li><a href="./">Filmes <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
+                                <li><a href="<?php echo SITE_URL;?>/.">Home <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
+                                <li><a href="<?php echo SITE_URL;?>/filmes/cartaz">Filmes <i class="fa fa-angle-right" aria-hidden="true"></i> </a></li>
                                 <li><?php echo $descFilme->titulo;?></li>
                             </ul>
                         </div>
@@ -211,9 +211,11 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
 						      <tr class="text-center">
 						        <td class="product-remove"><a href="<?php echo SITE_URL;?>/?action=delete&id=<?php echo $produto_carrinho['id'];?>"><span class="fa fa-close"></span></a></td>
 						        
-						        <td class="image-prod"><?php if(isset($produto_carrinho['imagem_produto']) && !empty($produto_carrinho['imagem_produto'])){?>
+						        <td class="image-prod">
+                      <?php if(isset($produto_carrinho['imagem_produto']) && !empty($produto_carrinho['imagem_produto'])){?>
                       <img src="<?php echo SITE_URL;?>/img/<?php echo $produto_carrinho['imagem_produto'];?>" alt="" width="80"><div class="img" style="background-image:url(<?php echo SITE_URL;?>/img/<?php echo $produto_carrinho['imagem_produto'];?>);"></div>
-                      <?php }?></td>
+                      <?php }?>
+                      </td>
 						        
 						        <td class="product-name">
 						        	<h3><?php echo $produto_carrinho['nome_produto'];?></h3>
@@ -232,7 +234,10 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
 						        
 						        <td class="total"><?php echo number_format($produto_carrinho['quantidade_produto'] * $produto_carrinho['valor_produto'],2,',','.');?></td>
 						      </tr><!-- END TR-->
-							  <?php $totalcarrinho = $totalcarrinho + ($produto_carrinho['quantidade_produto'] * $produto_carrinho['valor_produto']);
+							  <?php 
+                
+                $totalcarrinho = $totalcarrinho + ($produto_carrinho['quantidade_produto'] * $produto_carrinho['valor_produto']);
+                $porcentagem = ($infoSistema->porcentagem_cartao * 100) / $totalcarrinho;
 							  		$total_produtos = $totalcarrinho+$total_produtos;
 							  ?>
 							  <?php } }else{?>
@@ -269,7 +274,9 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
                                   </div> -->
                                   <!-- <p>TVA Included (21%) <br/><i>All expenses are included also.</i></p> -->
                                   <div class="button">
-                                    <a href="#">Total: R$ <?php echo number_format($totalcarrinho,2,',','.');?></a>
+                                    <a href="#">
+                                      Taxas: R$ <?php echo number_format($porcentagem,2,',','.');?><br>
+                                      Total: R$ <?php echo number_format($porcentagem + $totalcarrinho,2,',','.');?></a>
                                   </div>
                                 </div>
                               </div>
@@ -291,7 +298,7 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
                                   </div>
                                   <div class="col-sm-6">
                                     <div class="form-group">
-                                      <input type="text" class="form-control" name="senderPhone" id="senderPhone" maxlength="15" placeholder="Telefone" required>
+                                      <input type="text" class="form-control" name="senderPhone" id="senderPhone" maxlength="15" placeholder="Telefone com DDD" required>
                                     </div>
                                   </div>
                                   <div class="col-sm-6">
@@ -299,12 +306,10 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
                                       <input type="email" class="form-control" name="senderEmail" placeholder="E-mail" required>
                                     </div>
                                   </div>
-                                  
-                                  
                                   </div>
                                 </fieldset>
                                 <button class="btn-green done last-button topppbtn" type="submit">Pagar com o Cartão <img src="<?php echo SITE_URL;?>/images/payment.png" alt=""></button>
-                                <input type="hidden" name="valor" value="<?php echo $totalcarrinho;?>">
+                                <input type="hidden" name="valor" value="<?php echo $totalcarrinho + $porcentagem;?>">
                               </form>
                             </div>
                             <a href="javascript:;" onclick="history.back()" class="btn-default back-top topppbtn" type="button" style="padding-top: 6px;"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</a>
@@ -392,8 +397,37 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
         var $telefone = $("#senderPhone");
 
         $cpf.mask('000.000.000-00', {reverse: true});
-        $telefone.mask('(00)00000-0000', {reverse: true});
+        $telefone.mask('00 00000-0000', {reverse: true});
     });
 </script>
+<a  id="myBtn"  data-toggle="modal" data-target="#exampleModal"></a>
+<div class="modal bd-example-modal-sm" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-xs" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Atenção!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h3>Selecione sua cidade</h3>
+        <select class="form-control" id="select-cidade" name="select_cidade" onchange="window.location='<?php echo SITE_URL;?>/cidade/'+this.value">
+        <option value="">Selecione Cidade</option>
+        <?php 
+        $dadosCidadesModal = $cidades->rsDadosCidades();
+        foreach($dadosCidadesModal as $cidadeModal){?>
+			<option value="<?php echo $cidadeModal->id;?>" <?php if(isset($_SESSION['id_cidade']) && $_SESSION['id_cidade'] == $cidadeModal->id){ echo"selected";}?>> <?php echo $cidadeModal->nome;?> </option>
+            <?php }?>
+        </select>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+    <?php if(!isset($_SESSION['id_cidade'])){?>
+    <script>document.getElementById('myBtn').click();</script>
+<?php }?>
     </body>
 </html>

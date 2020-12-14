@@ -34,6 +34,17 @@ function exibe_status_contato($exibe_status_contato) {
   }
 }
 
+//Exibe tipo de filme
+  function exibe_tipo_filme($exibe_tipo_filme) {
+    switch ($exibe_tipo_filme) {
+      case "1": return "2D - DUBLADO"; break;
+      case "2": return "2D - LEGENDADO"; break;
+      case "3": return "3D - DUBLADO"; break;
+      case "4": return "3D - LEGENDADO"; break;
+      default: return "";
+    }
+  }
+
  //Mostrar status contato
 function exibe_classe_indicativa($exibe_classe_indicativa) {
   switch ($exibe_classe_indicativa) {
@@ -51,16 +62,6 @@ function exibe_classe_indicativa($exibe_classe_indicativa) {
     switch ($exibe_opcao_aluno) {
       case "1": return "Aceite"; break;
       case "2": return "Trancamento"; break;
-      default: return "";
-    }
-  }
-//Exibe tipo de filme
-  function exibe_tipo_filme($exibe_tipo_filme) {
-    switch ($exibe_tipo_filme) {
-      case "1": return "2D - DUBLADO"; break;
-      case "2": return "2D - LEGENDADO"; break;
-      case "3": return "3D - DUBLADO"; break;
-      case "4": return "3D - LEGENDADO"; break;
       default: return "";
     }
   }
@@ -275,9 +276,44 @@ function exibe_status_compra($exibe_status_compra) {
       case "03": return "Não Autorizada"; break;
       case "04": return "Não Autorizada. Cartão Bloqueado"; break;
       case "05": return "Não Autorizada. Cartão Inadimplente"; break;
-      case "06": return "Não Autorizada. Cartão Cancelado"; break;
+      case "FA": return "Não Autorizada. Cartão Inadimplente"; break;
+      case "100": return "Não Autorizada. Cartão Inadimplente"; break;
       case "07": return "Não Autorizada. Código de segurança inválido"; break;
       case "99": return "Operation Successful / Time Out"; break;
+      case "51": return "Não Autorizada. Saldo/Limite Não Autorizado"; break;
+      case "A5": return "Não Autorizada. Saldo/Limite Não Autorizado"; break;
+      case "116": return "Não Autorizada. Saldo/Limite Não Autorizado"; break;
+      case "57": return "Não Autorizada. Transação Não permitida para esse cartão"; break;
+      case "58": return "Não Autorizada. Transação Não permitida para esse cartão"; break;
+      case "14": return "Não Autorizada. Verifique os dados do cartão"; break;
+      case "56": return "Não Autorizada. Verifique os dados do cartão"; break;
+      case "63": return "Não Autorizada. Verifique os dados do cartão"; break;
+      case "06": return "Não Autorizada. Verifique os dados do cartão"; break;
+      case "01": return "Não Autorizada. Verifique os dados do cartão"; break;
+      case "122": return "Não Autorizada. Verifique os dados do cartão"; break;
+      case "08": return "Não Autorizada. Verifique os dados do cartão"; break;
+      case "59": return "Não Autorizada. Suspeita de fraude. Contate a central do seu cartão"; break;
+      case "12": return "Não Autorizada. Verifique os dados do cartão"; break;
+      case "41": return "Não Autorizada. Cartão perdido"; break;
+      case "200": return "Não Autorizada. Cartão perdido"; break;
+      case "FD": return "Não Autorizada. Cartão perdido"; break;
+      case "43": return "Não Autorizada. Cartão roubado"; break;
+      case "54": return "Não Autorizada. Cartão vencido"; break;
+      case "101": return "Não Autorizada. Cartão vencido"; break;
+      case "BV": return "Não Autorizada. Cartão vencido"; break;
+      case "82": return "Não Autorizada. Cartão inválido(criptograma)"; break;
+      case "88": return "Não Autorizada. Cartão inválido(criptograma)"; break;
+      case "180": return "Não Autorizada. Cartão inválido(criptograma)"; break;
+      case "A7": return "Não Autorizada. Cartão inválido(criptograma)"; break;
+      case "91": return "Não Autorizada. Emissor fora do ar"; break;
+      case "912": return "Não Autorizada. Emissor fora do ar"; break;
+      case "A1": return "Não Autorizada. Emissor fora do ar"; break;
+      case "52": return "Não Autorizada. Função incorreta(débito)"; break;
+      case "53": return "Não Autorizada. Função incorreta(débito)"; break;
+      case "AB": return "Não Autorizada. Função incorreta(débito)"; break;
+      case "AC": return "Não Autorizada. Função incorreta(crédito)"; break;
+      case "39": return "Não Autorizada. Função incorreta(crédito)"; break;
+      case "": return "Não Autorizada. Transação foi interrompida"; break;
       default: return "";
     }
   }

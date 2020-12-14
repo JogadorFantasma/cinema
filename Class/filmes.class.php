@@ -313,16 +313,17 @@ if(empty($FilmesInstanciada)) {
 				for($i=0;$i <count($_POST['data_exibicao']); $i++){
 					try{
 
-						$sql = "INSERT INTO tbl_programacao_filmes (id_filme, data_exibicao, hora_exibicao, id_sala, valor, valor_meia, id_cidade, id_tipo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";   
+						$sql = "INSERT INTO tbl_programacao_filmes (id_filme, data_exibicao, hora_exibicao, id_sala, valor, valor_meia, id_cidade, id_tipo, dia_promorcional) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, $id_filme);   
 						$stm->bindValue(2, $_POST['data_exibicao'][$i]);
 						$stm->bindValue(3, $_POST['hora_exibicao'][$i]);
 						$stm->bindValue(4, $_POST['id_sala'][$i]);
-						$stm->bindValue(5, $_POST['valor'][$i]);
-						$stm->bindValue(6, $_POST['valor_meia'][$i]);
+						$stm->bindValue(5, valorCalculavel($_POST['valor'][$i]));
+						$stm->bindValue(6, valorCalculavel($_POST['valor_meia'][$i]));
 						$stm->bindValue(7, $_POST['id_cidade'][$i]);
 						$stm->bindValue(8, $_POST['id_tipo'][$i]);
+						$stm->bindValue(9, $_POST['dia_promorcional'][$i]);
 						$stm->execute(); 
 						$idBanner = $this->pdo->lastInsertId();
 						
@@ -350,10 +351,11 @@ if(empty($FilmesInstanciada)) {
 				$valor_meia = filter_input(INPUT_POST, 'valor_meia', FILTER_SANITIZE_STRING);
 				$id_cidade = filter_input(INPUT_POST, 'id_cidade', FILTER_SANITIZE_STRING);
 				$id_tipo = filter_input(INPUT_POST, 'id_tipo', FILTER_SANITIZE_STRING);
+				$dia_promorcional = filter_input(INPUT_POST, 'dia_promorcional', FILTER_SANITIZE_STRING);
 				//var_dump($_POST);exit;
 				try { 
 
-					$sql = "UPDATE tbl_programacao_filmes SET id_filme=?, data_exibicao=?, hora_exibicao=?, id_sala=?, valor=?, valor_meia=?, id_cidade=?, id_tipo=? WHERE id=?";   
+					$sql = "UPDATE tbl_programacao_filmes SET id_filme=?, data_exibicao=?, hora_exibicao=?, id_sala=?, valor=?, valor_meia=?, id_cidade=?, id_tipo=?, dia_promorcional=? WHERE id=?";   
 					$stm = $this->pdo->prepare($sql);   
 					$stm->bindValue(1, $id_filme);   
 					$stm->bindValue(2, $data_exibicao);
@@ -363,7 +365,8 @@ if(empty($FilmesInstanciada)) {
 					$stm->bindValue(6, valorCalculavel($valor_meia));
 					$stm->bindValue(7, $id_cidade);
 					$stm->bindValue(8, $id_tipo);
-					$stm->bindValue(9, $id);   
+					$stm->bindValue(9, $dia_promorcional);
+					$stm->bindValue(10, $id);   
 					$stm->execute(); 
 				} catch(PDOException $erro){
 					echo $erro->getMessage(); 

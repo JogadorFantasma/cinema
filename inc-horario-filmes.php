@@ -1,4 +1,5 @@
  <?php 
+
  require_once "Class/filmes.class.php";
 $incfilmes = Filmes::getInstance(Conexao::getInstance());
 require_once "Class/salas.class.php";
@@ -8,11 +9,16 @@ $incsalas = Salas::getInstance(Conexao::getInstance());
  }else{
      $data_selecionada = date('Y-m-d');
  }
- //echo "Aqui: ".$data_selecionada; 
+ $data_hoje = date('Y-m-d');
+ 
+ if(isset($_GET['id_cidade']) && !empty($_GET['id_cidade'])){
+     $_SESSION['id_cidade'] = $_GET['id_cidade'];
+ }
+ //echo "Aqui: ".$_SESSION['id_cidade']; 
  $puxaProgramacoesGeral = $incfilmes->rsDadosProgramacao('', '', '', '', $data_selecionada, 'data_exibicao, id_filme', '', $_SESSION['id_cidade']);
 
  if(!defined('SITE_URL')){ 
-     define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST'].'/projects/cinema');
+     define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST']);
      }
 
  ?>
@@ -44,14 +50,20 @@ $incsalas = Salas::getInstance(Conexao::getInstance());
                                             <div class="movie-time">
                                                 <ul>
                                                     <?php foreach($puxaHorarios as $puxaHorario){
-                                                        $hora_agora = date('H:i:s');
-                                                        $puxaSala = $incsalas->rsDados($puxaHorario->id_sala);
-                                                        //if(strtotime($hora_agora) > strtotime($puxaHorario->hora_exibicao)){ ?>
-                                                       <!--  <li><?php //echo substr($puxaHorario->hora_exibicao,0,5);?></li> -->
-                                                       <?php //}else{?>
+                                                            $hora_agora = date('H:i:s');
+                                                            $puxaSala = $incsalas->rsDados($puxaHorario->id_sala);?>
+                                                    <?php
+                                                        if($data_selecionada >= $data_hoje){
+                                                        if($data_selecionada == $data_hoje && strtotime($hora_agora) > strtotime('16:00:00')){?>
+                                                        <li><?php echo $puxaSala->titulo;?> - <?php echo substr($puxaHorario->hora_exibicao,0,5);?> <br><?php echo exibe_tipo_filme($puxaHorario->id_tipo);?></li>
+                                                        <?php }else{?>
                                                         <li><a href="<?php echo SITE_URL;?>/entrada/<?php echo substr($puxaHorario->hora_exibicao,0,2).substr($puxaHorario->hora_exibicao,3,2);?>/<?php echo substr($puxaHorario->data_exibicao,0,4).substr($puxaHorario->data_exibicao,5,2).substr($puxaHorario->data_exibicao,8,2);?>/<?php echo $puxaFilme->url_amigavel;?>"><?php echo $puxaSala->titulo;?> - <?php echo substr($puxaHorario->hora_exibicao,0,5);?> <br><?php echo exibe_tipo_filme($puxaHorario->id_tipo);?></a></li>
-                                                        <?php //}?>
-                                                    
+                                                        <?php }?>
+                                                        <?php }?>
+                                                    <?php if($data_selecionada < $data_hoje){?>
+                                                    <li><?php echo $puxaSala->titulo;?> - <?php echo substr($puxaHorario->hora_exibicao,0,5);?> <br><?php echo exibe_tipo_filme($puxaHorario->id_tipo);?></li>
+                                                    <?php }?>
+                                                   <!--  <li><?php //echo $puxaSala->titulo;?> - <?php //echo substr($puxaHorario->hora_exibicao,0,5);?> <br><?php //echo exibe_tipo_filme($puxaHorario->id_tipo);?></li> -->
                                                     <?php }?>
                                                   
                                                 </ul>

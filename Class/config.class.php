@@ -50,6 +50,7 @@ if(empty($ConfigSistemaInstanciada)) {
 				$this->cep_loja = $rsDados[0]->cep_loja;
 				$this->merchant_id_cielo = $rsDados[0]->merchant_id_cielo;
 				$this->merchant_key_cielo = $rsDados[0]->merchant_key_cielo;
+				$this->porcentagem_cartao = $rsDados[0]->porcentagem_cartao;
 				
 			} catch(PDOException $erro){   
 				echo $erro->getLine(); 
@@ -169,13 +170,14 @@ if(empty($ConfigSistemaInstanciada)) {
 				$cep_loja = filter_input(INPUT_POST, 'cep_loja', FILTER_SANITIZE_STRING);
 				$merchant_id_cielo = filter_input(INPUT_POST, 'merchant_id_cielo', FILTER_SANITIZE_STRING);
 				$merchant_key_cielo = filter_input(INPUT_POST, 'merchant_key_cielo', FILTER_SANITIZE_STRING);
+				$porcentagem_cartao = filter_input(INPUT_POST, 'porcentagem_cartao', FILTER_SANITIZE_STRING);
 				try{   
 					if(file_exists('Connection/conexao.php')) {
 							$pastaArquivos = 'img';
 						} else {
 							$pastaArquivos = '../img';
 						}
-					$sql = "UPDATE tbl_config SET id_campanha=?, facebook=?, twitter=?, instagram=?, youtube=?, favicon=?, nome_empresa=?, endereco=?, telefone1=?, telefone2=?, email1=?, email2=?, cep_loja=?, merchant_id_cielo=?, merchant_key_cielo=? WHERE id=? ";   
+					$sql = "UPDATE tbl_config SET id_campanha=?, facebook=?, twitter=?, instagram=?, youtube=?, favicon=?, nome_empresa=?, endereco=?, telefone1=?, telefone2=?, email1=?, email2=?, cep_loja=?, merchant_id_cielo=?, merchant_key_cielo=?, porcentagem_cartao=? WHERE id=? ";   
 					$stm = $this->pdo->prepare($sql);  
 					$stm->bindValue(1, $id_campanha);
 					$stm->bindValue(2, $facebook);
@@ -192,7 +194,8 @@ if(empty($ConfigSistemaInstanciada)) {
 					$stm->bindValue(13, $cep_loja);
 					$stm->bindValue(14, $merchant_id_cielo);
 					$stm->bindValue(15, $merchant_key_cielo);
-					$stm->bindValue(16, 1);
+					$stm->bindValue(16, $porcentagem_cartao);
+					$stm->bindValue(17, 1);
 					$stm->execute();  
 					
 					echo "	<script>

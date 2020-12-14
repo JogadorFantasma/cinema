@@ -8,6 +8,12 @@
                                 aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
                                     class="hide-menu">Principal</span></a></li>
                                     <li class="sidebar-item"> 
+                                        <a class="sidebar-link sidebar-link" href="vendas-offline.php" aria-expanded="false">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <span class="hide-menu">Cadeira Offline</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item"> 
                                         <a class="sidebar-link sidebar-link" href="compras.php" aria-expanded="false">
                                             <i class="fas fa-calendar-alt"></i>
                                             <span class="hide-menu">Compras</span>
