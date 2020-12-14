@@ -106,6 +106,40 @@ $cargos = $usuarios->Cargo();
                                                 </select>
                                             </div>
                                             </div>
+                                            <div class="form-group row">
+	   <h5>Permissões</h5>
+    <div class="col-md-12 col-sm-12">
+    <label  class="col-form-label">Menu Geral</label> <br>
+	<label class="checkbox checkbox-success">
+		<input type="checkbox"  value="S" name="perm_compras" >Compras&nbsp;&nbsp;<span> &nbsp;</span>
+	</label>
+	
+	<label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_baixar_cadeira" >Baixar Cadeiras&nbsp;&nbsp;<span> &nbsp;</span>
+	</label>
+	<label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_filmes" >Cadastro Filmes&nbsp;&nbsp;<span> &nbsp;</span>
+    </label>
+    <label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_produtos" >Cadastro Produtos&nbsp;&nbsp;<span> &nbsp;</span>
+    </label>
+    <label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_clientes" >Cadastro Clientes&nbsp;&nbsp;<span> &nbsp;</span>
+	</label>
+    <label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_cad_usuario" >Cadastro Usuários&nbsp;&nbsp;<span> &nbsp;</span>
+    </label>
+    <label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_banner" >Cadastro Banners&nbsp;&nbsp;<span> &nbsp;</span>
+    </label>
+    <label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_texto" > Textos&nbsp;&nbsp;<span> &nbsp;</span>
+    </label>
+    <label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_config" > Configurações&nbsp;&nbsp;<span> &nbsp;</span>
+	</label>
+	
+	</div>
                                     </div>
                                     <div class="form-actions">
                                         <div class="text-right">

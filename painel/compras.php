@@ -49,7 +49,7 @@ $puxaCompras = $compras->rsDados();
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                                    <table id="default_order" class="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
                                                 <th>Código</th>
@@ -58,6 +58,7 @@ $puxaCompras = $compras->rsDados();
                                                 <th>Cliente</th>
                                                 <th>Valor</th>
                                                 <th>Status Compra</th>
+                                                <th>Cidade</th>
                                              
                                             </tr>
                                         </thead>
@@ -65,12 +66,17 @@ $puxaCompras = $compras->rsDados();
                                             <?php 
                                             if(count($puxaCompras) > 0){
                                             foreach($puxaCompras as $compra){
+                                                if(isset($compra->id_cliente) && !empty($compra->id_cliente)){
                                                 $nomeCliente = $clientes->rsDados($compra->id_cliente);
+                                                }
+                                                if(isset($compra->id_usuario) && !empty($compra->id_usuario)){
+                                                    $nomeUsuario = $usuarios->rsDados($compra->id_usuario);
+                                                    }
                                                 $puxaItensCompras = $compras->rsDadosItens('', '', '', $compra->id);
-                                                
+                                                $nomeCidade = $cidades->rsDadosCidades($compra->id_cidade);
                                                 ?>
                                             <tr>
-                                                <td>#<?php echo $compra->id;?></td>
+                                                <td><?php echo $compra->id;?></td>
                                                 <td>
                                                     <?php 
                                                     if(count($puxaItensCompras) > 0){
@@ -93,9 +99,15 @@ $puxaCompras = $compras->rsDados();
                                                         ?>
                                                 </td>
                                                 <td><small><?php echo formataData($compra->data_transacao);?> - <?php echo substr($compra->hora_transacao,0,5);?></small></td>
+                                                <?php if(isset($compra->id_cliente) && !empty($compra->id_cliente)){?>
                                                 <td><small><?php echo $nomeCliente->nome;?> - <?php echo $nomeCliente->telefone;?> - <?php echo $nomeCliente->cpf;?></small></td>
+                                                <?php }?>
+                                                <?php if(isset($compra->id_usuario) && !empty($compra->id_usuario)){?>
+                                                <td><small>Usuáriio do sistema: <?php echo $nomeUsuario->nome;?></small></td>
+                                                <?php }?>
                                                 <td>R$ <?php echo number_format($compra->valor,2,',','.');?></td>
                                                 <td><?php echo exibe_status_compra($compra->status_compra);?></td>
+                                                <td><?php echo $nomeCidade[0]->nome;?></td>
                                               
                                             </tr>
                                             <?php } }?>
@@ -108,6 +120,7 @@ $puxaCompras = $compras->rsDados();
                                                 <th>Cliente</th>
                                                 <th>Valor</th>
                                                 <th>Status Compra</th>
+                                                <th>Cidade</th>
                                              
                                             </tr>
                                         </tfoot>

@@ -22,7 +22,7 @@ $incsalas = Salas::getInstance(Conexao::getInstance());
  $filmeInc = $incfilmes->rsDados($id_filme);
 
  if(!defined('SITE_URL')){ 
-     define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST']);
+     define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST']."/cinema");
      }
  
  ?>

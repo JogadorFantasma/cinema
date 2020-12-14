@@ -18,7 +18,7 @@ $incsalas = Salas::getInstance(Conexao::getInstance());
  $puxaProgramacoesGeral = $incfilmes->rsDadosProgramacao('', '', '', '', $data_selecionada, 'data_exibicao, id_filme', '', $_SESSION['id_cidade']);
 
  if(!defined('SITE_URL')){ 
-     define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST']);
+     define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST']."/cinema");
      }
 
  ?>
@@ -53,7 +53,7 @@ $incsalas = Salas::getInstance(Conexao::getInstance());
                                                             $hora_agora = date('H:i:s');
                                                             $puxaSala = $incsalas->rsDados($puxaHorario->id_sala);?>
                                                     <?php
-                                                        if($data_selecionada >= $data_hoje){
+                                                        /*if($data_selecionada >= $data_hoje){
                                                         if($data_selecionada == $data_hoje && strtotime($hora_agora) > strtotime('16:00:00')){?>
                                                         <li><?php echo $puxaSala->titulo;?> - <?php echo substr($puxaHorario->hora_exibicao,0,5);?> <br><?php echo exibe_tipo_filme($puxaHorario->id_tipo);?></li>
                                                         <?php }else{?>
@@ -62,8 +62,8 @@ $incsalas = Salas::getInstance(Conexao::getInstance());
                                                         <?php }?>
                                                     <?php if($data_selecionada < $data_hoje){?>
                                                     <li><?php echo $puxaSala->titulo;?> - <?php echo substr($puxaHorario->hora_exibicao,0,5);?> <br><?php echo exibe_tipo_filme($puxaHorario->id_tipo);?></li>
-                                                    <?php }?>
-                                                   <!--  <li><?php //echo $puxaSala->titulo;?> - <?php //echo substr($puxaHorario->hora_exibicao,0,5);?> <br><?php //echo exibe_tipo_filme($puxaHorario->id_tipo);?></li> -->
+                                                    <?php }*/?>
+                                                    <li><?php echo $puxaSala->titulo;?> - <?php echo substr($puxaHorario->hora_exibicao,0,5);?> <br><?php echo exibe_tipo_filme($puxaHorario->id_tipo);?></li>
                                                     <?php }?>
                                                   
                                                 </ul>

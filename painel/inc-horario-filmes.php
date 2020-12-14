@@ -18,23 +18,23 @@ $incsalas = Salas::getInstance(Conexao::getInstance());
  $puxaProgramacoesGeral = $incfilmes->rsDadosProgramacao('', '', '', '', $data_selecionada, 'data_exibicao, id_filme', '', $_SESSION['id_cidade']);
 
  ?>
- <div class="col-md-12">
+ 
                         <?php 
                         if(count($puxaProgramacoesGeral) > 0){
                         foreach($puxaProgramacoesGeral as $puxaProgramacaoGeral){
                             $puxaFilme = $incfilmes->rsDados($puxaProgramacaoGeral->id_filme);
                             $puxaHorarios = $incfilmes->rsDadosProgramacao('', '', '', $puxaFilme->id, $data_selecionada, '', '', $_SESSION['id_cidade']);
                             ?>
-                        <div class="single-movie-details-area">
-                            <div class="row">
-                            <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="movie-details">
                                     <div class="media">
-                                      <a class="pull-left" href="filme/<?php echo $puxaFilme->url_amigavel;?>">
+                                      <a class="pull-left">
                                         <img class="media-object" src="../img/<?php echo $puxaFilme->imagem;?>" alt="<?php echo $puxaFilme->url_amigavel;?>" title="<?php echo $puxaFilme->url_amigavel;?>" style="max-width: 150px;" >
+                                        <!-- <span class="text-align">3D Movie</span> -->
                                       </a>
                                       <div class="media-body">
-                                        <h4 class="media-heading"><a href="filme/<?php echo $puxaFilme->url_amigavel;?>"><?php echo $puxaFilme->titulo;?></a></h4>
+                                        <h4 class="media-heading"><a ><?php echo $puxaFilme->titulo;?></a></h4>
                                         <div class="movie-info">
                                             <ul>
                                                 <li><?php echo exibe_classe_indicativa($puxaFilme->id_classificacao_indicativa);?></li>
@@ -42,31 +42,40 @@ $incsalas = Salas::getInstance(Conexao::getInstance());
                                             </ul>
                                         </div>
                                         <p><span>Diretor:</span> <?php echo $puxaFilme->diretor;?><br/><span>Atores:</span> <?php echo $puxaFilme->atores;?></p>
+                                      
                                       </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-5">
-                              <div class="movie-time">
-                                              
+                            <div class="movie-time">
+                                             
                                                     <?php foreach($puxaHorarios as $puxaHorario){
                                                             $hora_agora = date('H:i:s');
                                                             $puxaSala = $incsalas->rsDados($puxaHorario->id_sala);?>
-                                                  
-                                                        <a href="entrada/<?php echo substr($puxaHorario->hora_exibicao,0,2).substr($puxaHorario->hora_exibicao,3,2);?>/<?php echo substr($puxaHorario->data_exibicao,0,4).substr($puxaHorario->data_exibicao,5,2).substr($puxaHorario->data_exibicao,8,2);?>/<?php echo $puxaFilme->url_amigavel;?>"><?php echo $puxaSala->titulo;?> - <?php echo substr($puxaHorario->hora_exibicao,0,5);?> <br><?php echo exibe_tipo_filme($puxaHorario->id_tipo);?></a>
-                                                     
-                                                  
+                                                    <?php
+                                                        if($data_selecionada >= $data_hoje){
+                                                        ?>
+                                                       
+                                                       <a class="btn btn-info" href="qnt-cadeiras.php?hora_exibicao=<?php echo substr($puxaHorario->hora_exibicao,0,2).substr($puxaHorario->hora_exibicao,3,2);?>&data_exibicao=<?php echo substr($puxaHorario->data_exibicao,0,4).substr($puxaHorario->data_exibicao,5,2).substr($puxaHorario->data_exibicao,8,2);?>&url_filme=<?php echo $puxaFilme->url_amigavel;?>"><?php echo $puxaSala->titulo;?> - <?php echo substr($puxaHorario->hora_exibicao,0,5);?> <br><?php echo exibe_tipo_filme($puxaHorario->id_tipo);?></a>
+                                                       
+                                                        <?php }?>
+                                                    <?php if($data_selecionada < $data_hoje){?>
+                                                 <?php echo $puxaSala->titulo;?> - <?php echo substr($puxaHorario->hora_exibicao,0,5);?> <br><?php echo exibe_tipo_filme($puxaHorario->id_tipo);?>
+                                                    <?php }?>
+                                                   
                                                     <?php }?>
                                                   
-                                              
+                                               
                                             </div>
                             </div>
+                            
                         </div>
-                        </div>
+                        <hr>
                         <?php } 
                         }else{
                         ?>
                         <div class="single-movie-details-area"><h2>Nenhum filme exibido nesse dia!</h2></div>
                         <?php }?>
                     
-                    </div>
+                

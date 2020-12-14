@@ -314,6 +314,7 @@ function exibe_status_compra($exibe_status_compra) {
       case "AC": return "Não Autorizada. Função incorreta(crédito)"; break;
       case "39": return "Não Autorizada. Função incorreta(crédito)"; break;
       case "": return "Não Autorizada. Transação foi interrompida"; break;
+      case "BCP": return "Baixa de cadeira feita pelo sistema"; break;
       default: return "";
     }
   }

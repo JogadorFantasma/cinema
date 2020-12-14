@@ -234,9 +234,7 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
 						        
 						        <td class="total"><?php echo number_format($produto_carrinho['quantidade_produto'] * $produto_carrinho['valor_produto'],2,',','.');?></td>
 						      </tr><!-- END TR-->
-							  <?php 
-                
-                $totalcarrinho = $totalcarrinho + ($produto_carrinho['quantidade_produto'] * $produto_carrinho['valor_produto']);
+							  <?php $totalcarrinho = $totalcarrinho + ($produto_carrinho['quantidade_produto'] * $produto_carrinho['valor_produto']);
                 $porcentagem = ($infoSistema->porcentagem_cartao * 100) / $totalcarrinho;
 							  		$total_produtos = $totalcarrinho+$total_produtos;
 							  ?>
@@ -274,8 +272,7 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
                                   </div> -->
                                   <!-- <p>TVA Included (21%) <br/><i>All expenses are included also.</i></p> -->
                                   <div class="button">
-                                    <a href="#">
-                                      Taxas: R$ <?php echo number_format($porcentagem,2,',','.');?><br>
+                                    <a href="#">Taxas: R$ <?php echo number_format($porcentagem,2,',','.');?><br>
                                       Total: R$ <?php echo number_format($porcentagem + $totalcarrinho,2,',','.');?></a>
                                   </div>
                                 </div>
@@ -298,7 +295,7 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
                                   </div>
                                   <div class="col-sm-6">
                                     <div class="form-group">
-                                      <input type="text" class="form-control" name="senderPhone" id="senderPhone" maxlength="15" placeholder="Telefone com DDD" required>
+                                      <input type="text" class="form-control" name="senderPhone" id="senderPhone" maxlength="15" placeholder="Telefone em DDD" required>
                                     </div>
                                   </div>
                                   <div class="col-sm-6">
@@ -306,6 +303,8 @@ if($_GET['veiode'] <> 'continuacao' && $_SESSION['id_cidade'] == 4){
                                       <input type="email" class="form-control" name="senderEmail" placeholder="E-mail" required>
                                     </div>
                                   </div>
+                                  
+                                  
                                   </div>
                                 </fieldset>
                                 <button class="btn-green done last-button topppbtn" type="submit">Pagar com o Cartão <img src="<?php echo SITE_URL;?>/images/payment.png" alt=""></button>

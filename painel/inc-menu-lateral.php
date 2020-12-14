@@ -7,20 +7,25 @@
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="."
                                 aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
                                     class="hide-menu">Principal</span></a></li>
-                                    <li class="sidebar-item"> 
-                                        <a class="sidebar-link sidebar-link" href="vendas-offline.php" aria-expanded="false">
-                                            <i class="fas fa-calendar-alt"></i>
-                                            <span class="hide-menu">Cadeira Offline</span>
-                                        </a>
-                                    </li>
+                                    <?php if($dadosUsuarioLogado->perm_compras == 'S'){?>
                                     <li class="sidebar-item"> 
                                         <a class="sidebar-link sidebar-link" href="compras.php" aria-expanded="false">
                                             <i class="fas fa-calendar-alt"></i>
                                             <span class="hide-menu">Compras</span>
                                         </a>
                                     </li>
+                                    <?php }?>
+                                    <?php if($dadosUsuarioLogado->perm_baixar_cadeira == 'S'){?>
+                                    <li class="sidebar-item"> 
+                                        <a class="sidebar-link sidebar-link" href="baixar-cadeira.php" aria-expanded="false">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <span class="hide-menu">Baixar Cadeiras</span>
+                                        </a>
+                                    </li>
+                                    <?php }?>
                         <li class="list-divider"></li>
                          <li class="nav-small-cap"><span class="hide-menu">Cadastros</span></li>
+                         <?php if($dadosUsuarioLogado->perm_filmes == 'S'){?>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Filmes </span></a>
@@ -35,6 +40,8 @@
                                 </li>
                             </ul>
                         </li>
+                        <?php }?>
+                        <?php if($dadosUsuarioLogado->perm_produtos == 'S'){?>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Produtos </span></a>
@@ -49,6 +56,8 @@
                                 </li>
                             </ul>
                         </li>
+                        <?php }?>
+                        <?php if($dadosUsuarioLogado->perm_clientes == 'S'){?>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Clientes </span></a>
@@ -63,6 +72,8 @@
                                 </li>
                             </ul>
                         </li>
+                        <?php }?>
+                        
                        <!--  <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Categorias </span></a>
@@ -105,6 +116,7 @@
                                 </li>
                             </ul>
                         </li> -->
+                        <?php if($dadosUsuarioLogado->perm_cad_usuario == 'S'){?>
                         <li class="sidebar-item"> 
                             <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
                                 <i data-feather="file-text" class="feather-icon"></i>
@@ -115,8 +127,10 @@
                                 <li class="sidebar-item"><a href="add-usuario.php" class="sidebar-link"><span class="hide-menu"> Adicionar Usuário </span></a></li>
                             </ul>
                         </li>
+                        <?php }?>
                         <li class="list-divider"></li>
                          <li class="nav-small-cap"><span class="hide-menu">Configurações Site</span></li>
+                         <?php if($dadosUsuarioLogado->perm_banner == 'S'){?>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Banners </span></a>
@@ -131,12 +145,15 @@
                                 </li>
                             </ul>
                         </li>
+                        <?php }?>
+                        <?php if($dadosUsuarioLogado->perm_texto == 'S'){?>
                         <li class="sidebar-item"> 
                                         <a class="sidebar-link sidebar-link" href="textos.php" aria-expanded="false">
                                             <i class="fas fa-calendar-alt"></i>
                                             <span class="hide-menu">Textos</span>
                                         </a>
                                     </li>
+                                    <?php }?>
                        <!--  <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Testemunhos </span></a>
@@ -165,6 +182,7 @@
                                 </li>
                             </ul>
                         </li> -->
+                        <?php if($dadosUsuarioLogado->perm_config == 'S'){?>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Configurações </span></a>
@@ -179,6 +197,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <?php }?>
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="login.php?acao=logout"

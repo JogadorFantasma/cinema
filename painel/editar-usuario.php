@@ -117,7 +117,42 @@ $cargos = $usuarios->Cargo();
                                                 </select>
                                             </div>
                                             </div>
-                                        
+                                            <div class="form-group row">
+	   <h5>Permissões</h5>
+    <div class="col-md-12 col-sm-12">
+    <label  class="col-form-label">Menu Geral</label> <br>
+	<label class="checkbox checkbox-success">
+		<input type="checkbox"  value="S" name="perm_compras" <?php if($editaUsuario->perm_compras == 'S'){ echo  "checked='checked'";}?>>Compras&nbsp;&nbsp;<span> &nbsp;</span>
+	</label>
+	
+	<label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_baixar_cadeira" <?php if($editaUsuario->perm_baixar_cadeira == 'S'){ echo  "checked='checked'";}?>>Baixar Cadeiras&nbsp;&nbsp;<span> &nbsp;</span>
+	</label>
+	<label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_filmes" <?php if($editaUsuario->perm_filmes == 'S'){ echo  "checked='checked'";}?>>Cadastro Filmes&nbsp;&nbsp;<span> &nbsp;</span>
+    </label>
+    <label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_produtos" <?php if($editaUsuario->perm_produtos == 'S'){ echo  "checked='checked'";}?>>Cadastro Produtos&nbsp;&nbsp;<span> &nbsp;</span>
+    </label>
+    <label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_clientes" <?php if($editaUsuario->perm_clientes == 'S'){ echo  "checked='checked'";}?>>Cadastro Clientes&nbsp;&nbsp;<span> &nbsp;</span>
+	</label>
+    <label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_cad_usuario" <?php if($editaUsuario->perm_cad_usuario == 'S'){ echo  "checked='checked'";}?>>Cadastro Usuários&nbsp;&nbsp;<span> &nbsp;</span>
+    </label>
+    <label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_banner" <?php if($editaUsuario->perm_banner == 'S'){ echo  "checked='checked'";}?>>Cadastro Banners&nbsp;&nbsp;<span> &nbsp;</span>
+    </label>
+    <label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_texto" <?php if($editaUsuario->perm_texto == 'S'){ echo  "checked='checked'";}?>> Textos&nbsp;&nbsp;<span> &nbsp;</span>
+    </label>
+    <label class="checkbox checkbox-success">
+		<input type="checkbox" value="S" name="perm_config" <?php if($editaUsuario->perm_config == 'S'){ echo  "checked='checked'";}?>> Configurações&nbsp;&nbsp;<span> &nbsp;</span>
+	</label>
+	
+	</div>
+	
+   </div>
                                     </div>
                                     <div class="form-actions">
                                         <div class="text-right">

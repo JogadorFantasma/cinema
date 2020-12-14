@@ -465,8 +465,8 @@ $mensagem = "<!DOCTYPE html>
 
 </html>";
 
-echo $mensagem;
-exit;
+//echo $mensagem;
+//exit;
 		 
           
 		  $mail->IsSMTP(); // telling the class to use SMTP

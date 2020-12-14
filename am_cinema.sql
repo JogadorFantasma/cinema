@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 30/10/2020 às 19:56
--- Versão do servidor: 10.4.13-MariaDB
--- Versão do PHP: 7.4.7
+-- Host: 127.0.0.1
+-- Tempo de geração: 14-Dez-2020 às 02:04
+-- Versão do servidor: 10.4.11-MariaDB
+-- versão do PHP: 7.3.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `contadores_paginas`
+-- Estrutura da tabela `contadores_paginas`
 --
 
 CREATE TABLE `contadores_paginas` (
@@ -38,7 +39,7 @@ CREATE TABLE `contadores_paginas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Despejando dados para a tabela `contadores_paginas`
+-- Extraindo dados da tabela `contadores_paginas`
 --
 
 INSERT INTO `contadores_paginas` (`id`, `quantidade`, `ip`, `data`, `pagina`, `id_campanha`, `veio_de_onde`) VALUES
@@ -3192,7 +3193,7 @@ INSERT INTO `contadores_paginas` (`id`, `quantidade`, `ip`, `data`, `pagina`, `i
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `dados_cidades`
+-- Estrutura da tabela `dados_cidades`
 --
 
 CREATE TABLE `dados_cidades` (
@@ -3203,7 +3204,7 @@ CREATE TABLE `dados_cidades` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Despejando dados para a tabela `dados_cidades`
+-- Extraindo dados da tabela `dados_cidades`
 --
 
 INSERT INTO `dados_cidades` (`id`, `id_estado`, `uf`, `nome`) VALUES
@@ -12932,7 +12933,7 @@ INSERT INTO `dados_cidades` (`id`, `id_estado`, `uf`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `dados_estados`
+-- Estrutura da tabela `dados_estados`
 --
 
 CREATE TABLE `dados_estados` (
@@ -12942,7 +12943,7 @@ CREATE TABLE `dados_estados` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Despejando dados para a tabela `dados_estados`
+-- Extraindo dados da tabela `dados_estados`
 --
 
 INSERT INTO `dados_estados` (`id`, `uf`, `nome`) VALUES
@@ -12978,7 +12979,7 @@ INSERT INTO `dados_estados` (`id`, `uf`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_blog`
+-- Estrutura da tabela `tbl_blog`
 --
 
 CREATE TABLE `tbl_blog` (
@@ -12998,7 +12999,7 @@ CREATE TABLE `tbl_blog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_blog`
+-- Extraindo dados da tabela `tbl_blog`
 --
 
 INSERT INTO `tbl_blog` (`id`, `titulo`, `postado_por`, `conteudo`, `data_postagem`, `especialidade`, `foto`, `breve`, `meta_title`, `meta_keywords`, `meta_description`, `foto1`, `url_amigavel`) VALUES
@@ -13018,7 +13019,7 @@ INSERT INTO `tbl_blog` (`id`, `titulo`, `postado_por`, `conteudo`, `data_postage
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_campanha`
+-- Estrutura da tabela `tbl_campanha`
 --
 
 CREATE TABLE `tbl_campanha` (
@@ -13027,7 +13028,7 @@ CREATE TABLE `tbl_campanha` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_campanha`
+-- Extraindo dados da tabela `tbl_campanha`
 --
 
 INSERT INTO `tbl_campanha` (`id`, `nome`) VALUES
@@ -13036,7 +13037,7 @@ INSERT INTO `tbl_campanha` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_cargo`
+-- Estrutura da tabela `tbl_cargo`
 --
 
 CREATE TABLE `tbl_cargo` (
@@ -13045,7 +13046,7 @@ CREATE TABLE `tbl_cargo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Despejando dados para a tabela `tbl_cargo`
+-- Extraindo dados da tabela `tbl_cargo`
 --
 
 INSERT INTO `tbl_cargo` (`id`, `cargo`) VALUES
@@ -13056,7 +13057,7 @@ INSERT INTO `tbl_cargo` (`id`, `cargo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_categoria`
+-- Estrutura da tabela `tbl_categoria`
 --
 
 CREATE TABLE `tbl_categoria` (
@@ -13067,7 +13068,7 @@ CREATE TABLE `tbl_categoria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_categoria`
+-- Extraindo dados da tabela `tbl_categoria`
 --
 
 INSERT INTO `tbl_categoria` (`id`, `nome`, `foto`, `url_amigavel`) VALUES
@@ -13078,7 +13079,7 @@ INSERT INTO `tbl_categoria` (`id`, `nome`, `foto`, `url_amigavel`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_cat_servicos`
+-- Estrutura da tabela `tbl_cat_servicos`
 --
 
 CREATE TABLE `tbl_cat_servicos` (
@@ -13087,7 +13088,7 @@ CREATE TABLE `tbl_cat_servicos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_cat_servicos`
+-- Extraindo dados da tabela `tbl_cat_servicos`
 --
 
 INSERT INTO `tbl_cat_servicos` (`id`, `nome`) VALUES
@@ -13098,7 +13099,7 @@ INSERT INTO `tbl_cat_servicos` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_cidades`
+-- Estrutura da tabela `tbl_cidades`
 --
 
 CREATE TABLE `tbl_cidades` (
@@ -13108,20 +13109,20 @@ CREATE TABLE `tbl_cidades` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_cidades`
+-- Extraindo dados da tabela `tbl_cidades`
 --
 
 INSERT INTO `tbl_cidades` (`id`, `nome`, `estado`) VALUES
 (1, 'FORMOSA', 'GO'),
 (2, 'LEM', 'BA'),
-(3, 'UNAÍ', 'MG'),
 (4, 'SOBRADINHO', 'DF'),
-(5, 'BARREIRAS', 'BA');
+(5, 'BARREIRAS', 'BA'),
+(6, 'GUANAMBI', 'BA');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_classe_indicativa`
+-- Estrutura da tabela `tbl_classe_indicativa`
 --
 
 CREATE TABLE `tbl_classe_indicativa` (
@@ -13130,7 +13131,7 @@ CREATE TABLE `tbl_classe_indicativa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_classe_indicativa`
+-- Extraindo dados da tabela `tbl_classe_indicativa`
 --
 
 INSERT INTO `tbl_classe_indicativa` (`id`, `titulo`) VALUES
@@ -13144,7 +13145,7 @@ INSERT INTO `tbl_classe_indicativa` (`id`, `titulo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_cliente`
+-- Estrutura da tabela `tbl_cliente`
 --
 
 CREATE TABLE `tbl_cliente` (
@@ -13160,20 +13161,69 @@ CREATE TABLE `tbl_cliente` (
   `id_cidade` int(11) DEFAULT NULL,
   `bairro` varchar(250) DEFAULT NULL,
   `numero` varchar(20) DEFAULT NULL,
-  `complemento` varchar(250) DEFAULT NULL
+  `complemento` varchar(250) DEFAULT NULL,
+  `cpf` varchar(80) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_cliente`
+-- Extraindo dados da tabela `tbl_cliente`
 --
 
-INSERT INTO `tbl_cliente` (`id`, `nome`, `email`, `telefone`, `sexo`, `senha`, `cep`, `endereco`, `id_estado`, `id_cidade`, `bairro`, `numero`, `complemento`) VALUES
-(1, 'ADRIANO STEPHAN MONTEIRO BATISTA', 'asmbmonteiro@gmail.com', '61984113239', 'M', '12345', '72220229', 'QNN 22 Conjunto I', 7, 1727, 'Guariroba', '50', 's/c');
+INSERT INTO `tbl_cliente` (`id`, `nome`, `email`, `telefone`, `sexo`, `senha`, `cep`, `endereco`, `id_estado`, `id_cidade`, `bairro`, `numero`, `complemento`, `cpf`) VALUES
+(1, 'ADRIANO STEPHAN MONTEIRO BATISTA', 'asmbmonteiro@gmail.com', '61984113239', 'M', '12345', '72220229', 'QNN 22 Conjunto I', 7, 1727, 'Guariroba', '50', 's/c', NULL),
+(2, 'Ilka Vitória Melo Modesto', 'ilka_modesto@hotmail.com', '77)99975-0363(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '057.085.995-61'),
+(3, 'Jamylle Silva de Santana ', 'jamillymozart111@gmail.com', '(73)99817-5740', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '110.360.205-50'),
+(4, 'Hernandes de sa teles nascimento junior', 'hernandesjr2017@gmail.com', '77)99937-7402(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '058.233.035-13'),
+(5, 'Michelle Da Silva Batista ', 'michelle.batistamiih@gmail.com', '61)99646-0269(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '051.218.541-70'),
+(6, 'Rosa Lícia Rocha de Oliveira', 'rosaliciaoliveira17@gmail.com', '77)99917-5214(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '058.803.451-73'),
+(7, 'Caic Piedade Nunes', 'caicpiedade@gmail.com', '(79)99113-8704', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '060.219.555-10'),
+(8, 'Ithamara Araujo Velame', 'ithamara-araujo@hotmail.com', '77)98117-3481(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '023.932.155-30'),
+(9, 'Gabrieli boligon Vieira', 'gabrieliboligon@gmail.com', '(61)99869-2530', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '062.288.981-83'),
+(10, 'Matheus Silva de souza', 'aedvan378@gmail.com', '61)99668-6746(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '046.747.031-66'),
+(11, 'Lucas Vinícius de Carvalho Souza', 'luckasrmds@gmail.com', '77)99160-3040(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '043.681.835-33'),
+(12, 'Katia Barbosa de Almeida', 'katia.ka239@gmail.com', '77)99821-5523(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '056.798.675-67'),
+(13, 'Gabriel Rocha Oliveira Lima', 'gabrielrocha12333@hotmail.com', '(77)99152-7234', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '072.447.795-00'),
+(14, 'Cícero José Leite Junior ', 'juniorleiteg@gmail.com', '77)99843-4272(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '073.875.375-00'),
+(15, 'Michelly Walla da Silva Araujo', 'laramichely123@hotmail.com', '98115-3782', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '066.231.775-07'),
+(16, 'Emerson Oliveira Barbosa', 'emerson.libras@hotmail.com', '(77)99803-9029', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '070.162.725-59'),
+(17, 'Júllia Graziele Cruz Da Silva', 'juliagraziele2323@gmail.com', '(77)99871-7528', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '116.491.645-74'),
+(18, 'Gyovanna Lacerda de Oliveira', 'gyovannalacerda@outlook.com', '77)98129-5427(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '864.960.955-40'),
+(19, 'Gyovanna Lacerda de Oliveira', 'gyovannalacerda45@outlook.com', '(77)98129-5427', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '864.960.955-40'),
+(20, 'Igor Caetano de araujo', 'igorgachapago@gmail.com', '38)99837-1172(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '121.834.306-05'),
+(21, 'Igor Caetano de Araujo', 'syndratfm@gmail.com', '38)99837-1172(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '121.834.306-05'),
+(22, 'Luis Henrique de Campos ', 'DoritosRXX@hotmail.com', '61)99909-3889(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '072.600.641-61'),
+(23, 'Manuela Pinto da Silva', 'manuela16devonnr@gmail.com', '61)99958-6593', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '081.798.841-63'),
+(24, 'Alfredo Fistarol', 'alfrefista.1@gmail.com', '(77)99950-4802', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '031.210.340-90'),
+(25, 'Matheus de Paula Batista', 'matheusdpl65@gmail.com', '99560-6034', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '055.056.671-63'),
+(26, 'Camila Santos da Cruz ', 'camilacscruz@hotmail.com', '77)99800-1009(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '008.025.255-98'),
+(27, 'Thiago Ferreira Lopes', 'eric.ep325@gmail.com', '61)99604-5308', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '004.541.041-03'),
+(28, 'Beatriz Rodrigues rohr ', 'beatrizrohr06@gmail.com', '61)99825-2523(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '862.157.995-21'),
+(29, 'NAYANE BARRETO MATIAS', 'barreto.nayane@gmail.com', '77)99961-0837(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '007.027.555-67'),
+(30, 'Igor da Silva Ottonelli', 'ottonelligor@gmail.com', '77)98153-3107', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '079.313.065-46'),
+(31, 'Helio da silva couto', 'heliosilvah1994@gmail.com', '(77)99802-8643', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '066.383.715-41'),
+(32, 'DIEGO GIL BOMFIM OLIVEIRA', 'odiegogil@gmail.com', '77)98105-2623', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '028.254.415-11'),
+(33, 'EMITERIO MARCELINO MENDES FILHO', 'emiteriofilho70@mail.com', '63)99201-5786(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '750.135.334-49'),
+(34, 'Karen Fernanda Fioretti', 'fioretti.brs@hotmail.com', '77)99994-1784', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '490.450.590-53'),
+(35, 'Jânio Quadros Moreira Segundo', 'janioquadrosm2@gmail.com', '77)99141-9850(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '067.873.695-22'),
+(36, 'Elisvania M Souza ', 'elisvaniamonteiro5@gmail.com', '77)99129-6657(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '003.928.505-75'),
+(37, 'Juliana Magalhães', 'jubsmagalhaes256@gmail.com', '77)99104-2754(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '076.646.105-08'),
+(38, 'Matheus Silva de souza', 'vprime230@gmail.com', '61)99668-6746(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '046.747.031-66'),
+(39, 'Wendel Luan Ferreira de Souza', 'wluan2121@gmail.com', '77)99858-3928(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '061.022.055-10'),
+(40, 'Fernando Ferreira da Silva Porto', 'fernandomania2012@gmail.com', '77)99848-1647(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '065.678.375-35'),
+(41, 'Stefannie Amalia Rodrigues Pereira ', 'stefanniegbi12@hotmail.com.br', '77)99808-1896', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '007.768.012-52'),
+(42, 'Jaine Dias Lima', 'diasjayne@gmail.com', '77)99836-3847', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '062.461.235-03'),
+(43, 'Renan Pires Oliveira ', 'renannpires13@gmail.com', '75)99914-1961', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '007.561.413-54'),
+(44, 'Ronicleiton Mota Sodré Costa', 'ronycleyton136@gmail.com', '77)99870-7078', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '090.340.945-37'),
+(45, 'LUCIANA CARRILHO LARA REZENDE', 'lucianacarrilholara@gmail.com', '61)99961-4513', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '007.005.211-51'),
+(46, 'Evilin Azevedo Moreira', 'evilinazevedo96@gmail.com', '27)99763-1206(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '155.793.057-02'),
+(47, 'MICHELE APARECIDA VIANA NEVES', 'aparecidamichele413@gmail.com', '(44)99108-1435', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '037.661.822-18'),
+(48, 'Marcelo de Paula ', 'marcelop@ufob.edu.br', '77)99118-4118(', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '257.900.788-18'),
+(49, 'MARIA PAULA HENKES RIBEIRO', 'premierhenkes@gmail.com', '61)98540-3520', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '476.756.321-68');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_compras`
+-- Estrutura da tabela `tbl_compras`
 --
 
 CREATE TABLE `tbl_compras` (
@@ -13189,23 +13239,55 @@ CREATE TABLE `tbl_compras` (
   `tipo_pagamento` varchar(100) DEFAULT NULL,
   `bandeira` varchar(100) DEFAULT NULL,
   `id_pagamento` varchar(250) DEFAULT NULL,
-  `forma_pagamento` varchar(3) DEFAULT NULL
+  `forma_pagamento` varchar(3) DEFAULT NULL,
+  `id_cidade` int(11) DEFAULT NULL,
+  `id_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_compras`
+-- Extraindo dados da tabela `tbl_compras`
 --
 
-INSERT INTO `tbl_compras` (`id`, `tipo_compra`, `status_compra`, `entrada`, `saida`, `id_cliente`, `valor`, `data_transacao`, `hora_transacao`, `tipo_pagamento`, `bandeira`, `id_pagamento`, `forma_pagamento`) VALUES
-(7, 'CHA', '1', '2020-10-27', '2020-10-30', 1, 270, '2020-10-26', '21:04:11', NULL, 'visa', 'ed480eef-8a76-4684-8071-d381d6def05e', 'CRE'),
-(9, NULL, NULL, NULL, NULL, 1, 0, '2020-10-29', '20:48:37', NULL, 'visa', NULL, 'CRE'),
-(10, NULL, '1', NULL, NULL, 1, 104.3, '2020-10-29', '20:52:35', NULL, 'visa', '654853f2-748b-4752-b82e-009be7d04bb5', 'CRE'),
-(11, NULL, '1', NULL, NULL, 1, 30, '2020-10-30', '19:01:34', NULL, 'visa', '7ef7fef8-9a1e-41fb-832a-81d0b2dcda82', 'CRE');
+INSERT INTO `tbl_compras` (`id`, `tipo_compra`, `status_compra`, `entrada`, `saida`, `id_cliente`, `valor`, `data_transacao`, `hora_transacao`, `tipo_pagamento`, `bandeira`, `id_pagamento`, `forma_pagamento`, `id_cidade`, `id_usuario`) VALUES
+(75, NULL, '00', NULL, NULL, 26, 60, '2020-11-13', '13:02:51', NULL, 'visa', '87f56458-af19-439f-91f4-b33fa03dae3e', 'CRE', 5, NULL),
+(76, NULL, '00', NULL, NULL, 26, 60, '2020-11-13', '13:02:52', NULL, 'visa', 'a14b2783-79af-4cb7-8633-a0e53f41cdf8', 'CRE', 5, NULL),
+(77, NULL, '002', NULL, NULL, 26, 60, '2020-11-13', '13:03:06', NULL, 'visa', 'a33c8566-3edb-49d6-aede-edd3b3d3a9de', 'CRE', 4, NULL),
+(82, NULL, '00', NULL, NULL, 27, 180, '2020-11-14', '12:24:09', NULL, 'visa', '3495e77b-fccb-406c-9ea8-4552c5a50dee', 'CRE', 4, NULL),
+(85, NULL, NULL, NULL, NULL, 30, 60, '2020-11-19', '12:21:57', NULL, 'visa', NULL, 'CRE', 5, NULL),
+(86, NULL, NULL, NULL, NULL, 31, 60, '2020-11-19', '19:35:57', NULL, 'visa', NULL, 'CRE', 6, NULL),
+(87, NULL, NULL, NULL, NULL, 32, 30, '2020-11-19', '22:06:58', NULL, 'visa', NULL, 'CRE', 5, NULL),
+(88, NULL, NULL, NULL, NULL, 33, 90, '2020-11-20', '08:28:04', NULL, 'visa', NULL, 'CRE', 5, NULL),
+(89, NULL, NULL, NULL, NULL, 33, 90, '2020-11-20', '09:44:32', NULL, 'visa', NULL, 'CRE', 5, NULL),
+(90, NULL, NULL, NULL, NULL, 34, 90, '2020-11-20', '11:20:28', NULL, 'discover', NULL, 'CRE', 5, NULL),
+(91, NULL, NULL, NULL, NULL, 35, 60, '2020-11-22', '09:20:44', NULL, 'mastercard', NULL, 'CRE', 6, NULL),
+(92, NULL, NULL, NULL, NULL, 36, 90, '2020-11-22', '18:01:55', NULL, 'mastercard', NULL, 'CRE', 5, NULL),
+(93, NULL, NULL, NULL, NULL, 37, 30, '2020-11-22', '20:59:16', NULL, 'mastercard', NULL, 'CRE', 6, NULL),
+(94, NULL, NULL, NULL, NULL, 36, 90, '2020-11-23', '11:16:25', NULL, 'mastercard', NULL, 'CRE', 5, NULL),
+(95, NULL, NULL, NULL, NULL, 38, 60, '2020-11-23', '13:38:03', NULL, 'discover', NULL, 'CRE', 1, NULL),
+(96, NULL, NULL, NULL, NULL, 39, 80, '2020-11-24', '08:25:39', NULL, 'visa', NULL, 'CRE', 5, NULL),
+(97, NULL, '00', NULL, NULL, 40, 60, '2020-11-24', '09:13:59', NULL, 'visa', '6485286d-ca4e-4843-9ea0-159c15d3c5f9', 'CRE', 5, NULL),
+(98, NULL, NULL, NULL, NULL, 41, 30, '2020-11-24', '12:42:12', NULL, 'mastercard', NULL, 'CRE', 6, NULL),
+(99, NULL, NULL, NULL, NULL, 42, 20, '2020-11-24', '13:33:33', NULL, 'mastercard', NULL, 'CRE', 6, NULL),
+(100, NULL, NULL, NULL, NULL, 42, 20, '2020-11-24', '13:55:43', NULL, 'mastercard', NULL, 'CRE', 6, NULL),
+(101, NULL, NULL, NULL, NULL, 36, 75, '2020-11-25', '09:02:58', NULL, 'mastercard', NULL, 'CRE', 5, NULL),
+(102, NULL, NULL, NULL, NULL, 43, 60, '2020-11-25', '14:12:26', NULL, 'visa', NULL, 'CRE', 5, NULL),
+(103, NULL, NULL, NULL, NULL, 44, 15, '2020-11-25', '14:13:22', NULL, 'visa', NULL, 'CRE', 5, NULL),
+(104, NULL, NULL, NULL, NULL, 45, 45, '2020-11-25', '15:39:24', NULL, 'mastercard', NULL, 'CRE', 1, NULL),
+(105, NULL, NULL, NULL, NULL, 45, 45, '2020-11-25', '15:42:02', NULL, 'mastercard', NULL, 'CRE', 1, NULL),
+(106, NULL, NULL, NULL, NULL, 46, 30, '2020-11-27', '11:01:48', NULL, 'elo', NULL, 'CRE', 6, NULL),
+(107, NULL, '51', NULL, NULL, 47, 60, '2020-11-27', '12:25:15', NULL, 'visa', '8ec26e62-2fd1-4d8e-8aea-222c388ec644', 'CRE', 2, NULL),
+(108, NULL, '51', NULL, NULL, 47, 60, '2020-11-27', '12:26:59', NULL, 'visa', 'b6172e61-6a2d-4484-a64d-8e69f68618de', 'CRE', 2, NULL),
+(109, NULL, NULL, NULL, NULL, 47, 60, '2020-11-27', '12:30:01', NULL, 'elo', NULL, 'CRE', 2, NULL),
+(110, NULL, '00', NULL, NULL, 48, 45, '2020-11-29', '14:11:09', NULL, 'visa', '85bb1efe-085a-4c79-a286-3e0c6d8a12a0', 'CRE', 5, NULL),
+(111, NULL, NULL, NULL, NULL, 49, 40, '2020-11-30', '10:25:41', NULL, 'visa', NULL, 'CRE', 1, NULL),
+(112, NULL, '57', NULL, NULL, 49, 20, '2020-11-30', '16:38:50', NULL, 'visa', 'fe56d3fd-9dfe-498d-98bb-79e514bd4373', 'CRE', 1, NULL),
+(113, NULL, '57', NULL, NULL, 1, 20, '2020-11-30', '16:41:45', NULL, 'visa', 'c33e2dcf-e330-46c9-b7da-b10e7ea5eacf', 'CRE', 1, NULL),
+(115, NULL, 'BCP', NULL, NULL, NULL, 45, '2020-12-14', '01:13:51', NULL, NULL, NULL, NULL, 4, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_config`
+-- Estrutura da tabela `tbl_config`
 --
 
 CREATE TABLE `tbl_config` (
@@ -13225,20 +13307,21 @@ CREATE TABLE `tbl_config` (
   `email2` varchar(250) DEFAULT NULL,
   `cep_loja` varchar(20) DEFAULT NULL,
   `merchant_id_cielo` varchar(250) DEFAULT NULL,
-  `merchant_key_cielo` varchar(250) DEFAULT NULL
+  `merchant_key_cielo` varchar(250) DEFAULT NULL,
+  `porcentagem_cartao` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_config`
+-- Extraindo dados da tabela `tbl_config`
 --
 
-INSERT INTO `tbl_config` (`id`, `id_campanha`, `favicon`, `facebook`, `twitter`, `instagram`, `youtube`, `linkedln`, `nome_empresa`, `endereco`, `telefone1`, `telefone2`, `email1`, `email2`, `cep_loja`, `merchant_id_cielo`, `merchant_key_cielo`) VALUES
-(1, NULL, '1602794971.5459-favicon-N.svg', 'https://www.facebook.com/hooglimkt', 'https://twitter.com/hooglimkt', 'https://www.instagram.com/hooglimkt/', 'https://www.youtube.com/channel/UC7Qj7OsIcemro0kxA-kcv4g', 'https://www.linkedin.com/company/hooglimkt/', 'VegeFoods', 'Ed. Vista Medical, R. das Figueiras, Lt 07 Águas Claras, Brasília - DF 71906-750', '(61) 3436-1999', '', 'contato@hoogli.com.br', '', '', 'cb41cfa2-04ea-4a98-baba-965ea6596149', 'ZWEOPLOHJOKTBMSUQKWCQGXHZUYJQHLGGLFAFJOA');
+INSERT INTO `tbl_config` (`id`, `id_campanha`, `favicon`, `facebook`, `twitter`, `instagram`, `youtube`, `linkedln`, `nome_empresa`, `endereco`, `telefone1`, `telefone2`, `email1`, `email2`, `cep_loja`, `merchant_id_cielo`, `merchant_key_cielo`, `porcentagem_cartao`) VALUES
+(1, NULL, '1604102092.8653-favicon-N.ico', 'https://www.facebook.com/hooglimkt', 'https://twitter.com/hooglimkt', 'https://www.instagram.com/hooglimkt/', 'https://www.youtube.com/channel/UC7Qj7OsIcemro0kxA-kcv4g', 'https://www.linkedin.com/company/hooglimkt/', 'Cinema Premier', '', '(61) 3436-1999', '', 'contato@hoogli.com.br', '', '', 'aea32023-70dd-4e30-a51b-4e9d5693326a', 'uDc0wlALfukd2KsMdY4U73MoBNtyqCrKgGbQBifb', 12);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_contato`
+-- Estrutura da tabela `tbl_contato`
 --
 
 CREATE TABLE `tbl_contato` (
@@ -13271,7 +13354,7 @@ CREATE TABLE `tbl_contato` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_convenios`
+-- Estrutura da tabela `tbl_convenios`
 --
 
 CREATE TABLE `tbl_convenios` (
@@ -13284,7 +13367,7 @@ CREATE TABLE `tbl_convenios` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_doutores`
+-- Estrutura da tabela `tbl_doutores`
 --
 
 CREATE TABLE `tbl_doutores` (
@@ -13307,7 +13390,7 @@ CREATE TABLE `tbl_doutores` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_especialidades`
+-- Estrutura da tabela `tbl_especialidades`
 --
 
 CREATE TABLE `tbl_especialidades` (
@@ -13323,7 +13406,7 @@ CREATE TABLE `tbl_especialidades` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_exames`
+-- Estrutura da tabela `tbl_exames`
 --
 
 CREATE TABLE `tbl_exames` (
@@ -13339,7 +13422,7 @@ CREATE TABLE `tbl_exames` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_filmes`
+-- Estrutura da tabela `tbl_filmes`
 --
 
 CREATE TABLE `tbl_filmes` (
@@ -13362,17 +13445,20 @@ CREATE TABLE `tbl_filmes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_filmes`
+-- Extraindo dados da tabela `tbl_filmes`
 --
 
 INSERT INTO `tbl_filmes` (`id`, `titulo`, `descricao`, `imagem`, `duracao`, `url_amigavel`, `ativo`, `meta_title`, `meta_keywords`, `meta_description`, `genero`, `diretor`, `atores`, `breve`, `id_classificacao_indicativa`, `id_categoria`) VALUES
-(1, 'Avatar', 'No exuberante mundo alienígena de Pandora vivem os Na\'vi, seres que parecem ser primitivos, mas são altamente evoluídos. Como o ambiente do planeta é tóxico, foram criados os avatares, corpos biológicos controlados pela mente humana que se movimentam livremente em Pandora. Jake Sully, um ex-fuzileiro naval paralítico, volta a andar através de um avatar e se apaixona por uma Na\'vi. Esta paixão leva Jake a lutar pela sobrevivência de Pandora.', '1603370642.797-imagem-N.jpg', '2h 42m', 'avatar', 'S', '', '', '', 'Ficção científica, Aventura', 'James Cameron', 'Sam Worthington, Zoe Saldana, Sigourney Weaver', 'Jake Sully (Sam Worthington) ficou paraplégico após um combate na Terra. Ele é selecionado para participar do programa Avatar em substituição ao seu irmão gêmeo, falecido. Jake viaja a Pandora, uma lua extraterrestre, onde encontra diversas e estranhas formas de vida.', 1, 1),
-(2, 'TENET', 'Um agente da CIA conhecido como O Protagonista (John David Washington) é recrutado por uma organização misteriosa, chamada Tenet, para participar de uma missão de escala global. Eles precisam impedir que Andrei Sator (Kenneth Branagh), um renegado oligarca russo com meios de se comunicar com o futuro, inicie a Terceira Guerra Mundial. A organização está em posse de uma arma de fogo que consegue fazer o tempo correr ao contrário, acreditando que o objeto veio do futuro. Com essa habilidade em mãos, O Protagonista precisará usá-la como forma de se opor à ameaça que está por vir, impedindo que os planos de Sator se concretizem.', '1604068578.6191-imagem-N.jpg', '2h 30min', 'tenet', 'S', '', '', '', 'Ação, Ficção científica', 'Christopher Nolan', 'John David Washington, Kenneth Branagh, Robert Pattinson', 'Um agente da CIA conhecido como O Protagonista (John David Washington) é recrutado por uma organização misteriosa, chamada Tenet, para participar de uma missão de escala global.', 4, 1);
+(3, 'DESTRUIÇÃO FINAL - O ULTIMO REFUGIO', 'PROGRAMAÇÃO DE 29/11 A 02/12/2020\r\nSOBRADINHO:  16:10 - 20:10\r\nFORMOSA: 20:30\r\nBARREIRAS: 20:30\r\nLEM: 20:30', '1606835007.4406-imagem-N.jpg', '119 MINUTOS', 'destruiCAo-final--ultimo-refugio', 'S', '', '', '', 'AÇÃO - EMOÇÃO - DRAMA', 'Ric Roman Waugh', 'Gerard Butler, Morena Baccarin, Roger Dale Floyd, Scott Glenn.', 'Em Destruição Final: O Último Refúgio, uma família luta para sobreviver enquanto um cometa segue em direção à Terra.', 4, 1),
+(4, 'CONVENÇÃO DAS BRUXAS', 'O remake de Convenção das Bruxas, clássico de fantasia dos anos 1990, acompanha um garoto de sete anos que se depara com uma conferência de bruxas em um hotel. Lá, ele acaba descobrindo que um grupo de bruxas está fazendo uma convenção, pretendendo transformar todas as crianças do mundo em ratos. \r\nBaseado no livro infantil homônimo de Roald Dahl.', '1605190896.632-imagem-N.jpeg', '106 MINUTOS', 'convenCAo-bruxas', 'S', '', '', '', 'Fantasia, Comédia, Família', 'ROBERT ZEMECKIS', 'Anne Hathaway, Octavia Spencer, Chris Rock', 'O remake de Convenção das Bruxas, clássico de fantasia dos anos 1990, acompanha um garoto de sete anos que se depara com uma conferência de bruxas em um hotel. Lá, ele acaba descobrindo que um grupo de bruxas está fazendo uma convenção, pretendendo transformar todas as crianças do mundo em ratos.  Baseado no livro infantil homônimo de Roald Dahl.', 2, 1),
+(6, 'MULHER - MARAVILHA 1984', 'Mulher-Maravilha 1984 acompanha Diana Prince/Mulher-Maravilha (Gal Gadot) em 1984, durante a Guerra Fria, entrando em conflito com dois grande inimigos - o empresário de mídia Maxwell Lord (Pedro Pascal) e a amiga que virou inimiga Barbara Minerva/Cheetah (Kristen Wiig) - enquanto se reúne com seu interesse amoroso Steve Trevor (Chris Pine)', '1606947898.0571-imagem-N.jpeg', '151 MINUTOS', 'mulher--maravilha-1984', 'S', '', '', '', 'AÇÃO - AVENTURA- FANTASIA', 'PATTY JENKINS', 'Gal Gadot', 'Mulher-Maravilha 1984 acompanha Diana Prince/Mulher-Maravilha (Gal Gadot) em 1984, durante a Guerra Fria, entrando em conflito com dois grande inimigos - o empresário de mídia Maxwell Lord (Pedro Pascal) e a amiga que virou inimiga Barbara Minerva/Cheetah (Kristen Wiig) - enquanto se reúne com seu interesse amoroso Steve Trevor (Chris Pine)', 3, 2),
+(7, 'TROLLS 2', 'A rainha Poppy (Anna Kendrick) e Branch (Justin Timberlake) descobrem que há outros mundos Troll além do seu, e suas diferenças criam grandes confrontos entre essas diversas tribos. No entanto, uma ameaça misteriosa faz com que eles tenham que criar harmonia entre os rivais.', '1605819282.4416-imagem-N.jpeg', '90 MINUTOS', 'trolls-2', 'S', '', '', '', 'ANIMAÇÃO INFANTIL', 'WALT DOHRN E DAVID P. SMITH', 'HUGO BONEMER, HUGO GLOSS, JULIE VASCONCELLOS E SINOME MENDES', 'A rainha Poppy (Anna Kendrick) e Branch (Justin Timberlake) descobrem que há outros mundos Troll além do seu, e suas diferenças criam grandes confrontos entre essas diversas tribos. No entanto, uma ameaça misteriosa faz com que eles tenham que criar harmonia entre os rivais.', 1, 1),
+(8, 'OS CROODS 2 -UMA NOVA ERA', 'Os Croods 2: Uma Nova Era é uma aventura sobre uma família pré-histórica que descobre as transformações no mundo enquanto tenta permanecer unida.', '1606945309.0704-imagem-N.jpeg', '94 MINUTOS', 'os-croods-2-nova-era', 'S', '', '', '', 'ANIMAÇÃO INFANTIL', 'Nicolas Cage, Ryan Reynolds, Emma Stone', 'Nicolas Cage, Ryan Reynolds, Emma Stone', 'Os Croods 2: Uma Nova Era é uma aventura sobre uma família pré-histórica que descobre as transformações no mundo enquanto tenta permanecer unida.', 1, 2);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_frases`
+-- Estrutura da tabela `tbl_frases`
 --
 
 CREATE TABLE `tbl_frases` (
@@ -13381,7 +13467,7 @@ CREATE TABLE `tbl_frases` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Despejando dados para a tabela `tbl_frases`
+-- Extraindo dados da tabela `tbl_frases`
 --
 
 INSERT INTO `tbl_frases` (`id`, `frase`) VALUES
@@ -13439,7 +13525,7 @@ INSERT INTO `tbl_frases` (`id`, `frase`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_historicos`
+-- Estrutura da tabela `tbl_historicos`
 --
 
 CREATE TABLE `tbl_historicos` (
@@ -13454,7 +13540,7 @@ CREATE TABLE `tbl_historicos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_metas_tags`
+-- Estrutura da tabela `tbl_metas_tags`
 --
 
 CREATE TABLE `tbl_metas_tags` (
@@ -13487,16 +13573,16 @@ CREATE TABLE `tbl_metas_tags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_metas_tags`
+-- Extraindo dados da tabela `tbl_metas_tags`
 --
 
 INSERT INTO `tbl_metas_tags` (`id`, `meta_title_principal`, `meta_keywords_principal`, `meta_description_principal`, `meta_title_convenio`, `meta_keywords_convenio`, `meta_description_convenio`, `meta_title_blog`, `meta_keywords_blog`, `meta_description_blog`, `meta_title_contato`, `meta_keywords_contato`, `meta_description_contato`, `meta_title_parceria`, `meta_keywords_parceria`, `meta_description_parceria`, `meta_title_servico`, `meta_keywords_servico`, `meta_description_servico`, `meta_title_sobre`, `meta_keywords_sobre`, `meta_description_sobre`, `meta_title_criacao`, `meta_title_produtos`, `meta_keywords_produtos`, `meta_description_produtos`) VALUES
-(1, 'Hoogli | Marketing Digital | Brasília -DF | (61) 3436-1999', 'agência de marketing digital df, agência de marketing digital em brasília, agência de publicidade brasília, marketing digital df, marketing digital para brasilia, marketing digital em brasília ', 'A Hoogli é uma Agência de Marketing Digital Google em Brasília e traz um rio de soluções para o seu negócio. Fale a mesma língua do seu cliente, seja Hoogli! ', NULL, NULL, NULL, 'Hoogli | Agência de Marketing Digital em Brasília | (61) 3436-1999', 'agência de marketing digital df, agência de marketing digital em brasília, agência de publicidade brasília, marketing digital df, marketing digital para brasilia, marketing digital em brasília ', 'A Hoogli é uma Agência de Marketing Digital em Brasília que te ajuda com: SEO, redes sociais, Google ADS, Google Street View, registro de marca, hospedagem... ', 'Hoogli | 10 anos de marketing | Brasília | (61) 3436-1999', 'agência de marketing digital df, agência de marketing digital em brasília, agência de publicidade brasília, marketing digital df, marketing digital para brasilia, marketing digital em brasília ', 'Hoogli | Marketing Digital em Brasília | Certificada pelo Google | Com 10 anos de mercado e centenas de resultados em vendas e novos negócios. Vamos conversar?', 'Hoogli | Certificada | Partners Google | Brasília | (61) 3436-1999', 'agências google partners, agência de marketing digital em brasília, agência de publicidade brasília, partners google, agência de marketing digital df, marketing digital df     ', 'A Hoogli é uma Agência de Marketing Digital Certificada pelo Google em Brasília. Conquiste clientes e aumente suas vendas. Use o Google a seu favor, seja Hoogli', NULL, NULL, NULL, 'Agência de Marketing Digital em Brasília | Hoogli | (61) 3436-1999', 'marketing digital df, agência de publicidade brasília, marketing digital para brasilia, marketing digital em brasília, agência de marketing digital em brasília, marketing digital brasilia df', 'A Hoogli é a Agência de Marketing que sabe Ouvir e Atender as Necessidades da sua Marca e que vai te ajudar a alcançar o Primeiro Lugar na mente do Consumidor.', 'Hoogli | Criação de sites otimizados | Brasília | DF | (61) 3436-1999', NULL, NULL, NULL);
+(1, 'Cinemas Premier', 'cinemas premier,melhor cinema,filmes,em breve, filmes em cartaz', 'O melhor cinema da sua cidade!', NULL, NULL, NULL, 'Cinemas Premier', 'cinemas premier,melhor cinema,filmes,em breve, filmes em cartaz', 'O melhor cinema da sua cidade!', 'Cinemas Premier', 'cinemas premier,melhor cinema,filmes,em breve, filmes em cartaz', 'O melhor cinema da sua cidade!', 'Cinemas Premier', 'cinemas premier,melhor cinema,filmes,em breve, filmes em cartaz', 'O melhor cinema da sua cidade!', '', '', '', 'Cinemas Premier', 'cinemas premier,melhor cinema,filmes,em breve, filmes em cartaz', 'O melhor cinema da sua cidade!', 'Hoogli | Criação de sites otimizados | Brasília | DF | (61) 3436-1999', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_parceiro`
+-- Estrutura da tabela `tbl_parceiro`
 --
 
 CREATE TABLE `tbl_parceiro` (
@@ -13506,7 +13592,7 @@ CREATE TABLE `tbl_parceiro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_parceiro`
+-- Extraindo dados da tabela `tbl_parceiro`
 --
 
 INSERT INTO `tbl_parceiro` (`id`, `nome`, `foto`) VALUES
@@ -13519,7 +13605,7 @@ INSERT INTO `tbl_parceiro` (`id`, `nome`, `foto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_planos`
+-- Estrutura da tabela `tbl_planos`
 --
 
 CREATE TABLE `tbl_planos` (
@@ -13530,7 +13616,7 @@ CREATE TABLE `tbl_planos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_procedimentos`
+-- Estrutura da tabela `tbl_procedimentos`
 --
 
 CREATE TABLE `tbl_procedimentos` (
@@ -13546,7 +13632,7 @@ CREATE TABLE `tbl_procedimentos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_produto`
+-- Estrutura da tabela `tbl_produto`
 --
 
 CREATE TABLE `tbl_produto` (
@@ -13573,25 +13659,22 @@ CREATE TABLE `tbl_produto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_produto`
+-- Extraindo dados da tabela `tbl_produto`
 --
 
 INSERT INTO `tbl_produto` (`id`, `nome`, `descricao`, `preco_de`, `preco_por`, `ativo`, `id_categoria`, `id_subcategoria`, `url_amigavel`, `imagem`, `meta_title`, `meta_keywords`, `meta_description`, `quantidade_estoque`, `avise_estoque`, `destaque`, `peso`, `altura`, `largura`, `comprimento`) VALUES
-(3, 'Pimentão pacote com 4', 'Pimentão', 15, 11, 'S', 2, NULL, 'pimentao-pacote-4', '1602770387.2758-imagem-N.jpg', '', '', '', 8, 2, 'S', 2, 20, 30, 15),
-(4, 'Vagem pacote com 200gr', 'Vagem pacote com 200gr', 18, 13, 'S', 2, NULL, 'vagem-pacote-200gr', '1602770560.8597-imagem-N.jpg', '', '', '', 10, 2, 'S', 2, 20, 30, 15),
-(5, 'Repolho Roxo unidade', 'Repolho Roxo unidade', 8, 6, 'S', 2, NULL, 'repolho-roxo-unidade', '1602770619.7397-imagem-N.jpg', '', '', '', 16, 4, 'S', 2, 20, 30, 15),
-(6, 'Tomate bandeja com 6 unidades', 'Tomate bandeja com 6 unidades', 13, 10, 'S', 2, NULL, 'tomate-bandeja-6-unidades', '1602770662.8549-imagem-N.jpg', '', '', '', 12, 2, 'S', 2, 20, 30, 15),
-(7, 'Cenoura pacote com 5 unidades', 'Cenoura pacote com 5 unidades', 9, 5.8, 'S', 2, NULL, 'cenoura-pacote-5-unidades', '1602770706.9843-imagem-N.jpg', '', '', '', 13, 2, 'S', 2, 20, 30, 15),
-(8, 'Suco detox 500ml', 'Suco detox 500ml', 8, 5.9, 'S', 3, NULL, 'suco-detox-500ml', '1602770764.8971-imagem-N.jpg', '', '', '', 19, 2, 'S', 2, 20, 30, 15),
-(9, 'Cebola Roxa pacote com 6 unidades', 'Cebola Roxa pacote com 6 unidades', 8, 4.99, 'S', 2, NULL, 'cebola-roxa-pacote-6-unidades', '1602770802.215-imagem-N.jpg', '', '', '', 20, 2, 'S', 2, 20, 30, 15),
-(10, 'Maçã Nacional pacote com 8 unidades', 'Maçã Nacional pacote com 8 unidades', 7.99, 4.59, 'S', 1, NULL, 'maca-nacional-pacote-8-unidades', '1602770855.888-imagem-N.jpg', '', '', '', 30, 6, 'S', 2, 20, 30, 15),
-(11, 'Alho pacote com 150gr', 'Alho pacote com 150gr', 9, 6.99, 'S', 2, NULL, 'alho-pacote-150gr', '1602770905.3861-imagem-N.jpg', '', '', '', 30, 8, 'S', 2, 20, 30, 15),
-(12, 'Pimenta Malagueta pacote com 300gr', 'Pimenta Malagueta pacote com 300gr', 9, 6.99, 'S', 4, NULL, 'pimenta-malagueta-pacote-300gr', '1602770957.3402-imagem-N.jpg', '', '', '', 50, 10, 'S', 2, 20, 30, 15);
+(3, 'Pipoca Balde (5 litros) ', 'Pipoca Balde (5 litros)', 15, 25, 'S', 2, NULL, 'pipoca-balde-5-litros-', '1604085152.3968-imagem-N.png', '', '', '', 50, 2, 'S', 2, 20, 30, 15),
+(4, 'Pipoca Box (4 litros)', 'Pipoca Box (4 litros)', 18, 20, 'S', 2, NULL, 'pipoca-box-4-litros', '1604085213.3746-imagem-N.png', '', '', '', 10, 2, 'S', 2, 20, 30, 15),
+(5, 'Pipoca Mega (3 litros)', 'Pipoca Mega (3 litros)', 8, 15, 'S', 2, NULL, 'pipoca-mega-3-litros', '1604085254.8437-imagem-N.png', '', '', '', 50, 4, 'S', 2, 20, 30, 15),
+(6, 'Pipoca Pop', 'Pipoca Pop', 13, 12, 'S', 2, NULL, 'pipoca-pop', '1604085290.6721-imagem-N.png', '', '', '', 50, 2, 'S', 2, 20, 30, 15),
+(7, 'Refrigerante (600ml)', 'Refrigerante (600ml)', 9, 7, 'S', 1, NULL, 'refrigerante-600ml', '1604085324.157-imagem-N.png', '', '', '', 50, 2, 'S', 2, 20, 30, 15),
+(8, 'Água', 'Água', 8, 3, 'S', 1, NULL, 'Agua', '1604085361.7303-imagem-N.png', '', '', '', 50, 2, 'S', 2, 20, 30, 15),
+(9, 'Refrigerante (lata)', 'Refrigerante (lata)', 8, 5, 'S', 1, NULL, 'refrigerante-lata', '1604085394.0411-imagem-N.png', '', '', '', 50, 2, 'S', 2, 20, 30, 15);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_programacao_filmes`
+-- Estrutura da tabela `tbl_programacao_filmes`
 --
 
 CREATE TABLE `tbl_programacao_filmes` (
@@ -13601,44 +13684,1005 @@ CREATE TABLE `tbl_programacao_filmes` (
   `hora_exibicao` time DEFAULT NULL,
   `id_sala` int(11) DEFAULT NULL,
   `valor` float DEFAULT NULL,
-  `id_cidade` int(11) DEFAULT NULL
+  `id_cidade` int(11) DEFAULT NULL,
+  `valor_meia` float DEFAULT NULL,
+  `id_tipo` int(11) DEFAULT NULL,
+  `dia_promorcional` varchar(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_programacao_filmes`
+-- Extraindo dados da tabela `tbl_programacao_filmes`
 --
 
-INSERT INTO `tbl_programacao_filmes` (`id`, `id_filme`, `data_exibicao`, `hora_exibicao`, `id_sala`, `valor`, `id_cidade`) VALUES
-(1, 1, '2020-10-28', '15:00:00', 1, 30, 1),
-(2, 1, '2020-10-30', '18:00:00', 1, 30, 1),
-(3, 1, '2020-10-28', '21:00:00', 1, 30, 1),
-(4, 1, '2020-10-29', '15:00:00', 2, 30, 1),
-(5, 2, '2020-10-29', '14:30:00', 3, 30, 4),
-(6, 2, '2020-10-30', '14:30:00', 3, 30, 4),
-(7, 2, '2020-10-31', '14:30:00', 3, 30, 4),
-(8, 2, '2020-11-01', '14:30:00', 3, 30, 4),
-(9, 2, '2020-11-02', '14:30:00', 3, 30, 4),
-(10, 2, '2020-11-03', '14:30:00', 3, 30, 4),
-(11, 2, '2020-11-04', '14:30:00', 3, 30, 4),
-(12, 2, '2020-10-29', '17:30:00', 3, 30, 4),
-(13, 2, '2020-10-30', '17:30:00', 3, 30, 4),
-(14, 2, '2020-10-31', '17:30:00', 3, 30, 4),
-(15, 2, '2020-11-01', '17:30:00', 3, 30, 4),
-(16, 2, '2020-11-02', '17:30:00', 3, 30, 4),
-(17, 2, '2020-11-03', '17:30:00', 3, 30, 4),
-(18, 2, '2020-11-04', '17:30:00', 3, 30, 4),
-(19, 2, '2020-10-29', '20:30:00', 3, 30, 4),
-(20, 2, '2020-10-30', '20:30:00', 3, 30, 4),
-(21, 2, '2020-10-31', '20:30:00', 3, 30, 4),
-(22, 2, '2020-11-01', '20:30:00', 3, 30, 4),
-(23, 2, '2020-11-02', '20:30:00', 3, 30, 4),
-(24, 2, '2020-11-03', '20:30:00', 3, 30, 4),
-(25, 2, '2020-11-04', '20:30:00', 3, 30, 4);
+INSERT INTO `tbl_programacao_filmes` (`id`, `id_filme`, `data_exibicao`, `hora_exibicao`, `id_sala`, `valor`, `id_cidade`, `valor_meia`, `id_tipo`, `dia_promorcional`) VALUES
+(5, 2, '2020-10-29', '14:30:00', 3, 30, 4, 15, NULL, NULL),
+(6, 2, '2020-10-30', '14:30:00', 3, 30, 4, 15, NULL, NULL),
+(7, 2, '2020-10-31', '14:30:00', 3, 30, 4, 15, NULL, NULL),
+(8, 2, '2020-11-01', '14:30:00', 3, 30, 4, 15, NULL, NULL),
+(9, 2, '2020-11-02', '14:30:00', 3, 30, 4, 15, NULL, NULL),
+(10, 2, '2020-11-03', '14:30:00', 3, 30, 4, 15, NULL, NULL),
+(11, 2, '2020-11-04', '14:30:00', 3, 30, 4, 15, NULL, NULL),
+(12, 2, '2020-10-29', '17:30:00', 3, 30, 4, 15, NULL, NULL),
+(13, 2, '2020-10-30', '17:30:00', 3, 30, 4, 15, NULL, NULL),
+(14, 2, '2020-10-31', '17:30:00', 3, 30, 4, 15, NULL, NULL),
+(15, 2, '2020-11-01', '17:30:00', 3, 30, 4, 15, NULL, NULL),
+(16, 2, '2020-11-02', '17:30:00', 3, 30, 4, 15, NULL, NULL),
+(17, 2, '2020-11-03', '17:30:00', 3, 30, 4, 15, NULL, NULL),
+(18, 2, '2020-11-04', '17:30:00', 3, 30, 4, 15, NULL, NULL),
+(19, 2, '2020-10-29', '20:30:00', 3, 30, 4, 15, NULL, NULL),
+(20, 2, '2020-10-30', '20:30:00', 3, 30, 4, 15, NULL, NULL),
+(21, 2, '2020-10-31', '20:30:00', 3, 30, 4, 15, NULL, NULL),
+(22, 2, '2020-11-01', '20:30:00', 3, 30, 4, 15, NULL, NULL),
+(23, 2, '2020-11-02', '20:30:00', 3, 30, 4, 15, NULL, NULL),
+(24, 2, '2020-11-03', '20:30:00', 3, 30, 4, 15, NULL, NULL),
+(25, 2, '2020-11-04', '20:30:00', 3, 30, 4, 15, NULL, NULL),
+(26, 2, '2020-10-29', '17:30:00', 1, 30, 1, 15, NULL, NULL),
+(27, 2, '2020-10-30', '17:30:00', 1, 30, 1, 15, NULL, NULL),
+(28, 2, '2020-10-31', '17:30:00', 1, 30, 1, 15, NULL, NULL),
+(29, 2, '2020-11-01', '17:30:00', 1, 30, 1, 15, NULL, NULL),
+(30, 2, '2020-11-02', '17:30:00', 1, 30, 1, 15, NULL, NULL),
+(31, 2, '2020-11-03', '17:30:00', 1, 30, 1, 15, NULL, NULL),
+(32, 2, '2020-11-04', '17:30:00', 1, 30, 1, 15, NULL, NULL),
+(33, 2, '2020-10-29', '20:30:00', 1, 30, 1, 15, NULL, NULL),
+(34, 2, '2020-10-30', '20:30:00', 1, 30, 1, 15, NULL, NULL),
+(35, 2, '2020-10-31', '20:30:00', 1, 30, 1, 15, NULL, NULL),
+(36, 2, '2020-11-01', '20:30:00', 1, 30, 1, 15, NULL, NULL),
+(37, 2, '2020-11-02', '20:30:00', 1, 30, 1, 15, NULL, NULL),
+(38, 2, '2020-11-03', '20:30:00', 1, 30, 1, 15, NULL, NULL),
+(39, 2, '2020-11-04', '20:30:00', 1, 30, 1, 15, NULL, NULL),
+(40, 2, '2020-10-29', '19:00:00', 4, 30, 1, 15, NULL, NULL),
+(41, 2, '2020-10-30', '19:00:00', 4, 30, 1, 15, NULL, NULL),
+(42, 2, '2020-10-31', '19:00:00', 4, 30, 1, 15, NULL, NULL),
+(43, 2, '2020-11-01', '19:00:00', 4, 30, 1, 15, NULL, NULL),
+(44, 2, '2020-11-02', '19:00:00', 4, 30, 1, 15, NULL, NULL),
+(45, 2, '2020-11-03', '19:00:00', 4, 30, 1, 15, NULL, NULL),
+(46, 2, '2020-11-04', '19:00:00', 4, 30, 1, 15, NULL, NULL),
+(47, 2, '2020-10-29', '17:30:00', 2, 30, 2, 15, NULL, NULL),
+(48, 2, '2020-10-30', '17:30:00', 2, 30, 2, 15, NULL, NULL),
+(49, 2, '2020-10-31', '17:30:00', 2, 30, 2, 15, NULL, NULL),
+(50, 2, '2020-11-01', '17:30:00', 2, 30, 2, 15, NULL, NULL),
+(51, 2, '2020-11-02', '17:30:00', 2, 30, 2, 15, NULL, NULL),
+(52, 2, '2020-11-03', '17:30:00', 2, 30, 2, 15, NULL, NULL),
+(53, 2, '2020-11-04', '17:30:00', 2, 30, 2, 15, NULL, NULL),
+(54, 2, '2020-10-29', '20:30:00', 2, 30, 2, 15, NULL, NULL),
+(55, 2, '2020-10-30', '20:30:00', 2, 30, 2, 15, NULL, NULL),
+(56, 2, '2020-10-31', '20:30:00', 2, 30, 2, 15, NULL, NULL),
+(57, 2, '2020-11-01', '20:30:00', 2, 30, 2, 15, NULL, NULL),
+(58, 2, '2020-11-02', '20:30:00', 2, 30, 2, 15, NULL, NULL),
+(59, 2, '2020-11-03', '20:30:00', 2, 30, 2, 15, NULL, NULL),
+(60, 2, '2020-11-04', '20:30:00', 2, 30, 2, 15, NULL, NULL),
+(61, 2, '2020-10-29', '19:00:00', 5, 30, 2, 15, NULL, NULL),
+(62, 2, '2020-10-30', '19:00:00', 5, 30, 2, 15, NULL, NULL),
+(63, 2, '2020-10-31', '19:00:00', 5, 30, 2, 15, NULL, NULL),
+(64, 2, '2020-11-01', '19:00:00', 5, 30, 2, 15, NULL, NULL),
+(65, 2, '2020-11-02', '19:00:00', 5, 30, 2, 15, NULL, NULL),
+(66, 2, '2020-11-03', '19:00:00', 5, 30, 2, 15, NULL, NULL),
+(67, 2, '2020-11-04', '19:00:00', 5, 30, 2, 15, NULL, NULL),
+(68, 2, '2020-10-29', '17:00:00', 6, 30, 5, 15, NULL, NULL),
+(69, 2, '2020-10-30', '17:00:00', 6, 30, 5, 15, NULL, NULL),
+(70, 2, '2020-10-31', '17:00:00', 6, 30, 5, 15, NULL, NULL),
+(71, 2, '2020-11-01', '17:00:00', 6, 30, 5, 15, NULL, NULL),
+(72, 2, '2020-11-02', '17:00:00', 6, 30, 5, 15, NULL, NULL),
+(73, 2, '2020-11-03', '17:00:00', 6, 30, 5, 15, NULL, NULL),
+(74, 2, '2020-11-04', '17:00:00', 6, 30, 5, 15, NULL, NULL),
+(75, 2, '2020-10-29', '20:00:00', 6, 30, 5, 15, NULL, NULL),
+(76, 2, '2020-10-30', '20:00:00', 6, 30, 5, 15, NULL, NULL),
+(77, 2, '2020-10-31', '20:00:00', 6, 30, 5, 15, NULL, NULL),
+(78, 2, '2020-11-01', '20:00:00', 6, 30, 5, 15, NULL, NULL),
+(79, 2, '2020-11-02', '20:00:00', 6, 30, 5, 15, NULL, NULL),
+(80, 2, '2020-11-03', '20:00:00', 6, 30, 5, 15, NULL, NULL),
+(81, 2, '2020-11-04', '20:00:00', 6, 30, 5, 15, NULL, NULL),
+(82, 2, '2020-11-04', '19:00:00', 7, 30, 5, 15, NULL, NULL),
+(89, 2, '2020-11-06', '14:30:00', 3, 30, 4, 15, 1, NULL),
+(90, 2, '2020-11-06', '17:30:00', 3, 30, 4, 15, 1, NULL),
+(91, 2, '2020-11-06', '20:30:00', 3, 30, 4, 15, 1, NULL),
+(92, 2, '2020-11-06', '17:30:00', 1, 30, 1, 15, 1, NULL),
+(93, 2, '2020-11-06', '20:30:00', 1, 30, 1, 15, 1, NULL),
+(94, 2, '2020-11-06', '19:00:00', 4, 30, 1, 15, 1, NULL),
+(95, 2, '2020-11-06', '17:30:00', 2, 30, 2, 15, 1, NULL),
+(96, 2, '2020-11-06', '20:30:00', 2, 30, 2, 15, 1, NULL),
+(97, 2, '2020-11-06', '19:00:00', 5, 30, 2, 15, 1, NULL),
+(98, 2, '2020-11-06', '17:30:00', 6, 30, 5, 15, 2, NULL),
+(99, 2, '2020-11-06', '19:00:00', 7, 30, 5, 15, 1, NULL),
+(100, 2, '2020-11-06', '20:30:00', 6, 30, 5, 15, 1, NULL),
+(101, 2, '2020-11-07', '14:30:00', 3, 30, 4, 15, 1, NULL),
+(102, 2, '2020-11-07', '17:30:00', 3, 30, 4, 15, 1, NULL),
+(103, 2, '2020-11-07', '20:30:00', 3, 30, 4, 15, 1, NULL),
+(104, 2, '2020-11-07', '17:30:00', 1, 30, 1, 15, 1, NULL),
+(105, 2, '2020-11-07', '19:00:00', 4, 30, 1, 15, 1, NULL),
+(106, 2, '2020-11-07', '20:30:00', 1, 30, 1, 15, 1, NULL),
+(107, 2, '2020-11-07', '17:30:00', 2, 30, 2, 15, 1, NULL),
+(108, 2, '2020-11-07', '19:00:00', 5, 30, 2, 15, 1, NULL),
+(109, 2, '2020-11-07', '20:30:00', 2, 30, 2, 15, 1, NULL),
+(110, 2, '2020-11-07', '17:30:00', 6, 30, 5, 15, 2, NULL),
+(111, 2, '2020-11-07', '19:00:00', 7, 30, 5, 15, 1, NULL),
+(112, 2, '2020-11-07', '20:30:00', 6, 30, 5, 15, 1, NULL),
+(113, 2, '2020-11-08', '17:30:00', 1, 30, 1, 15, 1, NULL),
+(114, 2, '2020-11-08', '19:00:00', 4, 30, 1, 15, 1, NULL),
+(115, 2, '2020-11-08', '20:30:00', 1, 30, 1, 15, 1, NULL),
+(119, 2, '2020-11-10', '17:30:00', 1, 20, 1, 10, 1, NULL),
+(120, 2, '2020-11-10', '19:00:00', 4, 20, 1, 10, 1, NULL),
+(121, 2, '2020-11-10', '20:30:00', 1, 20, 1, 10, 1, NULL),
+(122, 2, '2020-11-11', '17:30:00', 1, 15, 1, 15, 1, NULL),
+(123, 2, '2020-11-11', '19:00:00', 4, 15, 1, 15, 1, NULL),
+(124, 2, '2020-11-11', '20:30:00', 1, 15, 1, 15, 1, NULL),
+(125, 2, '2020-11-09', '17:30:00', 3, 20, 4, 10, 1, NULL),
+(126, 2, '2020-11-09', '14:30:00', 3, 20, 4, 10, 1, NULL),
+(127, 2, '2020-11-09', '20:30:00', 3, 20, 4, 10, 1, NULL),
+(128, 2, '2020-11-10', '14:30:00', 3, 2, 4, 10, 1, NULL),
+(129, 2, '2020-11-10', '17:30:00', 3, 20, 4, 10, 0, NULL),
+(130, 2, '2020-11-10', '20:30:00', 3, 20, 4, 10, 1, NULL),
+(131, 2, '2020-11-11', '14:30:00', 3, 20, 4, 10, 1, NULL),
+(132, 2, '2020-11-11', '17:30:00', 3, 20, 4, 10, 1, NULL),
+(133, 2, '2020-11-11', '20:30:00', 3, 20, 4, 10, 1, NULL),
+(134, 2, '2020-11-08', '17:30:00', 2, 30, 2, 15, 1, NULL),
+(135, 2, '2020-11-08', '19:00:00', 5, 30, 2, 15, 1, NULL),
+(136, 2, '2020-11-08', '20:30:00', 2, 30, 2, 15, 1, NULL),
+(137, 2, '2020-11-10', '17:30:00', 2, 20, 2, 10, 1, NULL),
+(138, 2, '2020-11-10', '19:00:00', 5, 20, 2, 10, 1, NULL),
+(139, 2, '2020-11-10', '20:30:00', 2, 20, 2, 10, 1, NULL),
+(140, 2, '2020-11-11', '17:30:00', 2, 15, 2, 15, 1, NULL),
+(141, 2, '2020-11-11', '19:00:00', 5, 15, 2, 15, 1, NULL),
+(142, 2, '2020-11-11', '20:30:00', 2, 15, 2, 15, 1, NULL),
+(143, 2, '2020-11-08', '17:30:00', 6, 30, 5, 15, 2, NULL),
+(144, 2, '2020-11-08', '19:00:00', 7, 30, 5, 15, 1, NULL),
+(145, 2, '2020-11-08', '20:30:00', 6, 30, 5, 15, 1, NULL),
+(146, 2, '2020-11-10', '17:30:00', 6, 20, 5, 10, 2, NULL),
+(147, 2, '2020-11-10', '19:00:00', 7, 20, 5, 10, 1, NULL),
+(148, 2, '2020-11-10', '20:30:00', 6, 20, 5, 10, 1, NULL),
+(149, 2, '2020-11-11', '17:30:00', 6, 15, 5, 15, 2, NULL),
+(150, 2, '2020-11-11', '19:00:00', 7, 15, 5, 15, 1, NULL),
+(151, 2, '2020-11-11', '20:30:00', 6, 15, 5, 15, 1, NULL),
+(155, 3, '2020-11-12', '16:00:00', 3, 30, 4, 15, 1, NULL),
+(159, 2, '2020-11-12', '20:30:00', 1, 30, 1, 15, 1, NULL),
+(160, 2, '2020-11-13', '20:30:00', 1, 30, 1, 15, 1, NULL),
+(161, 2, '2020-11-14', '20:30:00', 1, 30, 1, 15, 1, NULL),
+(163, 2, '2020-11-15', '20:30:00', 1, 30, 1, 15, 1, NULL),
+(164, 2, '2020-11-17', '20:30:00', 1, 20, 1, 10, 1, NULL),
+(165, 2, '2020-11-18', '20:30:00', 1, 30, 1, 15, 1, NULL),
+(166, 3, '2020-11-12', '18:00:00', 1, 30, 1, 15, 1, NULL),
+(169, 3, '2020-11-13', '18:00:00', 1, 30, 1, 15, 1, NULL),
+(172, 3, '2020-11-14', '18:00:00', 1, 30, 1, 15, 1, NULL),
+(175, 3, '2020-11-15', '18:00:00', 1, 30, 1, 15, 1, NULL),
+(177, 3, '2020-11-15', '19:30:00', 4, 30, 1, 15, 1, NULL),
+(178, 3, '2020-11-17', '18:00:00', 1, 20, 1, 10, 1, NULL),
+(180, 3, '2020-11-17', '19:30:00', 4, 20, 1, 10, 1, NULL),
+(181, 3, '2020-11-18', '18:00:00', 1, 30, 1, 15, 1, NULL),
+(183, 3, '2020-11-18', '19:30:00', 4, 30, 1, 15, 1, NULL),
+(184, 2, '2020-11-12', '19:00:00', 3, 30, 4, 15, 1, NULL),
+(185, 2, '2020-11-13', '19:00:00', 3, 30, 4, 15, 1, NULL),
+(186, 2, '2020-11-14', '19:00:00', 3, 30, 4, 15, 1, NULL),
+(187, 2, '2020-11-15', '19:00:00', 3, 30, 4, 15, 1, NULL),
+(188, 2, '2020-11-16', '19:00:00', 3, 20, 4, 10, 1, NULL),
+(189, 2, '2020-11-17', '19:00:00', 3, 20, 4, 10, 1, NULL),
+(190, 2, '2020-11-18', '19:00:00', 3, 30, 4, 15, 1, NULL),
+(191, 3, '2020-11-12', '17:00:00', 4, 30, 1, 15, 1, NULL),
+(192, 3, '2020-11-13', '17:00:00', 4, 30, 1, 15, 1, NULL),
+(193, 3, '2020-11-14', '17:00:00', 4, 30, 1, 15, 1, NULL),
+(194, 3, '2020-11-15', '17:00:00', 4, 30, 1, 15, 1, NULL),
+(195, 3, '2020-11-17', '17:00:00', 4, 20, 1, 10, 1, NULL),
+(196, 3, '2020-11-18', '17:00:00', 4, 30, 1, 15, 1, NULL),
+(197, 3, '2020-11-12', '19:30:00', 4, 30, 1, 15, 1, NULL),
+(198, 3, '2020-11-13', '19:30:00', 4, 30, 1, 15, 1, NULL),
+(199, 3, '2020-11-14', '19:30:00', 4, 30, 1, 15, 1, NULL),
+(200, 3, '2020-11-13', '16:00:00', 3, 30, 4, 15, 1, NULL),
+(201, 3, '2020-11-14', '16:00:00', 3, 30, 4, 15, 1, NULL),
+(202, 3, '2020-11-15', '16:00:00', 3, 30, 4, 15, 1, NULL),
+(203, 3, '2020-11-16', '16:00:00', 3, 20, 4, 10, 1, NULL),
+(204, 3, '2020-11-17', '16:00:00', 3, 20, 4, 10, 1, NULL),
+(205, 3, '2020-11-18', '16:00:00', 3, 20, 4, 10, 1, NULL),
+(206, 3, '2020-11-12', '17:30:00', 9, 30, 4, 15, 1, NULL),
+(207, 3, '2020-11-13', '17:30:00', 9, 30, 4, 15, 1, NULL),
+(208, 3, '2020-11-14', '17:30:00', 9, 30, 4, 15, 1, NULL),
+(209, 3, '2020-11-15', '17:30:00', 9, 30, 4, 15, 1, NULL),
+(210, 3, '2020-11-16', '17:30:00', 9, 20, 4, 10, 1, NULL),
+(211, 3, '2020-11-17', '17:30:00', 9, 20, 4, 10, 1, NULL),
+(212, 3, '2020-11-18', '17:30:00', 9, 30, 4, 15, 1, NULL),
+(213, 3, '2020-11-12', '20:00:00', 9, 30, 4, 15, 1, NULL),
+(214, 3, '2020-11-13', '20:00:00', 9, 30, 4, 15, 1, NULL),
+(215, 3, '2020-11-14', '20:00:00', 9, 30, 4, 15, 1, NULL),
+(216, 3, '2020-11-15', '20:00:00', 9, 30, 4, 15, 1, NULL),
+(217, 3, '2020-11-16', '20:00:00', 9, 20, 4, 10, 1, NULL),
+(218, 3, '2020-11-17', '20:00:00', 9, 20, 4, 10, 1, NULL),
+(219, 3, '2020-11-18', '20:00:00', 9, 30, 4, 15, 1, NULL),
+(220, 2, '2020-11-12', '20:30:00', 5, 30, 2, 15, 1, NULL),
+(221, 2, '2020-11-13', '20:30:00', 5, 30, 2, 15, 1, NULL),
+(222, 2, '2020-11-14', '20:30:00', 5, 30, 2, 15, 1, NULL),
+(223, 2, '2020-11-15', '20:30:00', 5, 30, 2, 15, 1, NULL),
+(224, 2, '2020-11-17', '20:30:00', 5, 20, 2, 10, 1, NULL),
+(225, 2, '2020-11-18', '20:30:00', 5, 30, 2, 15, 1, NULL),
+(226, 3, '2020-11-12', '18:00:00', 5, 30, 2, 15, 1, NULL),
+(227, 3, '2020-11-13', '18:00:00', 5, 30, 2, 15, 1, NULL),
+(228, 3, '2020-11-14', '18:00:00', 5, 30, 2, 15, 1, NULL),
+(229, 3, '2020-11-15', '18:00:00', 5, 30, 2, 15, 1, NULL),
+(230, 3, '2020-11-17', '18:00:00', 5, 20, 2, 10, 1, NULL),
+(231, 3, '2020-11-18', '18:00:00', 5, 30, 2, 15, 1, NULL),
+(232, 3, '2020-11-12', '17:00:00', 2, 30, 2, 15, 1, NULL),
+(233, 3, '2020-11-12', '19:30:00', 2, 30, 2, 15, 1, NULL),
+(234, 3, '2020-11-13', '17:00:00', 2, 30, 2, 15, 1, NULL),
+(235, 3, '2020-11-13', '19:30:00', 2, 30, 2, 15, 1, NULL),
+(236, 3, '2020-11-14', '17:00:00', 2, 30, 2, 15, 1, NULL),
+(237, 3, '2020-11-14', '19:30:00', 2, 30, 2, 15, 1, NULL),
+(238, 3, '2020-11-15', '17:00:00', 2, 30, 2, 15, 1, NULL),
+(239, 3, '2020-11-15', '19:30:00', 2, 30, 2, 15, 1, NULL),
+(240, 3, '2020-11-17', '17:00:00', 2, 20, 2, 10, 1, NULL),
+(241, 3, '2020-11-17', '19:30:00', 2, 20, 2, 10, 1, NULL),
+(242, 3, '2020-11-18', '17:00:00', 2, 30, 2, 15, 1, NULL),
+(243, 3, '2020-11-18', '19:30:00', 2, 30, 2, 15, 1, NULL),
+(244, 2, '2020-11-12', '20:00:00', 7, 30, 5, 15, 1, NULL),
+(245, 2, '2020-11-13', '20:00:00', 7, 30, 5, 15, 1, NULL),
+(246, 2, '2020-11-14', '20:00:00', 7, 30, 5, 15, 1, NULL),
+(247, 2, '2020-11-15', '20:00:00', 7, 30, 5, 15, 1, NULL),
+(248, 2, '2020-11-17', '20:00:00', 7, 20, 5, 10, 1, NULL),
+(249, 2, '2020-11-18', '20:00:00', 7, 30, 5, 15, 1, NULL),
+(250, 3, '2020-11-12', '17:30:00', 7, 30, 5, 15, 1, NULL),
+(251, 3, '2020-11-13', '17:30:00', 7, 30, 5, 15, 1, NULL),
+(252, 3, '2020-11-14', '17:30:00', 7, 30, 5, 15, 1, NULL),
+(253, 3, '2020-11-15', '17:30:00', 7, 30, 5, 15, 1, NULL),
+(254, 3, '2020-11-17', '17:30:00', 7, 20, 5, 10, 1, NULL),
+(255, 3, '2020-11-18', '17:30:00', 7, 30, 5, 15, 1, NULL),
+(256, 3, '2020-11-12', '18:00:00', 6, 30, 5, 15, 1, NULL),
+(257, 3, '2020-11-12', '20:30:00', 6, 30, 5, 15, 1, NULL),
+(258, 3, '2020-11-13', '18:00:00', 6, 30, 5, 15, 1, NULL),
+(259, 3, '2020-11-13', '20:30:00', 6, 30, 5, 15, 1, NULL),
+(260, 3, '2020-11-14', '18:00:00', 6, 30, 5, 15, 1, NULL),
+(261, 3, '2020-11-14', '20:30:00', 6, 30, 5, 15, 1, NULL),
+(262, 3, '2020-11-15', '18:00:00', 6, 30, 5, 15, 1, NULL),
+(263, 3, '2020-11-15', '20:30:00', 6, 30, 5, 15, 1, NULL),
+(264, 3, '2020-11-17', '18:00:00', 6, 20, 5, 10, 1, NULL),
+(265, 3, '2020-11-17', '20:30:00', 6, 20, 5, 10, 1, NULL),
+(266, 3, '2020-11-18', '18:00:00', 6, 30, 5, 15, 1, NULL),
+(267, 3, '2020-11-18', '20:30:00', 6, 30, 5, 15, 1, NULL),
+(268, 2, '2020-11-19', '16:00:00', 4, 30, 1, 15, 1, NULL),
+(269, 2, '2020-11-20', '16:00:00', 4, 30, 1, 15, 1, NULL),
+(270, 2, '2020-11-21', '16:00:00', 4, 30, 1, 15, 1, NULL),
+(271, 2, '2020-11-22', '16:00:00', 4, 30, 1, 15, 1, NULL),
+(272, 2, '2020-11-24', '16:00:00', 4, 20, 1, 10, 1, NULL),
+(273, 2, '2020-11-25', '16:00:00', 4, 15, 1, 15, 1, NULL),
+(274, 4, '2020-11-19', '16:40:00', 1, 30, 1, 15, 1, NULL),
+(275, 4, '2020-11-20', '16:40:00', 1, 30, 1, 15, 1, NULL),
+(276, 4, '2020-11-21', '16:40:00', 1, 30, 1, 15, 1, NULL),
+(277, 4, '2020-11-22', '16:40:00', 1, 30, 1, 15, 1, NULL),
+(278, 4, '2020-11-24', '16:40:00', 1, 20, 1, 10, 1, NULL),
+(279, 4, '2020-11-25', '16:40:00', 1, 15, 1, 15, 1, NULL),
+(280, 4, '2020-11-19', '19:00:00', 1, 30, 1, 15, 1, NULL),
+(281, 4, '2020-11-20', '19:00:00', 1, 30, 1, 15, 1, NULL),
+(282, 4, '2020-11-21', '19:00:00', 1, 30, 1, 15, 1, NULL),
+(283, 4, '2020-11-22', '19:00:00', 1, 30, 1, 15, 1, NULL),
+(284, 4, '2020-11-24', '19:00:00', 1, 20, 1, 10, 1, NULL),
+(285, 4, '2020-11-25', '19:00:00', 1, 15, 1, 15, 1, NULL),
+(286, 4, '2020-11-19', '21:20:00', 1, 30, 1, 15, 1, NULL),
+(287, 4, '2020-11-20', '21:20:00', 1, 30, 1, 15, 1, NULL),
+(288, 4, '2020-11-21', '21:20:00', 1, 30, 1, 15, 1, NULL),
+(289, 4, '2020-11-22', '21:20:00', 1, 30, 1, 15, 1, NULL),
+(290, 4, '2020-11-24', '21:20:00', 1, 20, 1, 10, 1, NULL),
+(291, 4, '2020-11-25', '21:20:00', 1, 15, 1, 15, 1, NULL),
+(292, 3, '2020-11-19', '18:40:00', 4, 30, 1, 15, 1, NULL),
+(293, 3, '2020-11-20', '18:40:00', 4, 30, 1, 15, 1, NULL),
+(294, 3, '2020-11-21', '18:40:00', 4, 30, 1, 15, 1, NULL),
+(295, 3, '2020-11-22', '18:40:00', 4, 30, 1, 15, 1, NULL),
+(296, 3, '2020-11-24', '18:40:00', 4, 20, 1, 10, 1, NULL),
+(297, 3, '2020-11-25', '18:40:00', 4, 15, 1, 15, 1, NULL),
+(298, 3, '2020-11-19', '21:00:00', 4, 30, 1, 15, 1, NULL),
+(299, 3, '2020-11-20', '21:00:00', 4, 30, 1, 15, 1, NULL),
+(300, 3, '2020-11-21', '21:00:00', 4, 30, 1, 15, 1, NULL),
+(301, 3, '2020-11-22', '21:00:00', 4, 30, 1, 15, 1, NULL),
+(302, 3, '2020-11-24', '21:00:00', 4, 20, 1, 10, 1, NULL),
+(303, 3, '2020-11-25', '21:00:00', 4, 15, 1, 15, 1, NULL),
+(304, 2, '2020-11-19', '16:00:00', 5, 30, 2, 15, 1, NULL),
+(305, 2, '2020-11-20', '16:00:00', 5, 30, 2, 15, 1, NULL),
+(306, 2, '2020-11-21', '16:00:00', 5, 30, 2, 15, 1, NULL),
+(307, 2, '2020-11-22', '16:00:00', 5, 30, 2, 15, 1, NULL),
+(308, 2, '2020-11-24', '16:00:00', 5, 20, 2, 10, 1, NULL),
+(309, 2, '2020-11-25', '16:00:00', 5, 15, 2, 15, 1, NULL),
+(311, 4, '2020-11-20', '16:40:00', 2, 30, 2, 15, 1, NULL),
+(312, 4, '2020-11-21', '16:40:00', 5, 30, 2, 15, 1, NULL),
+(313, 4, '2020-11-22', '16:40:00', 5, 30, 2, 15, 1, NULL),
+(314, 4, '2020-11-24', '16:40:00', 5, 20, 2, 10, 1, NULL),
+(315, 4, '2020-11-25', '16:40:00', 5, 15, 2, 15, 1, NULL),
+(316, 4, '2020-11-19', '19:00:00', 2, 30, 2, 15, 1, NULL),
+(317, 4, '2020-11-20', '19:00:00', 2, 30, 2, 15, 1, NULL),
+(318, 4, '2020-11-21', '19:00:00', 2, 30, 2, 15, 1, NULL),
+(319, 4, '2020-11-22', '19:00:00', 2, 30, 2, 15, 1, NULL),
+(320, 4, '2020-11-24', '19:00:00', 2, 20, 2, 10, 1, NULL),
+(321, 4, '2020-11-25', '19:00:00', 2, 15, 2, 15, 1, NULL),
+(322, 4, '2020-11-19', '21:10:00', 2, 30, 2, 15, 1, NULL),
+(323, 4, '2020-11-20', '21:10:00', 2, 30, 2, 15, 1, NULL),
+(324, 4, '2020-11-21', '21:10:00', 2, 30, 2, 15, 1, NULL),
+(325, 4, '2020-11-22', '21:10:00', 2, 30, 2, 15, 1, NULL),
+(326, 4, '2020-11-24', '21:10:00', 2, 20, 2, 10, 1, NULL),
+(327, 4, '2020-11-25', '21:10:00', 2, 15, 2, 15, 1, NULL),
+(328, 3, '2020-11-19', '18:30:00', 5, 30, 2, 15, 1, NULL),
+(329, 3, '2020-11-20', '18:30:00', 5, 30, 2, 15, 1, NULL),
+(330, 3, '2020-11-21', '18:30:00', 5, 30, 2, 15, 1, NULL),
+(331, 3, '2020-11-22', '18:30:00', 5, 30, 2, 15, 1, NULL),
+(332, 3, '2020-11-24', '18:30:00', 5, 20, 2, 10, 1, NULL),
+(333, 3, '2020-11-25', '18:30:00', 5, 15, 2, 15, 1, NULL),
+(334, 3, '2020-11-19', '20:50:00', 5, 30, 2, 15, 1, NULL),
+(335, 3, '2020-11-20', '20:50:00', 5, 30, 2, 15, 1, NULL),
+(336, 3, '2020-11-21', '20:50:00', 5, 30, 2, 15, 1, NULL),
+(337, 3, '2020-11-22', '20:50:00', 5, 30, 2, 15, 1, NULL),
+(338, 3, '2020-11-24', '20:50:00', 5, 20, 2, 10, 1, NULL),
+(339, 3, '2020-11-25', '20:50:00', 5, 15, 2, 15, 1, NULL),
+(340, 2, '2020-11-19', '16:00:00', 7, 30, 5, 15, 1, NULL),
+(341, 2, '2020-11-20', '16:00:00', 7, 30, 5, 15, 1, NULL),
+(342, 2, '2020-11-21', '16:00:00', 7, 30, 5, 15, 1, NULL),
+(343, 2, '2020-11-22', '16:00:00', 7, 30, 5, 15, 1, NULL),
+(344, 2, '2020-11-24', '16:00:00', 7, 20, 5, 10, 1, NULL),
+(345, 2, '2020-11-25', '16:00:00', 7, 15, 5, 15, 1, NULL),
+(346, 4, '2020-11-19', '16:40:00', 6, 30, 5, 15, 1, NULL),
+(347, 4, '2020-11-20', '16:40:00', 6, 30, 5, 15, 1, NULL),
+(348, 4, '2020-11-21', '16:40:00', 6, 30, 5, 15, 1, NULL),
+(349, 4, '2020-11-22', '16:40:00', 6, 30, 5, 15, 1, NULL),
+(350, 4, '2020-11-24', '16:40:00', 6, 20, 5, 10, 1, NULL),
+(351, 4, '2020-11-25', '16:40:00', 6, 15, 5, 15, 1, NULL),
+(352, 4, '2020-11-19', '19:00:00', 6, 30, 5, 15, 1, NULL),
+(353, 4, '2020-11-20', '19:00:00', 6, 30, 5, 15, 1, NULL),
+(354, 4, '2020-11-21', '19:00:00', 6, 30, 5, 15, 1, NULL),
+(355, 4, '2020-11-22', '19:00:00', 6, 30, 5, 15, 1, NULL),
+(356, 4, '2020-11-24', '19:00:00', 6, 20, 5, 10, 1, NULL),
+(357, 4, '2020-11-25', '19:00:00', 6, 15, 5, 15, 1, NULL),
+(358, 4, '2020-11-19', '21:10:00', 6, 30, 5, 15, 1, NULL),
+(359, 4, '2020-11-20', '21:10:00', 6, 30, 5, 15, 1, NULL),
+(360, 4, '2020-11-21', '21:10:00', 6, 30, 5, 15, 1, NULL),
+(361, 4, '2020-11-22', '21:10:00', 6, 30, 5, 15, 1, NULL),
+(362, 4, '2020-11-24', '21:10:00', 6, 20, 5, 10, 1, NULL),
+(363, 4, '2020-11-25', '21:10:00', 6, 15, 5, 15, 1, NULL),
+(364, 3, '2020-11-19', '18:30:00', 7, 30, 5, 15, 1, NULL),
+(365, 3, '2020-11-20', '18:30:00', 7, 30, 5, 15, 1, NULL),
+(366, 3, '2020-11-21', '18:30:00', 7, 30, 5, 15, 1, NULL),
+(367, 3, '2020-11-22', '18:30:00', 7, 30, 5, 15, 1, NULL),
+(368, 3, '2020-11-24', '18:30:00', 7, 20, 5, 10, 1, NULL),
+(369, 3, '2020-11-25', '18:30:00', 7, 15, 5, 15, 1, NULL),
+(370, 3, '2020-11-19', '20:50:00', 7, 30, 5, 15, 1, NULL),
+(371, 3, '2020-11-20', '20:50:00', 7, 30, 5, 15, 1, NULL),
+(372, 3, '2020-11-21', '20:50:00', 7, 30, 5, 15, 1, NULL),
+(373, 3, '2020-11-22', '20:50:00', 7, 30, 5, 15, 1, NULL),
+(374, 3, '2020-11-24', '20:50:00', 7, 20, 5, 10, 1, NULL),
+(375, 3, '2020-11-25', '20:50:00', 7, 15, 5, 15, 1, NULL),
+(376, 2, '2020-11-19', '15:00:00', 3, 30, 4, 15, 1, NULL),
+(377, 2, '2020-11-20', '15:00:00', 3, 30, 4, 15, 1, NULL),
+(378, 2, '2020-11-21', '15:00:00', 3, 30, 4, 15, 1, NULL),
+(379, 2, '2020-11-22', '15:00:00', 3, 30, 4, 15, 1, NULL),
+(380, 2, '2020-11-23', '15:00:00', 3, 20, 4, 10, 1, NULL),
+(381, 2, '2020-11-24', '15:00:00', 3, 20, 4, 10, 1, NULL),
+(382, 2, '2020-11-25', '15:00:00', 3, 15, 4, 15, 1, NULL),
+(383, 4, '2020-11-19', '16:00:00', 9, 30, 4, 15, 1, NULL),
+(384, 4, '2020-11-20', '16:00:00', 9, 30, 4, 15, 1, NULL),
+(385, 4, '2020-11-21', '16:00:00', 9, 30, 4, 15, 1, NULL),
+(386, 4, '2020-11-22', '16:00:00', 9, 30, 4, 15, 1, NULL),
+(387, 4, '2020-11-23', '16:00:00', 9, 20, 4, 10, 1, NULL),
+(388, 4, '2020-11-24', '16:00:00', 9, 20, 4, 10, 1, NULL),
+(389, 4, '2020-11-25', '16:00:00', 9, 15, 4, 15, 1, NULL),
+(390, 4, '2020-11-19', '18:15:00', 9, 30, 4, 15, 1, NULL),
+(391, 4, '2020-11-20', '18:15:00', 9, 30, 4, 15, 1, NULL),
+(392, 4, '2020-11-21', '18:15:00', 9, 30, 4, 15, 1, NULL),
+(393, 4, '2020-11-22', '18:15:00', 9, 30, 4, 15, 1, NULL),
+(394, 4, '2020-11-23', '18:15:00', 9, 20, 4, 10, 1, NULL),
+(395, 4, '2020-11-24', '18:15:00', 9, 20, 4, 10, 1, NULL),
+(396, 4, '2020-11-25', '18:15:00', 9, 15, 4, 15, 1, NULL),
+(397, 4, '2020-11-19', '20:30:00', 9, 30, 4, 15, 1, NULL),
+(398, 4, '2020-11-20', '20:30:00', 9, 30, 4, 15, 1, NULL),
+(399, 4, '2020-11-21', '20:30:00', 9, 30, 4, 15, 1, NULL),
+(400, 4, '2020-11-22', '20:30:00', 9, 30, 4, 15, 1, NULL),
+(401, 4, '2020-11-23', '20:30:00', 9, 20, 4, 10, 1, NULL),
+(402, 4, '2020-11-24', '20:30:00', 9, 20, 4, 10, 1, NULL),
+(403, 4, '2020-11-25', '20:30:00', 9, 15, 4, 15, 1, NULL),
+(404, 3, '2020-11-19', '17:45:00', 3, 30, 4, 15, 1, NULL),
+(405, 3, '2020-11-20', '17:45:00', 3, 30, 4, 15, 1, NULL),
+(406, 3, '2020-11-21', '17:45:00', 3, 30, 4, 15, 1, NULL),
+(407, 3, '2020-11-22', '17:45:00', 3, 30, 4, 15, 1, NULL),
+(408, 3, '2020-11-23', '17:45:00', 3, 20, 4, 10, 1, NULL),
+(409, 3, '2020-11-24', '17:45:00', 3, 20, 4, 10, 1, NULL),
+(410, 3, '2020-11-25', '17:45:00', 3, 15, 4, 15, 1, NULL),
+(411, 3, '2020-11-19', '20:10:00', 3, 30, 4, 15, 1, NULL),
+(412, 3, '2020-11-20', '20:10:00', 3, 30, 4, 15, 1, NULL),
+(413, 3, '2020-11-21', '20:10:00', 3, 30, 4, 15, 1, NULL),
+(414, 3, '2020-11-22', '20:10:00', 3, 30, 4, 15, 1, NULL),
+(415, 3, '2020-11-23', '20:10:00', 3, 20, 4, 10, 1, NULL),
+(416, 3, '2020-11-24', '20:10:00', 3, 20, 4, 10, 1, NULL),
+(417, 3, '2020-11-25', '20:10:00', 3, 15, 4, 15, 1, NULL),
+(418, 4, '2020-11-19', '16:40:00', 10, 30, 6, 15, 1, NULL),
+(419, 4, '2020-11-20', '16:40:00', 10, 30, 6, 15, 1, NULL),
+(420, 4, '2020-11-21', '16:40:00', 10, 30, 6, 15, 1, NULL),
+(421, 4, '2020-11-22', '16:40:00', 10, 30, 6, 15, 1, NULL),
+(422, 4, '2020-11-24', '16:40:00', 10, 20, 6, 10, 1, NULL),
+(423, 4, '2020-11-25', '16:40:00', 10, 15, 6, 15, 1, NULL),
+(424, 4, '2020-11-19', '19:00:00', 10, 30, 6, 15, 1, NULL),
+(425, 4, '2020-11-20', '19:00:00', 10, 30, 6, 15, 1, NULL),
+(426, 4, '2020-11-21', '19:00:00', 10, 30, 6, 15, 1, NULL),
+(427, 4, '2020-11-22', '19:00:00', 10, 30, 6, 15, 1, NULL),
+(428, 4, '2020-11-24', '19:00:00', 10, 20, 6, 10, 1, NULL),
+(429, 4, '2020-11-25', '19:00:00', 10, 15, 6, 15, 1, NULL),
+(430, 4, '2020-11-19', '21:10:00', 10, 30, 6, 15, 1, NULL),
+(431, 4, '2020-11-20', '21:10:00', 10, 30, 6, 15, 1, NULL),
+(432, 4, '2020-11-21', '21:10:00', 10, 30, 6, 15, 1, NULL),
+(433, 4, '2020-11-22', '21:10:00', 10, 30, 6, 15, 1, NULL),
+(434, 4, '2020-11-24', '21:10:00', 10, 20, 6, 10, 1, NULL),
+(435, 4, '2020-11-25', '21:10:00', 10, 15, 6, 15, 1, NULL),
+(436, 4, '2020-11-26', '19:00:00', 1, 30, 1, 15, 1, NULL),
+(437, 4, '2020-11-26', '21:10:00', 1, 30, 1, 15, 1, NULL),
+(438, 4, '2020-11-27', '19:00:00', 1, 30, 1, 15, 1, NULL),
+(439, 4, '2020-11-27', '21:10:00', 1, 30, 1, 15, 1, NULL),
+(440, 4, '2020-11-28', '19:00:00', 1, 30, 1, 15, 1, NULL),
+(441, 4, '2020-11-28', '21:10:00', 1, 30, 1, 15, 1, NULL),
+(442, 4, '2020-11-29', '19:00:00', 1, 30, 1, 15, 1, NULL),
+(443, 4, '2020-12-01', '19:00:00', 1, 20, 1, 10, 1, NULL),
+(444, 4, '2020-12-01', '21:10:00', 1, 20, 1, 10, 1, NULL),
+(445, 4, '2020-12-02', '19:00:00', 1, 30, 1, 15, 1, NULL),
+(446, 4, '2020-12-02', '21:10:00', 1, 30, 1, 15, 1, NULL),
+(447, 7, '2020-11-26', '17:00:00', 1, 30, 1, 15, 1, NULL),
+(448, 7, '2020-11-26', '18:30:00', 4, 30, 1, 15, 1, NULL),
+(449, 7, '2020-11-27', '17:00:00', 1, 30, 1, 15, 1, NULL),
+(450, 7, '2020-11-27', '18:30:00', 4, 30, 1, 15, 1, NULL),
+(451, 7, '2020-11-28', '17:00:00', 1, 30, 1, 15, 1, NULL),
+(452, 7, '2020-11-28', '18:30:00', 4, 30, 1, 15, 1, NULL),
+(453, 7, '2020-11-29', '17:00:00', 1, 30, 1, 15, 1, NULL),
+(454, 7, '2020-11-29', '18:30:00', 4, 30, 1, 15, 1, NULL),
+(455, 7, '2020-12-01', '17:00:00', 1, 20, 1, 10, 1, NULL),
+(456, 7, '2020-12-01', '18:30:00', 4, 20, 1, 10, 1, NULL),
+(457, 7, '2020-12-02', '17:00:00', 1, 30, 1, 15, 1, NULL),
+(458, 7, '2020-12-02', '18:30:00', 4, 30, 1, 15, 1, NULL),
+(459, 3, '2020-11-26', '20:30:00', 4, 30, 1, 15, 1, NULL),
+(460, 3, '2020-11-27', '20:30:00', 4, 30, 1, 15, 1, NULL),
+(461, 3, '2020-11-28', '20:30:00', 4, 30, 1, 15, 1, NULL),
+(462, 3, '2020-11-29', '20:30:00', 4, 30, 1, 15, 1, NULL),
+(463, 3, '2020-12-01', '20:30:00', 4, 20, 1, 10, 1, NULL),
+(464, 3, '2020-12-02', '20:30:00', 4, 30, 1, 15, 1, NULL),
+(465, 7, '2020-11-26', '17:00:00', 2, 30, 2, 15, 1, NULL),
+(466, 7, '2020-11-26', '18:30:00', 5, 30, 2, 15, 1, NULL),
+(467, 7, '2020-11-27', '17:00:00', 2, 30, 2, 15, 1, NULL),
+(468, 7, '2020-11-27', '18:30:00', 5, 30, 2, 15, 1, NULL),
+(469, 7, '2020-11-28', '17:00:00', 2, 30, 2, 15, 1, NULL),
+(470, 7, '2020-11-28', '18:30:00', 5, 30, 2, 15, 1, NULL),
+(471, 7, '2020-11-29', '17:00:00', 2, 30, 2, 15, 1, NULL),
+(472, 7, '2020-11-29', '18:30:00', 5, 30, 2, 15, 1, NULL),
+(473, 7, '2020-12-01', '17:00:00', 2, 20, 2, 10, 1, NULL),
+(474, 7, '2020-12-01', '18:30:00', 5, 20, 2, 10, 1, NULL),
+(475, 7, '2020-12-02', '17:00:00', 2, 30, 2, 15, 1, NULL),
+(476, 7, '2020-12-02', '18:30:00', 5, 30, 2, 15, 1, NULL),
+(477, 3, '2020-11-26', '20:30:00', 5, 30, 2, 15, 1, NULL),
+(478, 3, '2020-11-27', '20:30:00', 5, 30, 2, 15, 1, NULL),
+(479, 3, '2020-11-28', '20:30:00', 5, 30, 2, 15, 1, NULL),
+(480, 3, '2020-11-29', '20:30:00', 5, 30, 2, 15, 1, NULL),
+(481, 3, '2020-12-01', '20:30:00', 5, 20, 2, 10, 1, NULL),
+(482, 3, '2020-12-02', '20:30:00', 5, 30, 2, 15, 1, NULL),
+(483, 4, '2020-11-26', '19:00:00', 2, 30, 2, 15, 1, NULL),
+(484, 4, '2020-11-26', '21:10:00', 2, 30, 2, 15, 1, NULL),
+(485, 4, '2020-11-27', '19:00:00', 2, 30, 2, 15, 1, NULL),
+(486, 4, '2020-11-27', '21:10:00', 2, 30, 2, 15, 1, NULL),
+(487, 4, '2020-11-28', '19:00:00', 2, 30, 2, 15, 1, NULL),
+(488, 4, '2020-11-28', '21:10:00', 2, 30, 2, 15, 1, NULL),
+(489, 4, '2020-11-29', '19:00:00', 2, 30, 2, 15, 1, NULL),
+(490, 4, '2020-11-29', '21:10:00', 2, 30, 2, 15, 1, NULL),
+(491, 4, '2020-12-01', '19:00:00', 2, 20, 2, 10, 1, NULL),
+(492, 4, '2020-12-01', '21:10:00', 2, 20, 2, 10, 1, NULL),
+(493, 4, '2020-12-02', '19:00:00', 2, 30, 2, 15, 1, NULL),
+(494, 4, '2020-12-02', '21:10:00', 2, 30, 2, 15, 1, NULL),
+(495, 4, '2020-11-26', '19:00:00', 6, 30, 5, 15, 1, NULL),
+(496, 4, '2020-11-26', '21:10:00', 6, 30, 5, 15, 1, NULL),
+(497, 4, '2020-11-27', '19:00:00', 6, 30, 5, 15, 1, NULL),
+(498, 4, '2020-11-28', '19:00:00', 6, 30, 5, 15, 1, NULL),
+(499, 4, '2020-11-28', '21:10:00', 6, 30, 5, 15, 1, NULL),
+(500, 4, '2020-11-29', '19:00:00', 6, 30, 5, 15, 1, NULL),
+(501, 4, '2020-11-29', '21:10:00', 6, 30, 5, 15, 1, NULL),
+(502, 4, '2020-12-01', '19:00:00', 6, 20, 5, 10, 1, NULL),
+(503, 4, '2020-12-01', '21:10:00', 6, 20, 5, 10, 1, NULL),
+(504, 4, '2020-12-02', '19:00:00', 6, 30, 5, 15, 1, NULL),
+(505, 4, '2020-12-02', '21:10:00', 6, 30, 5, 15, 1, NULL),
+(506, 3, '2020-11-26', '20:30:00', 7, 30, 5, 15, 1, NULL),
+(507, 3, '2020-11-27', '20:30:00', 7, 30, 5, 15, 1, NULL),
+(508, 3, '2020-11-28', '20:30:00', 7, 30, 5, 15, 1, NULL),
+(509, 3, '2020-11-29', '20:30:00', 7, 30, 5, 15, 1, NULL),
+(510, 3, '2020-12-01', '20:30:00', 7, 20, 5, 10, 1, NULL),
+(511, 3, '2020-12-02', '20:30:00', 7, 30, 5, 15, 1, NULL),
+(512, 7, '2020-11-26', '17:00:00', 6, 30, 5, 15, 1, NULL),
+(513, 7, '2020-11-26', '18:30:00', 7, 30, 5, 15, 1, NULL),
+(514, 7, '2020-11-27', '17:00:00', 6, 30, 5, 15, 1, NULL),
+(515, 7, '2020-11-27', '18:30:00', 7, 30, 5, 15, 1, NULL),
+(516, 7, '2020-11-28', '17:00:00', 6, 30, 5, 15, 1, NULL),
+(517, 7, '2020-11-28', '18:30:00', 6, 30, 5, 15, 1, NULL),
+(518, 7, '2020-11-29', '17:00:00', 6, 30, 5, 15, 1, NULL),
+(519, 7, '2020-11-29', '18:30:00', 7, 30, 5, 15, 1, NULL),
+(520, 7, '2020-12-01', '17:00:00', 6, 20, 5, 10, 1, NULL),
+(521, 7, '2020-12-01', '18:30:00', 7, 20, 5, 10, 1, NULL),
+(522, 7, '2020-12-02', '17:00:00', 6, 30, 5, 15, 1, NULL),
+(523, 7, '2020-12-02', '18:30:00', 7, 30, 5, 15, 1, NULL),
+(524, 3, '2020-11-26', '16:10:00', 3, 30, 4, 15, 1, NULL),
+(525, 3, '2020-10-26', '20:10:00', 3, 30, 4, 15, 1, NULL),
+(526, 3, '2020-11-27', '16:10:00', 3, 30, 4, 15, 1, NULL),
+(527, 3, '2020-11-27', '20:10:00', 3, 30, 4, 15, 1, NULL),
+(528, 3, '2020-11-28', '16:10:00', 3, 30, 4, 15, 1, NULL),
+(529, 3, '2020-11-28', '20:10:00', 3, 30, 4, 15, 1, NULL),
+(530, 3, '2020-11-29', '16:10:00', 3, 30, 4, 15, 1, NULL),
+(531, 3, '2020-11-29', '20:10:00', 3, 30, 4, 15, 1, NULL),
+(532, 3, '2020-11-30', '16:10:00', 3, 30, 4, 15, 1, NULL),
+(533, 3, '2020-11-30', '20:10:00', 3, 30, 4, 15, 1, NULL),
+(534, 3, '2020-12-01', '16:10:00', 3, 20, 4, 10, 1, NULL),
+(535, 3, '2020-12-01', '20:10:00', 3, 20, 5, 10, 1, NULL),
+(536, 3, '2020-12-02', '16:10:00', 3, 30, 4, 15, 1, NULL),
+(537, 3, '2020-12-02', '20:10:00', 3, 30, 4, 15, 1, NULL),
+(538, 3, '2020-11-26', '20:10:00', 3, 30, 4, 15, 1, NULL),
+(539, 3, '0000-00-00', '00:00:00', 1, 0, 1, 0, 1, NULL),
+(540, 4, '2020-11-26', '18:30:00', 9, 30, 4, 15, 1, NULL),
+(541, 4, '2020-11-26', '20:40:00', 9, 30, 4, 15, 1, NULL),
+(542, 4, '2020-11-27', '18:30:00', 9, 30, 4, 15, 1, NULL),
+(543, 4, '2020-11-27', '20:40:00', 9, 30, 4, 15, 1, NULL),
+(544, 4, '2020-11-28', '18:30:00', 9, 30, 4, 15, 1, NULL),
+(545, 4, '2020-11-28', '20:40:00', 9, 30, 4, 15, 1, NULL),
+(546, 4, '2020-11-29', '18:30:00', 9, 30, 4, 15, 1, NULL),
+(547, 4, '2020-11-29', '20:40:00', 9, 30, 4, 15, 1, NULL),
+(548, 4, '2020-11-30', '18:30:00', 9, 30, 4, 15, 1, NULL),
+(549, 4, '2020-11-30', '20:40:00', 9, 30, 4, 15, 1, NULL),
+(550, 4, '2020-12-01', '18:30:00', 9, 20, 4, 10, 1, NULL),
+(551, 4, '2020-12-01', '20:40:00', 9, 20, 4, 10, 1, NULL),
+(552, 4, '2020-12-02', '18:30:00', 9, 30, 4, 15, 1, NULL),
+(553, 4, '2020-12-02', '20:40:00', 9, 30, 4, 15, 1, NULL),
+(554, 7, '2020-11-26', '16:30:00', 9, 30, 4, 15, 1, NULL),
+(555, 7, '2020-11-26', '18:15:00', 3, 30, 4, 15, 1, NULL),
+(556, 7, '2020-11-27', '16:30:00', 9, 30, 4, 15, 1, NULL),
+(557, 7, '2020-11-27', '18:15:00', 3, 30, 4, 15, 1, NULL),
+(558, 7, '2020-11-28', '16:30:00', 9, 30, 4, 15, 1, NULL),
+(559, 7, '2020-11-28', '18:15:00', 3, 30, 4, 15, 1, NULL),
+(560, 7, '2020-11-29', '16:30:00', 9, 30, 4, 15, 1, NULL),
+(561, 7, '2020-11-29', '18:15:00', 3, 30, 4, 15, 1, NULL),
+(562, 7, '2020-11-30', '16:30:00', 9, 30, 4, 15, 1, NULL),
+(563, 7, '2020-11-30', '18:15:00', 3, 30, 4, 15, 1, NULL),
+(564, 7, '2020-12-01', '16:30:00', 9, 20, 4, 10, 1, NULL),
+(565, 7, '2020-12-01', '18:15:00', 3, 20, 4, 10, 1, NULL),
+(566, 7, '2020-12-02', '16:30:00', 9, 30, 4, 15, 1, 'S'),
+(567, 7, '2020-12-02', '18:15:00', 3, 30, 4, 15, 1, NULL),
+(568, 7, '2020-11-26', '18:00:00', 11, 30, 6, 15, 1, NULL),
+(569, 7, '2020-11-26', '20:00:00', 11, 30, 6, 15, 1, NULL),
+(570, 7, '2020-11-27', '18:00:00', 11, 30, 6, 15, 1, NULL),
+(571, 7, '2020-11-27', '20:00:00', 11, 30, 6, 15, 1, NULL),
+(572, 7, '2020-11-28', '18:00:00', 11, 30, 6, 15, 1, NULL),
+(573, 7, '2020-11-28', '20:00:00', 11, 30, 6, 15, 1, NULL),
+(574, 7, '2020-11-29', '18:00:00', 11, 30, 6, 15, 1, NULL),
+(575, 7, '2020-11-29', '20:00:00', 11, 30, 6, 15, 1, NULL),
+(576, 7, '2020-12-01', '18:00:00', 11, 20, 6, 10, 1, NULL),
+(577, 7, '2020-12-01', '20:00:00', 11, 20, 6, 10, 1, NULL),
+(578, 7, '2020-12-02', '18:00:00', 11, 30, 6, 15, 1, NULL),
+(579, 7, '2020-12-02', '20:00:00', 11, 30, 6, 15, 1, NULL),
+(580, 4, '2020-11-26', '19:00:00', 10, 30, 6, 15, 1, NULL),
+(581, 4, '2020-11-26', '21:10:00', 10, 30, 6, 15, 1, NULL),
+(582, 4, '2020-11-27', '19:00:00', 10, 30, 6, 15, 1, NULL),
+(583, 4, '2020-11-27', '21:10:00', 10, 30, 6, 15, 1, NULL),
+(584, 4, '2020-11-28', '19:00:00', 10, 30, 6, 15, 1, NULL),
+(585, 4, '2020-11-28', '21:10:00', 10, 30, 6, 15, 1, NULL),
+(586, 4, '2020-11-29', '19:00:00', 10, 30, 6, 15, 1, NULL),
+(587, 4, '2020-11-29', '21:10:00', 10, 30, 6, 15, 1, NULL),
+(588, 4, '2020-12-01', '19:00:00', 10, 20, 6, 10, 1, NULL),
+(589, 4, '2020-12-01', '21:10:00', 10, 20, 6, 10, 1, NULL),
+(590, 4, '2020-12-02', '19:00:00', 10, 30, 6, 15, 1, NULL),
+(591, 3, '2020-12-03', '20:30:00', 1, 30, 1, 15, 1, 'N'),
+(592, 3, '2020-12-04', '20:30:00', 1, 30, 1, 15, 1, 'N'),
+(593, 3, '2020-12-05', '20:30:00', 1, 30, 1, 15, 1, 'N'),
+(594, 3, '2020-12-06', '20:30:00', 1, 30, 1, 15, 1, 'N'),
+(595, 3, '2020-12-08', '20:30:00', 1, 20, 1, 10, 1, 'N'),
+(596, 3, '2020-12-09', '20:30:00', 1, 30, 1, 15, 1, 'S'),
+(597, 6, '2020-12-16', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(598, 4, '2020-12-03', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(599, 4, '2020-12-04', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(600, 4, '2020-12-05', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(601, 4, '2020-12-06', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(602, 4, '2020-12-08', '00:00:00', 1, 20, 1, 10, 1, 'N'),
+(603, 4, '2020-12-09', '18:30:00', 1, 30, 1, 15, 1, 'S'),
+(604, 7, '2020-12-03', '18:00:00', 4, 30, 1, 15, 1, 'N'),
+(605, 7, '2020-12-03', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(606, 7, '2020-12-04', '18:00:00', 4, 30, 1, 15, 1, 'N'),
+(607, 7, '2020-12-04', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(608, 7, '2020-12-05', '18:00:00', 4, 30, 1, 15, 1, 'N'),
+(609, 7, '2020-12-05', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(610, 7, '2020-12-06', '18:00:00', 4, 30, 1, 15, 1, 'N'),
+(611, 7, '2020-12-06', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(612, 7, '2020-12-08', '18:00:00', 4, 20, 1, 10, 1, 'N'),
+(613, 7, '2020-12-08', '20:00:00', 4, 20, 1, 15, 1, 'N'),
+(614, 7, '2020-12-09', '18:00:00', 4, 30, 1, 15, 1, 'S'),
+(615, 7, '2020-12-09', '20:00:00', 4, 30, 1, 15, 1, 'S'),
+(616, 4, '2020-12-03', '18:30:00', 2, 30, 2, 15, 1, 'N'),
+(617, 4, '2020-12-04', '18:30:00', 2, 30, 2, 15, 1, 'N'),
+(618, 4, '2020-12-05', '18:30:00', 2, 30, 2, 15, 1, 'N'),
+(619, 4, '2020-12-06', '18:30:00', 2, 30, 2, 15, 1, 'N'),
+(620, 4, '2020-12-08', '18:30:00', 2, 20, 2, 10, 1, 'N'),
+(621, 4, '2020-12-09', '18:30:00', 2, 30, 2, 15, 1, 'S'),
+(622, 3, '2020-12-03', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(623, 3, '2020-12-04', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(624, 3, '2020-12-05', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(625, 3, '2020-12-06', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(626, 3, '2020-12-08', '20:30:00', 2, 20, 2, 10, 1, 'N'),
+(627, 3, '2020-12-09', '20:30:00', 2, 30, 2, 15, 1, 'S'),
+(628, 7, '2020-12-03', '18:00:00', 5, 30, 2, 15, 1, 'N'),
+(629, 7, '2020-12-03', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(630, 7, '2020-12-04', '18:00:00', 5, 30, 2, 15, 1, 'N'),
+(631, 7, '2020-12-04', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(632, 7, '2020-12-05', '18:00:00', 5, 30, 2, 15, 1, 'N'),
+(633, 7, '2020-12-05', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(634, 7, '2020-12-06', '18:00:00', 5, 30, 2, 15, 2, 'N'),
+(635, 7, '2020-12-06', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(636, 7, '2020-12-08', '18:00:00', 5, 20, 2, 10, 1, 'N'),
+(637, 7, '2020-12-08', '20:00:00', 5, 20, 2, 10, 1, 'N'),
+(638, 7, '2020-12-09', '18:00:00', 5, 30, 2, 15, 1, 'S'),
+(639, 7, '2020-12-09', '20:00:00', 5, 30, 2, 15, 1, 'S'),
+(640, 4, '2020-12-03', '18:30:00', 6, 30, 5, 15, 1, 'N'),
+(641, 4, '2020-12-04', '18:30:00', 6, 30, 5, 15, 1, 'N'),
+(642, 4, '2020-12-05', '18:30:00', 6, 30, 5, 15, 1, 'N'),
+(643, 4, '2020-12-06', '18:30:00', 6, 30, 5, 15, 1, 'N'),
+(644, 4, '2020-12-08', '18:30:00', 6, 20, 5, 10, 1, 'N'),
+(645, 4, '2020-12-09', '18:30:00', 6, 30, 5, 15, 1, 'S'),
+(646, 3, '2020-12-03', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(647, 3, '2020-12-04', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(648, 3, '2020-12-05', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(649, 3, '2020-12-06', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(650, 3, '2020-12-08', '20:30:00', 6, 20, 5, 10, 1, 'N'),
+(651, 3, '2020-12-09', '20:30:00', 6, 30, 5, 15, 1, 'S'),
+(652, 7, '2020-12-03', '18:00:00', 7, 30, 5, 15, 1, 'N'),
+(653, 7, '2020-12-03', '20:00:00', 7, 30, 5, 15, 1, 'N'),
+(654, 7, '2020-12-04', '18:00:00', 7, 30, 5, 15, 1, 'N'),
+(655, 7, '2020-12-04', '20:00:00', 7, 30, 5, 15, 1, 'N'),
+(656, 7, '2020-12-05', '18:00:00', 7, 30, 5, 15, 1, 'N'),
+(657, 7, '2020-12-05', '20:00:00', 7, 30, 5, 15, 1, 'N'),
+(658, 7, '2020-12-06', '18:00:00', 7, 30, 5, 15, 1, 'N'),
+(659, 7, '2020-12-06', '20:00:00', 7, 30, 5, 15, 1, 'N'),
+(660, 7, '2020-12-08', '18:00:00', 7, 20, 5, 10, 1, 'N'),
+(661, 7, '2020-12-08', '20:00:00', 7, 20, 5, 10, 1, 'N'),
+(662, 7, '2020-12-09', '18:00:00', 7, 30, 5, 15, 1, 'S'),
+(663, 7, '2020-12-09', '20:00:00', 7, 30, 5, 15, 1, 'S'),
+(664, 4, '2020-12-03', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(665, 4, '2020-12-04', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(666, 4, '2020-12-05', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(667, 4, '2020-12-06', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(668, 4, '2020-12-08', '17:30:00', 9, 20, 4, 10, 1, 'N'),
+(669, 4, '2020-12-09', '17:30:00', 9, 30, 4, 15, 1, 'S'),
+(670, 3, '2020-12-03', '19:30:00', 9, 30, 4, 15, 1, 'N'),
+(671, 3, '2020-12-04', '19:30:00', 9, 30, 4, 15, 1, 'N'),
+(672, 3, '2020-12-05', '19:30:00', 9, 30, 4, 15, 1, 'N'),
+(673, 3, '2020-12-06', '19:30:00', 9, 30, 4, 15, 1, 'N'),
+(674, 3, '2020-12-07', '19:30:00', 9, 20, 4, 10, 1, 'N'),
+(675, 3, '2020-12-08', '19:30:00', 9, 20, 4, 10, 1, 'N'),
+(676, 3, '2020-12-09', '19:30:00', 9, 30, 4, 15, 1, 'S'),
+(677, 4, '2020-12-07', '17:30:00', 9, 20, 4, 10, 1, 'N'),
+(678, 7, '2020-12-03', '16:00:00', 3, 30, 4, 15, 1, 'N'),
+(679, 7, '2020-12-03', '18:00:00', 3, 30, 4, 15, 1, 'N'),
+(680, 7, '2020-12-03', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(681, 7, '2020-12-04', '16:00:00', 3, 30, 4, 15, 1, 'N'),
+(682, 7, '2020-12-04', '18:00:00', 3, 30, 4, 15, 1, 'N'),
+(683, 7, '2020-12-04', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(684, 7, '2020-12-05', '16:00:00', 3, 30, 4, 15, 1, 'N'),
+(685, 7, '2020-12-05', '18:00:00', 3, 30, 4, 15, 1, 'N'),
+(686, 7, '2020-12-05', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(687, 7, '2020-12-06', '16:00:00', 3, 30, 4, 15, 1, 'N'),
+(688, 7, '2020-12-06', '18:00:00', 3, 30, 4, 15, 1, 'N'),
+(689, 7, '2020-12-06', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(690, 7, '2020-12-07', '16:00:00', 3, 20, 4, 10, 1, 'N'),
+(691, 7, '2020-12-07', '18:00:00', 3, 20, 4, 10, 1, 'N'),
+(692, 7, '2020-12-07', '20:00:00', 3, 20, 4, 10, 1, 'N'),
+(693, 7, '2020-12-08', '16:00:00', 3, 20, 4, 10, 1, 'N'),
+(694, 7, '2020-12-08', '18:00:00', 3, 20, 4, 10, 1, 'N'),
+(695, 7, '2020-12-08', '20:00:00', 3, 20, 4, 10, 1, 'N'),
+(696, 7, '2020-12-09', '16:00:00', 3, 30, 4, 15, 1, 'S'),
+(697, 7, '2020-12-09', '18:00:00', 3, 30, 4, 15, 1, 'S'),
+(698, 7, '2020-12-09', '20:00:00', 3, 30, 4, 15, 1, 'S'),
+(699, 4, '2020-12-03', '19:00:00', 10, 30, 6, 15, 1, 'N'),
+(700, 4, '2020-12-03', '21:10:00', 10, 30, 6, 15, 1, 'N'),
+(701, 4, '2020-12-04', '19:00:00', 10, 30, 6, 15, 1, 'N'),
+(702, 4, '2020-12-04', '21:10:00', 10, 30, 6, 15, 1, 'N'),
+(703, 4, '2020-12-05', '19:00:00', 10, 30, 6, 15, 1, 'N'),
+(704, 4, '2020-12-05', '21:10:00', 10, 30, 6, 15, 1, 'N'),
+(705, 4, '2020-12-06', '19:00:00', 10, 30, 6, 15, 1, 'N'),
+(706, 4, '2020-12-06', '21:10:00', 10, 30, 6, 15, 1, 'N'),
+(707, 4, '2020-12-08', '19:00:00', 10, 20, 6, 10, 1, 'N'),
+(708, 4, '2020-12-08', '21:10:00', 10, 20, 6, 10, 1, 'N'),
+(709, 4, '2020-12-09', '19:00:00', 10, 30, 6, 15, 1, 'S'),
+(710, 4, '2020-12-09', '21:10:00', 10, 30, 6, 15, 1, 'S'),
+(711, 7, '2020-12-03', '18:00:00', 11, 30, 6, 15, 1, 'N'),
+(712, 7, '2020-12-03', '20:00:00', 11, 30, 6, 15, 1, 'N'),
+(713, 7, '2020-12-04', '18:00:00', 11, 30, 6, 15, 1, 'N'),
+(714, 7, '2020-12-04', '20:00:00', 11, 30, 6, 15, 1, 'N'),
+(715, 7, '2020-12-05', '18:00:00', 11, 30, 6, 15, 1, 'N'),
+(716, 7, '2020-12-06', '20:00:00', 11, 30, 6, 15, 1, 'N'),
+(717, 7, '2020-12-08', '18:00:00', 11, 20, 6, 10, 1, 'N'),
+(718, 7, '2020-12-08', '20:00:00', 11, 20, 6, 10, 1, 'N'),
+(719, 7, '2020-12-09', '18:00:00', 11, 30, 6, 15, 1, 'S'),
+(720, 7, '2020-12-09', '20:00:00', 11, 30, 6, 15, 1, 'S'),
+(721, 4, '2020-12-10', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(722, 4, '2020-12-11', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(723, 4, '2020-12-12', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(724, 4, '2020-12-14', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(725, 4, '2020-12-15', '18:30:00', 1, 20, 1, 10, 1, 'N'),
+(726, 3, '2020-12-10', '20:30:00', 1, 30, 1, 15, 1, 'N'),
+(727, 3, '2020-12-11', '20:30:00', 1, 30, 1, 15, 1, 'N'),
+(728, 3, '2020-12-12', '20:30:00', 1, 30, 1, 15, 1, 'N'),
+(729, 3, '2020-12-14', '20:30:00', 1, 30, 1, 15, 1, 'N'),
+(730, 3, '2020-12-15', '20:30:00', 1, 20, 1, 10, 1, 'N'),
+(731, 7, '2020-12-10', '18:00:00', 4, 30, 1, 15, 1, 'N'),
+(732, 7, '2020-12-10', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(733, 7, '2020-12-11', '18:00:00', 4, 30, 1, 15, 1, 'N'),
+(734, 7, '2020-12-11', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(735, 7, '2020-12-12', '18:00:00', 4, 30, 1, 15, 1, 'N'),
+(736, 7, '2020-12-12', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(737, 7, '2020-12-14', '18:00:00', 4, 30, 1, 15, 1, 'N'),
+(738, 7, '2020-12-14', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(739, 7, '2020-12-15', '18:00:00', 4, 20, 1, 10, 1, 'N'),
+(740, 7, '2020-12-15', '20:00:00', 4, 20, 1, 10, 1, 'N'),
+(741, 7, '2020-12-16', '16:30:00', 1, 30, 1, 15, 1, 'S'),
+(742, 7, '2020-12-17', '16:30:00', 1, 30, 1, 15, 1, 'N'),
+(743, 7, '2020-12-18', '16:30:00', 1, 30, 1, 15, 1, 'N'),
+(744, 7, '2020-12-19', '16:30:00', 1, 30, 1, 15, 1, 'N'),
+(745, 7, '2020-12-20', '16:30:00', 1, 30, 1, 15, 1, 'N'),
+(746, 7, '2020-12-21', '16:30:00', 1, 20, 1, 10, 1, 'N'),
+(747, 7, '2020-12-22', '16:30:00', 1, 20, 1, 10, 1, 'N'),
+(748, 7, '2020-12-23', '16:30:00', 1, 30, 1, 15, 1, 'S'),
+(749, 6, '2020-12-16', '21:30:00', 1, 30, 1, 15, 1, 'N'),
+(750, 6, '2020-12-17', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(751, 6, '2020-12-17', '21:30:00', 1, 30, 1, 15, 1, 'N'),
+(752, 6, '2020-12-18', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(753, 6, '2020-12-18', '21:30:00', 1, 30, 1, 15, 1, 'N'),
+(754, 6, '2020-12-19', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(755, 6, '2020-12-19', '21:30:00', 1, 30, 1, 15, 1, 'N'),
+(756, 6, '2020-12-20', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(757, 6, '2020-12-20', '21:30:00', 1, 30, 1, 15, 1, 'N'),
+(758, 6, '2020-12-21', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(759, 6, '2020-12-21', '21:30:00', 1, 30, 1, 15, 1, 'N'),
+(760, 6, '2020-12-22', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(761, 6, '2020-12-22', '21:30:00', 1, 30, 1, 15, 1, 'N'),
+(762, 6, '2020-12-23', '18:30:00', 1, 30, 1, 15, 1, 'N'),
+(763, 6, '2020-12-23', '21:30:00', 1, 30, 1, 15, 1, 'N'),
+(764, 6, '2020-12-16', '17:00:00', 4, 30, 1, 15, 1, 'N'),
+(765, 6, '2020-12-16', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(766, 6, '2020-12-17', '17:00:00', 4, 30, 1, 15, 1, 'N'),
+(767, 6, '2020-12-17', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(768, 6, '2020-12-18', '17:00:00', 4, 30, 1, 15, 1, 'N'),
+(769, 6, '2020-12-18', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(770, 6, '2020-12-19', '17:00:00', 4, 30, 1, 15, 1, 'N'),
+(771, 6, '2020-12-19', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(772, 6, '2020-12-20', '17:00:00', 4, 30, 1, 15, 1, 'N'),
+(773, 6, '2020-12-20', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(774, 6, '2020-12-21', '17:00:00', 4, 30, 1, 15, 1, 'N'),
+(775, 6, '2020-12-21', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(776, 6, '2020-12-22', '17:00:00', 4, 30, 1, 15, 1, 'N'),
+(777, 6, '2020-12-22', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(778, 6, '2020-12-23', '17:00:00', 4, 30, 1, 15, 1, 'N'),
+(779, 6, '2020-12-23', '20:00:00', 4, 30, 1, 15, 1, 'N'),
+(780, 4, '2020-12-10', '18:30:00', 2, 30, 2, 15, 1, 'N'),
+(781, 4, '2020-12-11', '18:30:00', 2, 30, 2, 15, 1, 'N'),
+(782, 4, '2020-12-12', '18:30:00', 2, 30, 2, 15, 1, 'N'),
+(784, 4, '2020-12-15', '18:30:00', 2, 20, 2, 10, 1, 'N'),
+(793, 3, '2020-12-10', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(794, 3, '2020-12-11', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(795, 3, '2020-12-12', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(796, 3, '2020-12-14', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(797, 3, '2020-12-15', '20:30:00', 2, 20, 2, 10, 1, 'N'),
+(798, 3, '0000-00-00', '00:00:00', 1, 0, 1, 0, 1, 'N'),
+(799, 7, '2020-12-10', '18:00:00', 5, 30, 2, 15, 1, 'N'),
+(800, 7, '2020-12-10', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(801, 7, '2020-12-11', '18:00:00', 5, 30, 2, 15, 1, 'N'),
+(802, 7, '2020-12-11', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(803, 7, '2020-12-12', '18:00:00', 5, 30, 2, 15, 1, 'N'),
+(804, 7, '2020-12-12', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(805, 7, '2020-12-14', '18:00:00', 5, 30, 2, 15, 1, 'N'),
+(806, 7, '2020-12-14', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(807, 7, '2020-12-15', '18:00:00', 5, 20, 2, 10, 1, 'N'),
+(808, 7, '2020-12-15', '20:00:00', 5, 20, 2, 10, 1, 'N'),
+(809, 7, '2020-12-16', '18:00:00', 5, 30, 2, 15, 1, 'S'),
+(810, 7, '2020-12-17', '18:00:00', 5, 30, 2, 15, 1, 'N'),
+(811, 7, '2020-12-18', '18:00:00', 5, 30, 2, 15, 1, 'N'),
+(812, 7, '2020-12-19', '18:00:00', 5, 30, 2, 15, 1, 'N'),
+(813, 7, '2020-12-20', '18:00:00', 5, 30, 2, 15, 1, 'N'),
+(814, 7, '2020-12-21', '18:00:00', 5, 20, 2, 10, 1, 'N'),
+(815, 7, '2020-12-22', '18:00:00', 5, 20, 2, 10, 1, 'N'),
+(816, 7, '2020-12-23', '18:00:00', 5, 30, 1, 15, 1, 'S'),
+(817, 6, '2020-12-16', '17:30:00', 2, 30, 2, 15, 1, 'N'),
+(818, 6, '2020-12-16', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(819, 6, '2020-12-17', '17:30:00', 2, 30, 2, 15, 1, 'N'),
+(820, 6, '2020-12-17', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(821, 6, '2020-12-18', '17:30:00', 2, 30, 2, 15, 1, 'N'),
+(822, 6, '2020-12-18', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(823, 6, '2020-12-19', '17:30:00', 2, 30, 2, 15, 1, 'N'),
+(824, 6, '2020-12-19', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(825, 6, '2020-12-20', '17:30:00', 2, 30, 2, 15, 1, 'N'),
+(826, 6, '2020-12-20', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(827, 6, '2020-12-21', '17:30:00', 2, 30, 2, 15, 1, 'N'),
+(828, 6, '2020-12-21', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(829, 6, '2020-12-22', '17:30:00', 2, 30, 2, 15, 1, 'N'),
+(830, 6, '2020-12-22', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(831, 6, '2020-12-23', '17:30:00', 2, 30, 2, 15, 1, 'N'),
+(832, 6, '2020-12-23', '20:30:00', 2, 30, 2, 15, 1, 'N'),
+(833, 6, '2020-12-16', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(834, 6, '2020-12-17', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(835, 6, '2020-12-18', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(836, 6, '2020-12-19', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(837, 6, '2020-12-20', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(838, 6, '2020-12-21', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(839, 6, '2020-12-22', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(840, 6, '2020-12-23', '20:00:00', 5, 30, 2, 15, 1, 'N'),
+(841, 4, '2020-12-10', '18:30:00', 6, 30, 5, 15, 1, 'N'),
+(842, 4, '2020-12-11', '18:30:00', 6, 30, 5, 15, 1, 'N'),
+(843, 4, '2020-12-12', '18:30:00', 6, 30, 5, 15, 1, 'N'),
+(844, 4, '2020-12-14', '18:30:00', 6, 30, 5, 15, 1, 'N'),
+(845, 4, '2020-12-15', '18:30:00', 6, 20, 5, 10, 1, 'N'),
+(846, 3, '2020-12-10', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(847, 3, '2020-12-11', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(848, 3, '2020-12-12', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(849, 3, '2020-12-14', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(850, 3, '2020-12-15', '20:30:00', 6, 20, 5, 10, 1, 'N'),
+(851, 7, '2020-12-10', '18:00:00', 7, 30, 5, 15, 1, 'N'),
+(852, 7, '2020-12-10', '20:00:00', 7, 30, 5, 15, 1, 'N'),
+(853, 7, '2020-12-11', '18:00:00', 7, 30, 5, 15, 1, 'N'),
+(854, 7, '2020-12-11', '20:00:00', 7, 30, 5, 15, 1, 'N'),
+(855, 7, '2020-12-12', '18:00:00', 7, 30, 5, 15, 1, 'N'),
+(856, 7, '2020-12-12', '20:00:00', 7, 30, 5, 15, 1, 'N'),
+(857, 7, '2020-12-14', '18:00:00', 7, 30, 5, 15, 1, 'N'),
+(858, 7, '2020-12-14', '20:00:00', 7, 30, 5, 15, 1, 'N'),
+(859, 7, '2020-12-15', '18:00:00', 7, 20, 5, 10, 1, 'N'),
+(860, 7, '2020-12-15', '20:00:00', 7, 20, 5, 10, 1, 'N'),
+(861, 7, '2020-12-16', '18:00:00', 7, 30, 5, 15, 1, 'S'),
+(862, 7, '2020-12-17', '18:00:00', 7, 30, 5, 15, 1, 'N'),
+(863, 7, '2020-12-18', '18:00:00', 7, 30, 5, 15, 1, 'N'),
+(864, 7, '2020-12-19', '18:00:00', 7, 30, 5, 15, 1, 'N'),
+(865, 7, '2020-12-20', '18:00:00', 7, 30, 5, 15, 1, 'N'),
+(866, 7, '2020-12-21', '18:00:00', 7, 20, 5, 10, 1, 'N'),
+(867, 7, '2020-12-22', '18:00:00', 7, 20, 5, 10, 1, 'N'),
+(868, 7, '2020-12-23', '18:00:00', 7, 30, 5, 15, 1, 'S'),
+(869, 6, '2020-12-16', '17:30:00', 6, 30, 5, 15, 1, 'N'),
+(870, 6, '2020-12-16', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(871, 6, '2020-12-17', '17:30:00', 6, 30, 5, 15, 1, 'N'),
+(872, 6, '2020-12-17', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(873, 6, '2020-12-18', '17:30:00', 6, 30, 5, 15, 1, 'N'),
+(874, 6, '2020-12-18', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(875, 6, '2020-12-19', '17:30:00', 6, 30, 5, 15, 1, 'N'),
+(876, 6, '2020-12-19', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(877, 6, '2020-12-20', '17:30:00', 6, 30, 5, 15, 1, 'N'),
+(878, 6, '2020-12-20', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(879, 6, '2020-12-21', '17:30:00', 6, 30, 5, 15, 1, 'N'),
+(880, 6, '2020-12-21', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(881, 6, '2020-12-22', '17:30:00', 6, 30, 5, 15, 1, 'N'),
+(882, 6, '2020-12-22', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(883, 6, '2020-12-23', '17:30:00', 6, 30, 5, 15, 1, 'N'),
+(884, 6, '2020-12-23', '20:30:00', 6, 30, 5, 15, 1, 'N'),
+(885, 6, '2020-12-16', '20:00:00', 7, 30, 5, 15, 2, 'N'),
+(886, 6, '2020-12-17', '20:00:00', 7, 30, 5, 15, 2, 'N'),
+(887, 6, '2020-12-18', '20:00:00', 7, 30, 5, 15, 2, 'N'),
+(888, 6, '2020-12-19', '20:00:00', 7, 30, 5, 15, 2, 'N'),
+(889, 6, '2020-12-20', '20:00:00', 7, 30, 5, 15, 2, 'N'),
+(890, 6, '2020-12-21', '20:00:00', 7, 30, 5, 15, 2, 'N'),
+(891, 6, '2020-12-22', '20:00:00', 7, 30, 5, 15, 2, 'N'),
+(892, 6, '2020-12-23', '20:00:00', 7, 30, 5, 15, 2, 'N'),
+(893, 4, '2020-12-10', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(894, 4, '2020-12-11', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(895, 4, '2020-12-12', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(896, 4, '2020-12-14', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(897, 4, '2020-12-15', '17:30:00', 9, 20, 4, 10, 1, 'N'),
+(898, 3, '2020-12-10', '19:30:00', 9, 30, 4, 15, 1, 'N'),
+(899, 3, '2020-12-11', '19:30:00', 9, 30, 4, 15, 1, 'N'),
+(900, 3, '2020-12-12', '19:30:00', 9, 30, 4, 15, 1, 'N'),
+(901, 3, '2020-12-14', '19:30:00', 9, 30, 4, 15, 1, 'N'),
+(902, 3, '2020-12-15', '19:30:00', 9, 20, 4, 10, 1, 'N'),
+(903, 7, '2020-12-10', '18:00:00', 3, 30, 4, 15, 1, 'N'),
+(904, 7, '2020-12-10', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(905, 7, '2020-12-11', '18:00:00', 3, 30, 4, 15, 1, 'N'),
+(906, 7, '2020-12-11', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(907, 7, '2020-12-12', '18:00:00', 3, 30, 4, 15, 1, 'N'),
+(908, 7, '2020-12-12', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(909, 7, '2020-12-14', '18:00:00', 3, 30, 4, 15, 1, 'N'),
+(910, 7, '2020-12-14', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(911, 7, '2020-12-15', '18:00:00', 3, 20, 4, 10, 1, 'N'),
+(912, 7, '2020-12-15', '20:00:00', 3, 20, 4, 10, 1, 'N'),
+(913, 7, '2020-12-16', '13:30:00', 9, 30, 4, 15, 1, 'S'),
+(914, 7, '2020-12-16', '15:30:00', 9, 30, 4, 15, 1, 'S'),
+(915, 7, '2020-12-17', '13:30:00', 9, 30, 4, 15, 1, 'N');
+INSERT INTO `tbl_programacao_filmes` (`id`, `id_filme`, `data_exibicao`, `hora_exibicao`, `id_sala`, `valor`, `id_cidade`, `valor_meia`, `id_tipo`, `dia_promorcional`) VALUES
+(916, 7, '2020-12-17', '15:30:00', 9, 30, 4, 15, 1, 'N'),
+(917, 7, '2020-12-18', '13:30:00', 9, 30, 4, 15, 1, 'N'),
+(918, 7, '2020-12-18', '15:30:00', 9, 30, 4, 15, 1, 'N'),
+(919, 7, '2020-12-19', '13:30:00', 9, 30, 4, 15, 1, 'N'),
+(920, 7, '2020-12-19', '15:30:00', 9, 30, 4, 15, 1, 'N'),
+(921, 7, '2020-12-20', '13:30:00', 9, 30, 4, 15, 1, 'N'),
+(922, 7, '2020-12-20', '15:30:00', 9, 30, 4, 15, 1, 'N'),
+(923, 7, '2020-12-21', '13:30:00', 9, 20, 4, 10, 1, 'N'),
+(924, 7, '2020-12-21', '15:30:00', 9, 20, 4, 10, 1, 'N'),
+(925, 7, '2020-12-22', '13:30:00', 9, 20, 4, 10, 1, 'N'),
+(926, 7, '2020-12-22', '15:30:00', 8, 20, 4, 10, 1, 'N'),
+(927, 7, '2020-12-23', '13:30:00', 9, 30, 4, 15, 1, 'S'),
+(928, 7, '2020-12-23', '15:30:00', 9, 30, 4, 15, 1, 'S'),
+(929, 6, '2020-12-16', '14:00:00', 3, 30, 4, 15, 1, 'N'),
+(930, 6, '2020-12-16', '17:00:00', 3, 30, 4, 15, 1, 'N'),
+(931, 6, '2020-12-16', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(932, 6, '2020-12-17', '14:00:00', 3, 30, 4, 15, 1, 'N'),
+(933, 6, '2020-12-17', '17:00:00', 3, 0, 1, 0, 1, 'N'),
+(934, 6, '2020-12-17', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(935, 6, '2020-12-18', '14:00:00', 3, 30, 4, 15, 1, 'N'),
+(936, 6, '2020-12-18', '17:00:00', 3, 30, 4, 15, 1, 'N'),
+(937, 6, '2020-12-18', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(938, 6, '2020-12-19', '14:00:00', 3, 30, 4, 15, 1, 'N'),
+(939, 6, '2020-12-19', '17:00:00', 3, 30, 4, 15, 1, 'N'),
+(940, 6, '2020-12-19', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(941, 6, '2020-12-20', '14:00:00', 3, 30, 4, 15, 1, 'N'),
+(942, 6, '2020-12-20', '17:00:00', 3, 30, 4, 15, 1, 'N'),
+(943, 6, '2020-12-20', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(944, 6, '2020-12-21', '14:00:00', 3, 30, 4, 15, 1, 'N'),
+(945, 6, '2020-12-21', '17:00:00', 3, 30, 4, 15, 1, 'N'),
+(946, 6, '2020-12-21', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(947, 6, '2020-12-22', '14:00:00', 3, 30, 4, 15, 1, 'N'),
+(948, 6, '2020-12-22', '17:00:00', 3, 30, 4, 15, 1, 'N'),
+(949, 6, '2020-12-22', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(950, 6, '2020-12-23', '14:00:00', 3, 30, 4, 15, 1, 'N'),
+(951, 6, '2020-12-23', '17:00:00', 3, 30, 4, 15, 1, 'N'),
+(952, 6, '2020-12-23', '20:00:00', 3, 30, 4, 15, 1, 'N'),
+(953, 6, '2020-12-16', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(954, 6, '2020-12-16', '20:30:00', 9, 30, 4, 15, 1, 'N'),
+(955, 6, '2020-12-17', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(956, 6, '2020-12-17', '20:30:00', 9, 30, 4, 15, 1, 'N'),
+(957, 6, '2020-12-18', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(958, 6, '2020-12-18', '20:30:00', 9, 30, 4, 15, 1, 'N'),
+(959, 6, '2020-12-19', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(960, 6, '2020-12-19', '20:30:00', 9, 30, 4, 15, 1, 'N'),
+(961, 6, '2020-12-20', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(962, 6, '2020-12-20', '20:30:00', 9, 30, 4, 15, 1, 'N'),
+(963, 6, '2020-12-21', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(964, 6, '2020-12-21', '20:30:00', 9, 30, 4, 15, 1, 'N'),
+(965, 6, '2020-12-22', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(966, 6, '2020-12-22', '20:30:00', 9, 30, 4, 15, 1, 'N'),
+(967, 6, '2020-12-23', '17:30:00', 9, 30, 4, 15, 1, 'N'),
+(968, 6, '2020-12-23', '20:30:00', 9, 30, 4, 15, 1, 'N'),
+(969, 4, '2020-12-10', '19:00:00', 10, 30, 6, 15, 1, 'N'),
+(970, 4, '2020-12-10', '21:10:00', 10, 30, 6, 15, 1, 'N'),
+(971, 4, '2020-12-11', '19:00:00', 10, 30, 6, 15, 1, 'N'),
+(972, 4, '2020-12-11', '21:10:00', 10, 30, 6, 15, 1, 'N'),
+(973, 4, '2020-12-12', '19:00:00', 10, 30, 6, 15, 1, 'N'),
+(974, 4, '2020-12-12', '21:10:00', 10, 30, 6, 15, 1, 'N'),
+(975, 4, '2020-12-14', '19:00:00', 10, 30, 6, 15, 1, 'N'),
+(976, 4, '2020-12-14', '21:10:00', 10, 30, 6, 15, 1, 'N'),
+(977, 4, '2020-12-15', '19:00:00', 10, 20, 6, 10, 1, 'N'),
+(978, 4, '2020-12-15', '21:10:00', 10, 20, 6, 10, 1, 'N'),
+(979, 7, '2020-12-10', '18:00:00', 11, 30, 6, 15, 1, 'N'),
+(980, 7, '2020-12-10', '20:00:00', 11, 30, 6, 15, 1, 'N'),
+(981, 7, '2020-12-11', '18:00:00', 11, 30, 6, 15, 1, 'N'),
+(982, 7, '2020-12-11', '20:00:00', 11, 30, 6, 15, 1, 'N'),
+(983, 7, '2020-12-12', '18:00:00', 11, 30, 6, 15, 1, 'N'),
+(984, 7, '2020-12-12', '20:00:00', 11, 30, 6, 15, 1, 'N'),
+(985, 7, '2020-12-14', '18:00:00', 11, 30, 6, 15, 1, 'N'),
+(986, 7, '2020-12-14', '20:00:00', 11, 30, 6, 15, 1, 'N'),
+(987, 7, '2020-12-15', '18:00:00', 11, 20, 6, 10, 1, 'N'),
+(988, 7, '2020-12-15', '20:00:00', 11, 20, 6, 10, 1, 'N'),
+(989, 7, '0000-00-00', '00:00:00', 1, 0, 1, 0, 1, 'N'),
+(990, 7, '2020-12-16', '18:00:00', 11, 30, 6, 15, 1, 'S'),
+(991, 7, '2020-12-17', '18:00:00', 11, 30, 6, 15, 1, 'N'),
+(992, 7, '2020-12-18', '18:00:00', 11, 30, 6, 15, 1, 'N'),
+(993, 7, '2020-12-19', '18:00:00', 11, 30, 6, 15, 1, 'N'),
+(994, 7, '2020-12-20', '18:00:00', 11, 30, 6, 15, 1, 'N'),
+(995, 7, '2020-12-21', '18:00:00', 11, 20, 6, 10, 1, 'N'),
+(996, 7, '2020-12-22', '18:00:00', 11, 20, 6, 10, 1, 'N'),
+(997, 7, '2020-12-23', '18:00:00', 11, 30, 6, 15, 1, 'S'),
+(998, 6, '2020-12-16', '17:30:00', 10, 30, 6, 15, 1, 'N'),
+(999, 6, '2020-12-16', '20:30:00', 10, 30, 6, 15, 1, 'N'),
+(1000, 6, '2020-12-17', '17:30:00', 10, 30, 6, 15, 1, 'N'),
+(1001, 6, '2020-12-17', '20:30:00', 10, 30, 6, 15, 1, 'N'),
+(1002, 6, '2020-12-18', '17:30:00', 10, 30, 6, 15, 1, 'N'),
+(1003, 6, '2020-12-18', '20:30:00', 10, 30, 6, 15, 1, 'N'),
+(1004, 6, '2020-12-19', '17:30:00', 10, 30, 6, 15, 1, 'N'),
+(1005, 6, '2020-12-19', '20:30:00', 10, 30, 6, 15, 1, 'N'),
+(1006, 6, '2020-12-20', '17:30:00', 10, 30, 6, 15, 1, 'N'),
+(1007, 6, '2020-12-20', '20:30:00', 10, 30, 6, 15, 1, 'N'),
+(1008, 6, '2020-12-21', '17:30:00', 10, 30, 6, 15, 1, 'N'),
+(1009, 6, '2020-12-21', '20:30:00', 10, 30, 6, 15, 1, 'N'),
+(1010, 6, '2020-12-22', '17:30:00', 10, 30, 6, 15, 1, 'N'),
+(1011, 6, '2020-12-22', '20:30:00', 10, 30, 6, 15, 1, 'N'),
+(1012, 6, '2020-12-23', '17:30:00', 10, 30, 6, 15, 1, 'N'),
+(1013, 6, '2020-12-23', '20:30:00', 10, 30, 6, 15, 1, 'N'),
+(1014, 6, '2020-12-16', '20:00:00', 11, 30, 6, 15, 1, 'N'),
+(1015, 6, '2020-12-17', '20:00:00', 11, 30, 6, 15, 1, 'N'),
+(1016, 6, '2020-12-18', '20:00:00', 11, 30, 6, 15, 1, 'N'),
+(1017, 6, '2020-12-19', '20:00:00', 11, 30, 6, 15, 1, 'N'),
+(1018, 6, '2020-12-20', '20:00:00', 11, 30, 6, 15, 1, 'N'),
+(1019, 6, '2020-12-21', '20:00:00', 11, 30, 6, 15, 1, 'N'),
+(1020, 6, '2020-12-22', '20:00:00', 11, 30, 6, 15, 1, 'N'),
+(1021, 6, '2020-12-23', '20:00:00', 11, 30, 6, 15, 1, 'N');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_relaciona_cadeiras`
+-- Estrutura da tabela `tbl_relaciona_cadeiras`
 --
 
 CREATE TABLE `tbl_relaciona_cadeiras` (
@@ -13649,21 +14693,174 @@ CREATE TABLE `tbl_relaciona_cadeiras` (
   `id_cliente` int(11) DEFAULT NULL,
   `id_compra` int(11) DEFAULT NULL,
   `assento` varchar(80) DEFAULT NULL,
-  `id_cidade` int(11) DEFAULT NULL
+  `id_cidade` int(11) DEFAULT NULL,
+  `id_sala` int(11) DEFAULT NULL,
+  `id_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_relaciona_cadeiras`
+-- Extraindo dados da tabela `tbl_relaciona_cadeiras`
 --
 
-INSERT INTO `tbl_relaciona_cadeiras` (`id`, `id_filme`, `hora_filme`, `data_filme`, `id_cliente`, `id_compra`, `assento`, `id_cidade`) VALUES
-(1, 2, '17:30:00', '2020-10-30', 1, 11, 'D13', 4),
-(2, 2, '17:30:00', '2020-10-30', 1, 11, 'I3', 4);
+INSERT INTO `tbl_relaciona_cadeiras` (`id`, `id_filme`, `hora_filme`, `data_filme`, `id_cliente`, `id_compra`, `assento`, `id_cidade`, `id_sala`, `id_usuario`) VALUES
+(4, 2, '20:30:00', '2020-11-06', 2, 12, 'J5', 2, 3, NULL),
+(5, 2, '20:30:00', '2020-11-06', 2, 12, 'J6', 2, 3, NULL),
+(6, 2, '19:00:00', '2020-11-06', 3, 14, 'A12', 5, 4, NULL),
+(7, 2, '19:00:00', '2020-11-06', 3, 14, 'A13', 5, 4, NULL),
+(8, 2, '19:00:00', '2020-11-08', 3, 15, 'A12', 5, 4, NULL),
+(9, 2, '19:00:00', '2020-11-08', 3, 15, 'A13', 5, 4, NULL),
+(10, 2, '20:30:00', '2020-11-06', 4, 16, 'F8', 5, 3, NULL),
+(11, 2, '20:30:00', '2020-11-06', 4, 16, 'F9', 5, 3, NULL),
+(12, 2, '20:30:00', '2020-11-06', 4, 17, 'F7', 4, 3, NULL),
+(13, 2, '20:30:00', '2020-11-06', 4, 17, 'F8', 4, 3, NULL),
+(16, 2, '17:30:00', '2020-11-07', 6, 19, 'H12', 5, 3, NULL),
+(17, 2, '17:30:00', '2020-11-07', 6, 19, 'H13', 5, 3, NULL),
+(18, 2, '17:30:00', '2020-11-06', 6, 20, 'H12', 5, 3, NULL),
+(19, 2, '17:30:00', '2020-11-06', 6, 20, 'H13', 5, 3, NULL),
+(20, 2, '17:30:00', '2020-11-07', 7, 21, 'I10', 5, 3, NULL),
+(21, 2, '17:30:00', '2020-11-07', 7, 21, 'I11', 5, 3, NULL),
+(22, 2, '17:30:00', '2020-11-07', 7, 22, 'J12', 5, 3, NULL),
+(23, 2, '17:30:00', '2020-11-07', 7, 22, 'J13', 5, 3, NULL),
+(24, 2, '20:30:00', '2020-11-06', 4, 23, 'F12', 5, 3, NULL),
+(25, 2, '20:30:00', '2020-11-06', 4, 23, 'F13', 5, 3, NULL),
+(26, 2, '20:30:00', '2020-11-07', 8, 24, 'J12', 5, 3, NULL),
+(27, 2, '20:30:00', '2020-11-07', 8, 24, 'J13', 5, 3, NULL),
+(28, 2, '17:30:00', '2020-11-07', 7, 25, 'J8', 5, 3, NULL),
+(29, 2, '17:30:00', '2020-11-07', 7, 25, 'J9', 5, 3, NULL),
+(30, 2, '17:30:00', '2020-11-07', 7, 26, 'G10', 5, 3, NULL),
+(31, 2, '17:30:00', '2020-11-07', 7, 26, 'G11', 5, 3, NULL),
+(32, 2, '17:30:00', '2020-11-07', 7, 27, 'H8', 5, 3, NULL),
+(33, 2, '17:30:00', '2020-11-07', 7, 27, 'H9', 5, 3, NULL),
+(34, 2, '19:00:00', '2020-11-07', 9, 28, 'D1', 1, 4, NULL),
+(35, 2, '19:00:00', '2020-11-07', 9, 28, 'D2', 1, 4, NULL),
+(36, 2, '19:00:00', '2020-11-07', 9, 28, 'D3', 1, 4, NULL),
+(37, 2, '19:00:00', '2020-11-07', 9, 29, 'F3', 1, 4, NULL),
+(38, 2, '19:00:00', '2020-11-07', 9, 29, 'F4', 1, 4, NULL),
+(39, 2, '19:00:00', '2020-11-07', 9, 29, 'F5', 1, 4, NULL),
+(40, 2, '19:00:00', '2020-11-07', 9, 30, 'B1', 1, 4, NULL),
+(41, 2, '19:00:00', '2020-11-07', 10, 31, 'I1', 1, 4, NULL),
+(42, 2, '19:00:00', '2020-11-07', 10, 31, 'I2', 1, 4, NULL),
+(43, 2, '19:00:00', '2020-11-07', 10, 32, 'I6', 1, 4, NULL),
+(44, 2, '19:00:00', '2020-11-07', 10, 32, 'I7', 1, 4, NULL),
+(45, 2, '20:30:00', '2020-11-07', 11, 33, 'F12', 5, 3, NULL),
+(46, 2, '20:30:00', '2020-11-07', 11, 33, 'F13', 5, 3, NULL),
+(47, 2, '20:30:00', '2020-11-07', 12, 34, 'D12', 5, 3, NULL),
+(48, 2, '20:30:00', '2020-11-07', 12, 34, 'D13', 5, 3, NULL),
+(49, 2, '19:00:00', '2020-11-08', 13, 35, 'H5', 5, 4, NULL),
+(50, 2, '19:00:00', '2020-11-08', 13, 35, 'H6', 5, 4, NULL),
+(51, 2, '19:00:00', '2020-11-08', 13, 36, 'G3', 5, 4, NULL),
+(52, 2, '19:00:00', '2020-11-08', 13, 36, 'G4', 5, 4, NULL),
+(53, 2, '20:30:00', '2020-11-08', 14, 37, 'J1', 5, 1, NULL),
+(54, 2, '20:30:00', '2020-11-08', 14, 37, 'J2', 5, 1, NULL),
+(55, 2, '20:30:00', '2020-11-08', 14, 38, 'J7', 5, 1, NULL),
+(56, 2, '20:30:00', '2020-11-08', 14, 38, 'J8', 5, 1, NULL),
+(57, 2, '20:30:00', '2020-11-08', 14, 39, 'J20', 5, 1, NULL),
+(58, 2, '20:30:00', '2020-11-08', 14, 39, 'J21', 5, 1, NULL),
+(59, 2, '20:30:00', '2020-11-08', 15, 40, 'J12', 5, 1, NULL),
+(60, 2, '20:30:00', '2020-11-08', 15, 40, 'J13', 5, 1, NULL),
+(61, 2, '20:30:00', '2020-11-08', 14, 41, 'J16', 5, 1, NULL),
+(62, 2, '20:30:00', '2020-11-08', 14, 41, 'J17', 5, 1, NULL),
+(107, 3, '18:00:00', '2020-11-13', 26, 75, 'G10', 5, 1, NULL),
+(108, 3, '18:00:00', '2020-11-13', 26, 75, 'G11', 5, 1, NULL),
+(113, 3, '20:00:00', '2020-11-14', 27, 79, 'D3', 4, 9, NULL),
+(114, 3, '20:00:00', '2020-11-14', 27, 79, 'D4', 4, 9, NULL),
+(115, 3, '20:00:00', '2020-11-14', 27, 79, 'C1', 4, 9, NULL),
+(116, 3, '20:00:00', '2020-11-14', 27, 79, 'C2', 4, 9, NULL),
+(117, 3, '20:00:00', '2020-11-14', 27, 79, 'C5', 4, 9, NULL),
+(118, 3, '20:00:00', '2020-11-14', 27, 79, 'C6', 4, 9, NULL),
+(119, 3, '20:00:00', '2020-11-14', 27, 81, 'F3', 4, 9, NULL),
+(120, 3, '20:00:00', '2020-11-14', 27, 81, 'F4', 4, 9, NULL),
+(121, 3, '20:00:00', '2020-11-14', 27, 81, 'E1', 4, 9, NULL),
+(122, 3, '20:00:00', '2020-11-14', 27, 81, 'E2', 4, 9, NULL),
+(123, 3, '20:00:00', '2020-11-14', 27, 81, 'E5', 4, 9, NULL),
+(124, 3, '20:00:00', '2020-11-14', 27, 81, 'E6', 4, 9, NULL),
+(125, 2, '20:30:00', '2020-11-14', 28, 83, 'H1', 1, 1, NULL),
+(126, 2, '20:30:00', '2020-11-14', 28, 83, 'H2', 1, 1, NULL),
+(127, 3, '20:30:00', '2020-11-15', 29, 84, 'H9', 5, 6, NULL),
+(128, 3, '20:30:00', '2020-11-15', 29, 84, 'H12', 5, 6, NULL),
+(129, 3, '20:30:00', '2020-11-15', 29, 84, 'H13', 5, 6, NULL),
+(130, 4, '21:10:00', '2020-11-19', 30, 85, 'G10', 5, 2, NULL),
+(131, 4, '21:10:00', '2020-11-19', 30, 85, 'G11', 5, 2, NULL),
+(132, 4, '19:00:00', '2020-11-22', 31, 86, 'H1', 6, 1, NULL),
+(133, 4, '19:00:00', '2020-11-22', 31, 86, 'H2', 6, 1, NULL),
+(134, 2, '16:00:00', '2020-11-20', 32, 87, 'F5', 5, 4, NULL),
+(135, 2, '16:00:00', '2020-11-20', 33, 88, 'I2', 5, 4, NULL),
+(136, 2, '16:00:00', '2020-11-20', 33, 88, 'I3', 5, 4, NULL),
+(137, 2, '16:00:00', '2020-11-20', 33, 88, 'I4', 5, 4, NULL),
+(138, 2, '16:00:00', '2020-11-20', 33, 89, 'H5', 5, 4, NULL),
+(139, 2, '16:00:00', '2020-11-20', 33, 89, 'G3', 5, 4, NULL),
+(140, 2, '16:00:00', '2020-11-20', 33, 89, 'G4', 5, 4, NULL),
+(141, 3, '20:50:00', '2020-11-20', 34, 90, 'F9', 5, 5, NULL),
+(142, 3, '20:50:00', '2020-11-20', 34, 90, 'F10', 5, 5, NULL),
+(143, 3, '20:50:00', '2020-11-20', 34, 90, 'E7', 5, 5, NULL),
+(144, 3, '20:50:00', '2020-11-20', 34, 90, 'E8', 5, 5, NULL),
+(145, 4, '19:00:00', '2020-11-22', 35, 91, 'G10', 6, 1, NULL),
+(146, 4, '19:00:00', '2020-11-22', 35, 91, 'G11', 6, 1, NULL),
+(147, 4, '19:00:00', '2020-11-25', 36, 92, 'F1', 5, 1, NULL),
+(148, 4, '19:00:00', '2020-11-25', 36, 92, 'F2', 5, 1, NULL),
+(149, 4, '19:00:00', '2020-11-25', 36, 92, 'F3', 5, 1, NULL),
+(150, 4, '19:00:00', '2020-11-25', 36, 92, 'F8', 5, 1, NULL),
+(151, 4, '19:00:00', '2020-11-25', 36, 92, 'F9', 5, 1, NULL),
+(152, 4, '19:00:00', '2020-11-25', 36, 92, 'F21', 5, 1, NULL),
+(153, 4, '19:00:00', '2020-11-25', 37, 93, 'D8', 6, 1, NULL),
+(154, 4, '19:00:00', '2020-11-25', 37, 93, 'D9', 6, 1, NULL),
+(155, 4, '19:00:00', '2020-11-25', 36, 94, 'E10', 5, 1, NULL),
+(156, 4, '19:00:00', '2020-11-25', 36, 94, 'E11', 5, 1, NULL),
+(157, 4, '19:00:00', '2020-11-25', 36, 94, 'E14', 5, 1, NULL),
+(158, 4, '19:00:00', '2020-11-25', 36, 94, 'E15', 5, 1, NULL),
+(159, 4, '19:00:00', '2020-11-25', 36, 94, 'E18', 5, 1, NULL),
+(160, 4, '19:00:00', '2020-11-25', 36, 94, 'E19', 5, 1, NULL),
+(161, 2, '16:00:00', '2020-11-24', 38, 95, 'B1', 1, 4, NULL),
+(162, 2, '16:00:00', '2020-11-24', 38, 95, 'B2', 1, 4, NULL),
+(163, 2, '16:00:00', '2020-11-24', 38, 95, 'B3', 1, 4, NULL),
+(164, 3, '20:50:00', '2020-11-24', 39, 96, 'I1', 5, 5, NULL),
+(165, 3, '20:50:00', '2020-11-24', 39, 96, 'I2', 5, 5, NULL),
+(166, 3, '20:50:00', '2020-11-24', 39, 96, 'I3', 5, 5, NULL),
+(167, 3, '20:50:00', '2020-11-24', 39, 96, 'I4', 5, 5, NULL),
+(168, 3, '20:50:00', '2020-11-25', 40, 97, 'I1', 5, 5, NULL),
+(169, 3, '20:50:00', '2020-11-25', 40, 97, 'I2', 5, 5, NULL),
+(170, 3, '20:50:00', '2020-11-25', 40, 97, 'I3', 5, 5, NULL),
+(171, 3, '20:50:00', '2020-11-25', 40, 97, 'I4', 5, 5, NULL),
+(172, 4, '19:00:00', '2020-11-25', 41, 98, 'H8', 6, 1, NULL),
+(173, 4, '19:00:00', '2020-11-25', 41, 98, 'H9', 6, 1, NULL),
+(174, 4, '16:40:00', '2020-11-24', 42, 99, 'G10', 6, 1, NULL),
+(175, 4, '16:40:00', '2020-11-24', 42, 99, 'G11', 6, 1, NULL),
+(176, 4, '16:40:00', '2020-11-24', 42, 100, 'E10', 6, 1, NULL),
+(177, 4, '16:40:00', '2020-11-24', 42, 100, 'E11', 6, 1, NULL),
+(178, 4, '19:00:00', '2020-11-25', 36, 101, 'G10', 5, 1, NULL),
+(179, 4, '19:00:00', '2020-11-25', 36, 101, 'G11', 5, 1, NULL),
+(180, 4, '19:00:00', '2020-11-25', 36, 101, 'G14', 5, 1, NULL),
+(181, 4, '19:00:00', '2020-11-25', 36, 101, 'G15', 5, 1, NULL),
+(182, 4, '19:00:00', '2020-11-25', 36, 101, 'G18', 5, 1, NULL),
+(183, 4, '19:00:00', '2020-11-25', 43, 102, 'J6', 5, 1, NULL),
+(184, 4, '19:00:00', '2020-11-25', 43, 102, 'J7', 5, 1, NULL),
+(185, 4, '19:00:00', '2020-11-25', 43, 102, 'J8', 5, 1, NULL),
+(186, 4, '19:00:00', '2020-11-25', 43, 102, 'J9', 5, 1, NULL),
+(187, 2, '16:00:00', '2020-11-25', 44, 103, 'I8', 5, 4, NULL),
+(188, 4, '19:00:00', '2020-11-25', 45, 104, 'D3', 1, 1, NULL),
+(189, 4, '19:00:00', '2020-11-25', 45, 104, 'C1', 1, 1, NULL),
+(190, 4, '19:00:00', '2020-11-25', 45, 104, 'C2', 1, 1, NULL),
+(191, 4, '19:00:00', '2020-11-25', 45, 105, 'F5', 1, 1, NULL),
+(192, 4, '19:00:00', '2020-11-25', 45, 105, 'E1', 1, 1, NULL),
+(193, 4, '19:00:00', '2020-11-25', 45, 105, 'E2', 1, 1, NULL),
+(194, 4, '19:00:00', '2020-11-27', 46, 106, 'G10', 6, 1, NULL),
+(195, 4, '19:00:00', '2020-11-27', 46, 106, 'G11', 6, 1, NULL),
+(200, 4, '19:00:00', '2020-11-27', 47, 109, 'G3', 2, 1, NULL),
+(201, 4, '19:00:00', '2020-11-27', 47, 109, 'G4', 2, 1, NULL),
+(202, 4, '21:10:00', '2020-11-29', 48, 110, 'J1', 5, 2, NULL),
+(203, 4, '21:10:00', '2020-11-29', 48, 110, 'J2', 5, 2, NULL),
+(204, 4, '21:10:00', '2020-11-29', 48, 110, 'J3', 5, 2, NULL),
+(205, 3, '20:30:00', '2020-12-01', 49, 111, 'H3', 1, 4, NULL),
+(206, 3, '20:30:00', '2020-12-01', 49, 111, 'H4', 1, 4, NULL),
+(207, 3, '20:30:00', '2020-12-01', 49, 111, 'H5', 1, 4, NULL),
+(210, 3, '19:30:00', '2020-12-14', NULL, 115, 'C10', 4, 9, 1),
+(211, 3, '19:30:00', '2020-12-14', NULL, 115, 'C11', 4, 9, 1),
+(212, 3, '19:30:00', '2020-12-14', NULL, 115, 'B12', 4, 9, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_relaciona_compras`
+-- Estrutura da tabela `tbl_relaciona_compras`
 --
 
 CREATE TABLE `tbl_relaciona_compras` (
@@ -13675,30 +14872,93 @@ CREATE TABLE `tbl_relaciona_compras` (
   `data_filme` date DEFAULT NULL,
   `hora_filme` time DEFAULT NULL,
   `id_cliente` int(11) DEFAULT NULL,
-  `quantidade_produto` int(11) DEFAULT NULL
+  `quantidade_produto` int(11) DEFAULT NULL,
+  `id_sala` int(11) DEFAULT NULL,
+  `id_cidade` int(11) DEFAULT NULL,
+  `id_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_relaciona_compras`
+-- Extraindo dados da tabela `tbl_relaciona_compras`
 --
 
-INSERT INTO `tbl_relaciona_compras` (`id`, `id_produto`, `id_compra`, `valor_produto`, `id_filme`, `data_filme`, `hora_filme`, `id_cliente`, `quantidade_produto`) VALUES
-(1, 7, 9, 5.8, NULL, NULL, NULL, 1, 1),
-(2, 5, 1, 6, NULL, NULL, NULL, 1, 1),
-(3, 252525, 2, 19, 1, '2020-10-29', '15:00:00', 1, 2),
-(4, 252526, 3, 9.5, 1, '2020-10-29', '15:00:00', 1, 3),
-(5, 4, 4, 13, NULL, NULL, NULL, 1, 2),
-(6, 7, 10, 5.8, NULL, NULL, NULL, 1, 1),
-(7, 5, 10, 6, NULL, NULL, NULL, 1, 1),
-(8, 252525, 10, 19, 1, '2020-10-29', '15:00:00', 1, 2),
-(9, 252526, 10, 9.5, 1, '2020-10-29', '15:00:00', 1, 3),
-(10, 4, 10, 13, NULL, NULL, NULL, 1, 2),
-(11, 252525, 11, 30, 2, '2020-10-30', '17:30:00', 1, 1);
+INSERT INTO `tbl_relaciona_compras` (`id`, `id_produto`, `id_compra`, `valor_produto`, `id_filme`, `data_filme`, `hora_filme`, `id_cliente`, `quantidade_produto`, `id_sala`, `id_cidade`, `id_usuario`) VALUES
+(12, 252526, 12, 15, 2, '2020-11-06', '20:30:00', 2, 2, 3, 2, NULL),
+(13, 252525, 14, 30, 2, '2020-11-06', '19:00:00', 3, 2, 4, 5, NULL),
+(14, 252525, 15, 30, 2, '2020-11-08', '19:00:00', 3, 2, 4, 5, NULL),
+(15, 252525, 16, 30, 2, '2020-11-06', '20:30:00', 4, 2, 3, 5, NULL),
+(16, 252525, 17, 30, 2, '2020-11-06', '20:30:00', 4, 2, 3, 4, NULL),
+(17, 3, 17, 25, NULL, NULL, NULL, 4, 1, NULL, 4, NULL),
+(18, 7, 17, 7, NULL, NULL, NULL, 4, 1, NULL, 4, NULL),
+(20, 252525, 19, 30, 2, '2020-11-07', '17:30:00', 6, 2, 3, 5, NULL),
+(21, 252525, 20, 30, 2, '2020-11-06', '17:30:00', 6, 2, 3, 5, NULL),
+(22, 252525, 21, 30, 2, '2020-11-07', '17:30:00', 7, 2, 3, 5, NULL),
+(23, 252525, 22, 30, 2, '2020-11-07', '17:30:00', 7, 2, 3, 5, NULL),
+(24, 252525, 23, 30, 2, '2020-11-06', '20:30:00', 4, 2, 3, 5, NULL),
+(25, 252525, 24, 30, 2, '2020-11-07', '20:30:00', 8, 2, 3, 5, NULL),
+(26, 252525, 25, 30, 2, '2020-11-07', '17:30:00', 7, 2, 3, 5, NULL),
+(27, 252525, 26, 30, 2, '2020-11-07', '17:30:00', 7, 2, 3, 5, NULL),
+(28, 252525, 27, 30, 2, '2020-11-07', '17:30:00', 7, 2, 3, 5, NULL),
+(29, 252525, 28, 30, 2, '2020-11-07', '19:00:00', 9, 1, 4, 1, NULL),
+(30, 252526, 28, 15, 2, '2020-11-07', '19:00:00', 9, 2, 4, 1, NULL),
+(31, 252525, 29, 30, 2, '2020-11-07', '19:00:00', 9, 1, 4, 1, NULL),
+(32, 252526, 29, 15, 2, '2020-11-07', '19:00:00', 9, 2, 4, 1, NULL),
+(33, 252525, 30, 30, 2, '2020-11-07', '19:00:00', 9, 1, 4, 1, NULL),
+(34, 252525, 31, 30, 2, '2020-11-07', '19:00:00', 10, 2, 4, 1, NULL),
+(35, 252525, 32, 30, 2, '2020-11-07', '19:00:00', 10, 2, 4, 1, NULL),
+(36, 252525, 33, 30, 2, '2020-11-07', '20:30:00', 11, 2, 3, 5, NULL),
+(37, 252525, 34, 30, 2, '2020-11-07', '20:30:00', 12, 2, 3, 5, NULL),
+(38, 252525, 35, 30, 2, '2020-11-08', '19:00:00', 13, 1, 4, 5, NULL),
+(39, 252526, 35, 15, 2, '2020-11-08', '19:00:00', 13, 1, 4, 5, NULL),
+(40, 252525, 36, 30, 2, '2020-11-08', '19:00:00', 13, 1, 4, 5, NULL),
+(41, 252526, 36, 15, 2, '2020-11-08', '19:00:00', 13, 1, 4, 5, NULL),
+(42, 252525, 37, 30, 2, '2020-11-08', '20:30:00', 14, 2, 1, 5, NULL),
+(43, 252525, 38, 30, 2, '2020-11-08', '20:30:00', 14, 2, 1, 5, NULL),
+(44, 252525, 39, 30, 2, '2020-11-08', '20:30:00', 14, 2, 1, 5, NULL),
+(45, 252525, 40, 30, 2, '2020-11-08', '20:30:00', 15, 2, 1, 5, NULL),
+(46, 252525, 41, 30, 2, '2020-11-08', '20:30:00', 14, 2, 1, 5, NULL),
+(79, 252525, 75, 30, 3, '2020-11-13', '18:00:00', 26, 2, 1, 5, NULL),
+(82, 252525, 79, 30, 3, '2020-11-14', '20:00:00', 27, 6, 9, 4, NULL),
+(83, 252525, 81, 30, 3, '2020-11-14', '20:00:00', 27, 6, 9, 4, NULL),
+(84, 252525, 83, 30, 2, '2020-11-14', '20:30:00', 28, 1, 1, 1, NULL),
+(85, 252526, 83, 15, 2, '2020-11-14', '20:30:00', 28, 1, 1, 1, NULL),
+(86, 252525, 84, 30, 3, '2020-11-15', '20:30:00', 29, 2, 6, 5, NULL),
+(87, 252526, 84, 15, 3, '2020-11-15', '20:30:00', 29, 1, 6, 5, NULL),
+(88, 252525, 85, 30, 4, '2020-11-19', '21:10:00', 30, 2, 2, 5, NULL),
+(89, 252525, 86, 30, 4, '2020-11-22', '19:00:00', 31, 2, 1, 6, NULL),
+(90, 252525, 87, 30, 2, '2020-11-20', '16:00:00', 32, 1, 4, 5, NULL),
+(91, 252525, 88, 30, 2, '2020-11-20', '16:00:00', 33, 3, 4, 5, NULL),
+(92, 252525, 89, 30, 2, '2020-11-20', '16:00:00', 33, 3, 4, 5, NULL),
+(93, 252525, 90, 30, 3, '2020-11-20', '20:50:00', 34, 2, 5, 5, NULL),
+(94, 252526, 90, 15, 3, '2020-11-20', '20:50:00', 34, 2, 5, 5, NULL),
+(95, 252525, 91, 30, 4, '2020-11-22', '19:00:00', 35, 2, 1, 6, NULL),
+(96, 252525, 92, 15, 4, '2020-11-25', '19:00:00', 36, 6, 1, 5, NULL),
+(97, 252525, 93, 15, 4, '2020-11-25', '19:00:00', 37, 2, 1, 6, NULL),
+(98, 252525, 94, 15, 4, '2020-11-25', '19:00:00', 36, 6, 1, 5, NULL),
+(99, 252525, 95, 20, 2, '2020-11-24', '16:00:00', 38, 3, 4, 1, NULL),
+(100, 252525, 96, 20, 3, '2020-11-24', '20:50:00', 39, 4, 5, 5, NULL),
+(101, 252525, 97, 15, 3, '2020-11-25', '20:50:00', 40, 4, 5, 5, NULL),
+(102, 252525, 98, 15, 4, '2020-11-25', '19:00:00', 41, 1, 1, 6, NULL),
+(103, 252526, 98, 15, 4, '2020-11-25', '19:00:00', 41, 1, 1, 6, NULL),
+(104, 252526, 99, 10, 4, '2020-11-24', '16:40:00', 42, 2, 1, 6, NULL),
+(105, 252526, 100, 10, 4, '2020-11-24', '16:40:00', 42, 2, 1, 6, NULL),
+(106, 252525, 101, 15, 4, '2020-11-25', '19:00:00', 36, 5, 1, 5, NULL),
+(107, 252525, 102, 15, 4, '2020-11-25', '19:00:00', 43, 4, 1, 5, NULL),
+(108, 252525, 103, 15, 2, '2020-11-25', '16:00:00', 44, 1, 4, 5, NULL),
+(109, 252526, 104, 15, 4, '2020-11-25', '19:00:00', 45, 3, 1, 1, NULL),
+(110, 252526, 105, 15, 4, '2020-11-25', '19:00:00', 45, 3, 1, 1, NULL),
+(111, 252526, 106, 15, 4, '2020-11-27', '19:00:00', 46, 2, 1, 6, NULL),
+(114, 252525, 109, 30, 4, '2020-11-27', '19:00:00', 47, 2, 1, 2, NULL),
+(115, 252526, 110, 15, 4, '2020-11-29', '21:10:00', 48, 3, 2, 5, NULL),
+(116, 252525, 111, 20, 3, '2020-12-01', '20:30:00', 49, 1, 4, 1, NULL),
+(117, 252526, 111, 10, 3, '2020-12-01', '20:30:00', 49, 2, 4, 1, NULL),
+(120, 252525, 115, 30, 3, '2020-12-14', '19:30:00', NULL, 2, 9, 4, 1),
+(121, 252526, 115, 15, 3, '2020-12-14', '19:30:00', NULL, 1, 9, 4, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_sala`
+-- Estrutura da tabela `tbl_sala`
 --
 
 CREATE TABLE `tbl_sala` (
@@ -13708,7 +14968,7 @@ CREATE TABLE `tbl_sala` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_sala`
+-- Extraindo dados da tabela `tbl_sala`
 --
 
 INSERT INTO `tbl_sala` (`id`, `titulo`, `id_cidade`) VALUES
@@ -13718,12 +14978,16 @@ INSERT INTO `tbl_sala` (`id`, `titulo`, `id_cidade`) VALUES
 (4, 'SALA 2', 1),
 (5, 'SALA 2', 2),
 (6, 'SALA 1', 5),
-(7, 'SALA 2', 5);
+(7, 'SALA 2', 5),
+(8, 'SALA 2', 4),
+(9, 'SALA 3', 4),
+(10, 'SALA 1', 6),
+(11, 'SALA 2', 6);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_servicos`
+-- Estrutura da tabela `tbl_servicos`
 --
 
 CREATE TABLE `tbl_servicos` (
@@ -13740,7 +15004,7 @@ CREATE TABLE `tbl_servicos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_sliders`
+-- Estrutura da tabela `tbl_sliders`
 --
 
 CREATE TABLE `tbl_sliders` (
@@ -13757,17 +15021,19 @@ CREATE TABLE `tbl_sliders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_sliders`
+-- Extraindo dados da tabela `tbl_sliders`
 --
 
 INSERT INTO `tbl_sliders` (`id`, `foto`, `titulo1`, `titulo2`, `breve`, `tem_botao`, `nome_botao`, `link_botao`, `lado_texto`, `tem_titulo2`) VALUES
-(3, '1602790142.3744-foto-N.jpg', 'Nós servimos Vegetais e Frutas Frescas', 'Nós entregamos vegetais e frutas orgânicas', NULL, 'S', 'Veja Mais', 'produtos', NULL, 'S'),
-(4, '1602790186.9182-foto-N.jpg', 'Comidas 100% Frescas e Orgânicas', 'Nós entregamos vegetais e frutas orgânicas', NULL, 'S', 'Veja Mais', 'produtos', NULL, 'S');
+(5, '1606947244.1177-foto-N.png', '', '', NULL, 'N', '', '', NULL, 'S'),
+(12, '1606947482.9873-foto-N.png', 'CONVENÇÃO DAS BRUXAS', '', NULL, 'N', '', '', NULL, 'S'),
+(13, '1606947601.3693-foto-N.jpg', 'DESTRUIÇÃO FINAL ULTIMO REFUGIO', '', NULL, 'N', '', '', NULL, 'S'),
+(14, '1606947159.9471-foto-N.png', 'MM1984', '', NULL, 'N', '', '', NULL, 'S');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_testemunhos`
+-- Estrutura da tabela `tbl_testemunhos`
 --
 
 CREATE TABLE `tbl_testemunhos` (
@@ -13779,7 +15045,7 @@ CREATE TABLE `tbl_testemunhos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_testemunhos`
+-- Extraindo dados da tabela `tbl_testemunhos`
 --
 
 INSERT INTO `tbl_testemunhos` (`id`, `nome`, `testemunho`, `foto`, `sexo`) VALUES
@@ -13791,7 +15057,7 @@ INSERT INTO `tbl_testemunhos` (`id`, `nome`, `testemunho`, `foto`, `sexo`) VALUE
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_textos`
+-- Estrutura da tabela `tbl_textos`
 --
 
 CREATE TABLE `tbl_textos` (
@@ -13806,7 +15072,7 @@ CREATE TABLE `tbl_textos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_textos`
+-- Extraindo dados da tabela `tbl_textos`
 --
 
 INSERT INTO `tbl_textos` (`id`, `titulo`, `descricao`, `texto`, `foto`, `meta_title`, `meta_keywords`, `meta_description`) VALUES
@@ -13816,7 +15082,7 @@ INSERT INTO `tbl_textos` (`id`, `titulo`, `descricao`, `texto`, `foto`, `meta_ti
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_tratamentos`
+-- Estrutura da tabela `tbl_tratamentos`
 --
 
 CREATE TABLE `tbl_tratamentos` (
@@ -13832,7 +15098,7 @@ CREATE TABLE `tbl_tratamentos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_usuarios`
+-- Estrutura da tabela `tbl_usuarios`
 --
 
 CREATE TABLE `tbl_usuarios` (
@@ -13861,233 +15127,241 @@ CREATE TABLE `tbl_usuarios` (
   `admin_geral` varchar(2) DEFAULT NULL,
   `data_frase` date DEFAULT NULL,
   `id_frase` int(11) DEFAULT NULL,
-  `frase_lida` varchar(2) DEFAULT NULL
+  `frase_lida` varchar(2) DEFAULT NULL,
+  `perm_compras` varchar(3) DEFAULT NULL,
+  `perm_baixar_cadeira` varchar(3) DEFAULT NULL,
+  `perm_filmes` varchar(3) DEFAULT NULL,
+  `perm_produtos` varchar(3) DEFAULT NULL,
+  `perm_clientes` varchar(3) DEFAULT NULL,
+  `perm_banner` varchar(3) DEFAULT NULL,
+  `perm_texto` varchar(3) DEFAULT NULL,
+  `perm_config` varchar(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tbl_usuarios`
+-- Extraindo dados da tabela `tbl_usuarios`
 --
 
-INSERT INTO `tbl_usuarios` (`id`, `nome`, `email`, `telefone`, `endereco`, `cpf`, `login`, `senha`, `foto`, `id_cargo`, `sexo`, `perm_cad_usuario`, `perm_relatorio`, `perm_add_usuario`, `perm_edit_usuario`, `perm_del_usuario`, `perm_cad_contato`, `perm_edit_contato`, `perm_del_contato`, `perm_edit_contato_nf`, `perm_pag_principal_rm`, `perm_pag_principal_uc`, `admin_geral`, `data_frase`, `id_frase`, `frase_lida`) VALUES
-(1, 'Administrador', 'adm@adm.com', NULL, NULL, NULL, 'admin', '1234', NULL, NULL, 'M', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', NULL, '2020-10-30', 7, 'N'),
-(2, 'teste', 'teste@teste.com.br', '', '', '', NULL, '123', NULL, 1, 'M', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', NULL, NULL, NULL, NULL);
+INSERT INTO `tbl_usuarios` (`id`, `nome`, `email`, `telefone`, `endereco`, `cpf`, `login`, `senha`, `foto`, `id_cargo`, `sexo`, `perm_cad_usuario`, `perm_relatorio`, `perm_add_usuario`, `perm_edit_usuario`, `perm_del_usuario`, `perm_cad_contato`, `perm_edit_contato`, `perm_del_contato`, `perm_edit_contato_nf`, `perm_pag_principal_rm`, `perm_pag_principal_uc`, `admin_geral`, `data_frase`, `id_frase`, `frase_lida`, `perm_compras`, `perm_baixar_cadeira`, `perm_filmes`, `perm_produtos`, `perm_clientes`, `perm_banner`, `perm_texto`, `perm_config`) VALUES
+(1, 'Administrador', 'adm@adm.com', '', '', '', NULL, '1234', '', NULL, 'M', 'S', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-12-13', 26, 'N', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S'),
+(3, 'Paula', 'premierhenkes@gmail.com', '', '', '', NULL, 'cinema2020', NULL, 3, 'F', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-12-08', 41, 'N', '0', '0', '0', '0', '0', '0', '0', '0');
 
 --
--- Índices de tabelas apagadas
+-- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `contadores_paginas`
+-- Índices para tabela `contadores_paginas`
 --
 ALTER TABLE `contadores_paginas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `dados_cidades`
+-- Índices para tabela `dados_cidades`
 --
 ALTER TABLE `dados_cidades`
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Índices de tabela `tbl_blog`
+-- Índices para tabela `tbl_blog`
 --
 ALTER TABLE `tbl_blog`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_campanha`
+-- Índices para tabela `tbl_campanha`
 --
 ALTER TABLE `tbl_campanha`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_cargo`
+-- Índices para tabela `tbl_cargo`
 --
 ALTER TABLE `tbl_cargo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_categoria`
+-- Índices para tabela `tbl_categoria`
 --
 ALTER TABLE `tbl_categoria`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_cat_servicos`
+-- Índices para tabela `tbl_cat_servicos`
 --
 ALTER TABLE `tbl_cat_servicos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_cidades`
+-- Índices para tabela `tbl_cidades`
 --
 ALTER TABLE `tbl_cidades`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_classe_indicativa`
+-- Índices para tabela `tbl_classe_indicativa`
 --
 ALTER TABLE `tbl_classe_indicativa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_cliente`
+-- Índices para tabela `tbl_cliente`
 --
 ALTER TABLE `tbl_cliente`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_compras`
+-- Índices para tabela `tbl_compras`
 --
 ALTER TABLE `tbl_compras`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_config`
+-- Índices para tabela `tbl_config`
 --
 ALTER TABLE `tbl_config`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_contato`
+-- Índices para tabela `tbl_contato`
 --
 ALTER TABLE `tbl_contato`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_convenios`
+-- Índices para tabela `tbl_convenios`
 --
 ALTER TABLE `tbl_convenios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_doutores`
+-- Índices para tabela `tbl_doutores`
 --
 ALTER TABLE `tbl_doutores`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_especialidades`
+-- Índices para tabela `tbl_especialidades`
 --
 ALTER TABLE `tbl_especialidades`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_exames`
+-- Índices para tabela `tbl_exames`
 --
 ALTER TABLE `tbl_exames`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_filmes`
+-- Índices para tabela `tbl_filmes`
 --
 ALTER TABLE `tbl_filmes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_frases`
+-- Índices para tabela `tbl_frases`
 --
 ALTER TABLE `tbl_frases`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_historicos`
+-- Índices para tabela `tbl_historicos`
 --
 ALTER TABLE `tbl_historicos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_metas_tags`
+-- Índices para tabela `tbl_metas_tags`
 --
 ALTER TABLE `tbl_metas_tags`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_parceiro`
+-- Índices para tabela `tbl_parceiro`
 --
 ALTER TABLE `tbl_parceiro`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_planos`
+-- Índices para tabela `tbl_planos`
 --
 ALTER TABLE `tbl_planos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_procedimentos`
+-- Índices para tabela `tbl_procedimentos`
 --
 ALTER TABLE `tbl_procedimentos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_produto`
+-- Índices para tabela `tbl_produto`
 --
 ALTER TABLE `tbl_produto`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_programacao_filmes`
+-- Índices para tabela `tbl_programacao_filmes`
 --
 ALTER TABLE `tbl_programacao_filmes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_relaciona_cadeiras`
+-- Índices para tabela `tbl_relaciona_cadeiras`
 --
 ALTER TABLE `tbl_relaciona_cadeiras`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_relaciona_compras`
+-- Índices para tabela `tbl_relaciona_compras`
 --
 ALTER TABLE `tbl_relaciona_compras`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_sala`
+-- Índices para tabela `tbl_sala`
 --
 ALTER TABLE `tbl_sala`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_servicos`
+-- Índices para tabela `tbl_servicos`
 --
 ALTER TABLE `tbl_servicos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_sliders`
+-- Índices para tabela `tbl_sliders`
 --
 ALTER TABLE `tbl_sliders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_testemunhos`
+-- Índices para tabela `tbl_testemunhos`
 --
 ALTER TABLE `tbl_testemunhos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_textos`
+-- Índices para tabela `tbl_textos`
 --
 ALTER TABLE `tbl_textos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_tratamentos`
+-- Índices para tabela `tbl_tratamentos`
 --
 ALTER TABLE `tbl_tratamentos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tbl_usuarios`
+-- Índices para tabela `tbl_usuarios`
 --
 ALTER TABLE `tbl_usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas apagadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
@@ -14136,7 +15410,7 @@ ALTER TABLE `tbl_cat_servicos`
 -- AUTO_INCREMENT de tabela `tbl_cidades`
 --
 ALTER TABLE `tbl_cidades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_classe_indicativa`
@@ -14148,13 +15422,13 @@ ALTER TABLE `tbl_classe_indicativa`
 -- AUTO_INCREMENT de tabela `tbl_cliente`
 --
 ALTER TABLE `tbl_cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_compras`
 --
 ALTER TABLE `tbl_compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_config`
@@ -14196,7 +15470,7 @@ ALTER TABLE `tbl_exames`
 -- AUTO_INCREMENT de tabela `tbl_filmes`
 --
 ALTER TABLE `tbl_filmes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_frases`
@@ -14244,25 +15518,25 @@ ALTER TABLE `tbl_produto`
 -- AUTO_INCREMENT de tabela `tbl_programacao_filmes`
 --
 ALTER TABLE `tbl_programacao_filmes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1022;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_relaciona_cadeiras`
 --
 ALTER TABLE `tbl_relaciona_cadeiras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_relaciona_compras`
 --
 ALTER TABLE `tbl_relaciona_compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_sala`
 --
 ALTER TABLE `tbl_sala`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_servicos`
@@ -14274,7 +15548,7 @@ ALTER TABLE `tbl_servicos`
 -- AUTO_INCREMENT de tabela `tbl_sliders`
 --
 ALTER TABLE `tbl_sliders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_testemunhos`
@@ -14298,7 +15572,7 @@ ALTER TABLE `tbl_tratamentos`
 -- AUTO_INCREMENT de tabela `tbl_usuarios`
 --
 ALTER TABLE `tbl_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
