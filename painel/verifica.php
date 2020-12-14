@@ -43,9 +43,6 @@ $compras = Compras::getInstance(Conexao::getInstance());
 include "../Class/salas.class.php";
 $salas = Salas::getInstance(Conexao::getInstance());
 
-include "../Class/textos.class.php";
-$textos = Textos::getInstance(Conexao::getInstance());
-
 $verificaRestrito->restritoAdmin();
 $dadosUsuarioLogado = $verificaRestrito->rsDados($_SESSION['dadosLogado']->id);
 

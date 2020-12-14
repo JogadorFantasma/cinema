@@ -65,7 +65,12 @@ $puxaCompras = $compras->rsDados();
                                             <?php 
                                             if(count($puxaCompras) > 0){
                                             foreach($puxaCompras as $compra){
+                                                if(isset($compra->id_cliente) && !empty($compra->id_cliente)){
                                                 $nomeCliente = $clientes->rsDados($compra->id_cliente);
+                                                }
+                                                if(isset($compra->id_usuario) && !empty($compra->id_usuario)){
+                                                    $nomeUsuario = $usuarios->rsDados($compra->id_usuario);
+                                                    }
                                                 $puxaItensCompras = $compras->rsDadosItens('', '', '', $compra->id);
                                                 
                                                 ?>
@@ -93,7 +98,12 @@ $puxaCompras = $compras->rsDados();
                                                         ?>
                                                 </td>
                                                 <td><small><?php echo formataData($compra->data_transacao);?> - <?php echo substr($compra->hora_transacao,0,5);?></small></td>
+                                                <?php if(isset($compra->id_cliente) && !empty($compra->id_cliente)){?>
                                                 <td><small><?php echo $nomeCliente->nome;?> - <?php echo $nomeCliente->telefone;?> - <?php echo $nomeCliente->cpf;?></small></td>
+                                                <?php }?>
+                                                <?php if(isset($compra->id_usuario) && !empty($compra->id_usuario)){?>
+                                                <td><small>Usuáriio do sistema: <?php echo $nomeUsuario->nome;?></small></td>
+                                                <?php }?>
                                                 <td>R$ <?php echo number_format($compra->valor,2,',','.');?></td>
                                                 <td><?php echo exibe_status_compra($compra->status_compra);?></td>
                                               

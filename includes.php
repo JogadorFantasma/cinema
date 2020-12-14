@@ -1,9 +1,10 @@
 <?php 
 @session_start();
 ///Aqui fica a session cidade
-if(!isset($_SESSION['id_cidade'])){
+/* if(!isset($_SESSION['id_cidade'])){
     $_SESSION['id_cidade'] = 4;
-}
+} */
+//session_destroy();
 if(isset($_GET['select_cidade']) && !empty($_GET['select_cidade'])){
     $_SESSION['id_cidade'] = $_GET['select_cidade'];
 }
@@ -40,7 +41,7 @@ include "Class/salas.class.php";
 $salas = Salas::getInstance(Conexao::getInstance());
 
 
-define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST'].'/projects/cinema');
+define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST']."/cinema");
 
 $produtos_id = array();
 //session_destroy();

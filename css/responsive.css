@@ -136,6 +136,7 @@
 		display: block;
 	}
 	.slider-area {
+		display: none;
 		padding: 90px 0;
 		background-position-x: -220px;
 	}
@@ -176,7 +177,6 @@
 	.show-ticket-area .ticket-form .contact-details form fieldset .connected-area i{
 		display: none;
 	}
-
 	#mostraCidade{margin: 0 22px 24px !important;}
 }
  
@@ -250,6 +250,7 @@
 	.single-movie-show-area .single-movie-show .movie-details .video iframe {
 		height:300px;
 	}
+	.slider-area{ display: none !important;}
 }
 
 /* Custom, iPhone Retina */

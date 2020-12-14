@@ -149,6 +149,13 @@ $editaConfig = $infoSistema->rsDados(1);
                                             <input class="form-control" type="text" name="merchant_key_cielo" value="<?php if(isset($editaConfig->merchant_key_cielo) && !empty($editaConfig->merchant_key_cielo)){ echo $editaConfig->merchant_key_cielo;}?>" />
                                             </div>
                                         </div>
+                                        <div class="form-group row">
+                                            <div class="col-md-3 col-sm-12">
+                                            <label  class="col-form-label">Porcentagem Cartão - <small>Somente número.</small></label>
+                                            <input class="form-control" type="text" name="porcentagem_cartao" value="<?php if(isset($editaConfig->porcentagem_cartao) && !empty($editaConfig->porcentagem_cartao)){ echo $editaConfig->porcentagem_cartao;}?>" />
+                                            </div> 
+                                            
+                                        </div>
                                     </div>
                                     <div class="form-actions">
                                         <div class="text-right">

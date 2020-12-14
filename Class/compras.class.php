@@ -332,6 +332,101 @@ if(empty($ComprasInstanciada)) {
 
 			
 		}
+
+		function addBaixa() {
+			if(isset($_POST['acao']) && $_POST['acao'] == 'addBaixa') {
+
+				
+				
+				$quantidade_ingresso_inteira = filter_input(INPUT_POST, 'quantidade_ingresso_inteira', FILTER_SANITIZE_STRING);
+				$quantidade_ingresso_meia = filter_input(INPUT_POST, 'quantidade_ingresso_meia', FILTER_SANITIZE_STRING);
+				$url_filme = filter_input(INPUT_POST, 'url_filme', FILTER_SANITIZE_STRING);
+				$id_filme = filter_input(INPUT_POST, 'id_filme', FILTER_SANITIZE_STRING);
+				$data_filme = filter_input(INPUT_POST, 'data_filme', FILTER_SANITIZE_STRING);
+				$hora_filme = filter_input(INPUT_POST, 'hora_filme', FILTER_SANITIZE_STRING);
+				$id_sala = filter_input(INPUT_POST, 'id_sala', FILTER_SANITIZE_STRING);
+				$id_cidade = filter_input(INPUT_POST, 'id_cidade', FILTER_SANITIZE_STRING);
+				$valor_inteira = filter_input(INPUT_POST, 'valor_inteira', FILTER_SANITIZE_STRING);
+				$valor_meia = filter_input(INPUT_POST, 'valor_meia', FILTER_SANITIZE_STRING);
+				$id_usuario = filter_input(INPUT_POST, 'id_usuario', FILTER_SANITIZE_STRING);
+				$cadeira = $_POST['cadeira'];
+				$data_transacao = date('Y-m-d');
+				$hora_transacao = date('H:i:s');
+				$somaQuantidade = $quantidade_ingresso_inteira + $quantidade_ingresso_meia;
+				$valorInteira = $quantidade_ingresso_inteira * $valor_inteira;
+				$valorMeia = $quantidade_ingresso_meia * $valor_meia;
+
+				$valor = $valor_inteira + $valor_meia;
+				if($somaQuantidade != count($cadeira)){
+					echo "<script>alert('A quantidade de ingressos não corresponde a quantidade selecionada');history.back();</script>";
+					exit;
+				}
+				//var_dump($_POST); exit;
+				
+				$sql = "INSERT INTO tbl_compras (id_usuario, valor, data_transacao, hora_transacao, id_cidade, status_compra) VALUES (?, ?, ?, ?, ?, ?)";   
+				$stm = $this->pdo->prepare($sql);   
+				$stm->bindValue(1, $id_usuario);
+	$stm->bindValue(2, valorCalculavel($valor));
+	$stm->bindValue(3, $data_transacao);
+	$stm->bindValue(4, $hora_transacao);
+	$stm->bindValue(5, $id_cidade);
+	$stm->bindValue(6, 'BCP');
+				$stm->execute(); 
+				$idCompra = $this->pdo->lastInsertId();
+
+				if(count($quantidade_ingresso_inteira) > 0){
+					$sql = "INSERT INTO tbl_relaciona_compras (id_produto, id_compra, valor_produto, id_filme, data_filme, hora_filme, id_usuario, quantidade_produto, id_sala, id_cidade) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
+				$stm = $this->pdo->prepare($sql);   
+				$stm->bindValue(1, 252525);
+	$stm->bindValue(2, $idCompra);
+	$stm->bindValue(3, valorCalculavel($valor_inteira));
+	$stm->bindValue(4, $id_filme);
+	$stm->bindValue(5, $data_filme);
+	$stm->bindValue(6, $hora_filme);
+	$stm->bindValue(7, $id_usuario);
+	$stm->bindValue(8, $quantidade_ingresso_inteira);
+	$stm->bindValue(9, $id_sala);
+	$stm->bindValue(10, $id_cidade);
+				$stm->execute(); 
+				}
+				if(count($quantidade_ingresso_meia) > 0){
+					$sql = "INSERT INTO tbl_relaciona_compras (id_produto, id_compra, valor_produto, id_filme, data_filme, hora_filme, id_usuario, quantidade_produto, id_sala, id_cidade) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
+				$stm = $this->pdo->prepare($sql);   
+				$stm->bindValue(1, 252526);
+	$stm->bindValue(2, $idCompra);
+	$stm->bindValue(3, valorCalculavel($valor_meia));
+	$stm->bindValue(4, $id_filme);
+	$stm->bindValue(5, $data_filme);
+	$stm->bindValue(6, $hora_filme);
+	$stm->bindValue(7, $id_usuario);
+	$stm->bindValue(8, $quantidade_ingresso_meia);
+	$stm->bindValue(9, $id_sala);
+	$stm->bindValue(10, $id_cidade);
+				$stm->execute(); 
+				}
+
+	for($i=0;$i<count($cadeira);$i++){
+		$sql = "INSERT INTO tbl_relaciona_cadeiras (id_compra, id_filme, data_filme, hora_filme, id_usuario, assento, id_cidade, id_sala) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";   
+				$stm = $this->pdo->prepare($sql);   
+				$stm->bindValue(1, $idCompra);
+	$stm->bindValue(2, $id_filme);
+	$stm->bindValue(3, $data_filme);
+	$stm->bindValue(4, $hora_filme);
+	$stm->bindValue(5, $id_usuario);
+	$stm->bindValue(6, $_POST['cadeira'][$i]);
+	$stm->bindValue(7, $id_cidade);
+	$stm->bindValue(8, $id_sala);
+				$stm->execute(); 
+
+	}
+
+					echo "	<script>
+								window.location='compras.php';
+								</script>";
+								exit;
+				
+			}
+		}
 	}
 	
 	$ComprasInstanciada = 'S';

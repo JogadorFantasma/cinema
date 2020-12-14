@@ -223,6 +223,14 @@ if(empty($AcessoInstanciada)) {
 				$perm_pag_principal_rm = filter_input(INPUT_POST, 'perm_pag_principal_rm', FILTER_SANITIZE_STRING);
 				$perm_pag_principal_uc = filter_input(INPUT_POST, 'perm_pag_principal_uc', FILTER_SANITIZE_STRING);
 				$sexo = filter_input(INPUT_POST, 'sexo', FILTER_SANITIZE_STRING);
+				$perm_compras = filter_input(INPUT_POST, 'perm_compras', FILTER_SANITIZE_STRING);
+				$perm_baixar_cadeira = filter_input(INPUT_POST, 'perm_baixar_cadeira', FILTER_SANITIZE_STRING);
+				$perm_filmes = filter_input(INPUT_POST, 'perm_filmes', FILTER_SANITIZE_STRING);
+				$perm_produtos = filter_input(INPUT_POST, 'perm_produtos', FILTER_SANITIZE_STRING);
+				$perm_clientes = filter_input(INPUT_POST, 'perm_clientes', FILTER_SANITIZE_STRING);
+				$perm_banner = filter_input(INPUT_POST, 'perm_banner', FILTER_SANITIZE_STRING);
+				$perm_texto = filter_input(INPUT_POST, 'perm_texto', FILTER_SANITIZE_STRING);
+				$perm_config = filter_input(INPUT_POST, 'perm_config', FILTER_SANITIZE_STRING);
 				
 				
 				// Verificar se já existe:
@@ -248,7 +256,7 @@ if(empty($AcessoInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 						
-						$sql = "INSERT INTO tbl_usuarios (nome, email, telefone, endereco, cpf, login, senha, foto, id_cargo, perm_cad_usuario, perm_cad_contato, perm_relatorio, perm_add_usuario, perm_edit_usuario, perm_del_usuario, perm_edit_contato, perm_del_contato, perm_edit_contato_nf, perm_pag_principal_rm, perm_pag_principal_uc, sexo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
+						$sql = "INSERT INTO tbl_usuarios (nome, email, telefone, endereco, cpf, login, senha, foto, id_cargo, perm_cad_usuario, perm_cad_contato, perm_relatorio, perm_add_usuario, perm_edit_usuario, perm_del_usuario, perm_edit_contato, perm_del_contato, perm_edit_contato_nf, perm_pag_principal_rm, perm_pag_principal_uc, sexo, perm_compras, perm_baixar_cadeira, perm_filmes, perm_produtos, perm_clientes, perm_banner, perm_texto, perm_config) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, $nome);   
 						$stm->bindValue(2, $email);   
@@ -270,7 +278,15 @@ if(empty($AcessoInstanciada)) {
 						$stm->bindValue(18, $perm_edit_contato_nf);
 						$stm->bindValue(19, $perm_pag_principal_rm);
 						$stm->bindValue(20, $perm_pag_principal_uc);
-						$stm->bindValue(21, $sexo);   
+						$stm->bindValue(21, $sexo);
+						$stm->bindValue(22, $perm_compras);
+						$stm->bindValue(23, $perm_baixar_cadeira);
+						$stm->bindValue(24, $perm_filmes);
+						$stm->bindValue(25, $perm_produtos);
+						$stm->bindValue(26, $perm_clientes);
+						$stm->bindValue(27, $perm_banner);
+						$stm->bindValue(28, $perm_texto);
+						$stm->bindValue(29, $perm_config);   
 						$stm->execute(); 
 						$idConteudo = $this->pdo->lastInsertId();
 						
@@ -313,6 +329,14 @@ if(empty($AcessoInstanciada)) {
 				$perm_pag_principal_rm = filter_input(INPUT_POST, 'perm_pag_principal_rm', FILTER_SANITIZE_STRING);
 				$perm_pag_principal_uc = filter_input(INPUT_POST, 'perm_pag_principal_uc', FILTER_SANITIZE_STRING);
 				$id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
+				$perm_compras = filter_input(INPUT_POST, 'perm_compras', FILTER_SANITIZE_STRING);
+				$perm_baixar_cadeira = filter_input(INPUT_POST, 'perm_baixar_cadeira', FILTER_SANITIZE_STRING);
+				$perm_filmes = filter_input(INPUT_POST, 'perm_filmes', FILTER_SANITIZE_STRING);
+				$perm_produtos = filter_input(INPUT_POST, 'perm_produtos', FILTER_SANITIZE_STRING);
+				$perm_clientes = filter_input(INPUT_POST, 'perm_clientes', FILTER_SANITIZE_STRING);
+				$perm_banner = filter_input(INPUT_POST, 'perm_banner', FILTER_SANITIZE_STRING);
+				$perm_texto = filter_input(INPUT_POST, 'perm_texto', FILTER_SANITIZE_STRING);
+				$perm_config = filter_input(INPUT_POST, 'perm_config', FILTER_SANITIZE_STRING);
 
 				if(file_exists('Connection/conexao.php')) {
 					$pastaArquivos = 'img';
@@ -321,7 +345,7 @@ if(empty($AcessoInstanciada)) {
 				}
 
 				try{   
-					$sql = "UPDATE tbl_usuarios SET nome=?, email=?, telefone=?, endereco=?, cpf=?, login=?, senha=?, id_cargo=?, foto=?, perm_cad_usuario=?, perm_cad_contato=?, perm_relatorio=?, perm_add_usuario=?, perm_edit_usuario=?, perm_del_usuario=?, perm_edit_contato=?, perm_del_contato=?, sexo=?, perm_edit_contato_nf=?, perm_pag_principal_rm=?, perm_pag_principal_uc=? WHERE id=?";   
+					$sql = "UPDATE tbl_usuarios SET nome=?, email=?, telefone=?, endereco=?, cpf=?, login=?, senha=?, id_cargo=?, foto=?, perm_cad_usuario=?, perm_cad_contato=?, perm_relatorio=?, perm_add_usuario=?, perm_edit_usuario=?, perm_del_usuario=?, perm_edit_contato=?, perm_del_contato=?, sexo=?, perm_edit_contato_nf=?, perm_pag_principal_rm=?, perm_pag_principal_uc=?, perm_compras=?, perm_baixar_cadeira=?, perm_filmes=?, perm_produtos=?, perm_clientes=?, perm_banner=?, perm_texto=?, perm_config=? WHERE id=?";   
 					$stm = $this->pdo->prepare($sql);   
 					$stm->bindValue(1, $nome);   
 					$stm->bindValue(2, $email);   
@@ -344,7 +368,15 @@ if(empty($AcessoInstanciada)) {
 					$stm->bindValue(19, $perm_edit_contato_nf);
 					$stm->bindValue(20, $perm_pag_principal_rm);
 					$stm->bindValue(21, $perm_pag_principal_uc);
-					$stm->bindValue(22, $id);   
+					$stm->bindValue(22, $perm_compras);
+					$stm->bindValue(23, $perm_baixar_cadeira);
+					$stm->bindValue(24, $perm_filmes);
+					$stm->bindValue(25, $perm_produtos);
+					$stm->bindValue(26, $perm_clientes);
+					$stm->bindValue(27, $perm_banner);
+					$stm->bindValue(28, $perm_texto);
+					$stm->bindValue(29, $perm_config);
+					$stm->bindValue(30, $id);   
 					$stm->execute();  
 					
 					echo "	<script>

@@ -5,13 +5,9 @@ session_destroy();
 $idCompra = $_GET['id_compra'];
 
 $dadosCompras = $compras->rsDados($idCompra);
-//echo "Aqui: ".$dadosCompras->status_compra; exit;
 if($dadosCompras->status_compra == 00 || $dadosCompras->status_compra == 000){
 
-}else{
-    echo "<script>window.location='".SITE_URL."/erro-pagamento/$idCompra';</script>";
-    exit;
-}
+
 $idCliente = $dadosCompras->id_cliente;
 $dadosClientes = $clientes->rsDados($idCliente);
 $status = exibe_status_compra($dadosCompras->status_compra);
@@ -44,22 +40,30 @@ $imgFilme     = $dadosFilmes->imagem;
 $dataFilme    = formataData($emailItens[0]->data_filme);
 $horaFilme    = $emailItens[0]->hora_filme;
 $localFilme   = $emailItens[0]->id_cidade;
-$salaFilme    = $emailItens[0]->id_sala;
+$salaFilme    = $salas->rsDados($emailItens[0]->id_sala);
+
+$NomesalaFilme = $salaFilme->titulo;
 
 if($localFilme == 1){
     $nomeLocal = "Formosa";
+    $email_confirmacao = "cinepremierformosa@gmail.com";
 }
 if($localFilme == 2){
     $nomeLocal = "Lem";
+    $email_confirmacao = "cinepremierlem@gmail.com";
 }
-if($localFilme == 3){
-    $nomeLocal = "Unaí";
-}
+
 if($localFilme == 4){
     $nomeLocal = "Sobradinho";
+    $email_confirmacao = "cinepremiersobradinho2@gmail.com";
 }
 if($localFilme == 5){
     $nomeLocal = "Barreiras";
+    $email_confirmacao = "cinemabarreiras@gmail.com";
+}
+if($localFilme == 6){
+    $nomeLocal = "Guanambi";
+    $email_confirmacao = "cinemagbi@gmail.com";
 }
 
 $mail = new PHPMailer();
@@ -414,8 +418,7 @@ $mensagem = "<!DOCTYPE html>
                 </tr>
                 <tr>
                     <td valign='middle' class='hero bg_white' style='padding: 3em 0 2em 0;'>
-                        <img src='".SITE_URL."/images/logo-email.png' alt=''
-                            style='width: 150px; max-width: 600px; height: auto; margin: auto; display: block;'>
+                        <img src='https://cinemaspremier.com.br/images/logo.png' style='max-width: 600px; height: auto; margin: auto; display: block;'>
                     </td>
                 </tr>
                 <tr>
@@ -433,16 +436,16 @@ $mensagem = "<!DOCTYPE html>
                                             a Cinemas Premier.</h3>
                                         <table border='0' width='100%' align='left'>
                                             <tr>
-                                                <td><img src='".SITE_URL."/img/$imgFilme' width='100%' alt=''>
+                                                <td><img src='https://cinemaspremier.com.br/img/$imgFilme' width='100%' alt=''>
                                                 </td>
                                                 <td colspan='3'>
                                                     <div style='margin-left: 30px;'>
                                                         <p><b>Filme: $titloFilme</b></p>
                                                         <p><b>Local: $nomeLocal</b></p>
-                                                        <p><b>Sala: $salaFilme</b></p>
+                                                        <p><b>Sala: $NomesalaFilme</b></p>
                                                         <p><b>Data: $dataFilme</b></p>
                                                         <p><b>Hora: $horaFilme</b></p>
-                                                        <p><b>Acentos:";
+                                                        <p><b>Acentos: ";
                                                                   $mensagem.= substr($assentos,0,-2);
                                                          
                                                       $mensagem.="
@@ -525,20 +528,20 @@ $mensagem = "<!DOCTYPE html>
 
 
 		  try {
-			 $mail->Host       = "mail.cinemapremier.com.br";// sets GMAIL as the SMTP server
+			 $mail->Host       = "mail.cinemaspremier.com.br";// sets GMAIL as the SMTP server
 			 $mail->SMTPDebug  = 1;// enables SMTP debug information (for testing)
 			 $mail->SMTPAuth   = true;// enable SMTP authentication
-			// $mail->SMTPSecure = "ssl";// sets the prefix to the servier
-			 $mail->Host       = "mail.cinemapremier.com.br";// sets GMAIL as the SMTP server
+			 //$mail->SMTPSecure = "ssl";// sets the prefix to the servier
+			 $mail->Host       = "mail.cinemaspremier.com.br";// sets GMAIL as the SMTP server
 			 $mail->Port       = 587;// set the SMTP port for the GMAIL server
-			 $mail->Username   = "wwwcinemaspremie";// GMAIL username
+			 $mail->Username   = "cinemaspremier@cinemaspremier.com.br";// GMAIL username
 			 $mail->Password   = "brasil2009";// GMAIL password
 			 //$mail->AddReplyTo($_POST['email'], $_POST['nome']);
 			 $mail->AddAddress($dadosClientes->email);
 			 //$mail->AddAddress('contato@clinicaandros.com.br');
-			 $mail->SetFrom('contato@cinemaspremier.com.br', 'Cinema Premier');
-			 $mail->Subject = 'CONFIRMAÇÃO DE COMPRA - Cinema Premier';
-			 $mail->AltBody = 'To view the message, please use an HTML compatible email viewer!'; 
+			 $mail->SetFrom('contato@cinemaspremier.com.br', 'Cinemas Premier');
+			 $mail->Subject = "CONFIRMAÇÃO DE COMPRA - Cinemas Premier";
+			 $mail->AltBody = "To view the message, please use an HTML compatible email viewer!"; 
 			 $mail->MsgHTML($mensagem);
 			 $mail->Send();
 			 
@@ -551,6 +554,107 @@ $mensagem = "<!DOCTYPE html>
 		  }
 
 
+  $mail = new PHPMailer();
+		  
+		  $mensagem2 = "<b>CONFIRMAÇÃO DE COMPRA - Cinema Premier</b> <br /> <br />";
+          $mensagem2.= "<b>Nome/E-mail: </b>".$dadosClientes->nome."-".$dadosClientes->email."<br>";
+		  $mensagem2.= "<table border='0' width='100%' align='left'>
+                                            <tr>
+                                                <td><img src='https://cinemaspremier.com.br/img/$imgFilme' width='100%' alt=''>
+                                                </td>
+                                                <td colspan='3'>
+                                                    <div style='margin-left: 30px;'>
+                                                        <p><b>Filme: $titloFilme</b></p>
+                                                        <p><b>Local: $nomeLocal</b></p>
+                                                        <p><b>Sala: $NomesalaFilme</b></p>
+                                                        <p><b>Data: $dataFilme</b></p>
+                                                        <p><b>Hora: $horaFilme</b></p>
+                                                        <p><b>Acentos: ";
+                                                                  $mensagem2.= substr($assentos,0,-2);
+                                                         
+                                                      $mensagem2.="
+                                                        </b></p>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                             <tr style='border-bottom: 1px solid #c30909;'>
+                                                <th scope='col'>Produto</th>
+                                                <th scope='col'>Preço</th>
+                                                <th scope='col'>Qtd</th>
+                                                <th scope='col'>Total</th>
+                                            </tr>
+                                            ";
+                                            $total=0;
+                                            foreach($emailItens as $itens){
+                                                
+                                                if($itens->id_produto == 252525){
+                                                    $produto = "Ingresso Inteira";
+                                                }else if($itens->id_produto == 252526){
+                                                    $produto = "Ingresso Meia";
+                                                }else{
+                                                    $nomeProduto = $produtos->rsDados($itens->id_produto);
+                                                    $produto = $nomeProduto->titulo;
+                                                }
+ 
+                                                $valor = number_format($itens->valor_produto,2,',',',');
+                                                $qtd = $itens->quantidade_produto;
+                                                $subtotal = $itens->valor_produto * $qtd;
+                                                $mostraSub = number_format($subtotal,2,',','.');
+                                                $total+= $subtotal;
+                                            $mensagem2.= "    
+                                            <tr>
+                                                <td>$produto</td>
+                                                <td>R$ $valor</td>
+                                                <td>$qtd</td>
+                                                <td>R$ $mostraSub</td>
+                                            </tr>
+                                            "; }
+                                            $mostraTotal = number_format($total,2,',','.');
+                                            $mensagem2.="
+                                            <tfoot style='background-color: #c30909;'>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td style='color: white;'>TOTAL: R$ $mostraTotal</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>";
+		
+		  
+		  $mail->IsSMTP(); // telling the class to use SMTP
+
+
+		  try {
+			 $mail->Host       = "mail.cinemaspremier.com.br";// sets GMAIL as the SMTP server
+			 $mail->SMTPDebug  = 1;// enables SMTP debug information (for testing)
+			 $mail->SMTPAuth   = true;// enable SMTP authentication
+			 //$mail->SMTPSecure = "ssl";// sets the prefix to the servier
+			 $mail->Host       = "mail.cinemaspremier.com.br";// sets GMAIL as the SMTP server
+			 $mail->Port       = 587;// set the SMTP port for the GMAIL server
+			 $mail->Username   = "cinemaspremier@cinemaspremier.com.br";// GMAIL username
+			 $mail->Password   = "brasil2009";// GMAIL password
+			 //$mail->AddReplyTo($_POST['email'], $_POST['nome']);
+			 $mail->AddAddress($email_confirmacao);
+			 //$mail->AddAddress('contato@clinicaandros.com.br');
+			 $mail->SetFrom('contato@cinemaspremier.com.br', 'Cinema Premier');
+			 $mail->Subject = "CONFIRMAÇÃO DE COMPRA - Cinema Premier";
+			 $mail->AltBody = "To view the message, please use an HTML compatible email viewer!"; 
+			 $mail->MsgHTML($mensagem2);
+			 $mail->Send();
+			 
+			 
+		 
+		  } catch (phpmailerException $e) {
+			  echo $e->errorMessage(); //Pretty error messages from PHPMailer
+		  } catch (Exception $e) {
+			  echo $e->getMessage(); //Boring error messages from anything else!
+		  }
+}else{
+    echo "<script>window.location='".SITE_URL."/erro-pagamento/$idCompra';</script>";
+    exit;
+}
 ?>
 
 <!doctype html>
@@ -629,6 +733,12 @@ $mensagem = "<!DOCTYPE html>
     </tr>
   </thead>
   <tbody>
+      <tr>
+         <th colspan="2">
+               <h3 style="color:red;">ATENÇÃO! ESTE NÃO É O COMPROVANTE DE COMPRA!</h3>
+               <h4 style="color:red;">O COMPROVANTE FOI ENVIADO PARA O SEU E-MAIL.<br> POR FAVOR, VERIFIQUE SUA CAIXA DE ENTRADA E SPAM.<h4>
+               </th>
+      </tr>
       <tr>
       <th scope="col">Status Compra:</th>
       <th scope="col"><?php echo $status;?></th>
@@ -740,6 +850,35 @@ $mensagem = "<!DOCTYPE html>
         <!-- main js -->
         <script src="<?php echo SITE_URL;?>/js/main.js"></script>
         <script src="<?php echo SITE_URL;?>/js/script_loads.js"></script>
+        <a  id="myBtn"  data-toggle="modal" data-target="#exampleModal"></a>
+<div class="modal bd-example-modal-sm" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-xs" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Atenção!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h3>Selecione sua cidade</h3>
+        <select class="form-control" id="select-cidade" name="select_cidade" onchange="window.location='<?php echo SITE_URL;?>/cidade/'+this.value">
+        <option value="">Selecione Cidade</option>
+        <?php 
+        $dadosCidadesModal = $cidades->rsDadosCidades();
+        foreach($dadosCidadesModal as $cidadeModal){?>
+			<option value="<?php echo $cidadeModal->id;?>" <?php if(isset($_SESSION['id_cidade']) && $_SESSION['id_cidade'] == $cidadeModal->id){ echo"selected";}?>> <?php echo $cidadeModal->nome;?> </option>
+            <?php }?>
+        </select>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+    <?php if(!isset($_SESSION['id_cidade'])){?>
+    <script>document.getElementById('myBtn').click();</script>
+<?php }?>
       
     </body>
 </html>
